@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 # testlib - библиотека для модульного тестирования
-QT       += testlib core gui  # QApplication
+QT       += testlib core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
