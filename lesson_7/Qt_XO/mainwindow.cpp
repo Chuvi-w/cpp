@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QDebug> // Для qDebug()
 #include <QFileDialog> // Диалог выбора имени файла
+#include <QMessageBox> // Диалоговое окно с сообщением
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -9,39 +10,16 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //connect(ui->exitMenu, SIGNAL(aboutToShow())
-
     // Скрываем кнопку с прототипом
     ui->fontPrototypeButton->setVisible(false);
 
-    // Начало игры
-    updateWindow();
-
-    int cellSize = 60; // Размер кнопки
-    int cellSpace = 10; // Отступ
-    int topSpace = 80; // Отступ сверху
-    int leftSpace = 50; // Отступ слева
-
-    // Создаём массив 3 на 3 из QPushButton
+    // Заполним весь массив кнопок поля NULL
     for(int i = 0; i < 3; i++)
-        for(int j = 0; j < 3; j++){
-            cells[i][j] = new CellButton(" ", this, i, j, game);
-            // Шрифт как в прототипе
-            cells[i][j]->setFont(ui->fontPrototypeButton->font());
-            // Задаём размеры и положение кнопки
-            cells[i][j]->setGeometry(
-                        (cellSize + cellSpace) * j + leftSpace,
-                        (cellSize + cellSpace) * i + topSpace,
-                        cellSize, // Ширина кнопки
-                        cellSize  // Высота кнопки
-                        );
+        for(int j = 0; j < 3; j++)
+            cells[i][j] = NULL;
 
-            connect(cells[i][j], SIGNAL(clicked()),
-                    cells[i][j], SLOT(slotCellClicked()));
-
-            connect(cells[i][j], SIGNAL(clicked()),
-                    this, SLOT(updateWindow()));
-        }
+    // Начало игры
+    newGame();
 }
 
 MainWindow::~MainWindow()
@@ -67,23 +45,76 @@ void MainWindow::slot2()
     qDebug() << "slot2()";
 }
 
+// После изменения состояния игры
 void MainWindow::updateWindow(){
     qDebug() << "updateWindow()";
-    ui->moveLabel->setText(game.getMove());
+    ui->moveLabel->setText(game.getStateString());
     // Подстраиваем размер, т.к. эта метка не в Layout
     ui->moveLabel->adjustSize();
 }
 
 void MainWindow::newGame(){ // Новая игра
+    game.newGame();
+    updateWindow();
+    updateGameButtons();
+}
+
+void MainWindow::updateGameButtons(){
+    int cellSize = 60; // Размер кнопки
+    int cellSpace = 6; // Отступ
+    int topSpace = 80; // Отступ сверху
+    int leftSpace = 50; // Отступ слева
+    int randOffset = 10;
+
+    // Создаём массив 3 на 3 из QPushButton
+    for(int i = 0; i < 3; i++)
+        for(int j = 0; j < 3; j++){
+
+            if(cells[i][j] != NULL){
+                delete cells[i][j];
+            }
+
+            cells[i][j] = new CellButton(game.getCell(i,j), this, i, j, game);
+            // Шрифт как в прототипе
+            cells[i][j]->setFont(ui->fontPrototypeButton->font());
+            // Задаём размеры и положение кнопки
+            cells[i][j]->setGeometry(
+                        (cellSize + cellSpace) * j + leftSpace + (rand() % randOffset),
+                        (cellSize + cellSpace) * i + topSpace + (rand() % randOffset),
+                        cellSize, // Ширина кнопки
+                        cellSize  // Высота кнопки
+                        );
+
+            cells[i][j]->setVisible(true);
+
+            connect(cells[i][j], SIGNAL(clicked()),
+                    cells[i][j], SLOT(slotCellClicked()));
+
+            connect(cells[i][j], SIGNAL(clicked()),
+                    this, SLOT(updateWindow()));
+        }
 }
 
 void MainWindow::saveGame(){ // Сохранить игру в файл
-    QString filename = QFileDialog::getSaveFileName(this, "Сохранить игру", "", "*.game");
+    QString filename = QFileDialog::getSaveFileName(this, "Сохранить игру", "", // C:\\Users\\Денис\\Desktop
+                                                    "Игра XO (*.game)"); // "Как картинку (*.jpg);;Игра XO (*.game)"
     game.save(filename);
 }
 
 void MainWindow::loadGame(){ // Загрузить игру из файла
-    QString filename = QFileDialog::getSaveFileName(this, "Загрузить игру", "", "*.game");
-    game.load(filename);
-}
+    QString filename = QFileDialog::getOpenFileName(this, "Загрузить игру", "",
+                                                    "Игра XO (*.game)");
+    try {
+      game.load(filename);
+    } catch(QString q){
+        // critical(QWidget * parent, const QString & title,
+        // const QString & text, StandardButtons buttons = Ok, StandardButton defaultButton = NoButton)
+        QMessageBox::critical(this,
+                              QString("Ошибка при чтении файла"),
+                              q);
+    }
 
+    updateWindow();
+
+    updateGameButtons();
+}

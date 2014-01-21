@@ -33,6 +33,7 @@ private:
     Ui::MainWindow *ui;
     Game game; // Состояние игры
     CellButton *cells[3][3]; // Клетки поля
+    void updateGameButtons(); // Обновляем кнопки - клетки поля
 };
 
 #endif // MAINWINDOW_H

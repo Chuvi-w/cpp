@@ -4,7 +4,7 @@
 #include <QString>
 #include <QFile>
 
-// Состояние игры и логика игрового мира
+// Состояние игры
 enum State {
     X_MOVE, // Ход крестиков
     O_MOVE, // Ход ноликов
@@ -13,25 +13,31 @@ enum State {
     DRAW    // Ничья
 };
 
-// Все что происодит на поле
+// Все что происодит на поле и логика игрового мира
 // Ходы, выйгрыш/проигрыш
 class Game
 {
-    State move; // Чей сейчас ход
+    State state; // Текущее состояние игры
     char Map[3][3]; // Игровое поле
+    // Проверка выйгрыша
+    void line(char a, char b, char c);
 public:
+    // Конструктор
     Game();
-    QString getMove();
+    // Новая игра без пересоздания объекта
+    void newGame();
+    // Получаем строку, соответствующую состоянию игры
+    QString getStateString();
     // Совершаем ход, возвращает строку для клетки на форме
     QString makeMove(int row, int col);
     // Проверяем на окончание игры
     void checkGameOver();
-    // Проверка выйгрыша
-    void line(char a, char b, char c);
     // Сохранение игры
     void save(QString fileName);
     // Загрузка игры
-    void load(QString fileName);
+    void load(QString fileName);    
+    // Состояние ячейки
+    const char* getCell(int i, int j);
 };
 
 #endif // GAME_H

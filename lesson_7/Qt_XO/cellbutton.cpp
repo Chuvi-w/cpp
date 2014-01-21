@@ -9,6 +9,8 @@ CellButton::CellButton(const char *text,
     this->row = row;
     this->col = col;
     this->game = &game;
+    if(text[0] == 'X' || text[0] == 'O')
+        setEnabled(false);
 }
 
 // При нажатии на клетку
