@@ -1,0 +1,13 @@
+BEGIN TRANSACTION;
+CREATE TABLE contacts (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, birthday TEXT);
+INSERT INTO contacts VALUES(1,'Вася','25.01.2014');
+INSERT INTO contacts VALUES(2,'Петя',NULL);
+INSERT INTO contacts VALUES(3,'Маша',NULL);
+INSERT INTO contacts VALUES(4,'Оля','25.01.2014');
+INSERT INTO contacts VALUES(5,'Оля','26.01.2014');
+INSERT INTO contacts VALUES(6,'Лена','26.01.2014');
+INSERT INTO contacts VALUES(7,'Лена','27.01.2014');
+INSERT INTO contacts VALUES(8,'Лена','28.01.2014');
+INSERT INTO contacts VALUES(9,'Лена','28.01.2014');
+INSERT INTO contacts VALUES(10,'Лена','28.01.2014');
+COMMIT;

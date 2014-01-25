@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ListModel = new QStandardItemModel();
     ui->listView->setModel(ListModel);
+    ui->listView_2->setModel(ListModel);
+    ui->tableView->setModel(ListModel);
 }
 
 MainWindow::~MainWindow()
@@ -28,7 +30,6 @@ void MainWindow::on_addButton_clicked()
 void MainWindow::on_removeButton_clicked()
 {
     // Удалить выделенную запись
-    foreach(const QModelIndex &index,
-            ui->listView->selectionModel()->selectedIndexes())
+    foreach(const QModelIndex &index, ui->listView->selectionModel()->selectedIndexes())
         ListModel->removeRow(index.row());
 }
