@@ -23,7 +23,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-
+    
+    // Хранилище строк для отображения в списке
     QStandardItemModel* ListModel;
 };
 
