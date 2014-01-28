@@ -67,27 +67,33 @@ void MainWindow::send(QString str, qint8 type) {
 }
 
 void MainWindow::read() {
+  // Массив для полученных данных
   QByteArray datagram;
+  // Устанавливаем массиву размер соответствующий размеру полученного пакета данных
   datagram.resize(socket->pendingDatagramSize());
   QHostAddress *address = new QHostAddress();
   socket->readDatagram(datagram.data(), datagram.size(), address);
+  qDebug() << address;
 
+  // Разбор полученного пакета
   QDataStream in(&datagram, QIODevice::ReadOnly);
 
+  // Первые 8 байт - размер
   qint64 size = -1;
   if(in.device()->size() > sizeof(qint64)) {
     in >> size;
   } else return;
   if (in.device()->size() - sizeof(qint64) < size) return;
 
+  // Получаем тип пакета
   qint8 type = 0;
   in >> type;
 
   if (type == USUAL_MESSAGE) {
     QString str;
     in >> str;
+    // Отображаем строчку в интерфейсе
     ui->plainTextEdit->appendPlainText(str);
-    // код по перенаправке сообщения в классы выше //
   } else if (type == PERSON_ONLINE) {
     // Добавление пользователя с считанным QHostAddress //
   } else if (type == WHO_IS_ONLINE) {
