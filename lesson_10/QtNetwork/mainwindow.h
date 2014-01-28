@@ -25,9 +25,8 @@ public:
 
 private slots:
     void on_enterChatButton_clicked();
-    void read();
-
     void on_sendButton_clicked();
+    void read();
 
 private:
     Ui::MainWindow *ui;
