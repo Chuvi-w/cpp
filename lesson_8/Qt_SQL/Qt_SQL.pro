@@ -4,18 +4,21 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core
 QT       += sql  # add QT SQL
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       -= gui
 
-TARGET = Qt_SQL
+TARGET = qt_console
+CONFIG   += console
+CONFIG   -= app_bundle
+
 TEMPLATE = app
 
+TARGET = Qt_SQL
 
-SOURCES += main.cpp\
-        mainwindow.cpp
+SOURCES += main.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  +=
 
-FORMS    += mainwindow.ui
+FORMS    +=
