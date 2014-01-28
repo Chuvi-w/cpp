@@ -96,5 +96,7 @@ void MainWindow::read() {
 
 void MainWindow::on_sendButton_clicked()
 {
-    send(ui->messageEdit->text(), USUAL_MESSAGE);
+    send(ui->nicknameEdit->text() + ": " +
+         ui->messageEdit->text(),
+         USUAL_MESSAGE);
 }
