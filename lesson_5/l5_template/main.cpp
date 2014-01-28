@@ -19,7 +19,7 @@ struct ListElement {
 };
 
 template<class T>
-struct List {
+struct List {    
   ListElement<T> *root; // Указатель на первый элемент
 
   // Конструктор
@@ -91,8 +91,23 @@ struct List {
   }
 };
 
+// myFunction<double>()
+// make_pair(234, 'c');
+template<typename T>
+T myFunction(T n){ // int i = myFunction<int>()
+    T myVar = n * 1000000000L;
+    cout << "sizeof(T) = " << sizeof(T) << endl;
+    return myVar;
+}
+
 int main()
 {
+    int hh = myFunction<long long>(12);
+    hh = myFunction<long>(12);
+    hh = myFunction<short>(12);
+    hh = myFunction<unsigned char>(12);
+    cout << hh << endl;
+
     List<int> list1;
 
     List<double> list; // Создали список
