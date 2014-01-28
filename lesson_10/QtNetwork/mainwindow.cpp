@@ -31,7 +31,8 @@ void MainWindow::UdpChat(QString nick, int port)
 
 void MainWindow::on_enterChatButton_clicked()
 {
-    UdpChat(ui->nicknameEdit->text(), ui->portNumEdit->text().toInt());
+    UdpChat(ui->nicknameEdit->text(),
+            ui->portNumEdit->text().toInt());
 }
 
 
@@ -96,6 +97,7 @@ void MainWindow::read() {
 
 void MainWindow::on_sendButton_clicked()
 {
+    // Вся строка сообщения: "ник: сообщение"
     send(ui->nicknameEdit->text() + ": " +
          ui->messageEdit->text(),
          USUAL_MESSAGE);
