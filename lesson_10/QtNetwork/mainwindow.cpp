@@ -19,7 +19,6 @@ void MainWindow::UdpChat(QString nick, int port)
     nickname = nick; // Запоминаем ник
 
     socket = new QUdpSocket(this);
-    _port = port;
     // QHostAddress("192.168.1.104") - конкретный IP, с которого можно подключиться
     if(socket->bind(QHostAddress::Any, port)){
         // При получении данных (сигнал readyRead)
@@ -62,7 +61,8 @@ void MainWindow::send(QString str, qint8 type) {
   // Отправляем полученный массив данных всем в локальный сети
   // на порт указанный в интерфейсе
   socket->writeDatagram(data,
-                        QHostAddress::Broadcast, _port);
+                        QHostAddress::Broadcast,
+                       ui->portNumEdit->text().toInt() );
 }
 
 void MainWindow::read() {

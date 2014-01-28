@@ -33,7 +33,6 @@ private:
 
     QString nickname;
     QUdpSocket *socket;
-    int _port;
 
     void UdpChat(QString nick, int port);
     void send(QString str, qint8 type);
