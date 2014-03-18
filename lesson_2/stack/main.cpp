@@ -12,7 +12,11 @@ class Stack { //struct
 public:
   StackElement* root;
 
-  Stack() : root(NULL) { }
+  // Конструктор
+  //  - называется как класс
+  //  - нет возвращаемого значения
+  //  - параметры как у обычных методов
+  Stack() : root(NULL){ }
 
   // Поместить на вершину стека
   void push(int newValue){
