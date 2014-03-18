@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    int a = 0, b = 0;
+    int a = 4, b = 0;
 
     const bool cond = a > 3;
 

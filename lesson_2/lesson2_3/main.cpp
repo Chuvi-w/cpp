@@ -8,6 +8,7 @@ int main()
     // Win1251 и в исходном тексте и в консоли
     setlocale(LC_ALL, "Russian");
 
+    cout << "== Метрополитен Санкт-Петербурга ==" << endl;
     cout << "Введите номер вашей ветки метро: ";
     int metro;
     cin >> metro;
@@ -30,5 +31,19 @@ int main()
     default:
         cout << "Я не знаю :) Такой ветки ещё не построили в 2013 году." << endl;
     }
+
+    //double d = 1.1;
+    //switch(d){ <-- Ошибка компиляции, т.к. d неприводим к целому типу
+    //case 1.1:
+    // break;
+    //}
+
+    char c = 'A';
+    switch(c){
+    case 'A':
+      cout << "A!!" << endl;
+      break;
+    }
+
     return 0;
 }
