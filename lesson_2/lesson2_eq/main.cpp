@@ -12,7 +12,8 @@ int main()
     //a^=b^=a^=b; // XOR - исключающее или
 
     int f = 1;
-    int g = f++ + f++ + f++;
+    int g = ++f + ++f + ++f;
+    //int g = f++ + f++ + f++;
     //g = f++;
     cout << "f = " << f << " g = " << g << endl;
 
