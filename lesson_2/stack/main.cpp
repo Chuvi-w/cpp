@@ -9,14 +9,24 @@ public:
 };
 
 class Stack { //struct
-public:
   StackElement* root;
+
+public:
 
   //  онструктор
   //  - называетс€ как класс
   //  - нет возвращаемого значени€
   //  - параметры как у обычных методов
   Stack() : root(NULL){ }
+
+  // ƒеструктор - очистка пам€ти
+  ~Stack(){
+    while(root != NULL){
+      StackElement* saveForDelete = root;
+      root = root->next;
+      delete saveForDelete;
+    }
+  }
 
   // ѕоместить на вершину стека
   void push(int newValue){
@@ -66,6 +76,8 @@ int main()
   s.show();
   cout << "pop result = " << s.pop() << endl;
   s.show();
+
+
   return 0;
 }
 
