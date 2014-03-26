@@ -3,9 +3,9 @@
 #include <map>
 #include <locale.h>
 
-// Перевод
-// Как ввести строку целиком?
-// Как читать
+// РџРµСЂРµРІРѕРґ
+// РљР°Рє РІРІРµСЃС‚Рё СЃС‚СЂРѕРєСѓ С†РµР»РёРєРѕРј?
+// РљР°Рє С‡РёС‚Р°С‚СЊ
 
 using namespace std;
 
@@ -16,13 +16,13 @@ int main()
   freopen("in.txt","r",stdin);
   freopen("out.txt","w",stdout);
 
-  int N; // Количество слов в словаре
+  int N; // РљРѕР»РёС‡РµСЃС‚РІРѕ СЃР»РѕРІ РІ СЃР»РѕРІР°СЂРµ
   cin >> N;
 
-  map<string, string> dict; // Словарь
-  // Ключ - слово по-английски,
-  // значение - слово по-русски
-  //  Словарь = Ассоциативный массив
+  map<string, string> dict; // РЎР»РѕРІР°СЂСЊ
+  // РљР»СЋС‡ - СЃР»РѕРІРѕ РїРѕ-Р°РЅРіР»РёР№СЃРєРё,
+  // Р·РЅР°С‡РµРЅРёРµ - СЃР»РѕРІРѕ РїРѕ-СЂСѓСЃСЃРєРё
+  //  РЎР»РѕРІР°СЂСЊ = РђСЃСЃРѕС†РёР°С‚РёРІРЅС‹Р№ РјР°СЃСЃРёРІ
 
   for(int i = 0; i < N ; ++i){
     string inEnglish, inRussian;
@@ -45,14 +45,14 @@ int main()
   for(map<string, string>::iterator i = dict.begin();
       i != dict.end();
       i++ ){
-    string inEnglish = i->first; // Ключ
-    string inRussian = i->second; // Значение
-    // Ищем слово из словаря в строке
+    string inEnglish = i->first; // РљР»СЋС‡
+    string inRussian = i->second; // Р—РЅР°С‡РµРЅРёРµ
+    // РС‰РµРј СЃР»РѕРІРѕ РёР· СЃР»РѕРІР°СЂСЏ РІ СЃС‚СЂРѕРєРµ
     size_t pos;
     do{
       pos = s.find(inEnglish);
       //cout << inEnglish << " pos " << pos << endl;
-      if(pos != string::npos){ // Если подстрока найдена
+      if(pos != string::npos){ // Р•СЃР»Рё РїРѕРґСЃС‚СЂРѕРєР° РЅР°Р№РґРµРЅР°
         s.replace(pos, inEnglish.size(), inRussian);
       }
     } while(pos != string::npos);
