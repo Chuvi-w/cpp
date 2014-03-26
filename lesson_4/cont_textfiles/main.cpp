@@ -2,27 +2,32 @@
 #include <stdio.h>
 #include <map>
 #include <locale.h>
+#include <stdlib.h>
+#include <windows.h>
 
-// РџРµСЂРµРІРѕРґ
-// РљР°Рє РІРІРµСЃС‚Рё СЃС‚СЂРѕРєСѓ С†РµР»РёРєРѕРј?
-// РљР°Рє С‡РёС‚Р°С‚СЊ
+// Перевод
+// Как ввести строку целиком?
+// Как читать
 
 using namespace std;
 
 int main()
 {
-  setlocale(LC_ALL, "Russian.UTF-8");
+  setlocale(LC_ALL, "Russian");
+  //system("chcp 65001");
+  //SetConsoleCP(65001);
+  //SetConsoleOutputCP(65001);
 
   freopen("in.txt","r",stdin);
-  freopen("out.txt","w",stdout);
+ // freopen("out.txt","w",stdout);
 
-  int N; // РљРѕР»РёС‡РµСЃС‚РІРѕ СЃР»РѕРІ РІ СЃР»РѕРІР°СЂРµ
+  int N; // Количество слов в словаре
   cin >> N;
 
-  map<string, string> dict; // РЎР»РѕРІР°СЂСЊ
-  // РљР»СЋС‡ - СЃР»РѕРІРѕ РїРѕ-Р°РЅРіР»РёР№СЃРєРё,
-  // Р·РЅР°С‡РµРЅРёРµ - СЃР»РѕРІРѕ РїРѕ-СЂСѓСЃСЃРєРё
-  //  РЎР»РѕРІР°СЂСЊ = РђСЃСЃРѕС†РёР°С‚РёРІРЅС‹Р№ РјР°СЃСЃРёРІ
+  map<string, string> dict; // Словарь
+  // Ключ - слово по-английски,
+  // значение - слово по-русски
+  //  Словарь = Ассоциативный массив
 
   for(int i = 0; i < N ; ++i){
     string inEnglish, inRussian;
@@ -31,33 +36,49 @@ int main()
     dict[inEnglish] = inRussian;
   }
 
+  //int p = 1;
+  //fclose(stdin); // !!!
+  //cin >> p;
+  fclose(stdin);
+
   freopen("str.txt","r",stdin);
 
-  const int strLen = 1024;
-  char phrase[strLen];
-  cin.getline(phrase, strLen);
-  cout << phrase << endl;
+  while(!cin.eof()){
+    // Считываем
+    string s;
+    cin >> s;
+    // Смотрим в словаре
+    map<string, string>::iterator i = dict.find(s);
+    if(i != dict.end()){
+      cout << i->second << " ";
+    }
+  }
+
+//  const int strLen = 1024;
+//  char phrase[strLen];
+//  cin.getline(phrase, strLen);
+//  cout << phrase << endl;
 
 
-  string s(phrase);
+/*  string s(phrase);
   cout << "s = \"" << s << "\"" << endl;
 
   for(map<string, string>::iterator i = dict.begin();
       i != dict.end();
       i++ ){
-    string inEnglish = i->first; // РљР»СЋС‡
-    string inRussian = i->second; // Р—РЅР°С‡РµРЅРёРµ
-    // РС‰РµРј СЃР»РѕРІРѕ РёР· СЃР»РѕРІР°СЂСЏ РІ СЃС‚СЂРѕРєРµ
+    string inEnglish = i->first; // Ключ
+    string inRussian = i->second; // Значение
+    // Ищем слово из словаря в строке
     size_t pos;
     do{
       pos = s.find(inEnglish);
       //cout << inEnglish << " pos " << pos << endl;
-      if(pos != string::npos){ // Р•СЃР»Рё РїРѕРґСЃС‚СЂРѕРєР° РЅР°Р№РґРµРЅР°
+      if(pos != string::npos){ // Если подстрока найдена
         s.replace(pos, inEnglish.size(), inRussian);
       }
     } while(pos != string::npos);
   }
 
-  cout << s << endl;
+  cout << s << endl; */
   return 0;
 }
