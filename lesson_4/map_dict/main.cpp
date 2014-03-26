@@ -6,6 +6,10 @@ using namespace std;
 
 int main()
 {
+  // Контейнеры:
+  //   vector
+  //   set
+  //   map
   setlocale(LC_ALL, "Russian");
 
   map<string, string> dict;
