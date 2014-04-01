@@ -9,6 +9,7 @@
 // в единственном стандартном файле на том компьютере, на котором исполняется программа.
 #include <QtSql>
 #include <iostream>
+#include <locale.h>
 
 using namespace std;
 
@@ -63,7 +64,6 @@ int SQLiteTest(){
     }
 
     // База данных открыта и можно выполнять запросы
-    QSqlQuery a_query;
     // DDL query - создаём новую таблицу
     // Data Definition Language (DDL) - язык описания данных
 
@@ -71,6 +71,7 @@ int SQLiteTest(){
     SQL_Execute("CREATE TABLE contacts ("
                 "id INTEGER PRIMARY KEY AUTOINCREMENT,"
                 "name TEXT,"
+                "surname TEXT,"
                 "birthday TEXT);");
     // Создаём таблицу телефонов
     SQL_Execute("CREATE TABLE phones ("
@@ -103,6 +104,8 @@ int SQLiteTest(){
     ShowContacts();
     cout << "<<<<" << endl;
 
+    QSqlQuery a_query;
+
     // Сложный запрос с JOIN'ами
     if (!a_query.exec("SELECT name, phone FROM"
                       " contacts LEFT JOIN phones "
@@ -130,6 +133,8 @@ int SQLiteTest(){
 
 int main(int argc, char *argv[])
 {
+    setlocale(LC_ALL, "Russian");
+
     SQLiteTest();
     
     return 0;
