@@ -58,7 +58,8 @@ QString Game::makeMove(int row, int col){
 // Три крестика или три нолика
 void Game::line(char a, char b, char c){
     // Если не три равных => не подходит
-    if (!((a == b) && (b == c))) return;
+    bool equals = (a == b) && (b == c);
+    if (!equals) return;
     // Если не крестики и не нолики, то не подходит
     if (a != 'X' && a != 'O') return;
     // Кто-то выйграл :)
@@ -81,6 +82,14 @@ void Game::checkGameOver(){
         line(Map[0][i], Map[1][i], Map[2][i]);
         line(Map[i][0], Map[i][1], Map[i][2]);
     }
+    // Проверяем что крестики или нолики выйграли
+    // и выходим
+    switch(state){
+       case X_WIN:
+       case O_WIN:
+        return;
+    }
+
     // Ничья = все клетки заполнены и никто не выйграл
     int cnt = 0;
     for(int i = 0; i < 3; i++)
@@ -89,7 +98,7 @@ void Game::checkGameOver(){
                 cnt++;
     qDebug() << "cnt = " << cnt;
     if(cnt == 3*3)
-        state = DRAW;    
+        state = DRAW;
 }
 
 void Game::save(QString fileName){ // Сохранение игры

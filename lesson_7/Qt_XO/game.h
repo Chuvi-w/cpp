@@ -35,7 +35,7 @@ public:
     // Сохранение игры
     void save(QString fileName);
     // Загрузка игры
-    void load(QString fileName);    
+    void load(QString fileName);
     // Состояние ячейки
     const char* getCell(int i, int j);
 };
