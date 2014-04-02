@@ -20,35 +20,43 @@ void MainWindow::UdpChat(QString nick, int port)
 
     socket = new QUdpSocket(this);
     // QHostAddress("192.168.1.104") - конкретный IP, с которого можно подключиться
-    if(socket->bind(QHostAddress::Any, port)){
+
+    if(ui->createServer->isChecked()){
+        if(socket->bind(QHostAddress::Any, port)){
+            // При получении данных (сигнал readyRead)
+            // вызываем метод (слот) read, который
+            connect(socket, SIGNAL(readyRead()), this, SLOT(read()));
+        } else {
+            qDebug() << "Port " << port << " in use. Change port!";
+        }
+        send(nick + " - создал сервер", USUAL_MESSAGE);
+    } else {
+        socket->bind(QHostAddress::Any, port);
         // При получении данных (сигнал readyRead)
         // вызываем метод (слот) read, который
         connect(socket, SIGNAL(readyRead()), this, SLOT(read()));
-    } else {
-        qDebug() << "Port " << port << " in use. Change port!";
+
+        send(nick + " - вошёл в чат", USUAL_MESSAGE);
     }
 }
 
 void MainWindow::on_enterChatButton_clicked()
 {
-    if(ui->createServer->isChecked()){
-        UdpChat(ui->nicknameEdit->text(),
-                ui->portNumEdit->text().toInt());
-        send(ui->nicknameEdit->text() +
-             " - создал сервер", USUAL_MESSAGE);
-    } else {
-        send(ui->nicknameEdit->text() +
-             " - вошёл в чат", USUAL_MESSAGE);
-    }
+    QString nick = ui->nicknameEdit->text();
+    UdpChat(nick,
+            ui->portNumEdit->text().toInt());
 }
 
 
+// Отправка сообщения в сеть
 void MainWindow::send(QString str, qint8 type) {
     // Полный пакет данных будет в массиве data
-    QByteArray data;
-    QFile file("test.dat");
-    file.open(QIODevice::WriteOnly);
-    QDataStream out2(&file);
+    QByteArray data; // Массив данных для отправки
+
+    //QFile file("test.dat");
+    //file.open(QIODevice::WriteOnly);
+    //QDataStream out2(&file);
+
     // Последовательно выводим в него байты
     QDataStream out(&data, QIODevice::WriteOnly);
     out << qint64(0); // Размер сообщения (сначала ставим 0)

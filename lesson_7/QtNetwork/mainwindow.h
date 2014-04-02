@@ -35,6 +35,7 @@ private:
     QUdpSocket *socket;
 
     void UdpChat(QString nick, int port);
+    // Отправить сообщение
     void send(QString str, qint8 type);
 };
 
