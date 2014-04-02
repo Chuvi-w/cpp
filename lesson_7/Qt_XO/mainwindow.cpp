@@ -35,13 +35,13 @@ void MainWindow::exit_application()
 
 void MainWindow::slot1()
 {
-    ui->lineEdit_1->setText(QString("1"));
+    //ui->lineEdit_1->setText(QString("1"));
     qDebug() << "slot1() " << 1 << " !!";
 }
 
 void MainWindow::slot2()
 {
-    ui->lineEdit_2->setText(QString("2"));
+    //ui->lineEdit_2->setText(QString("2"));
     qDebug() << "slot2()";
 }
 
@@ -117,4 +117,13 @@ void MainWindow::loadGame(){ // Загрузить игру из файла
     updateWindow();
 
     updateGameButtons();
+}
+
+void MainWindow::on_exitButton_clicked()
+{
+
+}
+
+void MainWindow::myNewSlot(){
+    qDebug() << "myNewSlot()";
 }

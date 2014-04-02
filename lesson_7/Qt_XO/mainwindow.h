@@ -29,6 +29,11 @@ private slots:
     void saveGame(); // Сохранить игру
     void loadGame(); // Загрузить игру
 
+    void on_exitButton_clicked();
+
+    // Новый слот
+    void myNewSlot();
+
 private:
     Ui::MainWindow *ui;
     Game game; // Состояние игры

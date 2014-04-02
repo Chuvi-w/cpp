@@ -50,26 +50,6 @@
      <string>Выход</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_1">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>120</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>160</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="fontPrototypeButton">
     <property name="enabled">
      <bool>true</bool>
@@ -178,8 +158,8 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>447</x>
-     <y>124</y>
+     <x>507</x>
+     <y>353</y>
     </hint>
     <hint type="destinationlabel">
      <x>267</x>
@@ -194,8 +174,8 @@
    <slot>slot2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>447</x>
-     <y>124</y>
+     <x>507</x>
+     <y>353</y>
     </hint>
     <hint type="destinationlabel">
      <x>267</x>
@@ -210,8 +190,8 @@
    <slot>slot1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>447</x>
-     <y>124</y>
+     <x>507</x>
+     <y>353</y>
     </hint>
     <hint type="destinationlabel">
      <x>267</x>
@@ -275,5 +255,6 @@
   <slot>saveGame()</slot>
   <slot>newGame()</slot>
   <slot>loadGame()</slot>
+  <slot>myNewSlot()</slot>
  </slots>
 </ui>
