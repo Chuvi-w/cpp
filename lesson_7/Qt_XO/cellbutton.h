@@ -12,8 +12,16 @@ class CellButton : public QPushButton
 
     int row; // Строка для этой клетки
     int col; // Столбец для этой клетки
+
     Game *game; // Для передачи информации в "игру"
+
 public:
+    // Параметры:
+    //  text - текст на кнопке
+    //  parent - окно, в котором кнопка будет расположена
+    //    для корретного удаления кнопки
+    //  row - строка, col - столбец на поле
+    //  game - ссылка на игру
     explicit CellButton(const char *,
                         QWidget *parent,
                         int row, int col, // Строка и столбец
@@ -22,6 +30,7 @@ public:
 signals:
 
 public slots:
+    // Нажатие на кнопку
     void slotCellClicked();
 };
 
