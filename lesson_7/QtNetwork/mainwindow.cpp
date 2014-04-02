@@ -31,8 +31,15 @@ void MainWindow::UdpChat(QString nick, int port)
 
 void MainWindow::on_enterChatButton_clicked()
 {
-    UdpChat(ui->nicknameEdit->text(),
-            ui->portNumEdit->text().toInt());
+    if(ui->createServer->isChecked()){
+       UdpChat(ui->nicknameEdit->text(),
+               ui->portNumEdit->text().toInt());
+       send(ui->nicknameEdit->text() +
+            " - создал сервер", USUAL_MESSAGE);
+    } else {
+        send(ui->nicknameEdit->text() +
+             " - вошёл в чат", USUAL_MESSAGE);
+    }
 }
 
 
