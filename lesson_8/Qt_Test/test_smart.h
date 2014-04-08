@@ -16,6 +16,9 @@ private slots: // должны быть приватными
 
     // Новый тест для вычисления факториала
     void factorial();
+
+    // Тест для квадратного уравнения
+    void rootsTest();
 };
 
 #endif // TEST_SMART_H

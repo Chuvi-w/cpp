@@ -1,15 +1,14 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2014-01-21T22:24:08
+# Project created by QtCreator 2014-04-08T21:55:22
 #
 #-------------------------------------------------
-# qmake
 
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = QListViewDemo
+TARGET = QTableViewDemo
 TEMPLATE = app
 
 

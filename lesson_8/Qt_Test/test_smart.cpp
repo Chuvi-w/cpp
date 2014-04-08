@@ -13,7 +13,7 @@ void Test_Smart::max()
     Smart a(this);
     // QCOMPARE( вычисление, ожидаемое_значение );
     QCOMPARE(a.max(1,   0), 1);  // 1 тест
-    QCOMPARE(a.max(-1,  1), 1); // 2 тест
+    QCOMPARE(a.max(-1,  1), 1);  // 2 тест
     QCOMPARE(a.max(4,   8), 8);  // 3 тест
     QCOMPARE(a.max(0,   0), 0);  // 4 тест
     QCOMPARE(a.max(1,   1), 1);  // 5 тест
@@ -36,5 +36,45 @@ void Test_Smart::factorial(){
         QFAIL("Exception expected!");
     } catch(QString q){
         QCOMPARE( q, QString("N > 0"));
+    }
+}
+
+void Test_Smart::rootsTest(){
+    // TDD
+    Smart a(this);
+    Roots roots = a.quadraticEquation(1, 0, 0);
+
+    QCOMPARE(roots.numberOfRoots, 1);
+    QCOMPARE(roots.x[0], 0.0);
+
+    roots = a.quadraticEquation(4, 0, 0);
+    QCOMPARE(roots.numberOfRoots, 1);
+    QCOMPARE(roots.x[0], 0.0);
+
+    roots = a.quadraticEquation(1, 0, -1);
+    QCOMPARE(roots.numberOfRoots, 2);
+    QCOMPARE(roots.x[0], 1.0);
+    QCOMPARE(roots.x[1], -1.0);
+
+    roots = a.quadraticEquation(1, 0, 1);
+    QCOMPARE(roots.numberOfRoots, 0);
+
+    roots = a.quadraticEquation(0, 1, 1);
+    QCOMPARE(roots.numberOfRoots, 1);
+    QCOMPARE(roots.x[0], -1.0);
+
+    roots = a.quadraticEquation(0, 0, 1);
+    QCOMPARE(roots.numberOfRoots, 0);
+
+    roots = a.quadraticEquation(0, 2, 1);
+    QCOMPARE(roots.numberOfRoots, 1);
+    QCOMPARE(roots.x[0], -0.5);
+
+    // 0*x*x + 0*x + 0 = 0
+    try{
+        a.quadraticEquation(0, 0, 0);
+        QFAIL("Exception expected!");
+    } catch(QString q){
+        QCOMPARE( q, QString("Бесконечное число решений"));
     }
 }

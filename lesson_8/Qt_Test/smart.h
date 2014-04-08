@@ -4,13 +4,19 @@
 #include <QObject>
 #include <QStringList>
 
+// Корни квадратного уравнения
+struct Roots {
+    int numberOfRoots;
+    double x[2];
+};
+
 // Тестируемый класс
 class Smart : public QObject
 {
     Q_OBJECT
 public:
     explicit Smart(QObject *parent);
-    
+
 public slots:
     // Вычисление максимума
     int max(int a, int b);
@@ -18,6 +24,8 @@ public slots:
     int min(int a, int b);
 
     static long factorial(int n);
+
+    Roots quadraticEquation(double a, double b, double c);
 
 };
 #endif
