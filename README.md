@@ -13,3 +13,5 @@ C++ junior developer
 8. 21 января 2014
 9. 25 января 2014
 10. 28 января 2014
+
+AutoIt: http://www.autoitscript.com/site/autoit/

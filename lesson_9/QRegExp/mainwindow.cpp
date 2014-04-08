@@ -19,14 +19,26 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_regExpEdit_textChanged(const QString &arg1)
 {
+    // Когда текст выражения меняется, его надо заново применить
+    applyRegExp();
+}
+
+void MainWindow::on_srcText_textChanged()
+{
+    // Когда текст меняется, заново применяем регулярное выражение
     applyRegExp();
 }
 
 void MainWindow::applyRegExp(){
+    // Очищаем окно результатов
     ui->resText->clear();
+    // Создаём новое регулярное выражение на основе строки
     QRegExp rx(ui->regExpEdit->text());
+    // Если регулярное выражение некорректно,
+    // то сразу выходим
     if(!rx.isValid())
         return;
+    // Текст для применения регулярного выражения
     QString str = ui->srcText->toPlainText();
     int pos = 0;
     while ((pos = rx.indexIn(str, pos)) != -1) {
@@ -39,7 +51,3 @@ void MainWindow::applyRegExp(){
     }
 }
 
-void MainWindow::on_srcText_textChanged()
-{
-    applyRegExp();
-}
