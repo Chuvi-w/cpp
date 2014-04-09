@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication app(argc, argv);
 
-    freopen("log.txt", "w", stdout);
+    // freopen("log.txt", "w", stdout);
 
     cout << "Database driver loading" << endl;
 
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
         cout << "The table AirportOfDepature creating was failed" << endl;
         QSqlError error = sql.lastError();
         cout << error.text().toStdString() << endl;
-        return -1;
+        // return -1;
     }
 
     cout << "Data inserting to Database" << endl;

@@ -16,14 +16,12 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_regExpEdit_textChanged(const QString &arg1);
-
-    void on_srcText_textChanged();
+    // Применение регулярного выражения к тексту
+    // с выводом результата обратно на форму
+    void applyRegExp();
 
 private:
     Ui::MainWindow *ui;
-
-    void applyRegExp();
 };
 
 #endif // MAINWINDOW_H

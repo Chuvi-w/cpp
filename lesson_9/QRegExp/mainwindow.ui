@@ -23,6 +23,12 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>(\d+-\d+-\d+)</string>
     </property>
@@ -40,7 +46,7 @@
      <string>Регулярное выражение:</string>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="srcText">
+   <widget class="QPlainTextEdit" name="sourceText">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -49,12 +55,18 @@
       <height>71</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="plainText">
      <string>Offsets:   12  sdgsd 14 99 231 7
 213-12-14</string>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="resText">
+   <widget class="QPlainTextEdit" name="resultText">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -62,6 +74,12 @@
       <width>451</width>
       <height>181</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
    </widget>
   </widget>
@@ -87,5 +105,41 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>sourceText</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>applyRegExp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>245</x>
+     <y>118</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>185</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>regExpEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>applyRegExp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>310</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>185</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>applyRegExp()</slot>
+ </slots>
 </ui>
