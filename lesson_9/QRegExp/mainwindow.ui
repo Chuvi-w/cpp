@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>505</width>
-    <height>371</height>
+    <height>406</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -82,6 +82,19 @@
      </font>
     </property>
    </widget>
+   <widget class="QCheckBox" name="maxLenSearchBox">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>330</y>
+      <width>131</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Жадный поиск строк</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -92,6 +105,15 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="loadAction"/>
+    <addaction name="saveAction"/>
+    <addaction name="clearAction"/>
+   </widget>
+   <addaction name="menu"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -102,6 +124,21 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="loadAction">
+   <property name="text">
+    <string>Загрузка из файла</string>
+   </property>
+  </action>
+  <action name="saveAction">
+   <property name="text">
+    <string>Сохранение в файл</string>
+   </property>
+  </action>
+  <action name="clearAction">
+   <property name="text">
+    <string>Очистить текст</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
@@ -138,8 +175,74 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>maxLenSearchBox</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>applyRegExp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>95</x>
+     <y>371</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clearAction</sender>
+   <signal>triggered()</signal>
+   <receiver>sourceText</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>252</x>
+     <y>10</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>245</x>
+     <y>118</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>saveAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>saveText()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>loadAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>loadText()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>applyRegExp()</slot>
+  <slot>saveText()</slot>
+  <slot>loadText()</slot>
  </slots>
 </ui>

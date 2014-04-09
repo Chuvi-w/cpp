@@ -20,6 +20,9 @@ private slots:
     // с выводом результата обратно на форму
     void applyRegExp();
 
+    void saveText();
+    void loadText();
+
 private:
     Ui::MainWindow *ui;
 };

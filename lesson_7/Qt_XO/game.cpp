@@ -89,7 +89,7 @@ void Game::checkGameOver(){
        case O_WIN:
          return;
        default:
-         // Do nothing
+         ; // Do nothing
     }
 
     // Ничья = все клетки заполнены и никто не выйграл
