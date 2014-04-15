@@ -5,12 +5,14 @@ using namespace std;
 class A {
     static int count;
     int id;
+    // Конструктор
     A(){
         id = ++count;
         cout << "Constructor A " << id << endl;
     }
     static A* a;
 public:
+    // Деструктор
     ~A(){
         if(a == NULL)
             return;
