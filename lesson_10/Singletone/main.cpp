@@ -4,8 +4,30 @@
 
 using namespace std;
 
+template <class T>
+class Singletone {
+    static T* uniqueInstance;
+
+public:
+    static T& instance(){
+        // Если объект ещё не создан
+        if(uniqueInstance == NULL){
+            // Создаём его
+            uniqueInstance = new T();
+             // Можно вызывать private конструктор, т.к.
+             // мы внутри класса T
+        }
+        return *uniqueInstance;
+    }
+};
+
+template <class T>
+T* Singletone<T>::uniqueInstance = NULL;
+
 // Singletone
-class A {
+class A : public Singletone<A> {
+  friend class Singletone<A>;
+
   int id;
 
   A(){
@@ -13,34 +35,21 @@ class A {
       cout << "Constructor A #" << id << endl;
   }
 
-  static A* uniqueInstance;
-
 public:
+
   ~A(){
       cout << "Destructor A #" << id << endl;
   }
   void show(){
       cout << "id = " << id << endl;
   }
-
-  static A& instance(){
-      // Если объект ещё не создан
-      if(uniqueInstance == NULL){
-          // Создаём его
-          uniqueInstance = new A();
-           // Можно вызывать private конструктор, т.к.
-           // мы внутри класса A
-      }
-      return *uniqueInstance;
-  }
 };
 
-A* A::uniqueInstance = NULL;
-
-int main(int argc, char *argv[])
+int main()
 {
     srand (time(NULL));
     A a = A::instance();
     A aa = A::instance();
     return 0;
 }
+
