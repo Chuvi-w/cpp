@@ -5,9 +5,9 @@ C++ junior developer
 
 Ссылки для скачивания
 ---------------------
-Code::Blocks: http://www.codeblocks.org/downloads/binaries
-Qt Creator: http://qt-project.org/downloads
-AutoIt: http://www.autoitscript.com/site/autoit/
+* Code::Blocks: http://www.codeblocks.org/downloads/binaries
+* Qt Creator: http://qt-project.org/downloads
+* AutoIt: http://www.autoitscript.com/site/autoit/
 
 1. 29 апреля
 2. 6 мая
