@@ -7,8 +7,10 @@ C++ junior developer
 ---------------------
 * Code::Blocks: http://www.codeblocks.org/downloads/binaries
 * Qt Creator: http://qt-project.org/downloads
-* AutoIt: http://www.autoitscript.com/site/autoit/
+* AutoIt: http://www.autoitscript.com/site/autoit
 
+Занятия
+-------
 1. 29 апреля
 2. 6 мая
 3. 8 мая
