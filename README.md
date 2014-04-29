@@ -3,15 +3,20 @@ cpp
 
 C++ junior developer
 
-1. 10 декабря
-2. 14 декабря
-3. 17 декабря
-4. 21 декабря
-5. 24 декабря 
-6. 14 января 2014
-7. 18 января 2014
-8. 21 января 2014
-9. 25 января 2014
-10. 28 января 2014
-
+Ссылки для скачивания
+---------------------
+Code::Blocks: http://www.codeblocks.org/downloads/binaries
+Qt Creator: http://qt-project.org/downloads
 AutoIt: http://www.autoitscript.com/site/autoit/
+
+1. 29 апреля
+2. 6 мая
+3. 8 мая
+4. 13 мая
+5. 15 мая
+6. 20 мая
+7. 22 мая
+8. 27 мая
+9. 29 мая
+10. 3 июня
+
