@@ -1,3 +1,4 @@
+// Тернарный оператор
 #include <iostream>
 
 using namespace std;
@@ -8,6 +9,7 @@ int main()
 
     const bool cond = a > 3;
 
+    // Может находиться слева от оператора присваивания
     (cond ? a : b) = 1;
 
     cout << "a = " << a << "  b = " << b << endl;

@@ -19,7 +19,8 @@ int main()
 
   cout << "a - b = " << (a-b) << endl; // endl вместо "\n"
 
-  system("NetTakoiComandy");
+  system("NetTakoiComandy"); // Пример, когда мы пытаемся 
+    // вызвать несуществующую команду операционной системы
   system("pause");
 
   return 0;

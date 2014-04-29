@@ -1,8 +1,8 @@
+// Демонстрация форматирования вывода в "чистом" С
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
-{
+int main() {
     // Вывод целого числа
     int i = 12;
     printf("%d %d\n", i, sizeof(i));
@@ -19,7 +19,7 @@ int main()
     printf("%lld %d\n", ll, sizeof(ll));
 
     // signed / unsigned
-    // знаковый / беззнаковые
+    // знаковый / беззнаковый
     unsigned int ui = 3000000000;
     printf("%u\n", ui);
 

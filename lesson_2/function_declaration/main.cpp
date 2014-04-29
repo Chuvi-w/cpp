@@ -1,3 +1,4 @@
+// Функции
 #include <iostream>
 
 void myFunction(){

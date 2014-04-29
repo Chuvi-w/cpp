@@ -1,3 +1,4 @@
+// Пример на погрешность вычислений
 #include <iostream>
 #include <math.h>
 

@@ -4,8 +4,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     // Win1251 и в исходном тексте и в консоли
     setlocale(LC_ALL, "Russian");
 
