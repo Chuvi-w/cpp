@@ -12,9 +12,10 @@ int a[] = { 3, 10, 7 },
  };
 
 void f(){
-  static int calls = 0; // Статические переменные храняться в 
+  static int calls = 0; // Статические переменные храняться в
     // статической памяти и сохраняют своё значение между вызовами
   calls++;
+  int localVar = 3;
   cout << "f -> " << calls << endl;
 }
 
@@ -31,7 +32,7 @@ int main()
     cout << "a[0] = " << a[0] << endl;
     cout << "b[2][2] = " << b[2][2] << endl;
 
-    int sum = 0;
+    int sum = 0; // В стеке
     for(int i=0; i < arraySize; ++i)
       sum += a[i];
 

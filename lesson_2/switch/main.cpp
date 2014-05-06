@@ -9,9 +9,9 @@ int main()
     // Win1251 и в исходном тексте и в консоли
     setlocale(LC_ALL, "Russian");
     //system("chcp 65001");
+    freopen()
 
     cout << "== Метрополитен Санкт-Петербурга ==" << endl;
-    cout << "Новая строка " << endl;
     cout << "Введите номер вашей ветки метро: \n";
     int metro;
     cin >> metro;
