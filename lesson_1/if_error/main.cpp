@@ -12,7 +12,8 @@ int main()
   } else {
     cout << "False!" << endl;
   }
-  if(j = (i = 5)){
+
+  if(j = (i = 5)){  // Использование присваивания "=" вместо "==" 
     cout << "True!" << endl;
   } else {
     cout << "False!" << endl;
