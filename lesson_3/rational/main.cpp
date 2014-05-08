@@ -54,12 +54,22 @@ public:
     p = pNew;
     q = qNew;
   }
+  Rational& operator+(Rational& right){
+    Rational res = *this;
+    res.add(right);
+    return res;
+  }
   void sub(Rational& right){
     long pNew = p * right.q - right.p * q;
     //   ----   --------------------------
     long qNew = q * right.q;
     p = pNew;
     q = qNew;
+  }
+  Rational(Rational &r){
+    p = r.p;
+    q = r.q;
+    cout << "Copy contructor " << endl;
   }
 };
 
@@ -68,15 +78,17 @@ int main()
   Rational a(4,6), b(10, 2);
   a.show();
   b.show();
-  a.add(b);
+  Rational c = b + a;
   a.show();
+  b.show();
+  c.show();
 
-  Rational x(4,6), y(1,3);
+ /* Rational x(4,6), y(1,3);
   x.add(y);
   x.show();
 
   Rational yy("Vvedite:");
-  yy.show();
+  yy.show(); */
 
   return 0;
 }
