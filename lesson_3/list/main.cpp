@@ -10,6 +10,7 @@ struct ListElement {
   ListElement *next; // Указатель на следующий элемент списка
 };
 
+// Список целиком
 struct List {
   ListElement *root; // Указатель на первый элемент
 
@@ -27,9 +28,9 @@ struct List {
     cout << "Destructor" << endl;
     ListElement *cur = root;
     while(cur != NULL){
-      root = cur->next;
-      delete cur;
-      cur = root;
+      cur = cur->next;
+      delete root;
+      root = cur;
     }
   }
 
@@ -80,6 +81,79 @@ struct List {
     // Новый элемент ставим в конец списка
     cur->next = newElement;
   }
+
+  // Удаляем элемент списка по значению
+  void deleteByValue(int value){
+    cout << "deleteByValue(" << value << ")" << endl;
+
+    // Если список пуст, то искать в нём нечего
+    if(root == NULL)
+        return;
+
+    // Если первое значение подходит, то удаляем первый элемент
+    if(root->value == value){
+       ListElement *toDelete = root;
+       root = root->next;
+       delete toDelete;
+       return;
+    }
+
+    ListElement *cur = root;
+    // Ищем значение
+    while((cur->next != NULL) &&
+          (cur->next->value != value))
+        cur = cur->next;
+    // Ничего не нашли
+    if(cur->next == NULL){
+      cout << value << " not found!" << endl;
+      return;
+    }
+
+    // Мы нашли элемент, который хотим удалить и это
+    ListElement *toDelete = cur->next;
+    // Соединяем "концы" цепочки
+    cur->next = toDelete->next;
+
+    delete toDelete;
+  }
+
+  // Удаляем элемент с заданным индексом
+  void deleteAt(int index){
+    cout << "deleteAt(" << index << ")" << endl;
+
+    // Если список пуст, то искать в нём нечего
+    if(root == NULL)
+        return;
+
+    // Если первое значение подходит, то удаляем первый элемент
+    if(index == 0){
+       ListElement *toDelete = root;
+       root = root->next;
+       delete toDelete;
+       return;
+    }
+
+    ListElement *cur = root;
+    // Ищем значение
+    int curIndex = 1;
+    while((cur->next != NULL) &&
+          (curIndex != index)){
+        cur = cur->next;
+        curIndex++;
+    }
+    // Ничего не нашли
+    if(cur->next == NULL){
+      cout << "Index " << index << " not found :)" << endl;
+      return;
+    }
+
+    // Мы нашли элемент, который хотим удалить и это
+    ListElement *toDelete = cur->next;
+    // Соединяем "концы" цепочки
+    cur->next = toDelete->next;
+
+    delete toDelete;
+  }
 };
 
 int main()
@@ -92,6 +166,34 @@ int main()
     list.addToBegin(43);
     list.addToBegin(56);
     list.addToEnd(111);
+    list.show();
+
+    list.deleteByValue(43);
+    list.show();
+
+    list.deleteByValue(102);
+    list.show();
+
+    cout << "Delete from begining" << endl;
+    list.deleteByValue(56);
+    list.show();
+
+    cout << "Delete from end of list" << endl;
+    list.deleteByValue(111);
+    list.show();
+
+    cout << "-- Delete by index tests --" << endl;
+    list.addToBegin(5);
+    list.addToEnd(8);
+    list.show();
+    cout << "Delete from begining" << endl;
+    list.deleteAt(0);
+    list.show();
+    cout << "Delete from end of list" << endl;
+    list.deleteAt(2);
+    list.show();
+
+    list.deleteAt(2);
     list.show();
 
     int *a, b;

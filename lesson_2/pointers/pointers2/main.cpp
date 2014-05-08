@@ -1,3 +1,4 @@
+// Пример на ссылки и указатели
 #include <iostream>
 
 using namespace std;

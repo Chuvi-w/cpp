@@ -16,6 +16,10 @@ public:
   void show(){
     std::cout << Str << std::endl;
   }
+  // Деструктор
+  ~string(){
+    delete[] Str; // Очищаем динамическую память
+  }
 };
 
 // Создает копии динамических переменных и ресурсов
@@ -24,16 +28,22 @@ string::string(string& myVar) {
   strcpy(Str,myVar.Str);
 }
 
-int main()
-{
-  char* myStr = "Test2";
+int main() {
+  char myStr[] = "Test2";
   std::cout << myStr << std::endl;
 
   int i = (int)myStr;
   std::cout << i << std::endl;
   string s("Test");
   s.show();
-  string s2 = s;
-  s2.show();
+
+  {
+    string s2 = s; // Вызов конструктора копирования
+    s2.show();
+  }
+
+  s.show();
+
+
   return 0;
 }

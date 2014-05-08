@@ -14,7 +14,7 @@ struct B : public A {
   };
 };
 
-struct C : protected A {
+struct C : public A {
   void show(){
     cout << "C" << endl;
   };
@@ -22,7 +22,7 @@ struct C : protected A {
 
 struct D : public B, public C {
   void show(){
-    B::show();
+    C::show();
   };
 };
 
@@ -30,6 +30,14 @@ int main()
 {
   D d;
   d.show();
+
+  // Полиморфизм
+  A* a[3] = { new B, new A, new C };
+  for(int i = 0; i < 3; ++i)
+    a[i]->show();
+
+  for(int i = 0; i < 3; ++i)
+    delete a[i];
 
   return 0;
 }

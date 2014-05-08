@@ -6,7 +6,7 @@ struct Shape {
   //virtual void show(){
   //  cout << "Shape" << endl;
   //};
-  virtual void show() = 0; // Àáñòðàêòíûé ìåòîä
+  virtual void show() = 0; // ÐÐ±ÑÑ‚Ñ€Ð°ÐºÑ‚Ð½Ñ‹Ð¹ Ð¼ÐµÑ‚Ð¾Ð´
 protected:
   virtual void doA() = 0;
   virtual void doB() = 0;

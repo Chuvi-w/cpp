@@ -5,7 +5,7 @@ using namespace std;
 
 // struct A <--> class A { public:
 struct A {
-  int a;
+  int a; // Поле доступно отовсюду
   void doA(){
     cout << "doA()" << endl;
     onlyInA = 2;
@@ -13,20 +13,22 @@ struct A {
     forChilds = 10;
   };
 private:
-  int onlyInA;
+  int onlyInA; // Только внутри класса A
 protected:
-  int forChilds;
+  int forChilds; // Внутри класса A и в наследниках
 };
 
 struct B : public A {
   int b;
-  int forChilds;
+  int forChilds; // Поле с тем же именем
   void doB(){
     cout << "doB()" << endl;
+    // Недоступна в наследниках
     //onlyInA = 2;
     //cout << "onlyInA = " << onlyInA << endl;
     A::forChilds = 12;
-    this->forChilds = 20;
+    forChilds = 20; // Работает
+    this->forChilds = 20; // Работает
 
     cout << "A::forChilds = " << A::forChilds << endl;
     cout << "B::forChilds = " << B::forChilds << endl;
@@ -43,6 +45,10 @@ struct C : protected B {
     doA();
     doB();
   };
+
+  void doA(){
+      A::doA();
+  }
 };
 
 struct D : public C {
@@ -67,8 +73,47 @@ public:
 
 class X : public E, private L {
   void doX(){
-    doL();
+    L::doL();
   }
+};
+
+class G {
+public:
+    void show(){
+        cout << "Class G" << endl;
+    }
+    void a(int x, double y){
+    }
+    void show(double x){
+        cout << "Class G " << x << endl;
+    }
+};
+
+class H {
+public:
+    void show(){
+        cout << "Class H" << endl;
+    }
+    void show(int x){
+        cout << "Class H " << x << endl;
+    }
+};
+
+class W : public G, protected H {
+public:
+    void w(){
+       //show(); // Ошибка компиляции
+       // Мы должны явно указать из какого предка вызываем метод
+       G::show();
+       H::show();
+    }
+    void a(double y, int x){
+       a(x, y);
+    }
+    void show1(){
+        G::show(2);
+        H::show(2.2);
+    }
 };
 
 int main()
@@ -78,14 +123,16 @@ int main()
   a.doA();
 
   B b;
+  // Нет доступа, т.к. onlyInA private
+  // b.onlyInA = 10;
   b.a = 1;
   b.b = 2;
   b.doA();
   b.doB();
 
   C c;
-//  c.a = 1;
-//  c.b = 2;
+  // c.a = 1; // Ошибка из-за protected наследования
+  // c.b = 2; // Ошибка из-за protected наследования
   c.c = 3;
 // c.doA();
 // c.doB();
