@@ -9,6 +9,11 @@ C++ junior developer
 * Qt Creator: http://qt-project.org/downloads
 * AutoIt: http://www.autoitscript.com/site/autoit
 
+План и материалы к занятиям
+---------------------------
+* https://lisiynos.googlecode.com/git/dp/cpp_junior_developer.html
+* https://lisiynos.googlecode.com/git/dp/cpp_oop.html - Конструкторы и деструкторы
+
 Занятия
 -------
 1. 29 апреля
