@@ -4,6 +4,8 @@
 
 #include <locale.h>
 
+#define SHOW(x) { cout << #x << " = " << x << endl; };
+
 using namespace std;
 
 template <class T>
@@ -16,31 +18,42 @@ void show(T a){
   };
 }
 
-
-int main()
-{
+int main() {
   setlocale(LC_ALL, "Russian");
 
-  cout << "Множество" << endl;
+  cout << "set " << endl;
   set<int> s;
   s.insert(2);
   s.insert(2);
   s.insert(2);
   s.insert(2);
+  show(s);
   s.insert(20);
   s.insert(3);
   s.erase(3);
   s.erase(2);
   show(s);
 
-  cout << "Вектор чисел" << endl;
+  cout << "Vector (int) " << endl;
   vector<int> a(2, 1);
+  cout << "Capacity: " << a.capacity() << "  size: " << a.size() << endl;
   a.push_back(10);
+  cout << "Capacity: " << a.capacity() << "  size: " << a.size() << endl;
   a.push_back(23);
+  cout << "Capacity: " << a.capacity() << "  size: " << a.size() << endl;
   a.push_back(50);
+  cout << "Capacity: " << a.capacity() << "  size: " << a.size() << endl;
   a.push_back(123);
+  cout << "Capacity: " << a.capacity() << "  size: " << a.size() << endl;
 
   show(a);
+
+  SHOW(a[0]);
+  SHOW(a[1]);
+  SHOW(a[2]);
+  SHOW(a[3]);
+
+  a.clear(); // Удаляем все данные
 
   return 0;
 

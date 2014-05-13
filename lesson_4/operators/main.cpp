@@ -13,33 +13,13 @@
 using namespace std;
 
 // Рациональная дробь: p/q
-template <class T>
+template <class T = int>
 class Rational {
   T p,q; // p - числитель, q - знаменатель
-  // НОД
-  T GCD(T a, T b){
-    return (b == 0) ? a : GCD(b, a % b);
-  }
-  // Сокращение дроби
-  void normalize(){
-    T d = GCD(abs(p),abs(q));
-#ifdef DEBUG
-    cout << "p = " << p << " q = " << q <<
-      "  GCD = " << d << endl;
-#endif // DEBUG
-    p /= d;
-    q /= d;
-  }
+  T GCD(T a, T b); // НОД (Наибольший Общий Делитель)
+  void normalize(); // Сокращение дроби
 public:
-  Rational(T pi = 0, T qi = 1){
-    p = pi;
-    q = qi;
-    assert(q != 0);
-    //if(q == 0){
-    //  cout << "q == 0" << endl;
-    //  halt(1);
-    //}
-  }
+  Rational(T pi = 0, T qi = 1);
 
   // Getters - методы доступа к данным
   T getP(){ return p; }
@@ -47,38 +27,84 @@ public:
   // Setters
   void setP(T value){ p = value; }
 
+  Rational operator +(Rational&); // Сложение
+  Rational operator -(Rational&); // Вычитание
+  Rational operator *(Rational&); // Умножение
+  Rational operator /(Rational&); // Деление
+
   template <class Q>
   friend istream& operator >>(istream& in, Rational<Q> &r);
 
-  Rational operator +(Rational& right){
+  template <class Q>
+  friend ostream& operator <<(ostream& os, Rational<Q> r);
+};
+
+// Наибольший общий делитель
+template <class T>
+T Rational<T>::GCD(T a, T b){
+    return (b == 0) ? a : GCD(b, a % b);
+}
+
+// Сокращение дроби
+template <class T>
+void Rational<T>::normalize(){
+    // Находим НОД числителя и знаменателя
+    T d = GCD(abs(p),abs(q));
+#ifdef DEBUG
+    cout << "p = " << p << " q = " << q <<
+      "  GCD = " << d << endl;
+#endif // DEBUG
+    // Делим числитель и знаменатель на НОД
+    p /= d;
+    q /= d;
+  }
+
+template <class T>
+Rational<T>::Rational(T pi, T qi){
+    p = pi;
+    q = qi;
+    assert(q != 0);
+    //if(q == 0){
+    //  cout << "q == 0" << endl;
+    //  halt(1);
+    //}
+}
+
+template <class T>
+Rational<T> Rational<T>::operator +(Rational<T>& right){
     //  p/q + right.p/right.q
     return Rational(
          p * right.q + right.p * q,
        //--------------------------
                q * right.q );
   }
-  Rational operator -(Rational& right){
+
+template <class T>
+Rational<T> Rational<T>::operator -(Rational& right){
     return Rational(
          p * right.q - right.p * q,
        //--------------------------
                q * right.q );
   }
 
-  Rational operator *(Rational& right){
+template <class T>
+Rational<T> Rational<T>::operator *(Rational<T>& right){
     return Rational (
            p * right.p,
          //------------
            q * right.q );
   }
 
-  Rational operator /(Rational& right){
+template <class T>
+Rational<T> Rational<T>::operator /(Rational& right){
     return Rational (
            p * right.q,
          //------------
            q * right.p );
   }
 
-  friend ostream& operator <<(ostream& os, Rational r){
+template <class T>
+ostream& operator <<(ostream& os, Rational<T> r){
     // Сокращаем дробь если надо
     r.normalize();
 
@@ -100,7 +126,6 @@ public:
     }
     return os;
   }
-};
 
 template <class T>
 istream& operator >>(istream& in, Rational<T> &r){

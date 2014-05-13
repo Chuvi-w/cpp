@@ -6,21 +6,22 @@ using namespace std;
 class MyClass {
   int* bigArray;
 public:
-  int savedA;
-  MyClass(int a){
-    cout << "a = " << a << endl;
+  int savedId;
+  MyClass(int id){
+    cout << "Constructor MyClass id = " << id << endl;
     bigArray = new int[1000000];
-    savedA = a;
+    savedId = id;
   }
   ~MyClass(){
-    cout << "Деструктор MyClass" << endl;
+    cout << "Destructor MyClass" << endl;
     delete[] bigArray;
   }
   void show(){
-    cout << "MyClass a = " << savedA << endl;
+    cout << "MyClass id = " << savedId << endl;
   }
 };
 
+// РЈРјРЅС‹Р№ СѓРєР°Р·Р°С‚РµР»СЊ
 template <class T>
 class SmartPtr {
   T* ptr;
@@ -28,16 +29,25 @@ public:
   SmartPtr(T* p){
     ptr = p;
   }
+  // РђРІС‚РѕРјР°С‚РёС‡РµСЃРєР°СЏ РѕС‚С‡РёСЃС‚РєР° РґРёРЅР°РјРёС‡РµСЃРєРѕР№ РїР°РјСЏС‚Рё
   ~SmartPtr(){
     delete ptr;
   }
-  T* operator ->(){ // Переход по ссылке
+  T* operator ->(){ // РџРµСЂРµС…РѕРґ РїРѕ СЃСЃС‹Р»РєРµ
     return ptr;
   }
-  T& operator*() { // Оператор разыменования
+  T& operator*() { // РћРїРµСЂР°С‚РѕСЂ СЂР°Р·С‹РјРµРЅРѕРІР°РЅРёСЏ
     return *ptr;
   }
 };
+
+#define USE_SMART_PTR
+
+#ifdef USE_SMART_PTR
+typedef SmartPtr<MyClass> MyClassPtr;
+#else
+typedef MyClass* MyClassPtr;
+#endif // USE_SMART_PTR
 
 int main()
 {
@@ -45,11 +55,13 @@ int main()
 
 //  SmartPtr<int[]> m2 = new int[10];
 
-  SmartPtr<MyClass> m = new MyClass(2);
-  //MyClass* m = new MyClass(2);
+
+  MyClassPtr m = new MyClass(2);
   m->show();
-  cout << m->savedA << endl;
-  cout << (*m).savedA << endl;
+  cout << m->savedId << endl;
+  cout << (*m).savedId << endl;
+
+  MyClassPtr m2 = new MyClass(3);
 
   return 0;
 }

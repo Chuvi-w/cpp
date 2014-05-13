@@ -2,12 +2,16 @@
 #include <string.h>
 
 class string {
+  static int count; // Количество строк
   char    *Str;
   int     size;
 public:
+  int id; // Идентификатор данной строки
   string(string&); // Конструктор копирования
   // Конструктор
   string(const char* str){
+    id = ++count;
+    std::cout << "Constructor #" << id << " \"" << str << "\"" << std::endl;
     size = strlen(str); // "ABC\0"
     Str = new char[size + 1];
     strcpy(Str, str);
@@ -18,15 +22,34 @@ public:
   }
   // Деструктор
   ~string(){
+    std::cout << "Destructor #" << id << std::endl;
     delete[] Str; // Очищаем динамическую память
+  }
+  // Перегрузка операции присваивания
+  string& operator=(string& right){
+    if(Str != NULL)
+      delete[] Str;
+    std::cout << "= #" << id << std::endl;
+    // if(Str != NULL)
+    //   delete[] Str;
+    Str = new char[right.size + 1];
+    size = right.size;
+    strcpy(Str, right.Str);
   }
 };
 
 // Создает копии динамических переменных и ресурсов
 string::string(string& myVar) {
+  id = ++count;
+  std::cout << "Copy constructor #" << id << std::endl;
+  // if(Str != NULL)
+  //   delete[] Str;
   Str = new char[myVar.size + 1];
+  size = myVar.size;
   strcpy(Str,myVar.Str);
 }
+
+int string::count = 0;
 
 int main() {
   char myStr[] = "Test2";
@@ -40,6 +63,13 @@ int main() {
   {
     string s2 = s; // Вызов конструктора копирования
     s2.show();
+  }
+
+
+  {
+    string s3("Hello world!");
+    s3 = s; // Операция присваивания
+    s3.show();
   }
 
   s.show();

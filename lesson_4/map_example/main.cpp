@@ -1,6 +1,8 @@
 #include <iostream>
 #include <map>
 
+#define SHOW(x) { cout << #x << " = " << x << endl; }
+
 using namespace std;
 
 int main()
@@ -9,16 +11,18 @@ int main()
 
   map<char, int> charCount;
 
-  cout << "charCount['A'] = " <<
-    charCount['H'] << endl;
+  SHOW(charCount['A']);
 
+  // Итератор в строке пробегает по буквам
+  // с первой буквы до последней по одной
   for(string::iterator c = s.begin();
       c != s.end();
       c++){
+    // Очередная буква строки
     char letter = *c;
     map<char, int>::iterator i = charCount.find(letter);
     if(i == charCount.end()){
-      cout << "end()" << endl;
+      // Не нашли букву => она первый раз
       charCount[letter] = 1;
     } else {
       charCount[letter]++;

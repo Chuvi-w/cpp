@@ -1,6 +1,16 @@
 #include <iostream>
 #include <assert.h>
 
+template <class T>
+T min(T a, T b){
+    return (a < b) ? a : b;
+}
+
+template <class T>
+T max(T a, T b){
+    return (a > b) ? a : b;
+}
+
 // Шаблонная функция
 template <class T>
 T findMax(T* a, size_t size){ // size_t - тип, который компилятор использует для индексации массивов
@@ -13,7 +23,15 @@ T findMax(T* a, size_t size){ // size_t - тип, который компилятор использует для
   return curMax;
 }
 
+// Параметры шаблонов:
+//   типы: class G / typename T
+//   любой из типов: int I
 
+// Функция, добавляющая константу
+template <class T, int A>
+T add(T value){
+  return value + A;
+}
 
 using namespace std;
 
