@@ -1,5 +1,3 @@
-#include <QCoreApplication>
-
 #include <iostream> // cin/cout
 
 #include <vector> // Контейнер vector
@@ -33,7 +31,7 @@ void print(const char *title, V v){
   cout << title << endl;
   int cnt = 0;
   if(v.empty()){
-      cout << "Контейнер пуст" << endl;
+      cout << "Container is empty" << endl;
       return;
   }
   cout << "size: " << v.size() << endl;
@@ -58,8 +56,6 @@ public:
 
 int main(int argc, char *argv[])
 {    
-    QCoreApplication a(argc, argv);
-
     Stack<int, 20> stack;
     stack.push(10);
     cout << stack.pop() << endl;
@@ -76,7 +72,7 @@ int main(int argc, char *argv[])
     intVector.push_back(10);
     intVector.push_back(3);
 
-    cout << "Размер: " << intVector.size() << endl;
+    cout << "Vector size: " << intVector.size() << endl;
 
     print_vector<int>(intVector);
     print<vector<int> >("intVector:", intVector);
@@ -123,5 +119,5 @@ int main(int argc, char *argv[])
     //m.insert('D', 30);
     m['E'] = 35;
 
-    return a.exec();
+    return 0;
 }
