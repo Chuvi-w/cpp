@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Калькулятор</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="button1">
@@ -19,35 +19,53 @@
      <rect>
       <x>70</x>
       <y>80</y>
-      <width>31</width>
-      <height>23</height>
+      <width>41</width>
+      <height>32</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>16</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="button1_2">
+   <widget class="QPushButton" name="button2">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>120</x>
       <y>80</y>
-      <width>31</width>
-      <height>23</height>
+      <width>41</width>
+      <height>32</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>16</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>2</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="button1_3">
+   <widget class="QPushButton" name="button3">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>170</x>
       <y>80</y>
-      <width>31</width>
-      <height>23</height>
+      <width>41</width>
+      <height>32</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>16</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>3</string>
@@ -57,10 +75,152 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>50</y>
+      <y>30</y>
       <width>311</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button6">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>120</y>
+      <width>41</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>6</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button4">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>120</y>
+      <width>41</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button5">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>120</y>
+      <width>41</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>5</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button9">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>160</y>
+      <width>41</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>9</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button7">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>160</y>
+      <width>41</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>7</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button8">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>160</y>
+      <width>41</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>8</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button0">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>200</y>
+      <width>41</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>0</string>
     </property>
    </widget>
   </widget>
@@ -88,10 +248,10 @@
  <resources/>
  <connections>
   <connection>
-   <sender>button1_2</sender>
+   <sender>button2</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>on_button1_clicked()</slot>
+   <slot>on_digitButton_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>125</x>
@@ -104,10 +264,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>button1_3</sender>
+   <sender>button3</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>on_button1_clicked()</slot>
+   <slot>on_digitButton_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>165</x>
@@ -119,8 +279,24 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>button1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_digitButton_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>85</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
-  <slot>on_button1_clicked()</slot>
+  <slot>on_digitButton_clicked()</slot>
  </slots>
 </ui>

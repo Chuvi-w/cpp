@@ -16,6 +16,8 @@ public:
     ~MainWindow();
 
 private slots:
+    void on_digitButton_clicked();
+
     void on_button1_clicked();
 
 private:
