@@ -21,7 +21,8 @@ void MainWindow::on_digitButton_clicked()
     QPushButton* button = (QPushButton *)QObject::sender();
     // Если это не кнопка, показываем сообщение и выходим
     if(button == NULL){
-        QMessageBox::critical(this, "Error", "on_digitButton_clicked() работает только для QPushButton",
+        // Сообщение об ошибке
+        QMessageBox::critical(this, "Ошибка", "on_digitButton_clicked() работает только для QPushButton",
                               QMessageBox::Ok);
         return;
     }
