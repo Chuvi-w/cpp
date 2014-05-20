@@ -15,6 +15,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_button1_clicked()
 {
+    // TODO: дописать
     QString s = ui->button1->text();
     // Получим строчку из lineEdit
     QString line = ui->lineEdit->text();

@@ -10,23 +10,18 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    
+
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    
+
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_19_clicked();
 
-    void on_generateStr1_triggered();
-
-    void on_generateStr2_triggered();
+    void on_actionSave_Game_triggered();
 
 private:
     Ui::MainWindow *ui;
-
-    // Генерация случайной строки
-    QString generateRandomString();
 };
 
 #endif // MAINWINDOW_H

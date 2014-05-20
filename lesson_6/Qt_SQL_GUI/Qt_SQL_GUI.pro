@@ -1,22 +1,20 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2014-04-01T19:24:10
+# Project created by QtCreator 2014-05-20T21:38:10
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql # Добавили поддержку SQL
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = QtButtonTextToEdit2
+TARGET = Qt_SQL_GUI
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    mypushbutton.cpp
+        mainwindow.cpp
 
-HEADERS  += mainwindow.h \
-    mypushbutton.h
+HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui

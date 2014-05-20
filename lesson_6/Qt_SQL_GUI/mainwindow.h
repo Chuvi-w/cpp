@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QSqlTableModel>
 
 namespace Ui {
 class MainWindow;
@@ -10,23 +11,21 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    
+
+    bool createConnection();
+
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    
+
+
 private slots:
-    void on_pushButton_clicked();
-
-    void on_generateStr1_triggered();
-
-    void on_generateStr2_triggered();
+    void on_submitChangesButton_clicked();
 
 private:
     Ui::MainWindow *ui;
 
-    // Генерация случайной строки
-    QString generateRandomString();
+     QSqlTableModel *model;
 };
 
 #endif // MAINWINDOW_H

@@ -9,7 +9,6 @@ long factorial(int n){
 }
 
 int main(){
-
     cout << "Hello world!" << endl;
     cout << factorial(10) << endl;
     return 0;

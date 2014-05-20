@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2014-04-01T19:24:10
+# Project created by QtCreator 2014-05-15T21:17:32
 #
 #-------------------------------------------------
 
@@ -8,15 +8,16 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = QtButtonTextToEdit2
+TARGET = QtWidgets2
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    mypushbutton.cpp
+        mainwindow.cpp
 
-HEADERS  += mainwindow.h \
-    mypushbutton.h
+HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    myResources.qrc

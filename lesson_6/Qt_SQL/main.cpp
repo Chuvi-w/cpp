@@ -14,6 +14,7 @@
 using namespace std;
 
 void SQL_Execute(QString query){
+    // QSqlQuery a_query(query);
     QSqlQuery a_query;
     bool b = a_query.exec(query);
     if (!b) {
@@ -53,8 +54,11 @@ void ShowContacts(){
 
 // Работаем с БД SQLite
 int SQLiteTest(){
+    // -- Подключение к Базе Данных --
     // Подключаем драйвер для работы с SQLite
     cout << "SQLite driver" << endl;
+    // Названия драйверов для Qt:
+    //   http://qt-project.org/doc/qt-5/sql-driver.html
     QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");
     // Имя файла с SQLite базой данных
     dbase.setDatabaseName("my_db.sqlite");
@@ -64,6 +68,8 @@ int SQLiteTest(){
     }
 
     // База данных открыта и можно выполнять запросы
+
+    // -- Создание схемы БД --
     // DDL query - создаём новую таблицу
     // Data Definition Language (DDL) - язык описания данных
 
@@ -78,6 +84,7 @@ int SQLiteTest(){
                 "contact_id NUMERIC,"
                 "phone TEXT);");
 
+    // -- Добавление данных --
     // DML
     // Data Manipulation Language (DML) - язык управления (манипулирования) данными
 
@@ -95,9 +102,10 @@ int SQLiteTest(){
     SQL_Execute("INSERT INTO phones VALUES(9,'+79113523325')");
     SQL_Execute("INSERT INTO phones VALUES(7,'+79213295835')");
 
+    // -- Выполнение запроса и навигация по результирующей выборке --
     ShowContacts();
 
-    cout << "DELETE all" << endl;
+    cout << "DELETE example" << endl;
     SQL_Execute("DELETE FROM contacts WHERE name='Лена'");
 
     cout << ">>>>" << endl;

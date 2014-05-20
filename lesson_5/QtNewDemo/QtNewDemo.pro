@@ -2,7 +2,7 @@
 # Это файл проекта на Qt
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui webkit webkitwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

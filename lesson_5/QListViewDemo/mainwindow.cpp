@@ -14,9 +14,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ListModel = new QStandardItemModel();
     // Первый список строк
     ui->listView->setModel(ListModel);
-    // Второй список строк
-    ui->listView_2->setModel(ListModel);
-    // Таблица
+    // Задаём как модель для дерева
+    ui->treeView->setModel(ListModel);
+    // Задаём как модель для таблицы
     ui->tableView->setModel(ListModel);
 }
 

@@ -6,7 +6,7 @@
 
 QT       += core
 
-QT       -= gui
+QT       -= gui # Консольное приложение, GUI - не нужен
 
 TARGET = QtConsole
 CONFIG   += console

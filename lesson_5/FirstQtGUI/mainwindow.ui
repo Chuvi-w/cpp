@@ -6,81 +6,60 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>589</width>
-    <height>467</height>
+    <width>482</width>
+    <height>344</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QListView" name="listView">
+   <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>391</width>
-      <height>261</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="addButton">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>60</y>
-      <width>121</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Добавить запись</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="removeButton">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
+      <x>70</x>
       <y>90</y>
-      <width>121</width>
+      <width>251</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Наша первая кнопка</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="incFontSizeButton">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>130</y>
+      <width>75</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Удалить запись</string>
+     <string>Увеличить</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QPushButton" name="decFontSizeButton">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>20</y>
-      <width>171</width>
-      <height>20</height>
+      <x>160</x>
+      <y>130</y>
+      <width>75</width>
+      <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Текст записи</string>
-    </property>
-   </widget>
-   <widget class="QListView" name="listView_2">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>120</y>
-      <width>171</width>
-      <height>141</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTableView" name="tableView">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>270</y>
-      <width>391</width>
-      <height>151</height>
-     </rect>
+     <string>Уменьшить</string>
     </property>
    </widget>
   </widget>
@@ -89,7 +68,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>589</width>
+     <width>482</width>
      <height>21</height>
     </rect>
    </property>

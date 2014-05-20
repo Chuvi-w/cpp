@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
     AddStudent("Иван","Иванов", 1);
     AddStudent("Пётр","Петров", 4);
     AddStudent("Сидор","Сидоров", 2);
-  //  sql.exec("INSERT INTO Student(name,surname,likeSubject) VALUES('Иван','Иванов',1)");
+    sql.exec("INSERT INTO Student(name,surname,likeSubject) VALUES('Иван','Иванов',1)");
 
     cout << "Выполним SELECT - получим данные из таблиц" << endl;
 
