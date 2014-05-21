@@ -13,10 +13,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+// Создание UDP-чата
 void MainWindow::UdpChat(QString nick, int port)
 {
     // Создание чата
-    nickname = nick; // Запоминаем ник
+    //nickname = nick; // Запоминаем ник
 
     socket = new QUdpSocket(this);
     // QHostAddress("192.168.1.104") - конкретный IP, с которого можно подключиться
@@ -81,6 +82,7 @@ void MainWindow::send(QString str, qint8 type) {
                           ui->portNumEdit->text().toInt() );
 }
 
+// Получение сообщения по UDP
 void MainWindow::read() {
     // Массив для полученных данных
     QByteArray datagram;
@@ -112,7 +114,7 @@ void MainWindow::read() {
     } else if (type == PERSON_ONLINE) {
         // Добавление пользователя с считанным QHostAddress //
     } else if (type == WHO_IS_ONLINE) {
-        send(nickname, qint8(PERSON_ONLINE));
+        send(ui->nicknameEdit->text(), qint8(PERSON_ONLINE));
     }
 }
 

@@ -4,11 +4,11 @@
 #include <QMainWindow>
 #include <QUdpSocket>
 
+// Тип сообщения
 enum MessageType {
-    USUAL_MESSAGE,
-    PERSON_ONLINE,
-    WHO_IS_ONLINE,
-
+    USUAL_MESSAGE, // Обычный текст
+    PERSON_ONLINE, // Сообщение "Я-онлайн"
+    WHO_IS_ONLINE, // Запрос о статусе пользователей
 };
 
 namespace Ui {
@@ -31,7 +31,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    QString nickname;
     QUdpSocket *socket;
 
     void UdpChat(QString nick, int port);
