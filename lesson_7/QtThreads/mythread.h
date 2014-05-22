@@ -10,9 +10,13 @@ class MyThread : public QThread
     // Имя потока
     QString name;
 
+    // Количество итераций
+    int iterations;
+
 public:
     explicit MyThread(QObject *parent = 0,
-                      QString name = "Thread");
+                      QString name = "Thread",
+                      int iterations = 10);
 
 signals:
 

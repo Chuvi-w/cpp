@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>QtNetwork Demo</string>
+   <string>QtNetwork Demo - UDP чат</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLineEdit" name="nicknameEdit">
@@ -69,14 +69,17 @@
    <widget class="QLineEdit" name="messageEdit">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>30</x>
       <y>70</y>
-      <width>271</width>
+      <width>301</width>
       <height>20</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="sendButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -99,26 +102,13 @@
      </rect>
     </property>
    </widget>
-   <widget class="QCheckBox" name="createServer">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>40</y>
-      <width>131</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Создать чат-сервер</string>
-    </property>
-   </widget>
-   <widget class="QListView" name="listView">
+   <widget class="QListWidget" name="onlineList">
     <property name="geometry">
      <rect>
       <x>370</x>
-      <y>10</y>
+      <y>20</y>
       <width>171</width>
-      <height>281</height>
+      <height>271</height>
      </rect>
     </property>
    </widget>
@@ -146,4 +136,7 @@
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections/>
+ <slots>
+  <slot>refreshOnlineList()</slot>
+ </slots>
 </ui>

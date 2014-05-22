@@ -1,11 +1,21 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QTimer>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    socket = NULL;
+
+    on_enterChatButton_clicked();
+
+    // Таймер опроса "кто онлайн"
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(refreshOnlineList()));
+    timer->start(1000);
 }
 
 MainWindow::~MainWindow()
@@ -16,36 +26,34 @@ MainWindow::~MainWindow()
 // Создание UDP-чата
 void MainWindow::UdpChat(QString nick, int port)
 {
+    if(socket != NULL){
+        socket->close();
+        delete socket;
+        socket = NULL;
+    }
     // Создание чата
-    //nickname = nick; // Запоминаем ник
-
     socket = new QUdpSocket(this);
     // QHostAddress("192.168.1.104") - конкретный IP, с которого можно подключиться
 
-    if(ui->createServer->isChecked()){
-        if(socket->bind(QHostAddress::Any, port)){
-            // При получении данных (сигнал readyRead)
-            // вызываем метод (слот) read, который
-            connect(socket, SIGNAL(readyRead()), this, SLOT(read()));
-        } else {
-            qDebug() << "Port " << port << " in use. Change port!";
-        }
-        send(nick + " - создал сервер", USUAL_MESSAGE);
-    } else {
-        socket->bind(QHostAddress::Any, port);
+    if(socket->bind(QHostAddress::Any, port)){
         // При получении данных (сигнал readyRead)
         // вызываем метод (слот) read, который
         connect(socket, SIGNAL(readyRead()), this, SLOT(read()));
-
-        send(nick + " - вошёл в чат", USUAL_MESSAGE);
+    } else {
+        qDebug() << "Port " << port << " in use. Change port!";
+        return;
     }
+
+    send(nick + " - в чате", USUAL_MESSAGE);
 }
 
 void MainWindow::on_enterChatButton_clicked()
-{
+{ 
     QString nick = ui->nicknameEdit->text();
     UdpChat(nick,
             ui->portNumEdit->text().toInt());
+    // Разрешаем отправлять сообщения только когда уже в чате
+    ui->sendButton->setEnabled(true);
 }
 
 
@@ -90,7 +98,7 @@ void MainWindow::read() {
     datagram.resize(socket->pendingDatagramSize());
     QHostAddress *address = new QHostAddress();
     socket->readDatagram(datagram.data(), datagram.size(), address);
-    qDebug() << address;
+    qDebug() << "Message from IP: " << address->toString();
 
     // Разбор полученного пакета
     QDataStream in(&datagram, QIODevice::ReadOnly);
@@ -112,7 +120,10 @@ void MainWindow::read() {
         // Отображаем строчку в интерфейсе
         ui->plainTextEdit->appendPlainText(str);
     } else if (type == PERSON_ONLINE) {
-        // Добавление пользователя с считанным QHostAddress //
+        // Добавление пользователя с считанным QHostAddress
+        QString str;
+        in >> str;
+        ui->onlineList->addItem(str);
     } else if (type == WHO_IS_ONLINE) {
         send(ui->nicknameEdit->text(), qint8(PERSON_ONLINE));
     }
@@ -124,4 +135,16 @@ void MainWindow::on_sendButton_clicked()
     send(ui->nicknameEdit->text() + ": " +
          ui->messageEdit->text(),
          USUAL_MESSAGE);
+
+    ui->messageEdit->clear();
+}
+
+void MainWindow::on_messageEdit_returnPressed()
+{
+    on_sendButton_clicked();
+}
+
+void MainWindow::refreshOnlineList(){
+    ui->onlineList->clear();
+    send("", WHO_IS_ONLINE);
 }

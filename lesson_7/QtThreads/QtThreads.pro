@@ -16,7 +16,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    mythread.cpp
+    mythread.cpp \
+    observer.cpp \
+    inputthread.cpp
 
 HEADERS += \
-    mythread.h
+    mythread.h \
+    observer.h \
+    inputthread.h

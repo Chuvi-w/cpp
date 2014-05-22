@@ -107,17 +107,17 @@ void MainWindow::updateGameButtons(){
 
 void MainWindow::saveGame(){ // Сохранить игру в файл
     QString filename = QFileDialog::getSaveFileName(
-       this, "Сохранить игру", "", // C:\\Users\\Денис\\Desktop
-       "Игра XO (*.game)"); // "Как картинку (*.jpg);;Игра XO (*.game)"
+                this, "Сохранить игру", "", // C:\\Users\\Денис\\Desktop
+                "Игра XO (*.game)"); // "Как картинку (*.jpg);;Игра XO (*.game)"
     game.save(filename);
 }
 
 void MainWindow::loadGame(){ // Загрузить игру из файла
     QString filename = QFileDialog::getOpenFileName(
-        this, "Загрузить игру", "",
-        "Игра XO (*.game)");
+                this, "Загрузить игру", "",
+                "Игра XO (*.game)");
     try {
-      game.load(filename);
+        game.load(filename);
     } catch(QString q){
         // critical(QWidget * parent, const QString & title,
         // const QString & text, StandardButtons buttons = Ok, StandardButton defaultButton = NoButton)

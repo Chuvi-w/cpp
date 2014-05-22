@@ -28,6 +28,9 @@ private slots:
     void on_sendButton_clicked();
     void read();
 
+    void on_messageEdit_returnPressed();
+    void refreshOnlineList();
+
 private:
     Ui::MainWindow *ui;
 
