@@ -19,7 +19,9 @@ MainWindow::MainWindow(QWidget *parent) :
             cells[i][j] = NULL;
 
     // Начало игры
+    qDebug() << "Constructor >>> ";
     newGame();
+    qDebug() << "<<< Constructor";
 }
 
 MainWindow::~MainWindow()
@@ -51,6 +53,14 @@ void MainWindow::updateWindow(){
     ui->moveLabel->setText(game.getStateString());
     // Подстраиваем размер, т.к. эта метка не в Layout
     ui->moveLabel->adjustSize();
+    int windowSize = this->geometry().width();
+    QRect rect = ui->moveLabel->geometry();
+    qDebug() << windowSize << "  Width: " << rect.width();
+
+    int borderSize = 10; // Бордюр справа
+    rect.moveLeft(windowSize - rect.width() - borderSize);
+
+    ui->moveLabel->setGeometry(rect);
 }
 
 void MainWindow::newGame(){ // Новая игра

@@ -2,6 +2,7 @@
 #include <QTextStream>
 #include <QDebug>
 #include <QMessageBox>
+#include <assert.h>
 
 Game::Game()
 {
@@ -29,8 +30,10 @@ QString Game::getStateString(){
         return QString("Нолики выйграли!");
     case DRAW:
         return QString("Ничья! :)");
+    default:
+        assert(false);
     }
-    return QString("Что-то совсем не так :)");
+    return QString("Непредусмотренное состояние игры!");
 }
 
 // Совершаем ход
@@ -60,8 +63,6 @@ void Game::line(char a, char b, char c){
     // Если не три равных => не подходит
     bool equals = (a == b) && (b == c);
     if (!equals) return;
-    // Если не крестики и не нолики, то не подходит
-    if (a != 'X' && a != 'O') return;
     // Кто-то выйграл :)
     switch(a){
     case 'X':
@@ -70,6 +71,8 @@ void Game::line(char a, char b, char c){
     case 'O':
         state = O_WIN;
         break;
+    default:
+        break; // Если не крестики и не нолики, то не подходит
     }
 }
 

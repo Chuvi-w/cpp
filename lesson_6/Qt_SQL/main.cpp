@@ -32,6 +32,31 @@ void AddContact(QString name, QString birthday){
     }
 }
 
+bool TableExists(QString tableName){
+    // Шаблон запроса
+    QString queryTemplate =
+      "SELECT count(*) AS count "
+      "FROM sqlite_master WHERE "
+            " type = 'table' AND name = '%1'";
+    QSqlQuery a_query;
+    qDebug() << queryTemplate.arg(tableName);
+    if (!a_query.exec(queryTemplate.arg(tableName))) {
+        qDebug() << a_query.lastError().text();
+        return false;
+    }
+    QSqlRecord rec = a_query.record();
+    a_query.next();
+    int result = a_query.value(rec.indexOf("count")).toInt();
+    cout << "result " << result << endl;
+    if(result == 0){
+        cout << "Table " << tableName.toStdString() << " - not exists!" << endl;
+    } else {
+        cout << "Table " << tableName.toStdString() << " - OK" << endl;
+    }
+    return result;
+}
+
+
 void ShowContacts(){
     QSqlQuery a_query;
     if (!a_query.exec("SELECT * FROM contacts")) {
@@ -40,6 +65,7 @@ void ShowContacts(){
     }
     QSqlRecord rec = a_query.record();
     QString name = "", birthday = "";
+    cout << "Count: " << a_query.size() << endl;
 
     int count = 0;
     while (a_query.next()) {
@@ -83,6 +109,10 @@ int SQLiteTest(){
     SQL_Execute("CREATE TABLE phones ("
                 "contact_id NUMERIC,"
                 "phone TEXT);");
+
+
+    TableExists("not_existing_table");
+    TableExists("phones");
 
     // -- Добавление данных --
     // DML
@@ -139,7 +169,7 @@ int SQLiteTest(){
 }
 
 
-int main(int argc, char *argv[])
+int main()
 {
     setlocale(LC_ALL, "Russian");
 
