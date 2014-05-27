@@ -13,8 +13,13 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    urlcomplete.cpp \
+    mockurlworker.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    urlcomplete.h \
+    urlworker.h \
+    mockurlworker.h
 
 FORMS    += mainwindow.ui
