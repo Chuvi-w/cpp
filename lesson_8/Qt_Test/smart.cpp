@@ -11,7 +11,7 @@ int Smart::max(int a, int b)
 {
     if(a > b)
         return a;
-    return b;
+    return b; // Stub / "заглушка"
 }
 
 int Smart::min(int a, int b)
@@ -55,4 +55,39 @@ Roots Smart::quadraticEquation(double a, double b, double c){
        r.x[0] = 0.0;
     }
     return r;
+}
+
+// Число в строку
+QString Smart::intToStr(int N){
+    QString digits[17] = {
+        "Ноль","Один","Два","Три",
+        "Четыре","Пять","Шесть","Семь",
+        "Восемь","Девять","Десять",
+        "Одиннадцать", "Двенадцать",
+        "Тринадцать", "Четырнадцать",
+        "Пятнадцать",
+        "Шестнадцать"
+    };
+    QString dec[10] = {
+        "", "", "Двадцать", "Тридцать",
+        "Сорок", "Пятьдесят", "Шестьдесят",
+        "Семьдесят", "Восемьдесят",
+        "Девяносто"
+    };
+    QString res("");
+    if(N == 100)
+        return QString("Сто");
+    if(N > 100){
+        res += QString("Сто ");
+        N = N % 100;
+    }
+
+    if(N >= 20 && (N % 10) == 0)
+        return res + dec[N / 10];
+    if(N > 20){
+        return res + dec[N / 10] + QString(" ") +
+                digits[N % 10];
+    }
+
+    return res + digits[N];
 }

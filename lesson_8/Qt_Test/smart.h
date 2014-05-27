@@ -27,5 +27,7 @@ public slots:
 
     Roots quadraticEquation(double a, double b, double c);
 
+    // Число в строку
+    QString intToStr(int N);
 };
 #endif

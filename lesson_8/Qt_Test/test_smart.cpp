@@ -12,12 +12,11 @@ void Test_Smart::max()
 {
     Smart a(this);
     // QCOMPARE( вызов_тестируемой_функции, ожидаемое_значение );
-    QCOMPARE(a.max(1,   0), 1);  // 1 тест
-    QCOMPARE(a.max(-1,  1), 1);  // 2 тест
-    QCOMPARE(a.max(4,   8), 8);  // 3 тест
-    QCOMPARE(a.max(0,   0), 0);  // 4 тест
-    QCOMPARE(a.max(1,   1), 1);  // 5 тест
-    QCOMPARE(a.max(-10,-5), -5); // 6 тест
+    QCOMPARE(a.max(2, 3), 3);  // 1 тест
+    QCOMPARE(a.max(2, 4), 4);  // 2 тест
+    QCOMPARE(a.max(5, 1), 5);
+    QCOMPARE(a.max(1, 2), 2);
+    QCOMPARE(a.max(-10, -20), -10);
 }
 
 // Тестирование вычисления факториала
@@ -79,4 +78,62 @@ void Test_Smart::rootsTest(){
     } catch(QString q){
         QCOMPARE( q, QString("Бесконечное число решений"));
     }
+}
+
+// Число в строку
+void Test_Smart::intToStrBefore100(){
+    Smart s(this);
+    QCOMPARE(s.intToStr(0), QString("Ноль"));
+    QCOMPARE(s.intToStr(1), QString("Один"));
+    QCOMPARE(s.intToStr(2), QString("Два"));
+    QCOMPARE(s.intToStr(3), QString("Три"));
+    QCOMPARE(s.intToStr(4), QString("Четыре"));
+    QCOMPARE(s.intToStr(5), QString("Пять"));
+    QCOMPARE(s.intToStr(9), QString("Девять"));
+    QCOMPARE(s.intToStr(10), QString("Десять"));
+    QCOMPARE(s.intToStr(11), QString("Одиннадцать"));
+    QCOMPARE(s.intToStr(12), QString("Двенадцать"));
+    QCOMPARE(s.intToStr(13), QString("Тринадцать"));
+    QCOMPARE(s.intToStr(14), QString("Четырнадцать"));
+    QCOMPARE(s.intToStr(15), QString("Пятнадцать"));
+    QCOMPARE(s.intToStr(16), QString("Шестнадцать"));
+    QCOMPARE(s.intToStr(20), QString("Двадцать"));
+    QCOMPARE(s.intToStr(21), QString("Двадцать Один"));
+    QCOMPARE(s.intToStr(22), QString("Двадцать Два"));
+    QCOMPARE(s.intToStr(26), QString("Двадцать Шесть"));
+    QCOMPARE(s.intToStr(30), QString("Тридцать"));
+    QCOMPARE(s.intToStr(31), QString("Тридцать Один"));
+    QCOMPARE(s.intToStr(32), QString("Тридцать Два"));
+    QCOMPARE(s.intToStr(40), QString("Сорок"));
+    QCOMPARE(s.intToStr(41), QString("Сорок Один"));
+    QCOMPARE(s.intToStr(90), QString("Девяносто"));
+    QCOMPARE(s.intToStr(91), QString("Девяносто Один"));
+}
+
+// Число в строку
+void Test_Smart::intToStr_100_to_199(){
+    Smart s(this);
+    QCOMPARE(s.intToStr(100), QString("Сто"));
+    QCOMPARE(s.intToStr(101), QString("Сто Один"));
+    QCOMPARE(s.intToStr(102), QString("Сто Два"));
+    QCOMPARE(s.intToStr(111), QString("Сто Одиннадцать"));
+    QCOMPARE(s.intToStr(120), QString("Сто Двадцать"));
+    QCOMPARE(s.intToStr(121), QString("Сто Двадцать Один"));
+    QCOMPARE(s.intToStr(122), QString("Сто Двадцать Два"));
+    QCOMPARE(s.intToStr(140), QString("Сто Сорок"));
+    QCOMPARE(s.intToStr(141), QString("Сто Сорок Один"));
+}
+
+// Число в строку
+void Test_Smart::intToStr_200_to_299(){
+    Smart s(this);
+    QCOMPARE(s.intToStr(200), QString("Двести"));
+    QCOMPARE(s.intToStr(201), QString("Двести Один"));
+    QCOMPARE(s.intToStr(202), QString("Двести Два"));
+    QCOMPARE(s.intToStr(211), QString("Двести Одиннадцать"));
+    QCOMPARE(s.intToStr(220), QString("Двести Двадцать"));
+    QCOMPARE(s.intToStr(221), QString("Двести Двадцать Один"));
+    QCOMPARE(s.intToStr(222), QString("Двести Двадцать Два"));
+    QCOMPARE(s.intToStr(240), QString("Двести Сорок"));
+    QCOMPARE(s.intToStr(241), QString("Двести Сорок Один"));
 }
