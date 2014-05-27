@@ -24,4 +24,5 @@ SOURCES += main.cpp \
 
 HEADERS += \
     test_smart.h \
-    smart.h
+    smart.h \
+    squareeq.h
