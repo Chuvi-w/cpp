@@ -10,14 +10,19 @@
     <height>406</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
-   <string>Поиск номеров телефонов</string>
+   <string>Регулярные выражения: поиск номеров телефонов</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLineEdit" name="regExpEdit">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>170</x>
       <y>20</y>
       <width>321</width>
       <height>20</height>
@@ -87,7 +92,7 @@
      <rect>
       <x>30</x>
       <y>330</y>
-      <width>131</width>
+      <width>221</width>
       <height>17</height>
      </rect>
     </property>
@@ -198,8 +203,8 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>252</x>
-     <y>10</y>
+     <x>-1</x>
+     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
      <x>245</x>

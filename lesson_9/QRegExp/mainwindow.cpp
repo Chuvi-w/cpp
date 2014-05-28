@@ -48,11 +48,13 @@ void MainWindow::applyRegExp(){
            s.append(rx.cap(i) + "  ");
        }
 
-       ui->resultText->appendPlainText(s);
+       ui->resultText->appendPlainText(">> " + s);
                    //rx.cap(1) + " - " + rx.cap(2));
                        //QString("  len = %1").arg(len));
 
+       // Защита от зацикливания программы
        if(len == 0) return;
+
        pos += len;
     }
 }
@@ -100,4 +102,9 @@ void MainWindow::loadText(){
     // Второй вариант: QString data = QString::fromUtf8(array);
     ui->sourceText->setPlainText(data);
     file.close();
+}
+
+void MainWindow::on_regExpEdit_editingFinished()
+{
+
 }

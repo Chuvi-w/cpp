@@ -23,6 +23,8 @@ private slots:
     void saveText();
     void loadText();
 
+    void on_regExpEdit_editingFinished();
+
 private:
     Ui::MainWindow *ui;
 };
