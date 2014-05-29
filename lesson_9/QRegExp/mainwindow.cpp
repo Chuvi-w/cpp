@@ -6,6 +6,7 @@
 #include <QFileDialog>
 #include <QFile>
 #include <QMessageBox>
+#include <QStandardPaths>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -15,6 +16,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Сразу при старте приложения применяется регулярное выражение
     applyRegExp();
+
+    // Каталог "Мои документы"
+    qDebug() << QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
 }
 
 MainWindow::~MainWindow()
@@ -29,22 +33,27 @@ void MainWindow::applyRegExp(){
     // Очищаем окно результатов
     ui->resultText->clear();
     // Создаём новое регулярное выражение на основе строки
-    QRegExp rx(ui->regExpEdit->text());
+    QString regExp = ui->regExpEdit->text();
+    QRegExp rx(regExp);
     rx.setMinimal(!ui->maxLenSearchBox->isChecked());
     // Если регулярное выражение некорректно,
-    // то сразу выходим
+    // то сразу выходим и выводим сообщение об ошибке в консоль
     if(!rx.isValid()){
-        qDebug() << "Invalid regexp: " << ui->regExpEdit->text();
+        qDebug() << "Invalid regexp: " << regExp;
         return;
     }
     // Текст для применения регулярного выражения
     QString str = ui->sourceText->toPlainText();
     int pos = 0;
+    // http://qt-project.org/doc/qt-5/qregexp.html#indexIn
     while ((pos = rx.indexIn(str, pos)) != -1) {
+       // Длина найденного куска
        int len = rx.matchedLength();
+       // Собираем группы в скобках в одну строку
        QString s;
        // rx.captureCount() - количество найденных групп символов
        for(int i = 1; i <= rx.captureCount(); i++){
+           // rx.cap(i) - i-ая группа
            s.append(rx.cap(i) + "  ");
        }
 
@@ -104,7 +113,6 @@ void MainWindow::loadText(){
     file.close();
 }
 
-void MainWindow::on_regExpEdit_editingFinished()
-{
-
+void MainWindow::myNewSlot(){
+    qDebug() << "myNewSlot()";
 }

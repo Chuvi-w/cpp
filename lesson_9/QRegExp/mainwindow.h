@@ -20,10 +20,13 @@ private slots:
     // с выводом результата обратно на форму
     void applyRegExp();
 
+    // Сохранение текста в файл
     void saveText();
+
+    // Загрузка текста из файла
     void loadText();
 
-    void on_regExpEdit_editingFinished();
+    void myNewSlot();
 
 private:
     Ui::MainWindow *ui;

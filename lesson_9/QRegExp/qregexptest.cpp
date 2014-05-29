@@ -3,7 +3,7 @@
 
 QRegExpTest::QRegExpTest()
 {
-    QCOMPARE(QString("12"), "233");
+    QCOMPARE(QString("12"), QString("233"));
 }
 
 // Символы
