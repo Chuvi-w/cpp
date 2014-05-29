@@ -7,9 +7,11 @@
 // Тестирование стандартных выражений QRegExp (PCRE - Perl Comp Reg Exp)
 class QRegExpTest : public QObject
 {
+    Q_OBJECT
 public:
-    QRegExpTest();
+    explicit QRegExpTest(QObject *parent = 0);
 
+private slots: // Тесты - слоты, которые должны быть приватными
     // Символы
     void symbols();
 

@@ -1,13 +1,19 @@
 #include <QtTest/QTest>
 #include "qregexptest.h"
 
-QRegExpTest::QRegExpTest()
+QRegExpTest::QRegExpTest(QObject *parent) :
+    QObject(parent)
 {
-    QCOMPARE(QString("12"), QString("233"));
 }
 
 // Символы
 void QRegExpTest::symbols(){
+    QCOMPARE(QString("12"), QString("233"));
+    QRegExp rx("\\s"); // Любой пробельный символ
+    QCOMPARE(2, rx.indexIn("a "));
+    QCOMPARE(3, rx.indexIn("ab\n")); // Перевод строки
+    QCOMPARE(5, rx.indexIn("abcd\tsdf")); // Табуляция
+    QCOMPARE(2, rx.indexIn("a "));
 
 }
 
@@ -18,5 +24,7 @@ void QRegExpTest::groups(){
 
 // Кванторы
 void QRegExpTest::quantors(){
-
+    // + - один и больше
+    QRegExp rx("\\d+"); // Любое число
+    rx.indexIn("ab123");
 }
