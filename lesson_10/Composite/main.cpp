@@ -1,11 +1,15 @@
 #include <iostream>
 #include <list>
 
+// Каждый компонент умеет себя "показывать" -
+// т.е. выполнять метод show
 class Component {
 public:
    virtual void show() = 0;
 };
 
+// Лист (нижний уровень дерева)
+// просто выводит строчку на экран
 class Leaf : public Component {
    std::string s;
 public:
@@ -15,6 +19,7 @@ public:
    }
 };
 
+// Составной объект состоит из нескольких компонент
 class Composite : public Component {
    std::list<Component*> list;
 public:
@@ -34,7 +39,9 @@ public:
 int main()
 {
     Composite comp;
-    comp.add(new Leaf("test"));
+    Leaf test("test");
+    test.show();
+    comp.add(&test);
     Composite a;
     a.add(new Leaf("aa"));
     a.add(new Leaf("bb"));
