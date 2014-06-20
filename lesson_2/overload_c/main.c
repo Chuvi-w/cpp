@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Универсальный максимум в стиле "C"
 #define MAX(a,b) ((a) > (b) ? (a) : (b))
 
 int main()

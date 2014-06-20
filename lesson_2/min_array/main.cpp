@@ -10,8 +10,8 @@ int min_array(int a[], int N){
   // и если он меньше текущего минимума
   // обновим минимум
   for(int i = 1; i < N; ++i)
-    if(a[i] < a[index])
-      index = i;
+    index = (a[i] < a[index]) ?
+      i : index;
   return a[index];
 }
 

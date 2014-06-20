@@ -2,19 +2,30 @@
 
 using namespace std;
 
-typedef char MyType;
+// typedef Определение_типа Имя_нового_типа;
+typedef unsigned long MyType;
 
 union InMemoryPresentation {
-  MyType i;
+  MyType field;
   unsigned char b[sizeof(MyType)];
 };
 
+union HH {
+    int a;
+    int b;
+    char c;
+};
 
 int main()
 {
+  MyType i = 10;
+  MyType b, a = 132;
+  a = i * b;
+
   InMemoryPresentation u;
-  u.i = 'A';
-  for(int i=0; i < sizeof(MyType); ++i){
+  u.field = 5;// 'A';
+  for(int i = 0; i < sizeof(MyType); ++i){
+    cout << i << ". ";
     for(int b = 7; b >= 0; --b){
       unsigned char byte = u.b[i];
       // Число:    01101110  00001101
