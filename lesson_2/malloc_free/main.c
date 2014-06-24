@@ -17,7 +17,12 @@ struct MyStruct {
 
 int main() {
     char* s;
-    s = malloc(100); // 100 байт
+    if(!(s = malloc(100))){ // 100 байт
+        printf("No memory!\n");
+        return 0;
+    }
+    char c = malloc(10);
+    printf("Address - %d\n", (int)s);
     strcpy(s, "Test\n");
     printf("s = %s\n", s);
     free(s);
@@ -28,6 +33,12 @@ int main() {
     m.d = 3;
     m.iab.i = 258; // Младший байт 2
       // чуть постарше 1
+
+    struct MyStruct* mp;
+    mp = malloc(sizeof(struct MyStruct));
+    mp->i = 22;
+    mp->d = 1.2;
+
 
     // Два порядка байтов:
     // * Big-endian - старший байт в конце (IBM, майнфреймы, Sun Sparc и т.д.)
