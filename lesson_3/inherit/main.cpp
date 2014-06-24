@@ -6,6 +6,7 @@ using namespace std;
 // struct A <--> class A { public:
 struct A {
   int a; // Поле доступно отовсюду
+
   void doA(){
     cout << "doA()" << endl;
     onlyInA = 2;

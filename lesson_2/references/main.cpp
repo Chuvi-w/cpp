@@ -48,10 +48,24 @@ void example2(){
     cout << "a = " << a << endl;
 }
 
+void example3(){
+  int *c; // c - указатель на целое число
+  int d = 45;
+  c = &d;
+  cout << "d = *c = " << *c << endl;
+
+  {
+    int t;
+  }
+  int j = 1;
+
+}
+
 int main()
 {
-    example1();
+    //example1();
     //example2();
+    example3();
 
     return 0;
 }

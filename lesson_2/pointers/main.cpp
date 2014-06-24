@@ -2,28 +2,31 @@
 
 using namespace std;
 
-void f(int i){
+// Исходное значение не меняется
+void f1(int i){
   i++;
-  cout << "i = " << i << endl;
+  cout << "f1: i = " << i << endl;
 }
 
+// Передаём ссылку -> меняем исходное значение
 void f2(int &i){
   i++;
-  cout << "i = " << i << endl;
+  cout << "f2: i = " << i << endl;
   cout << "Address = " << &i << endl;
 }
 
+// Передаём указатель -> меняем исходное значение
 void f3(int *i){
-  cout << i << endl;
-  i++;
-  cout << i << endl;
-  cout << "i = " << *i << endl;
+  (*i)++;
+  cout << "f3: i = " << *i << endl;
+  cout << "Address = " << i << endl;
 }
 
 int main()
 {
   int i = 1;
+  cout << "Before: i = " << i << endl;
   f3(&i);
-  cout << "! i = " << i << endl;
+  cout << "After: i = " << i << endl;
   return 0;
 }
