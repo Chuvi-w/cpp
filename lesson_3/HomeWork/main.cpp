@@ -5,7 +5,6 @@ using namespace std;
 struct Stack {
   // Значение поместить на вершину стека
   void push(int value){
-
   }
   // Взять значение с вершины стека
   int pop(){
@@ -22,8 +21,16 @@ struct Queue {
 };
 
 
-int main()
-{
-    cout << "Hello world!" << endl;
-    return 0;
+int main() {
+  Stack s;
+  s.push(2);
+  s.push(3);
+  cout << s.pop() << endl;
+
+  Queue q;
+  q.put(10);
+  q.put(14);
+  cout << q.get() << endl;
+
+  return 0;
 }

@@ -5,44 +5,59 @@ using namespace std;
 
 // Один элемент списка
 struct ListElement {
-  int value;
-  ListElement *next;
+  int value; // Значение элемента списка
+  ListElement *next; // Указатель на
+    // следующий элемент списка
 };
 
+// Список целиком, с всеми операциями
 struct List {
+  // Указатель на первый элемент списка
   ListElement *root;
-  // Конструктор
+  // Конструктор - метод, который вызывается
+  // при создании объекта (экземпляра класса)
   List(){
-    root = NULL;
+    root = NULL; // Указатель на первый элемент
+      // NULL - означает что нет ни одного элемента в списке
   }
   // Деструктор (очистка памяти)
   ~List(){
-    while(root != NULL){
-      ListElement *cur = root->next;
+    while(root != NULL){ // Пока список не пуст
+      // Запоминаем 2-ой элемент списка
+      // (следующий после первого элемента)
+      ListElement *second = root->next;
+      // Удаляем первый элемент списка
       delete root;
-      root = cur;
+       // delete:
+       //  1. Вызывается деструктор (если есть)
+       //  2. Освобождается динамическая память
+      root = second;
     }
   }
   // Показать список
   void show(){
-    ListElement *cur = root;
-    while(cur != NULL){
+    for(ListElement *cur = root;
+        cur != NULL;
+        cur = cur->next){
       // cur->value <-> (*cur).value
       cout << cur->value << endl;
-      cur = cur->next;
     }
   }
   // Добавить элемент в начало
   void addToBegin(int value){
-    ListElement *newElement = new ListElement;
-    newElement->value = value;
+    // Заводим новый элемент в динамической памяти
+    ListElement *e = new ListElement;
+    // Заполняем новый элемент
+    e->value = value;
     // Подвешиваем к новому элементу старый список
-    newElement->next = root;
+    e->next = root;
     // Теперь root должен ссылаться на новый элемент
-    root = newElement;
+    root = e;
   }
   // Добавить элемент в конец
   void addToEnd(int value){
+    // Если список пуст, то добавить в конец
+    // это то же что и добавить в начало
     if(root == NULL){
         addToBegin(value);
         return;
@@ -60,6 +75,7 @@ struct List {
     ListElement *newElement = new ListElement;
     newElement->value = value;
     newElement->next = NULL;
+
     // Подвешиваем новый элемент в конец списка
     cur->next = newElement;
   }

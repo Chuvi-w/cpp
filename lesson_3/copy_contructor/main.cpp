@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string.h>
 
+// Класс "строка"
 class string {
   static int count; // Количество строк
   char    *Str;
@@ -38,15 +39,16 @@ public:
   }
 };
 
+// Конструктор копирования
 // Создает копии динамических переменных и ресурсов
-string::string(string& myVar) {
+string::string(string& x) {
   id = ++count;
   std::cout << "Copy constructor #" << id << std::endl;
   // if(Str != NULL)
   //   delete[] Str;
-  Str = new char[myVar.size + 1];
-  size = myVar.size;
-  strcpy(Str,myVar.Str);
+  Str = new char[x.size + 1];
+  size = x.size;
+  strcpy(Str,x.Str);
 }
 
 int string::count = 0;

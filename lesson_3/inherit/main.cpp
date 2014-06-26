@@ -4,7 +4,9 @@
 using namespace std;
 
 // struct A <--> class A { public:
+// class A <--> struct A { private:
 struct A {
+  static int staticInClass;
   int a; // Поле доступно отовсюду
 
   void doA(){
@@ -26,6 +28,7 @@ struct B : public A {
     cout << "doB()" << endl;
     // Недоступна в наследниках
     //onlyInA = 2;
+    doA();
     //cout << "onlyInA = " << onlyInA << endl;
     A::forChilds = 12;
     forChilds = 20; // Работает
@@ -117,11 +120,18 @@ public:
     }
 };
 
+A globalA; // В статической памяти
+ // потому что это глобальная переменная
+
 int main()
 {
-  A a;
+  A a; // В стеке
   a.a = 1;
   a.doA();
+  // a.onlyInA = 3; // 'int A::onlyInA' is private
+  A *ap = new A; // Динамическая память
+  // 'int A::forChilds' is protected
+  //cout << a.forChilds << endl;
 
   B b;
   // Нет доступа, т.к. onlyInA private
