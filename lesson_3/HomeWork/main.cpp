@@ -42,7 +42,7 @@ struct Queue {
     e->value = value;
     e->next = NULL;
     // Если очередь пуста
-    if(start = NULL){
+    if(start == NULL){
       start = e;
     } else {
       E *last = start;
@@ -55,9 +55,20 @@ struct Queue {
   }
   // Забрать первый элемент из очереди
   int get(){
+    // Запоминаем первый элемент
+    E *e = start;
+    // Значение, которое мы в конце вернём
+    int value = e->value;
+    // Передвигаем указатель на начало
+    // очереди на следующий элемент
+    start = start->next;
+    // Удаляем первый элемент из
+    // динамической памяти
+    delete e;
+    // Возвращаем значение
+    return value;
   }
 };
-
 
 int main() {
   Stack s;
