@@ -4,24 +4,42 @@
 
 using namespace std;
 
+class MyClass {
+  int value;
+public:
+  friend
+  bool operator < (const MyClass &left,
+                   const MyClass &right){
+    return left.value < right.value;
+  }
+};
+
+
 int main()
 {
-  // ����������:
+  // Контейнеры:
   //   vector
   //   set
   //   map
   setlocale(LC_ALL, "Russian");
 
+  // Ассоциативный массив
+  // A["Hi"] = "Привет";
+  // map<key, value>
   map<string, string> dict;
 
-  dict["Hi"] = "������";
-  dict["I"] = "�";
+  dict["Привет"] = "Hi";
+  dict["Я"] = "I";
 
-  dict["You"] = "��";
+  dict["Ты"] = "You";
   cout << dict["You"] << endl;
 
-  dict["You2"] = "��2";
-  cout << dict["You"] << endl;
+  dict["Ты2"] = "You2";
+  cout << dict["Ты"] << endl;
+
+  map<MyClass, string> mm;
+  MyClass m;
+  mm[m] = "Test";
 
   return 0;
 }

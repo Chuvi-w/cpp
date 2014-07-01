@@ -7,9 +7,11 @@ using namespace std;
 
 int main()
 {
-    set<int> s;
-    s.insert(1);
-    s.insert(5);
+    set<int> s; // множество элементов без учёта повторов (уникальных)
+    s.insert(1); // -> 1
+    s.insert(5); // -> 1,5
+    s.insert(5); // -> 1,5
+    s.insert(1); // -> 1,5
 
     // Итерируемся по set
     for(set<int>::iterator i = s.begin(); i != s.end(); i++){

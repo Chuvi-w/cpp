@@ -15,13 +15,13 @@ struct A {
   };
 };
 
-struct B : public A {
+struct B : public virtual A {
   void show(){
     cout << "B" << endl;
   };
 };
 
-struct C : public A {
+struct C : public virtual A {
   void show(){
     cout << "C" << endl;
   };
@@ -29,7 +29,8 @@ struct C : public A {
 
 struct D : public B, public C {
   void show(){
-    C::show();
+    cout << "D" << endl;
+    //B::show();
   };
 };
 
@@ -40,10 +41,11 @@ int main()
 
   // Полиморфизм
   //A* x[3] = { new B, new A, new C };
-  A* x[3];
+  A* x[4];
   x[0] = new C;
   x[1] = new B;
   x[2] = new A;
+  x[3] = new D;
 
   cout << "sizeof(X) = " << sizeof(X) << endl;
   cout << "sizeof(*X) = " << sizeof(X*) << endl;
@@ -52,10 +54,10 @@ int main()
   cout << "sizeof(A) = " << sizeof(A) << endl;
   cout << "sizeof(*A) = " << sizeof(A*) << endl;
 
-  for(int i = 0; i < 3; ++i)
+  for(int i = 0; i < 4; ++i)
     x[i]->show();
 
-  for(int i = 0; i < 3; ++i)
+  for(int i = 0; i < 4; ++i)
     delete x[i];
 
   return 0;

@@ -1,4 +1,4 @@
-// Демонстрация работы с this
+// Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ СЂР°Р±РѕС‚С‹ СЃ this
 #include <iostream>
 
 using namespace std;

@@ -1,3 +1,4 @@
+// Пример: зачем нужны get/set методы
 // Don’t Repeat Yourself
 // http://ru.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself
 #include <iostream>
@@ -8,28 +9,28 @@ using namespace std;
 // Инкапсуляция
 class Square {
 //private:
-  double side;
-//  double area;
+//  double side;
+  double area;
 public:
   // Получить сторону квадрата
   double getSide(){
-    //return sqrt(area);
-    return side;
+    return sqrt(area);
+    //return side;
   }
   // Задать сторону квадрата
   void setSide(double value){
-    //area = value*value;
-    side = value;
+    area = value*value;
+    //side = value;
   }
   // Получить площадь
   double getArea(){
-    //return area;
-    return side*side;
+    return area;
+    //return side*side;
   }
   // Задать площадь
   void setArea(double value){
-    //area = value;
-    side = sqrt(value);
+    area = value;
+    //side = sqrt(value);
   }
 };
 

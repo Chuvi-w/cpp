@@ -11,7 +11,7 @@ class Vector {
 public:
   Point* p;
   const char* name;
-  // Конструктор
+  // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
   Vector(const char* name, double X, double Y) {
     p = new Point();
     p->x = X; p->y = Y;

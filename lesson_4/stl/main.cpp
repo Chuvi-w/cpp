@@ -21,6 +21,7 @@ void show(T a){
 int main() {
   setlocale(LC_ALL, "Russian");
 
+  // set - –º–Ω–æ–∂–µ—Å—Ç–≤–æ (–Ω–µ–ø–æ–≤—Ç–æ—Ä—è—é—â–∏–µ—Å—è —ç–ª–µ–º–µ–Ω—Ç—ã)
   cout << "set " << endl;
   set<int> s;
   s.insert(2);
@@ -34,8 +35,9 @@ int main() {
   s.erase(2);
   show(s);
 
+  // –í–µ–∫—Ç–æ—Ä - –∞–Ω–∞–ª–æ–≥ –º–∞—Å—Å–∏–≤–∞
   cout << "Vector (int) " << endl;
-  vector<int> a(2, 1);
+  vector<int> a(2, 1); // { 1, 1 }
   cout << "Capacity: " << a.capacity() << "  size: " << a.size() << endl;
   a.push_back(10);
   cout << "Capacity: " << a.capacity() << "  size: " << a.size() << endl;
@@ -53,31 +55,30 @@ int main() {
   SHOW(a[2]);
   SHOW(a[3]);
 
-  a.clear(); // ”‰‡ÎˇÂÏ ‚ÒÂ ‰‡ÌÌ˚Â
+  a.clear(); // –£–¥–∞–ª–∏—Ç—å –≤—Å–µ –∑–Ω–∞—á–µ–Ω–∏—è
 
   return 0;
 
-  cout << "œÂ‚˚È ˝ÎÂÏÂÌÚ: " << a.front() << endl;
-  cout << "œÓÒÎÂ‰ÌËÈ ˝ÎÂÏÂÌÚ: " << a.back() << endl;
+  cout << "–ü–µ—Ä–≤—ã–π —ç–ª–µ–º–µ–Ω—Ç: " << a.front() << endl;
+  cout << "–ü–æ—Å–ª–µ–¥–Ω–∏–π —ç–ª–µ–º–µ–Ω—Ç: " << a.back() << endl;
 
   for(vector<int>::iterator k = a.begin();
       k != a.end();
       k++){
     cout << *k << endl;
     if(*k == 23){
-      cout << "”‰‡ÎˇÂÏ ˝ÎÂÏÂÌÚ " << *k << endl;
+      cout << "–ù–∞—à–ª–∏ —á–∏—Å–ª–æ 23: " << *k << endl;
       a.erase(k);
     }
   }
 
   for(size_t i = 0; i < a.size(); i++)
-    cout << (i+1) << ". " << a[i] << endl;
+    cout << "a[" << (i+1) << "] =  " << a[i] << endl;
 
-  cout << "Œ˜Ë˘‡ÂÏ ÍÓÎÎÂÍˆË˛" << endl;
   //a.insert(2, 10);
   //a.remove(3);
   a.clear();
-  cout << "ƒÓ·‡‚ÎˇÂÏ 10" << endl;
+  cout << "–î–æ–±–∞–≤–ª—è–µ–º 10 –≤ –∫–æ–Ω–µ—Ü –≤–µ–∫—Ç–æ—Ä–∞" << endl;
   a.push_back(10);
 
   show(a);
