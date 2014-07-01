@@ -1,4 +1,4 @@
-// Наследование
+// РќР°СЃР»РµРґРѕРІР°РЅРёРµ
 #include <iostream>
 
 using namespace std;
@@ -7,7 +7,7 @@ using namespace std;
 // class A <--> struct A { private:
 struct A {
   static int staticInClass;
-  int a; // Поле доступно отовсюду
+  int a; // РџРѕР»Рµ РґРѕСЃС‚СѓРїРЅРѕ РѕС‚РѕРІСЃСЋРґСѓ
 
   void doA(){
     cout << "doA()" << endl;
@@ -16,23 +16,23 @@ struct A {
     forChilds = 10;
   };
 private:
-  int onlyInA; // Только внутри класса A
+  int onlyInA; // РўРѕР»СЊРєРѕ РІРЅСѓС‚СЂРё РєР»Р°СЃСЃР° A
 protected:
-  int forChilds; // Внутри класса A и в наследниках
+  int forChilds; // Р’РЅСѓС‚СЂРё РєР»Р°СЃСЃР° A Рё РІ РЅР°СЃР»РµРґРЅРёРєР°С…
 };
 
 struct B : public A {
   int b;
-  int forChilds; // Поле с тем же именем
+  int forChilds; // РџРѕР»Рµ СЃ С‚РµРј Р¶Рµ РёРјРµРЅРµРј
   void doB(){
     cout << "doB()" << endl;
-    // Недоступна в наследниках
+    // РќРµРґРѕСЃС‚СѓРїРЅР° РІ РЅР°СЃР»РµРґРЅРёРєР°С…
     //onlyInA = 2;
     doA();
     //cout << "onlyInA = " << onlyInA << endl;
     A::forChilds = 12;
-    forChilds = 20; // Работает
-    this->forChilds = 20; // Работает
+    forChilds = 20; // Р Р°Р±РѕС‚Р°РµС‚
+    this->forChilds = 20; // Р Р°Р±РѕС‚Р°РµС‚
 
     cout << "A::forChilds = " << A::forChilds << endl;
     cout << "B::forChilds = " << B::forChilds << endl;
@@ -63,7 +63,7 @@ struct D : public C {
   }
 };
 
-// Множественное наследование
+// РњРЅРѕР¶РµСЃС‚РІРµРЅРЅРѕРµ РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 class E : public D {
   void doE(){
   }
@@ -106,8 +106,8 @@ public:
 class W : public G, protected H {
 public:
     void w(){
-       //show(); // Ошибка компиляции
-       // Мы должны явно указать из какого предка вызываем метод
+       //show(); // РћС€РёР±РєР° РєРѕРјРїРёР»СЏС†РёРё
+       // РњС‹ РґРѕР»Р¶РЅС‹ СЏРІРЅРѕ СѓРєР°Р·Р°С‚СЊ РёР· РєР°РєРѕРіРѕ РїСЂРµРґРєР° РІС‹Р·С‹РІР°РµРј РјРµС‚РѕРґ
        G::show();
        H::show();
     }
@@ -120,21 +120,21 @@ public:
     }
 };
 
-A globalA; // В статической памяти
- // потому что это глобальная переменная
+A globalA; // Р’ СЃС‚Р°С‚РёС‡РµСЃРєРѕР№ РїР°РјСЏС‚Рё
+ // РїРѕС‚РѕРјСѓ С‡С‚Рѕ СЌС‚Рѕ РіР»РѕР±Р°Р»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ
 
 int main()
 {
-  A a; // В стеке
+  A a; // Р’ СЃС‚РµРєРµ
   a.a = 1;
   a.doA();
   // a.onlyInA = 3; // 'int A::onlyInA' is private
-  A *ap = new A; // Динамическая память
+  A *ap = new A; // Р”РёРЅР°РјРёС‡РµСЃРєР°СЏ РїР°РјСЏС‚СЊ
   // 'int A::forChilds' is protected
   //cout << a.forChilds << endl;
 
   B b;
-  // Нет доступа, т.к. onlyInA private
+  // РќРµС‚ РґРѕСЃС‚СѓРїР°, С‚.Рє. onlyInA private
   // b.onlyInA = 10;
   b.a = 1;
   b.b = 2;
@@ -142,8 +142,8 @@ int main()
   b.doB();
 
   C c;
-  // c.a = 1; // Ошибка из-за protected наследования
-  // c.b = 2; // Ошибка из-за protected наследования
+  // c.a = 1; // РћС€РёР±РєР° РёР·-Р·Р° protected РЅР°СЃР»РµРґРѕРІР°РЅРёСЏ
+  // c.b = 2; // РћС€РёР±РєР° РёР·-Р·Р° protected РЅР°СЃР»РµРґРѕРІР°РЅРёСЏ
   c.c = 3;
 // c.doA();
 // c.doB();
