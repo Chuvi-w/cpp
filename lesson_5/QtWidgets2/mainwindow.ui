@@ -13,15 +13,21 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true">#centralWidget { background-image: url(:/icons/background.jpg) }</string>
+   </property>
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>90</x>
+      <y>30</y>
       <width>400</width>
       <height>441</height>
      </rect>
@@ -45,7 +51,7 @@
      </size>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -215,7 +221,7 @@
        <string>...</string>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="myResources.qrc">
         <normaloff>:/icons/icons/icon.png</normaloff>:/icons/icons/icon.png</iconset>
       </property>
       <property name="iconSize">
@@ -358,7 +364,7 @@
           <string>Подкаталог</string>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="myResources.qrc">
            <normaloff>:/icons/icons/icon.png</normaloff>:/icons/icons/icon.png</iconset>
          </property>
          <property name="text">
@@ -400,6 +406,8 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="myResources.qrc"/>
+ </resources>
  <connections/>
 </ui>
