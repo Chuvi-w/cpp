@@ -6,77 +6,85 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>408</width>
-    <height>267</height>
+    <width>528</width>
+    <height>314</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>50</y>
-      <width>101</width>
-      <height>23</height>
+      <x>220</x>
+      <y>70</y>
+      <width>161</width>
+      <height>101</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Один текст</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>80</y>
-      <width>101</width>
-      <height>23</height>
-     </rect>
+    <property name="font">
+     <font>
+      <pointsize>48</pointsize>
+     </font>
     </property>
     <property name="text">
-     <string>Второй текст</string>
+     <string>##</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="resultButton">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>50</y>
-      <width>101</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Меняется текст</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QPushButton" name="upButton">
     <property name="geometry">
      <rect>
       <x>50</x>
       <y>170</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Начальный текст</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>170</y>
-      <width>101</width>
+      <width>75</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Очистить текст</string>
+     <string>Вверх</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="leftButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>200</y>
+      <width>61</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Влево</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rightButton">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>200</y>
+      <width>61</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Вправо</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="downButton">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>230</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Вниз</string>
     </property>
    </widget>
   </widget>
@@ -85,7 +93,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>408</width>
+     <width>528</width>
      <height>21</height>
     </rect>
    </property>
@@ -102,22 +110,5 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections>
-  <connection>
-   <sender>pushButton_3</sender>
-   <signal>clicked()</signal>
-   <receiver>lineEdit</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>237</x>
-     <y>217</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>135</x>
-     <y>211</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

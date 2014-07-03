@@ -69,8 +69,19 @@
       <x>30</x>
       <y>270</y>
       <width>391</width>
-      <height>151</height>
+      <height>141</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="showGrid">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QTreeView" name="treeView">
@@ -79,6 +90,16 @@
       <x>410</x>
       <y>130</y>
       <width>171</width>
+      <height>121</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QColumnView" name="columnView">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>270</y>
+      <width>141</width>
       <height>121</height>
      </rect>
     </property>

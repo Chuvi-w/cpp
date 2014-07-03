@@ -1,3 +1,5 @@
+// Консольное приложение на Qt для
+// вычисления факториала
 #include <iostream>
 
 using namespace std;

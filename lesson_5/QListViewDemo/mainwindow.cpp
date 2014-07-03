@@ -11,13 +11,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     // Создаём модель в динамической памяти
-    ListModel = new QStandardItemModel();
+    listModel = new QStandardItemModel();
+
     // Первый список строк
-    ui->listView->setModel(ListModel);
+    ui->listView->setModel(listModel);
     // Задаём как модель для дерева
-    ui->treeView->setModel(ListModel);
+    ui->treeView->setModel(listModel);
     // Задаём как модель для таблицы
-    ui->tableView->setModel(ListModel);
+    ui->tableView->setModel(listModel);
+
+    ui->columnView->setModel(listModel);
 }
 
 MainWindow::~MainWindow()
@@ -29,16 +32,18 @@ MainWindow::~MainWindow()
 void MainWindow::on_addButton_clicked()
 {
     // Добавляем запись в listView (текст берём из интерфейса)
-    qDebug() << "Добавляем запись в listView (текст берём из интерфейса)";
+    qDebug() << "Add item to listView (text from interface)";
     QStandardItem* Items =
        new QStandardItem(ui->lineEdit->text());
-    ListModel->appendRow(Items);
+    listModel->appendRow(Items);
 }
 
 void MainWindow::on_removeButton_clicked()
 {
     // Удалить выделенную запись
-    foreach(const QModelIndex &index,
-            ui->listView->selectionModel()->selectedIndexes())
-        ListModel->removeRow(index.row());
+    foreach( // Каждый элемент коллекции (массива)
+             const QModelIndex &index,
+             // Массив (коллекция) по которой надо пробежать
+             ui->listView->selectionModel()->selectedIndexes())
+        listModel->removeRow(index.row());
 }

@@ -9,7 +9,7 @@ QT       += core
 QT       -= gui # Консольное приложение, GUI - не нужен
 
 TARGET = QtConsole
-CONFIG   += console
+CONFIG   += console # Чтобы появилась консоль у приложения
 CONFIG   -= app_bundle
 
 TEMPLATE = app
