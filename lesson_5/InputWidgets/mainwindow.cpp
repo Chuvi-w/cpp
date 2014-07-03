@@ -16,6 +16,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_fontComboBox_currentIndexChanged(const QString &arg1)
 {
+    // Новый выбранный шрифт
     QFont font = ui->fontComboBox->currentFont();
     qDebug() << font.family();
     ui->textEdit->setFont(font);
