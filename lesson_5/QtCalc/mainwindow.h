@@ -18,17 +18,21 @@ public:
 private slots:
     void xbutton_clicked();
 
-    void on_plusButton_clicked();
+    void on_operation_clicked();
 
     void on_calcButton_clicked();
+
+    void on_pointButton_clicked();
 
 private:
     Ui::MainWindow *ui;
 
+    typedef double number;
+
     // Последняя операция
     char operation;
     // Запоминаем число набранное на калькуляторе
-    int arg;
+    number arg;
     // Сейчас будем вводить новое число
     bool newNumber;
 };

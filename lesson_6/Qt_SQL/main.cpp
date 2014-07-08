@@ -13,22 +13,23 @@
 
 using namespace std;
 
+// query - SQL-запрос в виде строки
 void SQL_Execute(QString query){
     // QSqlQuery a_query(query);
-    QSqlQuery a_query;
-    bool b = a_query.exec(query);
-    if (!b) {
-        qDebug() << "Не могу выполнить: " << query;
+    QSqlQuery q;
+    bool res = q.exec(query);
+    if (!res) {
+        qDebug() << "Cannot execute: " << query;
     }
 }
 
 void AddContact(QString name, QString birthday){
     if(birthday == NULL){
-        QString query = "INSERT INTO contacts(name,birthday) VALUES('%1',NULL);";
-        SQL_Execute(query.arg(name));
+        QString q = "INSERT INTO contacts(name,birthday) VALUES('%1',NULL);";
+        SQL_Execute(q.arg(name));
     } else {
-        QString query = "INSERT INTO contacts(name,birthday) VALUES('%1','%2');";
-        SQL_Execute(query.arg(name).arg(birthday));
+        QString q = "INSERT INTO contacts(name,birthday) VALUES('%1','%2');";
+        SQL_Execute(q.arg(name).arg(birthday));
     }
 }
 
@@ -38,15 +39,19 @@ bool TableExists(QString tableName){
       "SELECT count(*) AS count "
       "FROM sqlite_master WHERE "
             " type = 'table' AND name = '%1'";
-    QSqlQuery a_query;
-    qDebug() << queryTemplate.arg(tableName);
-    if (!a_query.exec(queryTemplate.arg(tableName))) {
-        qDebug() << a_query.lastError().text();
+      // %1 - первый аргумент
+    QSqlQuery q;
+    qDebug() << "SQL: " << queryTemplate.arg(tableName);
+
+    if (!q.exec(queryTemplate.arg(tableName))) {
+        qDebug() << q.lastError().text();
         return false;
     }
-    QSqlRecord rec = a_query.record();
-    a_query.next();
-    int result = a_query.value(rec.indexOf("count")).toInt();
+
+    // Читаем таблицу результатов
+    QSqlRecord rec = q.record();
+    q.next();
+    int result = q.value(rec.indexOf("count")).toInt();
     cout << "result " << result << endl;
     if(result == 0){
         cout << "Table " << tableName.toStdString() << " - not exists!" << endl;
@@ -58,22 +63,24 @@ bool TableExists(QString tableName){
 
 
 void ShowContacts(){
-    QSqlQuery a_query;
-    if (!a_query.exec("SELECT * FROM contacts")) {
-        qDebug() << "Даже селект не получается, я пас.";
+    QSqlQuery q;
+    if (!q.exec("SELECT * FROM contacts")) {
+        qDebug() << "Cannot Select data";
         return;
     }
-    QSqlRecord rec = a_query.record();
-    QString name = "", birthday = "";
-    cout << "Count: " << a_query.size() << endl;
+    QSqlRecord rec = q.record();
+    cout << "Count: " << q.size() << endl;
 
     int count = 0;
-    while (a_query.next()) {
-        name = a_query.value(rec.indexOf("name")).toString();
-        birthday = a_query.value(rec.indexOf("birthday")).toString();
+    // Выбираем следующую строку
+    while (q.next()) {
+        QString name = q.value("name").toString();
+        QString birthday = q.value("birthday").toString();
 
-        cout << ++count << ". " << name.toLocal8Bit().constData() << " " <<
-                birthday.toStdString() << " " << endl;
+//        cout << ++count << ". " << name.toLocal8Bit().constData() << " " <<
+//                birthday.toStdString() << " " << endl;
+        qDebug() << ++count << ". " << name << " " <<
+                birthday << " " << endl;
     }
 
 }
@@ -171,7 +178,7 @@ int SQLiteTest(){
 
 int main()
 {
-    setlocale(LC_ALL, "Russian");
+    //setlocale(LC_ALL, "Russian");
 
     SQLiteTest();
     

@@ -1,26 +1,18 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2014-01-20T15:25:06
+# Project created by QtCreator 2014-07-08T22:16:09
 #
 #-------------------------------------------------
 
 QT       += core
 
-# Добавили строку для модуля SQL
-QT       += sql  # add QT SQL
-
 QT       -= gui
 
-TARGET = qt_console
+TARGET = HomeWork2
 CONFIG   += console
 CONFIG   -= app_bundle
 
 TEMPLATE = app
 
-TARGET = Qt_SQL
 
 SOURCES += main.cpp
-
-HEADERS  +=
-
-FORMS    +=
