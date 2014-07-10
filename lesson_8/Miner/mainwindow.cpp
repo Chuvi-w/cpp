@@ -48,6 +48,7 @@ void MainWindow::s(){
     // Он типа QObject*, а не QPushButton*
     // Поэтому мы его приводим к нужному типу
     QPushButton *button = (QPushButton *) QObject::sender();
+      // a = (double)(23423 + 32424)
     qDebug() << "Button pressed " << button->text();
 
     // Выключаем поле
