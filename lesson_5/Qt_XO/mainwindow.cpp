@@ -14,8 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->fontPrototypeButton->setVisible(false);
 
     // Заполним весь массив кнопок поля NULL
-    for(int i = 0; i < 3; i++)
-        for(int j = 0; j < 3; j++)
+    for(int i = 0; i < MapSize; i++)
+        for(int j = 0; j < MapSize; j++)
             cells[i][j] = NULL;
 
     // Начало игры
@@ -74,11 +74,11 @@ void MainWindow::updateGameButtons(){
     int cellSpace = 6; // Отступ
     int topSpace = 80; // Отступ сверху
     int leftSpace = 50; // Отступ слева
-    int randOffset = 10;
+    int randOffset = 5;
 
-    // Создаём массив 3 на 3 из QPushButton
-    for(int i = 0; i < 3; i++)
-        for(int j = 0; j < 3; j++){
+    // Создаём массив MapSize на MapSize из QPushButton
+    for(int i = 0; i < MapSize; i++)
+        for(int j = 0; j < MapSize; j++){
 
             if(cells[i][j] != NULL){
                 delete cells[i][j];
@@ -109,6 +109,11 @@ void MainWindow::saveGame(){ // Сохранить игру в файл
     QString filename = QFileDialog::getSaveFileName(
                 this, "Сохранить игру", "", // C:\\Users\\Денис\\Desktop
                 "Игра XO (*.game)"); // "Как картинку (*.jpg);;Игра XO (*.game)"
+    qDebug() << filename;
+
+    if(filename.isEmpty())
+        return;
+
     game.save(filename);
 }
 

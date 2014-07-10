@@ -13,14 +13,22 @@ enum State {
     DRAW    // Ничья
 };
 
+// Размер поля игры
+const int MapSize = 4;
+
+/*enum E {
+    a = 1,
+    b = 20
+};*/
+
 // Все что происодит на поле и логика игрового мира
 // Ходы, выйгрыш/проигрыш
 class Game
 {
     State state; // Текущее состояние игры
-    char Map[3][3]; // Игровое поле
+    char Map[MapSize][MapSize]; // Игровое поле
     // Проверка выйгрыша
-    void line(char a, char b, char c);
+    void line(char a[MapSize]);
 public:
     // Конструктор
     Game();

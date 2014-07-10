@@ -6,15 +6,17 @@
 
 Game::Game()
 {
+    // При старте программы сразу начинается новая игра
     newGame();
 }
 
 // Новая игра
 void Game::newGame(){
-    state = X_MOVE;
+    // Первыми ходят всегда крестики
+    state = O_MOVE;
     // Заполняем поле пустыми клетками, без крестиков и ноликов
-    for(int i = 0; i < 3; i++)
-        for(int j = 0; j < 3; j++)
+    for(int i = 0; i < MapSize; i++)
+        for(int j = 0; j < MapSize; j++)
             Map[i][j] = ' ';
 }
 
@@ -31,6 +33,7 @@ QString Game::getStateString(){
     case DRAW:
         return QString("Ничья! :)");
     default:
+        return QString("Ошибка в программе!");
         assert(false);
     }
     return QString("Непредусмотренное состояние игры!");
@@ -59,12 +62,13 @@ QString Game::makeMove(int row, int col){
 }
 
 // Три крестика или три нолика
-void Game::line(char a, char b, char c){
-    // Если не три равных => не подходит
-    bool equals = (a == b) && (b == c);
-    if (!equals) return;
+void Game::line(char a[MapSize]){
+    // Если не все элементы равны => не подходит
+    for(int i = 1; i < MapSize; ++i)
+      if(a[i-1] != a[i])
+        return;
     // Кто-то выйграл :)
-    switch(a){
+    switch(a[0]){
     case 'X':
         state = X_WIN;
         break;
@@ -77,13 +81,31 @@ void Game::line(char a, char b, char c){
 }
 
 void Game::checkGameOver(){
-    // Проверяем диагонали
-    line(Map[0][0], Map[1][1], Map[2][2]);
-    line(Map[2][0], Map[1][1], Map[0][2]);
+    char a[MapSize];
+    // == Проверяем диагонали ==
+    // Основная диагональ
+    for(int i = 0; i < MapSize; ++i)
+      a[i] = Map[i][i];
+    line(a);
+
+    // Дополнительная диагональ
+    //   (0,0) (0,1) (0,2)
+    //   (1,0) (1,1) (1,2)
+    //   (2,0) (2,1) (2,2)
+    for(int i = 0; i < MapSize; ++i)
+      a[i] = Map[MapSize-i-1][i];
+    line(a);
+
     // Вертикальные и горизонтальные линии
-    for(int i = 0; i < 3; i++){
-        line(Map[0][i], Map[1][i], Map[2][i]);
-        line(Map[i][0], Map[i][1], Map[i][2]);
+    for(int i = 0; i < MapSize; ++i){
+        // Вертикальная линия
+        // копируем в a i-ый столбец
+        for(int j = 0; j < MapSize; ++j)
+            a[j] = Map[j][i];
+        line(a);
+
+        // Горизонтальная линия
+        line(Map[i]);
     }
     // Проверяем что крестики или нолики выйграли
     // и выходим
@@ -95,38 +117,40 @@ void Game::checkGameOver(){
          ; // Do nothing
     }
 
-    // Ничья = все клетки заполнены и никто не выйграл
-    int cnt = 0;
-    for(int i = 0; i < 3; i++)
-        for(int j = 0; j < 3; j++)
-            if(Map[i][j] == 'X' || Map[i][j] == 'O')
+    // Ничья = не осталось пустых клеток
+    int cnt = 0; // Количество пустых клеток
+    for(int i = 0; i < MapSize; i++)
+        for(int j = 0; j < MapSize; j++)
+            if(Map[i][j] == ' ')
                 cnt++;
     qDebug() << "cnt = " << cnt;
-    if(cnt == 3*3)
+    if(cnt == 0)
         state = DRAW;
 }
 
-void Game::save(QString fileName){ // Сохранение игры
+// Сохранение игры
+void Game::save(QString fileName){
     QFile f(fileName); // QFile позволяет работать с файлами
-    f.open(QIODevice::WriteOnly);
+    f.open(QIODevice::WriteOnly | QIODevice::Text);
     // Сохраняем данные
     QTextStream out(&f);
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++)
+    for(int i = 0; i < MapSize; i++){
+        for(int j = 0; j < MapSize; j++)
             out << Map[i][j];
         out << endl;
     }
     f.close();
 }
 
+// Загрузка (чтение) сохранённой игры из файла
 void Game::load(QString fileName){ // Загрузка игры
     QFile f(fileName); // Создаем объект - файл
     f.open(QIODevice::ReadOnly | QIODevice::Text); // Открываем его для чтения
     // Читаем данные
     QTextStream in(&f);
     int x_cnt = 0, o_cnt = 0; // Количество крестиков и ноликов
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
+    for(int i = 0; i < MapSize; i++){
+        for(int j = 0; j < MapSize; j++){
             in >> Map[i][j]; // Очередной символ
             switch(Map[i][j]){
             case 'X':

@@ -11,9 +11,13 @@ int main() {
         return 1;
     }
 
+    // Создаём экземпляр класса QSqlQuery чтобы выполнить запрос
     QSqlQuery q;
+    // Выполняем запрос, если ошибка в запросе,
+    // то метод возвращает false
     if(!q.exec("SELECT * FROM students")){
-        qDebug() << q.lastError().text();
+        // Выводим подробное сообщение об ошибке
+        qDebug() << "SQL error: " << q.lastError().text();
         return 1;
     }
 

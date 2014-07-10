@@ -17,10 +17,10 @@
    <widget class="QLabel" name="moveLabel">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>330</x>
       <y>50</y>
-      <width>91</width>
-      <height>16</height>
+      <width>141</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -41,7 +41,7 @@
      <enum>QFrame::NoFrame</enum>
     </property>
     <property name="text">
-     <string>2423434333</string>
+     <string>Состояние игры</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -79,8 +79,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Verdana</family>
-      <pointsize>20</pointsize>
+      <family>Comic Sans MS</family>
+      <pointsize>24</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -104,7 +104,7 @@
      <enum>Qt::ClickFocus</enum>
     </property>
     <property name="title">
-     <string>Выход</string>
+     <string>Системное меню</string>
     </property>
     <addaction name="exitAction"/>
    </widget>

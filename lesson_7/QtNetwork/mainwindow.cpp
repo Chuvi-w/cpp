@@ -47,6 +47,7 @@ void MainWindow::UdpChat(QString nick, int port)
     send(nick + " - в чате", USUAL_MESSAGE);
 }
 
+// Нажимаем на кнопку "Войти в чат"
 void MainWindow::on_enterChatButton_clicked()
 { 
     QString nick = ui->nicknameEdit->text();
@@ -129,6 +130,7 @@ void MainWindow::read() {
     }
 }
 
+// Нажимаем на кнопку "Отправить сообщение"
 void MainWindow::on_sendButton_clicked()
 {
     // Вся строка сообщения: "ник: сообщение"
@@ -144,7 +146,10 @@ void MainWindow::on_messageEdit_returnPressed()
     on_sendButton_clicked();
 }
 
+// Обновляем список тех кто online
 void MainWindow::refreshOnlineList(){
+    // Храним время, когда последний раз этот человек был в сети
+
     ui->onlineList->clear();
     send("", WHO_IS_ONLINE);
 }
