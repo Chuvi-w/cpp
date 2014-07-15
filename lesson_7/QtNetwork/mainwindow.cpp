@@ -14,7 +14,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Таймер опроса "кто онлайн"
     QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(refreshOnlineList()));
+    // Соединяем сигнал со слотом
+    connect(timer,
+            SIGNAL(timeout()),
+            this,
+            SLOT(refreshOnlineList()));
     timer->start(1000);
 }
 
@@ -26,6 +30,7 @@ MainWindow::~MainWindow()
 // Создание UDP-чата
 void MainWindow::UdpChat(QString nick, int port)
 {
+    // Если соединение уже открыто, то закрываем его
     if(socket != NULL){
         socket->close();
         delete socket;
@@ -35,11 +40,14 @@ void MainWindow::UdpChat(QString nick, int port)
     socket = new QUdpSocket(this);
     // QHostAddress("192.168.1.104") - конкретный IP, с которого можно подключиться
 
+    // QHostAddress::Any - принимать сообщения со всех IP адресов
     if(socket->bind(QHostAddress::Any, port)){
         // При получении данных (сигнал readyRead)
         // вызываем метод (слот) read, который
         connect(socket, SIGNAL(readyRead()), this, SLOT(read()));
     } else {
+        // Какая-то программа на этом компьютере уже
+        // заняла порт port
         qDebug() << "Port " << port << " in use. Change port!";
         return;
     }
@@ -63,19 +71,15 @@ void MainWindow::send(QString str, qint8 type) {
     // Полный пакет данных будет в массиве data
     QByteArray data; // Массив данных для отправки
 
-    //QFile file("test.dat");
-    //file.open(QIODevice::WriteOnly);
-    //QDataStream out2(&file);
-
     // Последовательно выводим в него байты
     QDataStream out(&data, QIODevice::WriteOnly);
-    out << qint64(0); // Размер сообщения (сначала ставим 0)
+    //out << qint64(-100000); // Размер сообщения (сначала ставим 0)
     out << qint8(type); // Тип сообщения
     out << str; // Само сообщение
     // Снова перемещаемся на начало массива
-    out.device()->seek(qint64(0));
+    //out.device()->seek(qint64(0));
     // Записываем в начало сообщения его размер
-    out << qint64(data.size() - sizeof(qint64));
+    //out << qint64(data.size() - sizeof(qint64));
 
     /*long long size = sizeof(long long) + sizeof(type) +
           str.size();
@@ -94,22 +98,24 @@ void MainWindow::send(QString str, qint8 type) {
 // Получение сообщения по UDP
 void MainWindow::read() {
     // Массив для полученных данных
-    QByteArray datagram;
+    QByteArray data;
     // Устанавливаем массиву размер соответствующий размеру полученного пакета данных
-    datagram.resize(socket->pendingDatagramSize());
+    data.resize(socket->pendingDatagramSize());
     QHostAddress *address = new QHostAddress();
-    socket->readDatagram(datagram.data(), datagram.size(), address);
-    qDebug() << "Message from IP: " << address->toString();
+    socket->readDatagram(data.data(), data.size(), address);
+    qDebug() << "Message from IP: " << address->toString() << " " << data.size();
 
     // Разбор полученного пакета
-    QDataStream in(&datagram, QIODevice::ReadOnly);
+    QDataStream in(&data, QIODevice::ReadOnly);
 
     // Первые 8 байт - размер
-    qint64 size = -1;
+   /* qint64 size = -1;
     if(in.device()->size() > sizeof(qint64)) {
         in >> size;
-    } else return;
-    if (in.device()->size() - sizeof(qint64) < size) return;
+    } else
+        return; */
+
+  //  if (in.device()->size() - sizeof(qint64) < size) return;
 
     // Получаем тип пакета
     qint8 type = 0;
@@ -118,6 +124,19 @@ void MainWindow::read() {
     if (type == USUAL_MESSAGE) {
         QString str;
         in >> str;
+
+        if(str.length() == 0)
+            return;
+
+        // Записываем входящие сообщения в файл
+        QFile file("log.txt");
+        file.open(QIODevice::WriteOnly | QIODevice::Text
+                  | QIODevice::Append );
+        QTextStream out2(&file);
+        out2.setCodec("UTF-8");
+        out2 << str << "\n";
+        file.close();
+
         // Отображаем строчку в интерфейсе
         ui->plainTextEdit->appendPlainText(str);
     } else if (type == PERSON_ONLINE) {
@@ -148,7 +167,7 @@ void MainWindow::on_messageEdit_returnPressed()
 
 // Обновляем список тех кто online
 void MainWindow::refreshOnlineList(){
-    // Храним время, когда последний раз этот человек был в сети
+    // TODO: хранить время, когда последний раз этот человек был в сети
 
     ui->onlineList->clear();
     send("", WHO_IS_ONLINE);

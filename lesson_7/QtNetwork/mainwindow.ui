@@ -30,11 +30,17 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>20</y>
+      <x>30</x>
+      <y>10</y>
       <width>46</width>
-      <height>13</height>
+      <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Ник:</string>
@@ -69,9 +75,9 @@
    <widget class="QLineEdit" name="messageEdit">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>70</y>
-      <width>301</width>
+      <x>20</x>
+      <y>50</y>
+      <width>321</width>
       <height>20</height>
      </rect>
     </property>
@@ -83,7 +89,7 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>100</y>
+      <y>80</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -96,9 +102,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>140</y>
-      <width>291</width>
-      <height>151</height>
+      <y>110</y>
+      <width>351</width>
+      <height>181</height>
      </rect>
     </property>
    </widget>

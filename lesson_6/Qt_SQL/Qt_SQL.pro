@@ -24,3 +24,8 @@ SOURCES += main.cpp
 HEADERS  +=
 
 FORMS    +=
+
+# Подключение MySQL
+#INCLUDEPATH+=C:/MySQL/include
+#LIBS+=C:/MYSQL/MySQL Server <version>/lib/opt/libmysql.lib
+# + использовать драйвер QMYSQL

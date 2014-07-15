@@ -34,9 +34,11 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    // Для работы по UDP-протоколу в локальной сети
     QUdpSocket *socket;
 
     void UdpChat(QString nick, int port);
+
     // Отправить сообщение
     void send(QString str, qint8 type);
 };
