@@ -4,6 +4,12 @@
 #include <QObject>
 #include <QStringList>
 
+// a + b = c
+int sum(int a, int b){
+
+}
+
+
 // Корни квадратного уравнения
 struct Roots {
     int numberOfRoots;

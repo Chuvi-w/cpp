@@ -9,10 +9,8 @@ class InputThread : public QThread
 public:
     explicit InputThread(QObject *parent = 0);
 
-signals:
-
 public slots:
- void run();
+    void run();
 };
 
 #endif // INPUTTHREAD_H

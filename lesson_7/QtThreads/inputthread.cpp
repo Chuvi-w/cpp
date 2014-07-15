@@ -9,9 +9,11 @@ InputThread::InputThread(QObject *parent) :
 }
 
 void InputThread::run(){
+   // Вводим целое число
    int i;
    cin >> i;
   //  sleep(5);
-   cout << "!!!!";
+   // Выводим восклицательные знаки
+  // cout << "!!!!";
    //QCoreApplication::exit();
 }

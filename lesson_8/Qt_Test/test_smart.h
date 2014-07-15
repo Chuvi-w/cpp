@@ -26,6 +26,8 @@ private slots: // должны быть приватными
     void intToStr_100_to_199();
 
     void intToStr_200_to_299();
+
+    void testSum();
 };
 
 #endif // TEST_SMART_H

@@ -1,6 +1,8 @@
 #include "mythread.h"
 #include <iostream>
 
+using namespace std;
+
 MyThread::MyThread(QObject *parent,
                    QString name,
                    int iterations) :
@@ -9,10 +11,15 @@ MyThread::MyThread(QObject *parent,
 {
 }
 
-
 void MyThread::run(){
+    // Перед этим генерируется сигнал started()
     for(int i = 1; i <= iterations; i++){
-        std::cout << name.toStdString() << " " << i << std::endl;
+        cout << "{ "
+             << name.toStdString() << " "
+             << i
+             << " }" << endl;
+        // Замедляем поток
         sleep(1);
     }
+    // Генерируется сигнал finished()
 }

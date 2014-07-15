@@ -132,9 +132,9 @@ void MainWindow::read() {
         QFile file("log.txt");
         file.open(QIODevice::WriteOnly | QIODevice::Text
                   | QIODevice::Append );
-        QTextStream out2(&file);
-        out2.setCodec("UTF-8");
-        out2 << str << "\n";
+        QTextStream log(&file);
+        log.setCodec("UTF-8");
+        log << str << "\n";
         file.close();
 
         // Отображаем строчку в интерфейсе

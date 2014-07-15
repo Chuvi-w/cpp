@@ -126,7 +126,7 @@ void Test_Smart::intToStr_100_to_199(){
 
 // Число в строку
 void Test_Smart::intToStr_200_to_299(){
-    Smart s(this);
+/*    Smart s(this);
     QCOMPARE(s.intToStr(200), QString("Двести"));
     QCOMPARE(s.intToStr(201), QString("Двести Один"));
     QCOMPARE(s.intToStr(202), QString("Двести Два"));
@@ -136,4 +136,5 @@ void Test_Smart::intToStr_200_to_299(){
     QCOMPARE(s.intToStr(222), QString("Двести Двадцать Два"));
     QCOMPARE(s.intToStr(240), QString("Двести Сорок"));
     QCOMPARE(s.intToStr(241), QString("Двести Сорок Один"));
+*/
 }

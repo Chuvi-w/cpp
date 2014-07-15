@@ -9,6 +9,7 @@ Smart::Smart(QObject *parent) :
 
 int Smart::max(int a, int b)
 {
+   // return 10;
     if(a > b)
         return a;
     return b; // Stub / "заглушка"

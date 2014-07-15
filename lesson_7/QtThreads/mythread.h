@@ -18,8 +18,6 @@ public:
                       QString name = "Thread",
                       int iterations = 10);
 
-signals:
-
 public slots:
 
     void run();
