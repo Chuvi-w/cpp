@@ -1,9 +1,3 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2014-07-15T21:58:57
-#
-#-------------------------------------------------
-
 QT       += core testlib # testlib - библиотека для модульного тестирования
 
 QT       -= gui
@@ -16,8 +10,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    sum.cpp
+    sum.cpp \
+    myclass.cpp
 
 HEADERS += \
     tests.h \
-    sum.h
+    sum.h \
+    myclass.h

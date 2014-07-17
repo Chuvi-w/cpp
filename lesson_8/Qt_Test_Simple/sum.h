@@ -8,5 +8,4 @@ int sum(int a, int b);
 // 10 -> 1, 2, 5, 10 - всего 4 делителя
 int divisors(int N);
 
-
 #endif // SUM_H

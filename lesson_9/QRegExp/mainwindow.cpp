@@ -32,6 +32,7 @@ void MainWindow::applyRegExp(){
 
     // Очищаем окно результатов
     ui->resultText->clear();
+
     // Создаём новое регулярное выражение на основе строки
     QString regExp = ui->regExpEdit->text();
     QRegExp rx(regExp);
@@ -115,4 +116,9 @@ void MainWindow::loadText(){
 
 void MainWindow::myNewSlot(){
     qDebug() << "myNewSlot()";
+}
+
+void MainWindow::on_sourceText_textChanged()
+{
+
 }

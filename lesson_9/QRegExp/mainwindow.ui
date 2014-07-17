@@ -23,7 +23,7 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>20</y>
+      <y>10</y>
       <width>321</width>
       <height>20</height>
      </rect>
@@ -41,8 +41,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
+      <x>10</x>
+      <y>10</y>
       <width>141</width>
       <height>16</height>
      </rect>
@@ -90,7 +90,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>150</y>
+      <y>170</y>
       <width>481</width>
       <height>161</height>
      </rect>
@@ -107,12 +107,41 @@
      <rect>
       <x>30</x>
       <y>330</y>
-      <width>221</width>
+      <width>281</width>
       <height>17</height>
      </rect>
     </property>
     <property name="text">
-     <string>Жадный поиск строк</string>
+     <string>Жадный поиск строк (как можно длинее)</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>141</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Текст для анализа:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>150</y>
+      <width>141</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Результаты анализа:</string>
     </property>
    </widget>
   </widget>
@@ -256,38 +285,6 @@
     <hint type="destinationlabel">
      <x>252</x>
      <y>202</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sourceText</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>myNewSlot()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>250</x>
-     <y>133</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>252</x>
-     <y>202</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sourceText</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>myNewSlot()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>347</x>
-     <y>132</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>14</x>
-     <y>47</y>
     </hint>
    </hints>
   </connection>

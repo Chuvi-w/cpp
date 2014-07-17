@@ -3,6 +3,7 @@
 
 #include <QtTest/QTest>
 #include "sum.h"
+#include "myclass.h"
 
 // Все тесты
 class Tests : public QObject
@@ -29,6 +30,12 @@ private slots:
         QCOMPARE(divisors(1), 1);
     }
 
+    void mul1(){
+        QCOMPARE(m->mul(2,2), 4);
+    }
+public:
+
+    MyClass* m = new MyClass;
 };
 
 #endif // TESTS_H

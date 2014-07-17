@@ -3,6 +3,10 @@ int sum(int a, int b){
 }
 
 int divisors(int N){
-    if(N == 10)
-        return 4;
+    int res = 0;
+    for(int i = 1; i <= N; ++i)
+        if(N % i == 0)
+            res++;
+    return res;
 }
+

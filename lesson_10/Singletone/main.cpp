@@ -44,7 +44,7 @@ public:
 int main()
 {
     srand (time(NULL));
-    // A a1; // Не компилируется
+    //A a1; // Не компилируется
     // A *a2 = new A(); // Тоже не компилируется
     A a = A::instance();
     A aa = A::instance();

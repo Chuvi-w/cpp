@@ -1,6 +1,7 @@
 #include <iostream>
 
 int main(){
-  std::cout << "Hello world!" << std::endl;
+  int i = 2*3;
+  std::cout << "Hello world! " << i << std::endl;
   return 0;
 }

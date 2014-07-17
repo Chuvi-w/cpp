@@ -28,6 +28,8 @@ private slots:
 
     void myNewSlot();
 
+    void on_sourceText_textChanged();
+
 private:
     Ui::MainWindow *ui;
 };
