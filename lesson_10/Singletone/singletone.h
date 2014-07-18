@@ -5,10 +5,12 @@
 
 template <class T>
 class Singletone {
+    // -static uniqueInstance
     // Один-единственный экземпляр класса T
     static T* uniqueInstance;
 
 public:
+    // +static instance()
     static T& instance(){
         // Если объект ещё не создан
         if(uniqueInstance == NULL){
