@@ -5,6 +5,7 @@ using namespace std;
 int main() {
   // Массивы
   // Одномерные
+  //-->
   int intArray[10];
   // int - тип элементов массива
   // intArray - название массива
@@ -34,6 +35,8 @@ int main() {
   for(int i = 1; i < 10; ++i)
     if(intArray[i] > maxValue)
       maxValue = intArray[i];
+
+  //<--
 
   return 0;
 }

@@ -11,11 +11,14 @@
 
 using namespace std;
 
+//-->
 void solve_equation(double a, double b, double c) {
   // TODO: реализовать
 }
+//<--
 
 int main() {
+  //-->
   // Коэффициенты квадратного уравнения
   double a, b, c;
   // a*x^2 + b*x + c = 0
@@ -29,6 +32,7 @@ int main() {
 
   // Вызов функции решения квадратного уравнения
   solve_equation(a, b, c);
+  //<--
 
   return 0;
 }

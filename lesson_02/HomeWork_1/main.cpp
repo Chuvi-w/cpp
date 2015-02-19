@@ -1,4 +1,3 @@
-// Домашнее задание - структуры данных
 #include <iostream>
 #include <math.h>
 

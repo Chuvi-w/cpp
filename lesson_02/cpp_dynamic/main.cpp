@@ -1,12 +1,18 @@
+// delete и delete[]
+// -----------------
 #include <iostream>
 
 using namespace std;
 
+// Пусть у нас есть структура
+//-->
 struct Point {
   double x, y;
 };
+//<--
 
 int main() {
+  //-->
   // Заводим массив в динамической памяти
   int* intArray;
   intArray = new int[1000]; // new со скобками []
@@ -16,6 +22,7 @@ int main() {
 
   Point* p = new Point;
   delete p; // delete без скобочек []
+  //<--
 
   return 0;
 }

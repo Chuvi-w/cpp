@@ -1,3 +1,5 @@
+// Абстрактная фабрика
+// -------------------
 #include <QCoreApplication>
 #include <iostream>
 

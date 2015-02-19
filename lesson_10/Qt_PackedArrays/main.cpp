@@ -1,17 +1,23 @@
+// Упакованный массив
+// ------------------
 #include <cassert>
 #include <iostream>
 
 using namespace std;
 
+//-->
+// Использовать битовые поля не получится
 struct OneBitStruct {
   int OneBit : 1;
 };
 
 // Размер массива вовсе не 1 байт
 OneBitStruct array[8];
+//<--
 
 #define SHOW(x) { cout << #x << " = " << x << endl; }
 
+//-->
 // Массив, в котором хранится size элементов.
 // Каждый элемент должен занимать bits бит.
 // Например:
@@ -81,7 +87,9 @@ struct CalcBits {
     mask2 = (1 << bits2) - 1;
   }
 };
+//<--
 
+//-->
 // bits - количество бит на одно число
 // size - размер массива
 template <int bits, int size, typename ValueType = unsigned char>
@@ -119,10 +127,12 @@ class PackedArray {
   }
   // TODO: реализовать перегрузку operator[]
 };
+//<--
 
 // Тестирование
 int main() {
   // Массив из 10 бит
+  //-->
   PackedArray<1, 10> pa;
 
   for(int i = 0; i < 10; ++i)
@@ -131,7 +141,10 @@ int main() {
       assert(pa.getValue(i) == v);
     }
 
+  //<--
+
   // Случайный тест
+  //-->
   for(int t = 0; t < 1000; ++t) {
     int i = rand() % 10;
     int v = rand() % 2;
@@ -139,7 +152,10 @@ int main() {
     assert(pa.getValue(i) == v);
   }
 
-  // По 4 бита
+  //<--
+
+  // Из 10 элементов по 4 бита
+  //-->
   PackedArray<4, 10> pa2;
 
   for(int t = 0; t < 10000; ++t) {
@@ -149,7 +165,10 @@ int main() {
     assert(pa2.getValue(i) == v);
   }
 
+  //<--
+
   // По 5 бит, с перехлёстом байтов
+  //-->
   CalcBits<5, 10, unsigned char> cb(1);
   assert( cb.i == 0 );
   assert( cb.idxIn == 5 );
@@ -167,7 +186,10 @@ int main() {
     assert(pa5.getValue(i) == v);
   }
 
+  //<--
+
   // С другим типом данных и перехлёстом
+  //-->
   PackedArray<11, 10, unsigned int> pa11;
 
   for(int t = 0; t < 10000; ++t) {
@@ -179,6 +201,8 @@ int main() {
     //SHOW(pa11.getValue(i));
     assert(pa11.getValue(i) == v);
   }
+
+  //<--
 
   return 0;
 }

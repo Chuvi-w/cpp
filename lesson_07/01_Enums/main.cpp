@@ -1,8 +1,10 @@
 // Перечисления
+// ------------
 #include <iostream>
 
 using namespace std;
 
+//-->
 // Направления
 const int X_UP = 0;
 const int X_DOWN = 1;
@@ -19,6 +21,7 @@ enum DirectionX {
   T_UP /* 0 */, T_DOWN /* 1 */,
   T_LEFT /* 2 */, T_RIGHT /* 3 */
 };
+//<--
 
 #pragma pack(1)
 

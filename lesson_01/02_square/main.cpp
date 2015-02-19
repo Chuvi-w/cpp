@@ -6,9 +6,9 @@ int main() {
   setlocale(LC_ALL, "Russian");
 
   double d;
-  cout << "Ââåäèòå ÷èñëî: ";
+  cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾: ";
   cin >> d;
 
-  cout << d << " â êâàäðàòå ðàâíî " << d* d << endl;
+  cout << d << " Ð² ÐºÐ²Ð°Ð´Ñ€Ð°Ñ‚Ðµ Ñ€Ð°Ð²Ð½Ð¾ " << d* d << endl;
   return 0;
 }

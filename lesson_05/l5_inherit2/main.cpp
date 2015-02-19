@@ -2,41 +2,49 @@
 
 using namespace std;
 
+// Запоминаем значение выравнивания
+// в стеке компилятора
+#pragma pack(push)
+// Выравнивание по 1 байту
+#pragma pack(1)
 class A {
  public:
-  int a;
-  virtual void show() {
+  char a;
+  virtual
+  void show() {
     cout << " a = " << a << endl;
   }
   A() {
-    a = 1;
+    a = 'A';
   }
 };
 
 class A2 {
  public:
-  int a;
+  char a;
   void show() {
-    cout << " a = " << a << endl;
+    cout << " a2 = " << a << endl;
   }
   A2() {
-    a = 3;
+    a = '#';
   }
 };
 
 class B : public A, public A2 {
  public:
-  int a;
-  virtual void show() {
+  char a;
+  void show() {
     cout << " a = " << a <<
          "  A::a = " << A::a <<
          "  A2::a = " << A2::a <<
          endl;
   }
   B() {
-    a = 2;
+    a = 'B';
   }
 };
+// Восстанавливаем предыдущее значение
+#pragma pack(pop)
 
 int main() {
   A* a[2] = { new A(), new B() };

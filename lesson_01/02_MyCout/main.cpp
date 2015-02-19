@@ -1,7 +1,9 @@
+// Можно объявить свой cout
 #include <iostream>
 
 using namespace std;
 
+//-->
 namespace my {
 int cout = 10;
 }
@@ -12,3 +14,4 @@ int main() {
   cout << "cout = " << my::cout << endl;
   return 0;
 }
+//<--

@@ -21,7 +21,8 @@ void MainWindow::on_pushButton_clicked() {
   dialog->show();
 }
 
-// Слот - реализуется как обычный метод
+/// Слот (обработчик сигнала) - реализуется как обычный метод
+//-->
 void MainWindow::on_closeButton_clicked() {
   qDebug() << "on_closeButton_clicked()";
 }
@@ -31,7 +32,7 @@ void MainWindow::on_concatButton_clicked() {
   // Указатель на сгенерированный
   // по *.ui файлу класс Ui::MainWindow
   QLineEdit* line1 = ui->lineEdit_1;
-  // line1 - узказатель на виджет
+  // line1 - указатель на виджет
   // Чтобы получить текст мы вызываем
   // метод text()
   // который возвращает QString
@@ -43,11 +44,12 @@ void MainWindow::on_concatButton_clicked() {
   //    имяСвойства
   // Чтобы получить значение вызываем метод:
   //    имяСвойства()
-  // Чтобы поменять вызываем метод:
-  //   setИмяСвойства(Новое_значение_свойства)
+  // Чтобы поменять значение вызываем метод:
+  //   setИмяСвойства(Новое_значение)
   ui->resEdit->setText(s1 +
                        ui->lineEdit_2->text());
 }
+//<--
 
 void MainWindow::on_enableButton_clicked() {
   ui->concatButton->setEnabled(

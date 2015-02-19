@@ -1,4 +1,5 @@
-// Применение цикла for
+// Цикл for
+// --------
 #include <iostream>
 
 using namespace std;

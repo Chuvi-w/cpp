@@ -25,8 +25,8 @@ typedef unsigned long long ull;
 
 const double PI = acos(-1.0);
 const double eps = 1e-12;
-const int INF = (1 « 30) - 1;
-const ll LLINF = ((ll)1 « 62) - 1;
+const int INF = (1 << 30) - 1;
+const ll LLINF = ((ll)1 << 62) - 1;
 
 #define mp make_pair
 #define pb push_back

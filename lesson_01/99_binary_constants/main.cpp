@@ -1,10 +1,11 @@
 // Представление двоичных констант в C++
+// -------------------------------------
 #include <iostream>
 
 using namespace std;
 
 // Рекурсивный "шаблон"
-
+//-->
 template<long long N>
 struct bin {
   enum {
@@ -21,6 +22,7 @@ struct bin<0> {
 // end the recursion chain and make posible more digits
 #define binary(n) bin<0##n>::value
 
+// Проверка работы макроса
 int main() {
   cout << bin<01000>::value << endl;
   cout << bin<1000>::value << endl;
@@ -28,3 +30,4 @@ int main() {
   cout << binary(1000) << endl;
   return 0;
 }
+//<--

@@ -1,4 +1,5 @@
 // Цикл while, структуры
+// ---------------------
 #include <iostream>
 using namespace std;
 

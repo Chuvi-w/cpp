@@ -1,6 +1,9 @@
+// Основная программа на Qt
+// ------------------------
+//-->
 #include "mainwindow.h"
 #include <QApplication>
-#include <QDebug>
+#include <QDebug> // Отладочный вывод в консоль 
 #include <iostream>
 
 using namespace std;
@@ -8,8 +11,10 @@ using namespace std;
 // argc - количество аргументов
 // argv - параметры командной строки
 int main(int argc, char* argv[]) {
+  // Печатаем количество аргументов
   cout << "argc: " << argc << endl;
 
+  // И сами аргументы
   for(int i = 0; i < argc; ++i)
     cout << argv[i] << endl;
 
@@ -30,3 +35,4 @@ int main(int argc, char* argv[]) {
   cout << "Closing... res = " << res << endl;
   return res;
 }
+//<--

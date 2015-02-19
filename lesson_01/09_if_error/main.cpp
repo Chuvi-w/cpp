@@ -1,5 +1,5 @@
-// Самая характерная (распространённая)
-// ошибка при применении if
+// Самая характерная (распространённая) ошибка при применении if
+// -------------------------------------------------------------
 #include <iostream>
 
 using namespace std;
@@ -9,7 +9,7 @@ using namespace std;
 int main() {
   int a = 0;
 
-  if(a =/*=*/ 0)
+  if(a == 0)  /*=*/
     cout << "a = 0" << endl;
   else
     cout << "a != 0" << endl;
@@ -19,7 +19,8 @@ int main() {
   else
     cout << "FALSE" << endl;
 
-  int a = 2, b = 3;
+  a = 2;
+  int b = 3;
 
   if(MY_CONST == a)
     cout << "a == b" << endl;
@@ -39,6 +40,6 @@ int main() {
     cout << "False!" << endl;
 
   cout << "j = " << j << endl;
-  * /
+
   return 0;
 }

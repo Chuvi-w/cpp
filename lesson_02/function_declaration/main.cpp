@@ -1,4 +1,4 @@
-// Функции
+// Р¤СѓРЅРєС†РёРё
 #include <iostream>
 
 void myFunction() {

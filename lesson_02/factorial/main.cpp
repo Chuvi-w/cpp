@@ -1,6 +1,6 @@
 #include <iostream>
 
-// Без: using namespace std;
+// Р‘РµР·: using namespace std;
 
 long long factorial(int N) {
   if(N <= 1)
@@ -10,7 +10,7 @@ long long factorial(int N) {
 }
 
 int main(int argc, char* argv[]) {
-  // Win1251 и в исходном тексте и в консоли
+  // Win1251 Рё РІ РёСЃС…РѕРґРЅРѕРј С‚РµРєСЃС‚Рµ Рё РІ РєРѕРЅСЃРѕР»Рё
   setlocale(LC_ALL, "Russian");
 
   for(int N = 1; N < 25; N++)

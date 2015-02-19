@@ -1,9 +1,14 @@
 // Побитовые операции с целыми числами
+// -----------------------------------
 // Каждый бит как логическая переменная
 #include <iostream>
 
+#define SHOW(x) cout << #x << " = " << x << endl;
+
 using namespace std;
 
+// Пространства имён
+//-->
 namespace A {
 int a;
 }
@@ -11,7 +16,9 @@ int a;
 namespace B {
 int a;
 }
+//<--
 
+//-->
 int main() {
   A::a = 1;
   B::a = 2;
@@ -47,7 +54,11 @@ int main() {
   int k = ~1 & 3; // 01 -> 10
   cout << "k = " << k << endl;
 
+  unsigned int kk = ~1;
+  SHOW(kk)
+
   //c = 2, A::a = 4 + A::b;
   cout << "c = " << c << endl;
   return 0;
 }
+//<--

@@ -1,8 +1,11 @@
+// Домашняя работа
+// ---------------
 #include <iostream>
 #include <cstdlib>
 
 using namespace std;
 
+//-->
 // Элемент стека и очереди
 struct E {
   int value; // Значение элемента
@@ -24,7 +27,7 @@ struct Stack {
   }
 };
 
-// Доп. задание: очередь
+// Очередь
 struct Queue {
   E* head; // "Голова" - начало очереди
   E* tail; // "Хвост" - конец очереди
@@ -39,8 +42,11 @@ struct Queue {
     // TODO: реализовать
   }
 };
+//<--
 
 int main() {
+  // Пример использования
+  //-->
   Stack s;
   s.push(2);
   s.push(3);
@@ -56,8 +62,11 @@ int main() {
   Queue q;
   q.put(10);
   q.put(14);
+  q.put(99);
   cout << "10 - " << q.get() << endl;
   cout << "14 - " << q.get() << endl;
+  cout << "99 - " << q.get() << endl;
+  //<--
 
   return 0;
 }

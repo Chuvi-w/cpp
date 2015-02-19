@@ -15,10 +15,11 @@ int main() {
   double c = 1;
 
   // fabs - взять по модулю
-  // if(a + b == c) {
-  if( fabs((a + b) - c) < DBL_EPSILON * 1000)
+  if((int)(a + b) == (int)c) {
+    // DBL_EPSILON * 1000
+    //if( fabs((a + b) - c) < 1e-9){
     cout << a << " + " << b << " == " << c << endl;
-  else {
+  } else {
     cout << a << " + " << b << " != " << c << endl;
     cout << a + b << " " << c << endl;
     cout << c - (a + b) << endl;
