@@ -11,7 +11,7 @@ using namespace std;
 // Создаем собственный класс "Строчка"
 //-->
 struct String {
-  char* str;
+  char* str; // Здесь храним строчку
   int x; // Дополнительное поле
   // Конструктор
   String(char* initStr) {

@@ -1,3 +1,5 @@
+/// Изменение свойств объектов по событиям
+/// ======================================
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -11,13 +13,15 @@ MainWindow::~MainWindow() {
   delete ui;
 }
 
+//-->
 void MainWindow::on_incFontSizeButton_clicked() {
   // Получаем у кнопки её шрифт
   QFont font = ui->pushButton->font();
   font.setPointSize(font.pointSize() + 1);
   ui->pushButton->setFont(font);
-  //ui->pushButton->setText("Привет");
+  ui->pushButton->setText("Привет");
 }
+//<--
 
 void MainWindow::on_decFontSizeButton_clicked() {
   QFont font = ui->pushButton->font();

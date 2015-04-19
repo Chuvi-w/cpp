@@ -1,3 +1,5 @@
+/// Автоматическое удаление при указании parent
+/// -------------------------------------------
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "myclass.h"

@@ -1,3 +1,5 @@
+/// Работа с сетью
+/// ==============
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QTimer>
@@ -13,6 +15,7 @@ MainWindow::MainWindow(QWidget* parent) :
   on_enterChatButton_clicked();
 
   // Таймер опроса "кто онлайн"
+  ///-->
   QTimer* timer = new QTimer(this);
   // Соединяем сигнал со слотом
   connect(timer,
@@ -20,13 +23,15 @@ MainWindow::MainWindow(QWidget* parent) :
           this,
           SLOT(refreshOnlineList()));
   timer->start(1000);
+  ///<--
 }
 
 MainWindow::~MainWindow() {
   delete ui;
 }
 
-// Создание UDP-чата
+/// Создание UDP-чата
+///-->
 void MainWindow::UdpChat(QString nick, int port) {
   // Если соединение уже открыто, то закрываем его
   if(socket != NULL) {
@@ -54,8 +59,10 @@ void MainWindow::UdpChat(QString nick, int port) {
 
   send(nick + " - в чате", USUAL_MESSAGE);
 }
+///<--
 
-// Нажимаем на кнопку "Войти в чат"
+/// Нажимаем на кнопку "Войти в чат"
+///-->
 void MainWindow::on_enterChatButton_clicked() {
   QString nick = ui->nicknameEdit->text();
   UdpChat(nick,
@@ -63,9 +70,11 @@ void MainWindow::on_enterChatButton_clicked() {
   // Разрешаем отправлять сообщения только когда уже в чате
   ui->sendButton->setEnabled(true);
 }
+///<--
 
 
-// Отправка сообщения в сеть
+/// Отправка сообщения в сеть
+///-->
 void MainWindow::send(QString str, qint8 type) {
   // Полный пакет данных будет в массиве data
   QByteArray data; // Массив данных для отправки
@@ -81,8 +90,10 @@ void MainWindow::send(QString str, qint8 type) {
                         QHostAddress::Broadcast,
                         ui->portNumEdit->text().toInt() );
 }
+///<--
 
-// Получение сообщения по UDP
+/// Получение сообщения по UDP
+///-->
 void MainWindow::saveToLogFile(QString str) {
   QFile file("log.txt");
   file.open(QIODevice::WriteOnly | QIODevice::Text
@@ -145,8 +156,10 @@ void MainWindow::read() {
          qint8(PERSON_ONLINE));
   }
 }
+///<--
 
-// Нажимаем на кнопку "Отправить сообщение"
+/// Нажимаем на кнопку "Отправить сообщение"
+///-->
 void MainWindow::on_sendButton_clicked() {
   // Вся строка сообщения: "ник: сообщение"
   send(ui->nicknameEdit->text() + ": " +
@@ -155,12 +168,14 @@ void MainWindow::on_sendButton_clicked() {
 
   ui->messageEdit->clear();
 }
+///<--
 
 void MainWindow::on_messageEdit_returnPressed() {
   on_sendButton_clicked();
 }
 
-// Обновляем список тех кто online
+/// Обновляем список тех кто online
+///-->
 void MainWindow::refreshOnlineList() {
   // TODO: хранить время, когда последний раз этот человек был в сети
 
@@ -185,3 +200,4 @@ void MainWindow::refreshOnlineList() {
 
   send("", WHO_IS_ONLINE);
 }
+///<--

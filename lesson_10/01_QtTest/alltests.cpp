@@ -1,18 +1,21 @@
 #include <QtTest/QTest>
-// Подключаем все модули для тестирования
+/// Подключаем все модули для тестирования
+///-->
 #include "inttostr.h"
 #include "functions.h"
 #include "myclass.h"
 #include "squareeq.h"
 // И свой заголовочный файл
 #include "alltests.h"
+///<--
 
 AllTests::AllTests(QObject* parent) :
   QObject(parent) {
 }
 
-// Тестирование вычисления максимума
+/// Тестирование вычисления максимума
 void AllTests::max() {
+  ///-->
   MyClass a(this);
   // QCOMPARE( вызов_тестируемой_функции, ожидаемое_значение );
   QCOMPARE(a.max(2, 3), 3);  // 1 тест
@@ -20,10 +23,12 @@ void AllTests::max() {
   QCOMPARE(a.max(5, 1), 5);
   QCOMPARE(a.max(1, 2), 2);
   QCOMPARE(a.max(-10, -20), -10);
+  ///<--
 }
 
-// Тестирование вычисления факториала
+/// Тестирование вычисления факториала
 void AllTests::factorial() {
+  ///-->
   QCOMPARE( ::factorial(1), 1LL );
   QCOMPARE( ::factorial(2), 2 * 1LL );
   QCOMPARE( ::factorial(3), 3 * 2 * 1LL );
@@ -43,10 +48,14 @@ void AllTests::factorial() {
   } catch(QString q) {
     QCOMPARE( q, QString("N > 0"));
   }
+
+  ///<--
 }
 
 void AllTests::rootsTest() {
-  // TDD
+  /// Квадратное уравнение
+  /// TDD - Test Driven Development
+  ///-->
   SquareEq a;
   Roots roots = a.quadraticEquation(1, 0, 0);
 
@@ -84,9 +93,11 @@ void AllTests::rootsTest() {
   } catch(QString q) {
     QCOMPARE( q, QString("Бесконечное число решений"));
   }
+
+  ///<--
 }
 
-// Число в строку
+/// Число в строку
 void AllTests::intToStrBefore100() {
   QCOMPARE(intToStr(0), QString("Ноль"));
   QCOMPARE(intToStr(1), QString("Один"));
@@ -123,7 +134,6 @@ void AllTests::intToStrBefore100() {
   QCOMPARE(intToStr(92), QString("Девяносто два"));
 }
 
-// Число в строку
 void AllTests::intToStr_100_to_199() {
   QCOMPARE(intToStr(100), QString("Сто"));
   QCOMPARE(intToStr(101), QString("Сто один"));
@@ -136,7 +146,6 @@ void AllTests::intToStr_100_to_199() {
   QCOMPARE(intToStr(141), QString("Сто сорок один"));
 }
 
-// Число в строку
 void AllTests::intToStr_200_to_999() {
   QCOMPARE(intToStr(200), QString("Двести"));
   QCOMPARE(intToStr(201), QString("Двести один"));

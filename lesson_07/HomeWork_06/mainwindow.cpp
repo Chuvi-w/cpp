@@ -42,9 +42,8 @@ void MainWindow::on_up_clicked() {
   Y = Y - 5;
   ui->textEdit->move(X, Y);
 }
-void MainWindow::on_down_clicked() {
-  \
 
+void MainWindow::on_down_clicked() {
   if(Y >= 115)
     Y = 115;
 

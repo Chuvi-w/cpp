@@ -1,9 +1,10 @@
-#include <stdio.h> /* Подключаем библиотеку */
-#include <clocale>
+#include <stdio.h> /* РџРѕРґРєР»СЋС‡Р°РµРј Р±РёР±Р»РёРѕС‚РµРєСѓ */
 #include <locale.h>
+#include <windows.h>
 
 int main() {
-  setlocale(LC_ALL, "Russian");
-  printf("C: Привет мир!\n");
+  SetConsoleOutputCP(CP_UTF8);
+  setlocale(LC_ALL, "Russian_Russia.UTF-8");
+  printf("C: РџСЂРёРІРµС‚ РјРёСЂ!\n");
   return 0;
 }

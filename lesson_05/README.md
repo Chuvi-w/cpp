@@ -1,5 +1,3 @@
-.\000_intro.md
-
 ﻿Template. Шаблонные функции. Стратегии
 ======================================
 
@@ -45,9 +43,8 @@ double f = max(123.11, 123.12);
 
 
 
-.\00_HomeWork_Done\main.cpp
-/ Домашнее задание: реализовать классы геометрических фигур
-/ ---------------------------------------------------------
+Домашнее задание: реализовать классы геометрических фигур
+---------------------------------------------------------
 Базовый класс: Фигура
 ``` cpp
 class Shape {
@@ -172,20 +169,20 @@ int main() {
 
   return 0;
 }
-.\00_class\main.cpp
-.\00_pointer_to_function\main.cpp
-/ Указатель на функцию
-/ --------------------
-/ Определение нового типа **MyFunction**
-/ Спецификация функции:
-/ * тип возвращаемого значения - int
-/ * тип первого параметра int
-/ * тип второго параметра void*
+[00_HomeWork_Done\main.cpp](00_HomeWork_Done\main.cpp)
+
+Указатель на функцию
+--------------------
+Определение нового типа **MyFunction**
+Спецификация функции:
+* тип возвращаемого значения - int
+* тип первого параметра int
+* тип второго параметра void*
 ``` cpp
 typedef int (*MyFunction)(int, void*);
 ```
 
-/ Две реализации функции
+Две реализации функции
 ``` cpp
 int f1(int a, void* b) {
   cout << __FUNCTION__ << "(" << a << ", " << b << ")" << endl;
@@ -196,9 +193,10 @@ int f2(int a, void* b) {
   cout << __FUNCTION__ << "(" << a << ", " << b << ")" << endl;
   return 2;
 }
+```
 
-/// Функция, которая на вход получает double
-/// и возвращает тоже double (например: sin/cos)
+Функция, которая на вход получает double
+и возвращает тоже double (например: sin/cos)
 ``` cpp
 typedef double (*DoubleFuncPtr)(double);
 ```
@@ -209,14 +207,17 @@ error: invalid conversion from
 showFuncTable(&f1);
 ```
 
-.\01_ConstructorInitList\main.cpp
-/ Список инициализации в конструкторе
-/ -----------------------------------
+[00_pointer_to_function\main.cpp](00_pointer_to_function\main.cpp)
+
+Список инициализации в конструкторе
+-----------------------------------
 #define TWO_CONSTRUCTORS
-.\01_arrays_const\main.cpp
+[01_ConstructorInitList\main.cpp](01_ConstructorInitList\main.cpp)
+
 Применение модификатора const в ООП
 Метод не модифицирует состояние объекта
-.\01_contructor_destructor\main.cpp
+[01_arrays_const\main.cpp](01_arrays_const\main.cpp)
+
 Создание объекта
 1. Отводится память sizeof(размер_объекта)
 2. Присваиваются значения полям
@@ -226,13 +227,17 @@ showFuncTable(&f1);
 Уничтожение объекта
 1. Выполняется код деструктора
 2. Очищается память занятая объектом
-.\02_bitfields\main.cpp
+[01_contructor_destructor\main.cpp](01_contructor_destructor\main.cpp)
+
 cout
-.\02_copy_constructor\main.cpp
+[02_bitfields\main.cpp](02_bitfields\main.cpp)
+
 Конструктор копирования
-.\02_task_access_level\main.cpp
+[02_copy_constructor\main.cpp](02_copy_constructor\main.cpp)
+
 Значение - описание где поле видимо
-.\03_inheritance\main.cpp
+[02_task_access_level\main.cpp](02_task_access_level\main.cpp)
+
 до первого private наследования
 privateA = 2; // Недоступен
 т.к. private доступны только внутри класса
@@ -259,10 +264,11 @@ bPublic.privateA = 10; // Недоступно
 bPublic.protectedA = 10; // Недоступно
 bProtected.publicA = 111;
 C.publicA = 12;
-.\03_private_constructor_singletone\00_main.cpp
-/ Private-конструктор
-/ -------------------
-/ Шаблон Singletone - "Одиночка"
+[03_inheritance\main.cpp](03_inheritance\main.cpp)
+
+Private-конструктор
+-------------------
+Шаблон Singletone - "Одиночка"
 ``` cpp
 class MyClass {
   // private constructor
@@ -295,7 +301,8 @@ int main() {
 }
 ```
 
-.\03_private_constructor_singletone\main.cpp
+[03_private_constructor_singletone\00_main.cpp](03_private_constructor_singletone\00_main.cpp)
+
 Для чего использовать private-конструкторы?
 -------------------------------------------
 Шаблон проектирования Singletone
@@ -350,7 +357,8 @@ int main() {
 }
 ```
 
-.\03_task_count_instance\main.cpp
+[03_private_constructor_singletone\main.cpp](03_private_constructor_singletone\main.cpp)
+
 +1, +2, +3, +4...
 -1, -2, -3, -4...
 объектов за всё время работы
@@ -368,7 +376,8 @@ id = count;
 1. Выполняется деструктор
 2. Вызываются деструктор предка
 3. Очищается память
-.\04_DoubleLinkedList\main.cpp
+[03_task_count_instance\main.cpp](03_task_count_instance\main.cpp)
+
 Добавить элемент в начало списка
 Тот элемент, который раньше был первым
 теперь должен ссылаться на новый первый элемент
@@ -398,7 +407,8 @@ root должен указывать на второй
 Удаляем первый элемент
 Удаляем единственный элемент
 Удаляем последний элемент
-.\04_object_ref_ressurection\main.cpp
+[04_DoubleLinkedList\main.cpp](04_DoubleLinkedList\main.cpp)
+
 Воскрешение уничтоженного объекта
 ---------------------------------
 +1, +2, +3, +4...
@@ -418,7 +428,8 @@ id = count;
 1. Выполняется деструктор
 2. Вызываются деструктор предка
 3. Очищается память
-.\05_task_rational\main.cpp
+[04_object_ref_ressurection\main.cpp](04_object_ref_ressurection\main.cpp)
+
 Перегрузка операторов в C++. Вывод в поток
 ------------------------------------------
 **Оператор в C++** - это некоторое действие или функция
@@ -451,7 +462,26 @@ class Rational {
     p /= d; // делим на него числитель
     q /= d; // делим на него знаменатель
   }
-  void show(ostream& os) const {
+ public:
+  // TODO: Конструктор
+  Rational(long pi, long qi) :
+    p(pi), q(qi) {
+    assert(q != 0);
+    //if(q == 0){
+    //  cout << "q == 0" << endl;
+    //  halt(1);
+    //}
+  }
+  Rational(const char* message) {
+    cout << message << " ";
+    cout << "p = ";
+    cin >> p;
+    cout << "q = ";
+    cin >> q;
+    normalize();
+  }
+  // Показать дробь на экран (в консоль)
+  void show(ostream& os = cout) const {
     // Сокращаем дробь если надо
     long d = GCD(p, q); // Вычисляем наибольший общий делитель
     long px = p / d; // делим на него числитель
@@ -483,28 +513,6 @@ class Rational {
       assert(px % qx != 0);
       os << px << "/" << qx << endl;
     }
-  }
- public:
-  // TODO: Конструктор
-  Rational(long pi, long qi) :
-    p(pi), q(qi) {
-    assert(q != 0);
-    //if(q == 0){
-    //  cout << "q == 0" << endl;
-    //  halt(1);
-    //}
-  }
-  Rational(const char* message) {
-    cout << message << " ";
-    cout << "p = ";
-    cin >> p;
-    cout << "q = ";
-    cin >> q;
-    normalize();
-  }
-  // Показать дробь на экран (в консоль)
-  void show() {
-    show(cout);
   }
 
   // Сложение дробей
@@ -616,7 +624,8 @@ int main() {
 }
 ```
 
-.\06_Class_static\main.cpp
+[05_task_rational\main.cpp](05_task_rational\main.cpp)
+
 Ключевое слово: static -
 поле/метод относится к классу целиком
 а не к конкретному объекту.
@@ -633,39 +642,45 @@ int main() {
 который вызывается прямо перед
 удалением объекта из памяти
 Инициализируем статическое поле класса
-.\06_Vector_operator\main.cpp
+[06_Class_static\main.cpp](06_Class_static\main.cpp)
+
 struct   = class
 (public)   (private)
 cout << c.x << " " << c.y << endl;
-.\06_polymorph\main.cpp
+[06_Vector_operator\main.cpp](06_Vector_operator\main.cpp)
+
 abstract
 interface  C# / Java
-.\07_inherit_simple\main.cpp
+[06_polymorph\main.cpp](06_polymorph\main.cpp)
+
 Класс A - предок класса B
 Класс B - наследник класса A
-.\07_poly_check\main.cpp
-.\08_inherit_2\main.cpp
+[07_inherit_simple\main.cpp](07_inherit_simple\main.cpp)
+
 B - наследует поля и методы и из A и из A2
 error: reference to 'x' is ambiguous|
 x = 2;
 Если уникальна
 Хоть var из A2 и не видно, всё равно надо
 указать класс
-.\08_inherit_order\main.cpp
+[08_inherit_2\main.cpp](08_inherit_2\main.cpp)
+
 ..
 Квадрат - частный случай прямоугольника
-.\09_cout_my_class\main.cpp
+[08_inherit_order\main.cpp](08_inherit_order\main.cpp)
+
 os = cout - типа ostream
 Point = P
-.\09_private_public_protected\main.cpp
-/ Принцип:
-/ 1. private - доступно только внутри данного класса
-/ 2. protected - + наследникам
-/ 3. public - + всем извне
-/ При наследовании:
-/   A -> B -> C -> D...
-/ Уровень доступа - минимум из всех модификаторов
-/ для данного поля/метода.
+[09_cout_my_class\main.cpp](09_cout_my_class\main.cpp)
+
+Принцип:
+1. private - доступно только внутри данного класса
+2. protected - + наследникам
+3. public - + всем извне
+При наследовании:
+A -> B -> C -> D...
+Уровень доступа - минимум из всех модификаторов
+для данного поля/метода.
 ``` cpp
 class Base {
  private:
@@ -726,10 +741,11 @@ int main() {
 
   return 0;
 }
-.\10_public_protected_private_combinations\main.cpp
+[09_private_public_protected\main.cpp](09_private_public_protected\main.cpp)
+
 Доступны и x и y
-.\12_virtual\main.cpp
-.\13_InheritShapes\main.cpp
+[10_public_protected_private_combinations\main.cpp](10_public_protected_private_combinations\main.cpp)
+
 Фигура
 Название фигуры
 Цвет фигуры
@@ -744,7 +760,8 @@ int main() {
 Координаты центра
 Радиус окружности
 Shape s("222",3,3,3);
-.\14_template_in_template\main.cpp
+[13_InheritShapes\main.cpp](13_InheritShapes\main.cpp)
+
 Шаблонная функция вычисления минимума
 Стек заданной длины
 T - тип элементов
@@ -761,9 +778,11 @@ Size - максимальное количество
 Взять из начала очереди
 TODO: Разобрать пример на следующем занятии
 Шаблонная функция для печати любой коллекции
-.\31_static\main.cpp
+[14_template_in_template\main.cpp](14_template_in_template\main.cpp)
+
 Нестатический метод
-.\32_const\main.cpp
+[31_static\main.cpp](31_static\main.cpp)
+
 ООП, модификатор const
 const: общий смысл - "нельзя менять"
 C: struct, class - нет
@@ -773,7 +792,8 @@ message[2] = 'A';
 increment of read-only variable 'i'|
 i++;
 p.move(2,3); // Нельзя
-.\32_operators\main.cpp
+[32_const\main.cpp](32_const\main.cpp)
+
 Перегрузка операторов
 -----------------------
 В C++ возможна перегрузка:
@@ -814,7 +834,8 @@ p/q + right.p/right.q
 Шаблонный "шаблонный" параметр
 Класс, который является шаблоном можно передавать как параметр
 другому классу-шаблону, при этом параметр вложенного шаблона
-.\34_string_overflow\main.cpp
+[32_operators\main.cpp](32_operators\main.cpp)
+
 Переполнение строки - источник уязвимостей
 ------------------------------------------
 ``` cpp
@@ -838,7 +859,8 @@ p/q + right.p/right.q
 
 ```
 
-.\HomeWork_1\main.cpp
+[34_string_overflow\main.cpp](34_string_overflow\main.cpp)
+
 НОД - Наибольший общий делитель
 Рациональная дробь: p/q
 Сокращение дроби
@@ -857,7 +879,8 @@ cout - типа ostream
 stream - поток
 thread - поток/нить
 Rational c = b + a;
-.\HomeWork_2\main.cpp
+[HomeWork_1\main.cpp](HomeWork_1\main.cpp)
+
 Словарь
 Чтение словаря из файла
 from - слово на исходном языке
@@ -865,11 +888,11 @@ to - перевод
 from - ключ, to - значение
 dict[from] = to;
 out << dict.find(s) << " " << dict.end() << endl;
-.\InputWidgets\main.cpp
-.\InputWidgets\mainwindow.cpp
+[HomeWork_2\main.cpp](HomeWork_2\main.cpp)
+
 Новый выбранный шрифт
-.\InputWidgets\mainwindow.h
-.\PointStuct\main.cpp
+[InputWidgets\mainwindow.cpp](InputWidgets\mainwindow.cpp)
+
 Точка
 Point(){};
 Отрезок
@@ -878,13 +901,16 @@ p2.x = x2;  p2.y = y2;
 Длина отрезка
 Point p(2,3);
 cout << "p.x = " << p.x << "  p.y = " << p.y << endl;
-.\StructNew\main.cpp
+[PointStuct\main.cpp](PointStuct\main.cpp)
+
 scanf("%s",c);
 for(int i = 20; i < 10000; i--)
 c[i] = 124;
-.\StructStaticCount\main.cpp
+[StructNew\main.cpp](StructNew\main.cpp)
+
 ...
-.\cont_textfiles\main.cpp
+[StructStaticCount\main.cpp](StructStaticCount\main.cpp)
+
 Перевод
 Как ввести строку целиком?
 Как читать
@@ -906,29 +932,32 @@ cin.getline(phrase, strLen);
 cout << phrase << endl;
 Ищем слово из словаря в строке
 cout << inEnglish << " pos " << pos << endl;
-.\copy_constructor\main.cpp
+[cont_textfiles\main.cpp](cont_textfiles\main.cpp)
+
 потому что в строке символ 0 - окончание строки
 Создает копии динамических переменных и ресурсов
 SetConsoleCP(65001);
 SetConsoleOutputCP(65001);
 Добавить в конец кусок строки
 Строка должна стать "TestEnd" после этой операции
-.\l5_inherit2\main.cpp
+[copy_constructor\main.cpp](copy_constructor\main.cpp)
+
 Запоминаем значение выравнивания
 в стеке компилятора
 Выравнивание по 1 байту
 Восстанавливаем предыдущее значение
-.\l5_inherit\main.cpp
+[l5_inherit2\main.cpp](l5_inherit2\main.cpp)
+
 Наследование
 Полиморфизм
-.\l5_oop\main.cpp
-.\l5_shapes\main.cpp
+[l5_inherit\main.cpp](l5_inherit\main.cpp)
+
 Базовый класс "Фигура"
 Круг - 1-ый наследник
 Прямоугольник - 2-ой наследник
 Конструктор
 Выводим на экран
-.\liter.md
+[l5_shapes\main.cpp](l5_shapes\main.cpp)
 
 ﻿Литература по Qt
 ----------------
@@ -944,19 +973,20 @@ SetConsoleOutputCP(65001);
 
 
 
-.\memory_leaks\main.cpp
 Утечки памяти
 -------------
 TODO: SmartPtr для обработки этой ситуации
 delete intArray;
 delete[] intArray;
-.\oop\main.cpp
+[memory_leaks\main.cpp](memory_leaks\main.cpp)
+
 commonVar = 4;
 Объявляю 2 экземпляра (объекта) класса
 a.privateVar = 2;
 Переменная i у каждого объекта своя
 commonVar - общая для всех объектов этого класса
-.\smart_pointer\main.cpp
+[oop\main.cpp](oop\main.cpp)
+
 Умные указатели
 Умный указатель (Smart Pointer) — класс (обычно шаблонный),
 имитирующий интерфейс обычного указателя и добавляющий некую новую функциональность,
@@ -988,12 +1018,11 @@ class SmartPtr {
 
 setlocale(LC_ALL, "Russian");
 SmartPtr<int[]> m2 = new int[10];
-.\stl\main.cpp
+[smart_pointer\main.cpp](smart_pointer\main.cpp)
+
 set - множество (неповторяющиеся элементы)
 Вектор - аналог массива
 a.insert(2, 10);
 a.remove(3);
-.\string_overflow\main.cpp
-.\struct_in_plain_c\main.c
-.\vector_MyType\main.cpp
-.\virtual_destructor\main.cpp
+[stl\main.cpp](stl\main.cpp)
+

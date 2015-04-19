@@ -1,10 +1,9 @@
-.\01_copy_contructor\main.cpp
 Конструктор копирования
 -----------------------
 Создаем собственный класс "Строчка"
 ``` cpp
 struct String {
-  char* str;
+  char* str; // Здесь храним строчку
   int x; // Дополнительное поле
   // Конструктор
   String(char* initStr) {
@@ -29,7 +28,8 @@ struct String {
 const char *str = "Hello";
 str[0] = 'X';
 ```
-.\02_virtual_destructor\task1.cpp
+[01_copy_contructor\main.cpp](01_copy_contructor\main.cpp)
+
 Виртуальный деструктор
 ----------------------
 Базовый класс
@@ -44,6 +44,8 @@ class Test {
     printf("Test::Test()\n");
     alive++;
   }
+  // Если убрать virtual, то будет
+  // вызываться деструктор предка
   virtual ~Test() { // Деструктор
     printf("Test::~Test()\n");
     alive--;
@@ -82,7 +84,28 @@ int Test2::alive2 = 0;
     tt.init();
 ```
 
-.\03_iostream_files\main.cpp
+[02_virtual_destructor\task1.cpp](02_virtual_destructor\task1.cpp)
+
+Файловый ввод и вывод с помощью потоков
+---------------------------------------
+``` cpp
+#include <fstream> // Файловый ввод и вывод с помощью потоков
+```
+
+``` cpp
+  ifstream in("in.txt");
+  ofstream out("out.txt");
+
+  int a, b;
+  in >> a >> b;
+  out << "a + b = " << (a + b) << endl;
+
+  in.close();
+  out.close();
+```
+
+[03_iostream_files\a_sum.cpp](03_iostream_files\a_sum.cpp)
+
 cin - istream;
 cout - ostream;
 ifstream - input file stream
@@ -106,11 +129,13 @@ ifstream - input file stream
 
   for(int i = 0; i < 10; ++i)
     cout << i << "^2 = " << i* i << endl;
+
 ```
 
 Выходной файл автоматически
 закрывается при закрытии программы
-.\03_iostream_files\redirect_output.cpp
+[03_iostream_files\main.cpp](03_iostream_files\main.cpp)
+
 Перенаправление консольного ввода/вывода
 ----------------------------------------
 Подключаем cstdio для **freopen**
@@ -135,4 +160,5 @@ ifstream - input file stream
   cout << a << " + " << b << " = " << (a + b) << endl;
 ```
 
-.\03_iostream_files\sum.cpp
+[03_iostream_files\redirect_output.cpp](03_iostream_files\redirect_output.cpp)
+

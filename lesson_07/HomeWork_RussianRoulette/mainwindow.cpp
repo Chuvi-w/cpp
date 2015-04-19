@@ -1,3 +1,5 @@
+/// Задание "Русская рулетка"
+/// -------------------------
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "random.h"
@@ -12,22 +14,27 @@ MainWindow::MainWindow(QWidget* parent) :
   // Очищаем лог игры
   ui->gameLog->clear();
 
-  // Инициализируем генератор случайных
-  // чисел по таймеру
+  /// Инициализируем генератор случайных
+  /// чисел по таймеру
+  ///-->
   qsrand(time(0));
+  ///<--
 }
 
 MainWindow::~MainWindow() {
   delete ui;
 }
 
-// "Протокол" (log) игры
+/// Добавление строки в "Протокол" (log) игры
+///-->
 void MainWindow::log(QString s) {
   ui->gameLog->append(s);
 }
+///<--
 
 void MainWindow::on_playButton_clicked() {
-  // Один раунд игры
+  /// Один раунд игры
+  ///-->
   round++;
   log(QString("<strong>Раунд %1:</strong>").arg(round));
 
@@ -64,4 +71,5 @@ void MainWindow::on_playButton_clicked() {
   ui->balanceLabel->setText(
     QString("%1").arg(balance, 0, 'f', 1)
   );
+  ///<--
 }

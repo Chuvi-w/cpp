@@ -1,4 +1,3 @@
-.\000_intro.md
 
 Тернарный оператор - (усл) ? T : F
 ----------------------------------
@@ -68,7 +67,6 @@
 ---------------------------------------------------------------------------------------------------------
 
 
-.\00_HW_done\main.cpp
 Решение квадратного уравнения - разбор домашнего задания
 ----------------------------------------------------------
 Задание:
@@ -183,12 +181,14 @@ void solve_equation(double a, double b, double c) {
     solve_equation(a, b, c);
 ```
 
-.\00_HomeWork\main.cpp
+[00_HW_done\main.cpp](00_HW_done\main.cpp)
+
 Win1251 и в исходном тексте и в консоли
 Ввод коэффициентов уравнения
 Вычисление дискриминанта
 Вычисление и вывод ответа(ов) x
-.\01_leff_const\main.cpp
+[00_HomeWork\main.cpp](00_HomeWork\main.cpp)
+
 Константы в if ставятся на первое место (до =)
 ``` cpp
 const int a = 0;
@@ -205,7 +205,8 @@ int main() {
 }
 ```
 
-.\01_min_cpp\main.cpp
+[01_left_const\main.cpp](01_left_const\main.cpp)
+
 В C++ перегрузка функций разрешена
 С точки зрения С++ можно переопределять функции
 (т.е. создавать несколько функций с одинаковым именем,
@@ -214,15 +215,16 @@ int main() {
 Поэтому в C есть функции:
 abs - модуль для целых чисел и
 fabs - модуль для действительных чисел
-.\01_min_ternary\main.c
+[01_min_cpp\main.cpp](01_min_cpp\main.cpp)
+
 Универсальная функция min на C
 Макрос с использованием тернарного оператора
 Нужен префикс f:  math.h -> abs/fabs
-.\01_operations_priority\main.cpp
-.\01_ternary\main.cpp
+[01_min_ternary\main.c](01_min_ternary\main.c)
+
 Тернарный оператор слева от присваивания
-.\02_left_ternary\main.cpp
-.\02_preproc_Cpp\main.cpp
+[01_ternary\main.cpp](01_ternary\main.cpp)
+
 Подключение библиотек
 Препроцессор
 Preprocessor
@@ -240,19 +242,23 @@ SHOW(c);
 Обмен двух переменных значениями
 без третьей переменной
 Код возврата
-.\02_ternary\main.cpp
+[02_preproc_Cpp\main.cpp](02_preproc_Cpp\main.cpp)
+
 Тернарный оператор
 Может находиться слева от оператора присваивания
 Вложенные тернарные операторы
 Если число делится на 5 и не делится на 7, то прибавить 2
 иначе 4
-.\02_while\main.cpp
+[02_ternary\main.cpp](02_ternary\main.cpp)
+
 Выводим N в двоичной системе счисления
 разряды в обратном порядке
 ...
-.\03_for\main.cpp
+[02_while\main.cpp](02_while\main.cpp)
+
 #include <stdio.h> // C
-.\03_switch\main.cpp
+[03_for\main.cpp](03_for\main.cpp)
+
 Множественный выбор switch
 ==========================
 Вводим количество углов
@@ -308,12 +314,14 @@ SHOW(c);
 
 ```
 
-.\04_function_var_visibility\main.cpp
-.\04_static_big_than_stack\main.cpp
+[03_switch\main.cpp](03_switch\main.cpp)
+
 int veryBigArray[SIZE];
-.\04_visibility\main.cpp
+[04_static_big_than_stack\main.cpp](04_static_big_than_stack\main.cpp)
+
 x[0]
-.\05_factorial\main.cpp
+[04_visibility\main.cpp](04_visibility\main.cpp)
+
 Итеративное вычисление факториала
 Цикл от большего к меньшему
 Итеративное вычисление факториала
@@ -321,7 +329,8 @@ x[0]
 Рекурсивный способ вычисления факториала
 Тестирование работы функции
 cout << i << "! = " << res << endl;
-.\07_arrays\main.cpp
+[05_factorial\main.cpp](05_factorial\main.cpp)
+
 Массивы
 Одномерные
 ``` cpp
@@ -357,7 +366,8 @@ cout << i << "! = " << res << endl;
 
 ```
 
-.\08_array_sort\main.cpp
+[07_arrays\main.cpp](07_arrays\main.cpp)
+
 Пример массива для сортировки
 Выводим массив
 for(int i = 0; i < N; ++i)
@@ -384,7 +394,8 @@ A[i] ^= A[i+1] ^= A[i] ^= A[i+1];
 | 7 | 4
 -----
 Снова вывести на экран
-.\08_array_task\main.cpp
+[08_array_sort\main.cpp](08_array_sort\main.cpp)
+
 ЗАДАЧА: посчитать сумму.
 Нумерация элементов массива с 0
 Все элементы на чётных местах взять с "+"
@@ -398,7 +409,8 @@ result += (i % 2) ? -A[i] : A[i];
 Суммируем только чётные
 Суммируем только нечётные
 1 - 3 -2 -4 + 2 -10 = -16
-.\09_array_task\main.cpp
+[08_array_task\main.cpp](08_array_task\main.cpp)
+
 Минимум в массиве
 -----------------
 Пользователь вводит количество элементов
@@ -470,48 +482,50 @@ int main() {
 }
 ```
 
-.\09_arrays\main.cpp
+[09_array_task\main.cpp](09_array_task\main.cpp)
+
 2D массив
 статической памяти и сохраняют своё значение между вызовами
 myArray[0] = 3
 myArray[1] = 10
 myArray[2] = 20
 myArray[3] = 43
-.\09_arrays_2D\main.cpp
+[09_arrays\main.cpp](09_arrays\main.cpp)
+
 Поиск минимума
 Сумма всех элементов
-.\10_CallsCount\main.cpp
-.\10_struct_C\main.c
+[09_arrays_2D\main.cpp](09_arrays_2D\main.cpp)
+
 Вывод комплексного числа на экран
 Comp res = {a.re + b.re, a.im + b.im};
-.\10_struct_C_2\main.c
-.\10_stuct_Cpp\main.cpp
-.\11_StackSize\main.cpp
-.\11_show_in_memory_presentation\main.cpp
-.\11_struct_C_Point2D\main.c
+[10_struct_C\main.c](10_struct_C\main.c)
+
 Математические функции
 typedef определение_типа название_типа;
 typedef struct Point P;
 Расстояние между двумя точками
-.\11_struct_cpp\main.cpp
+[11_struct_C_Point2D\main.c](11_struct_C_Point2D\main.c)
+
 Математические функции
 typedef определение_типа название_типа;
 typedef struct Point P;
 Расстояние между двумя точками
-.\13_strings_buffer_oveflow\main.cpp
+[11_struct_cpp\main.cpp](11_struct_cpp\main.cpp)
+
 Переполнение строки символов
 Смертный Грех программиста №1 - источник уязвимостей
 Ввод с клавиатуры
 Ввод из файла
 Получение пакета из сети
-.\15_howework\main.cpp
+[13_strings_buffer_oveflow\main.cpp](13_strings_buffer_oveflow\main.cpp)
+
 Стек
 Добавить значение на вершину
 TODO: реализовать
 Забрать значение и вернуть
 TODO: реализовать
-.\16_FileLog_DebugExample\main.cpp
-.\17_task_large_arrays\main.cpp
+[15_howework\main.cpp](15_howework\main.cpp)
+
 ``` cpp
 const int SIZE = 100000;
 
@@ -555,24 +569,24 @@ int main() {
 }
 ```
 
-.\18_cin_cout\main.cpp
+[17_task_large_arrays\main.cpp](17_task_large_arrays\main.cpp)
+
 cin >> p1.x >> p1.y;
 cin.getline(str, 1024);
 Вывести на экран точку 1
 cin.clear();
-.\19_memory\main.cpp
+[18_cin_cout\main.cpp](18_cin_cout\main.cpp)
+
 Заводим в динамической памяти массив из 100 элементов
 с типом int
 Удалили
 *(intPtr + 19*sizeof(int));
-.\20_not_init\main.cpp
-.\C_struct\main.c
+[19_memory\main.cpp](19_memory\main.cpp)
+
 Структуры в чистом C
 cout << "(" << p.x << ";" << p.y << ") ";
-.\HomeWork_1\README.md
+[C_struct\main.c](C_struct\main.c)
 
-.\HomeWork_1\main.cpp
-Домашнее задание - структуры данных
 Сумма
 TODO: Реализовать
 Разность
@@ -580,9 +594,8 @@ TODO: Реализовать
 Скалярное произведение векторов
 TODO: Реализовать
 Тестирование
-.\HomeWork_2\README.md
+[HomeWork_1\main.cpp](HomeWork_1\main.cpp)
 
-.\HomeWork_2\main.cpp
 Домашнее задание - рекурсия
 ---------------------------
 ЗАДАНИЕ:
@@ -590,13 +603,27 @@ TODO: Реализовать
 Нужно вывести все способы разложить его на слагаемые.
 Способы отличающиеся только
 порядком слагаемых считаются одинаковыми.
------------------------
+
 Например N = 4:
 4 = 4
 4 = 3 + 1
 4 = 2 + 2
 4 = 2 + 1 + 1
 4 = 1 + 1 + 1 + 1
+Макрос вычисления минимума в чистом C
+``` cpp
+#define MIN(x,y) (x < y) ? x : y
+
+int min2(int x, int y) {
+  return (x < y) ? x : y;
+}
+
+template <class T>
+T min3(T x, T y) {
+  return (x < y) ? x : y;
+}
+```
+
 N - число для разложения
 m - максимальное слагаемое в сумме
 Цифры
@@ -608,7 +635,8 @@ x - текущее слагаемое
 Убираем последнее слагаемое
 Вводим число N
 Вывод разложения на слагаемые
-.\HomeWork_2_dynmemory\main.cpp
+[HomeWork_2\main.cpp](HomeWork_2\main.cpp)
+
 Домашнее задание - рекурсия
 ---------------------------
 ЗАДАНИЕ:
@@ -637,22 +665,24 @@ A = new type[SIZE]    delete[] A  -- создание и удаление мас
 в динамической памяти
 A = new type;  delete A; -- создание и удаление одиночного
 объекта
-.\Memory\main.cpp
+[HomeWork_2_dynmemory\main.cpp](HomeWork_2_dynmemory\main.cpp)
+
 Статическая память
 int veryBigArray[SIZE];
 int *a,b;
 int *a; int b;
 int *a,*b; - теперь оба указателя
 a = (int *)12312;
-.\OrAndExample\main.cpp
-.\RussianInput\main.cpp
-.\RussianLocale\main.cpp
+[Memory\main.cpp](Memory\main.cpp)
+
 SetConsoleOutputCP(65001);
 SetConsoleCP(65001);
 setlocale(LC_ALL, "Russian.UTF-8");
-.\Uravnenie\main.cpp
+[RussianLocale\main.cpp](RussianLocale\main.cpp)
+
 ----------------------------------------
-.\cpp_dynamic\main.cpp
+[Uravnenie\main.cpp](Uravnenie\main.cpp)
+
 delete и delete[]
 -----------------
 Пусть у нас есть структура
@@ -674,19 +704,23 @@ struct Point {
   delete p; // delete без скобочек []
 ```
 
-.\factorial\main.cpp
+[cpp_dynamic\main.cpp](cpp_dynamic\main.cpp)
+
 Без: using namespace std;
 Win1251 и в исходном тексте и в консоли
-.\function_declaration\main.cpp
+[factorial\main.cpp](factorial\main.cpp)
+
 Функции
 ...
 using namespace my;
-.\lesson2_eq\main.cpp
+[function_declaration\main.cpp](function_declaration\main.cpp)
+
 a^=b^=a^=b; // XOR - исключающее или
 int g = f++ + f++ + f++;
 g = f++;
 cout << "a = " << a << " b = " << b << endl;
-.\malloc_free\main.c
+[lesson2_eq\main.cpp](lesson2_eq\main.cpp)
+
 Память не отведена
 Освобождаем динамическую память
 чуть постарше 1
@@ -695,7 +729,8 @@ cout << "a = " << a << " b = " << b << endl;
 * Little-endian - младший байт первый (Intel и совместимые)
 Little - основное преимущество - можно начинать складывать младшие байты
 не дожидаясь пока старшие "прийдут" по шине
-.\min_array\main.cpp
+[malloc_free\main.c](malloc_free\main.c)
+
 Поиск минимума в массиве
 Пробежим по остальному массиву
 каждый раз добавляя по одному элементу
@@ -707,23 +742,28 @@ Little - основное преимущество - можно начинать
 обновим минимум
 Индексы: 0  1  2  3
 Вызов функции, ожидаем на выходе 4
-.\overload_c\main.c
+[min_array\main.cpp](min_array\main.cpp)
+
 Универсальный максимум в стиле "C"
-.\pointers\main.cpp
+[overload_c\main.c](overload_c\main.c)
+
 Исходное значение не меняется
 Передаём ссылку -> меняем исходное значение
 Передаём указатель -> меняем исходное значение
-.\pointers\pointers2\main.cpp
+[pointers\main.cpp](pointers\main.cpp)
+
 Пример на ссылки и указатели
 i - указатель, т.е. это
 переменная содержащая адрес
 i = &c;
-.\references\main.cpp
+[pointers\pointers2\main.cpp](pointers\pointers2\main.cpp)
+
 Ссылки в C++
 В с теперь будет адрес d
 example1();
 example3();
-.\stack\main.cpp
+[references\main.cpp](references\main.cpp)
+
 Элемент стека
 ``` cpp
 struct StackElement {
@@ -817,16 +857,13 @@ class Stack { // Можно использовать struct
 
 Д.з. однонаправленный список
 ----------------------------
-.\switch\main.cpp
+[stack\main.cpp](stack\main.cpp)
+
 Win1251 и в исходном тексте и в консоли
 system("chcp 65001");
 freopen()
-.\union\main.cpp
-typedef Определение_типа Имя_нового_типа;
-Число:    01101110  00001101
-Ном.бита: 76543210         1
-.\union_2\main.cpp
-.\z_homework.md
+[switch\main.cpp](switch\main.cpp)
+
 Домашнее задание - рекурсия
 ---------------------------
   ЗАДАНИЕ:

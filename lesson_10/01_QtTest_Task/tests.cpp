@@ -7,6 +7,7 @@ Tests::Tests(QObject* parent) :
 }
 
 void Tests::testDivisors() {
+  ///-->
   QCOMPARE( calcDiv(1), 1 );
   // 2 -> {1, 2}
   QCOMPARE( calcDiv(2), 2 );
@@ -23,9 +24,14 @@ void Tests::testDivisors() {
   QCOMPARE( calcDiv(1000000000), 100 );
 
   QCOMPARE( calcDiv(1234567890), 48 );
+  ///<--
 
+  /// Регрессионное тестирование
+  ///-->
   for(int N = 1; N < 10000; ++N)
     QCOMPARE( calcDiv(N), calcDivSlow(N) );
+
+  ///<--
 
   QCOMPARE( calcDiv(-2), 2 );
 }

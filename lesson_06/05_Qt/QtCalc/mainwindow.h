@@ -26,6 +26,7 @@ class MainWindow : public QMainWindow {
  private:
   Ui::MainWindow* ui;
 
+  //-->
   typedef double number;
 
   // Последняя операция
@@ -34,6 +35,7 @@ class MainWindow : public QMainWindow {
   number arg;
   // Сейчас будем вводить новое число
   bool newNumber;
+  //<--
 };
 
 #endif // MAINWINDOW_H

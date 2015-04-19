@@ -1,3 +1,5 @@
+/// Исключения
+/// ----------
 #include <QCoreApplication>
 #include <QDebug>
 #include <QString>

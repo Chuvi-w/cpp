@@ -10,8 +10,7 @@ class MainWindow;
 class MainWindow : public QMainWindow {
   Q_OBJECT
 
-  // Номер раунда
-  int round;
+  int round; // Номер раунда
 
  public:
   explicit MainWindow(QWidget* parent = 0);

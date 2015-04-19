@@ -1,4 +1,3 @@
-.\000_intro.md
 ﻿SQL (на примере sqlite), QtSql
 ==============================
 
@@ -205,75 +204,23 @@ Test Driven Development - разработка через тестировани
 
 
 
-.\00_HomeWork_Browser\README.md
-﻿Мой собственный Браузер
-=======================
-
-Чтобы работал QWebView надо добавить модуль **webkitwidgets** в **.pro** файл.
-
-Нужно
------
-* Реализовать сохранение сайта в *Избранное* (специальная панель)
-* Переходы по сайтам из избранного (при нажатии на кнопку)
-
-Создание кнопки и добавление на панель
---------------------------------------
-``` cpp
-// Создаём новую кнопку
-QPushButton *button = new QPushButton(this);
-  // parent = this чтобы кнопки удалились при закрытии окна
-// Сохраняем текущий URL в текст кнопки
-button->setText(ui->urlEdit->text());
-
-// При нажатии на кнопку переходим на адрес
-// Соединяем сигнал clicked() с нужным слотом
-connect(button, SIGNAL(clicked()), this, SLOT(on_goToHistory_clicked()));
-
-// Добавляем кнопку на панель
-ui->historyTools->addWidget(button);
-```
-
-Как получить нажатую кнопку в обработчике (в слоте):
-``` cpp
-// Кто отправил сигнал?
-QPushButton *button = (QPushButton *)QObject::sender();
-if(button == NULL){
-  qDebug() << "Должны быть только объекты QPushButton";
-  return;
-}
-
-// Получаем URL с кнопки
-QString url = button->text();
-// Выводим URL для отладки
-qDebug() << "URL:" << url;
-// Переходим по заданному адресу
-ui->webView->setUrl(url);
-```
-
-
-.\00_HomeWork_Browser\historybutton.cpp
 При нажатии на кнопку переходим на адрес
-.\00_HomeWork_Browser\historybutton.h
-.\00_HomeWork_Browser\main.cpp
-.\00_HomeWork_Browser\mainwindow.cpp
+[00_HomeWork_Browser\historybutton.cpp](00_HomeWork_Browser\historybutton.cpp)
+
 При нажатии на кнопку Go переходим на адрес
 Добавление адреса сайта в закладки
 Создаём новую кнопку
 Добавляем на панель
 Кто отправил сигнал?
 Выводим URL для отладки
-.\00_HomeWork_Browser\mainwindow.h
-.\01_QtBrowser\main.cpp
-.\01_QtBrowser\mainwindow.cpp
-.\01_QtBrowser\mainwindow.h
-.\01_QtBrowser\mockurlworker.cpp
-.\01_QtBrowser\mockurlworker.h
+[00_HomeWork_Browser\mainwindow.cpp](00_HomeWork_Browser\mainwindow.cpp)
+
 Объявление объекта-заглушки
-.\01_QtBrowser\urlcomplete.cpp
-.\01_QtBrowser\urlcomplete.h
-.\01_QtBrowser\urlworker.h
+[01_QtBrowser\mockurlworker.h](01_QtBrowser\mockurlworker.h)
+
 Интерфейс, который может обрабатывать URL
-.\01_QtSQL\main.cpp
+[01_QtBrowser\urlworker.h](01_QtBrowser\urlworker.h)
+
 Пример консольной программы для демонстрации принципов работы с БД в Qt
 -------------------------------------------------------------------------
 SQLite - компактная встраиваемая реляционная база данных
@@ -333,68 +280,65 @@ Data Manipulation Language (DML) - язык управления (манипул
 -- Выполнение запроса и навигация по результирующей выборке --
 Сложный запрос с JOIN'ами
 setlocale(LC_ALL, "Russian");
-.\02_QtSQL_GUI\main.cpp
-.\02_QtSQL_GUI\mainwindow.cpp
+[01_QtSQL\main.cpp](01_QtSQL\main.cpp)
+
 Задаём на нашего компонента view
 db.setDatabaseName(":memory:");
-.\02_QtSQL_GUI\mainwindow.h
-.\03_QThreads_QMutex\commondata.cpp
-.\03_QThreads_QMutex\commondata.h
+[02_QtSQL_GUI\mainwindow.cpp](02_QtSQL_GUI\mainwindow.cpp)
+
 #define USE_MUTEX
-.\03_QThreads_QMutex\decthread.cpp
+[03_QThreads_QMutex\commondata.h](03_QThreads_QMutex\commondata.h)
+
 msleep(20); // 20 миллисекунд
-.\03_QThreads_QMutex\decthread.h
-.\03_QThreads_QMutex\incthread.cpp
+[03_QThreads_QMutex\decthread.cpp](03_QThreads_QMutex\decthread.cpp)
+
 msleep(10); // 20 миллисекунд
-.\03_QThreads_QMutex\incthread.h
-.\03_QThreads_QMutex\main.cpp
+[03_QThreads_QMutex\incthread.cpp](03_QThreads_QMutex\incthread.cpp)
+
 QThread::currentThread()->sleep(1);
-.\04_QtThreads\inputthread.cpp
+[03_QThreads_QMutex\main.cpp](03_QThreads_QMutex\main.cpp)
+
 Вводим целое число
 sleep(5);
 Выводим восклицательные знаки
 cout << "!!!!";
 QCoreApplication::exit();
-.\04_QtThreads\inputthread.h
-.\04_QtThreads\main.cpp
+[04_QtThreads\inputthread.cpp](04_QtThreads\inputthread.cpp)
+
 Отслеживаем события в потоке 1
 Создаём поток для ввода данных
 Мы можем присоединить сколько угодно
 обработчиков к одному сигналу,
 в частности к событию finished()
 Можем вывести, запущен ли поток
-.\04_QtThreads\mythread.cpp
+[04_QtThreads\main.cpp](04_QtThreads\main.cpp)
+
 Перед этим генерируется сигнал started()
 Замедляем поток
 Генерируется сигнал finished()
-.\04_QtThreads\mythread.h
+[04_QtThreads\mythread.cpp](04_QtThreads\mythread.cpp)
+
 Имя потока
 Количество итераций
-.\04_QtThreads\observer.cpp
+[04_QtThreads\mythread.h](04_QtThreads\mythread.h)
+
 Получили сигнал что поток 1 завершился
-.\04_QtThreads\observer.h
-.\05_QtThreadGUI\main.cpp
-.\05_QtThreadGUI\mainwindow.cpp
+[04_QtThreads\observer.cpp](04_QtThreads\observer.cpp)
+
 Передаём все необходимые данные
 при старте
-.\05_QtThreadGUI\mainwindow.h
-.\05_QtThreadGUI\primecalcthread.cpp
+[05_QtThreadGUI\mainwindow.cpp](05_QtThreadGUI\mainwindow.cpp)
+
 Будем каждое число проверять на простоту
 Проверяем n на простоту
 Если простое, то выводим в интерфейс
-.\05_QtThreadGUI\primecalcthread.h
-.\06_QtBrowser\main.cpp
-.\06_QtBrowser\mainwindow.cpp
-.\06_QtBrowser\mainwindow.h
-.\07_HTML_CSS\main.cpp
-.\07_HTML_CSS\mainwindow.cpp
-.\07_HTML_CSS\mainwindow.h
-.\10_QtCreateSQLiteDBFromFile\main.cpp
+[05_QtThreadGUI\primecalcthread.cpp](05_QtThreadGUI\primecalcthread.cpp)
+
 Имя файла с SQLite базой данных
 Читаем SQL оператор
 Выполняем в базе данных
-.\BuildCmdLine\a.cpp
-.\HomeWork_SQL\main.cpp
+[10_QtCreateSQLiteDBFromFile\main.cpp](10_QtCreateSQLiteDBFromFile\main.cpp)
+
 Пример консольной программы для демонстрации принципов работы с БД в Qt
 -------------------------------------------------------------------------
 SQLite - компактная встраиваемая реляционная база данных
@@ -451,12 +395,8 @@ Data Manipulation Language (DML) - язык управления (манипул
 -- Выполнение запроса и навигация по результирующей выборке --
 Сложный запрос с JOIN'ами
 setlocale(LC_ALL, "Russian");
-.\QDateTime\datetime.cpp
-.\QDateTime\datetime.h
-.\QDateTime\main.cpp
-.\QDateTime\wnd.cpp
-.\QDateTime\wnd.h
-.\QtSQL_Student_Console\main.cpp
+[HomeWork_SQL\main.cpp](HomeWork_SQL\main.cpp)
+
 system("chcp 65001");
 setlocale(LC_ALL, "Russian.UTF-8");
 SetConsoleCP(65001);
@@ -466,19 +406,8 @@ cout << QString(tc->fromUnicode("Юникод СТрока :)")).data() << endl;
 MySQL   number_of_lessons
 MSSQL   NumberOfLessons
 ORACLE  NUMBER_OF_LESSONS
-.\QtSQL_Students\main.cpp
-.\QtSQL_Students\mainwindow.cpp
-.\Qt_Assert\main.cpp
+[QtSQL_Student_Console\main.cpp](QtSQL_Student_Console\main.cpp)
+
 fact(0);
-.\firefox_sqlite\README.md
-﻿Установка расширения для Firefox
-================================
-
-
-
-![Install](install.png "Установка расширения")
-
-![Setup](move_to_toolbar.png "Добавляем расширение в интерфейс")
-
-![Main window](sqlite_main_window.png "Основное окно программы")
+[Qt_Assert\main.cpp](Qt_Assert\main.cpp)
 

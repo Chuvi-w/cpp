@@ -4,6 +4,9 @@
 
 using namespace std;
 
+/// В **module2.cpp** тоже можно использовать
+/// **globalVar**
+///-->
 void v2() {
   cout << "v2" << endl;
   globalVar = 2;
@@ -13,5 +16,6 @@ void v2() {
 void show2() {
   cout << "globalVar = " << globalVar << endl;
 }
+///<--
 
 

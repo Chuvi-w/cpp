@@ -9,9 +9,9 @@ using namespace std;
 
 typedef long long ll;
 
-/// НОД - Наибольший общий делитель
-/// GCD - Greatest Common Divisor
-/// Алгоритм Евклида с делением
+/// * НОД - Наибольший общий делитель
+/// * GCD - Greatest Common Divisor
+/// Используем алгоритм Евклида с делением
 //-->
 ll GCD(ll a, ll b) {
   return (b == 0) ? a : GCD(b, a % b);
@@ -129,10 +129,11 @@ class Rational {
   // stream - поток
   // thread - поток/нить
 };
+//<--
 
 int main() {
-  //SetConsoleOutputCP(65001);
-  //setlocale(LC_ALL, "Russian.UTF-8");
+  SetConsoleOutputCP(65001);
+  setlocale(LC_ALL, "Russian.UTF-8");
 
   const Rational r(-1, -2);
   SHOW(r);
@@ -146,7 +147,7 @@ int main() {
 
   cout << a << " + " << b << " = " << (a + b) << endl;
 
-  // Rational c = b + a;
+  Rational c = b + a;
   int i = 2, j = 3;
   int tt = i + j;
   Rational c1 = i + b;

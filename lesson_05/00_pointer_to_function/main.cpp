@@ -11,12 +11,12 @@ using namespace std;
 /// * тип возвращаемого значения - int
 /// * тип первого параметра int
 /// * тип второго параметра void*
-//-->
+///-->
 typedef int (*MyFunction)(int, void*);
-//<--
+///<--
 
 /// Две реализации функции
-//-->
+///-->
 int f1(int a, void* b) {
   cout << __FUNCTION__ << "(" << a << ", " << b << ")" << endl;
   return 1;
@@ -26,12 +26,13 @@ int f2(int a, void* b) {
   cout << __FUNCTION__ << "(" << a << ", " << b << ")" << endl;
   return 2;
 }
+///<--
 
 /// Функция, которая на вход получает double
 /// и возвращает тоже double (например: sin/cos)
-//-->
+///-->
 typedef double (*DoubleFuncPtr)(double);
-//<--
+///<--
 
 void showFuncTable(DoubleFuncPtr f) {
   cout << fixed << setprecision(4);

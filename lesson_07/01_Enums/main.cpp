@@ -1,11 +1,11 @@
-// Перечисления
-// ------------
+/// Перечисления (enum)
+/// -------------------
 #include <iostream>
 
 using namespace std;
 
+/// Направления движения:
 //-->
-// Направления
 const int X_UP = 0;
 const int X_DOWN = 1;
 const int X_LEFT = 2;
@@ -77,8 +77,9 @@ int main(int argc, char* argv[]) {
   switch(directionEnum) {
     case UP:
       ;
-      // case DOWN:
-      //   ;
+
+    case DOWN:
+      ;
   }
 
   directionEnum = LEFT;

@@ -12,8 +12,9 @@ MainWindow::~MainWindow() {
   delete ui;
 }
 
-// При нажатии на любую клавишу с текстом
+/// При нажатии на любую клавишу с текстом
 void MainWindow::on_digitButton_clicked() {
+  ///-->
   // Получаем источник сигнала :)
   QPushButton* button = (QPushButton*)QObject::sender();
 
@@ -33,6 +34,7 @@ void MainWindow::on_digitButton_clicked() {
   QString res = line + s;
   // Отправим результат в интерфейс
   ui->lineEdit->setText(res);
+  ///<--
 }
 
 void MainWindow::on_button1_clicked() {

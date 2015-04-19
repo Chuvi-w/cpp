@@ -30,8 +30,11 @@ void DemoWidgetsWindow::on_sumButton_clicked() {
   QString res = resTemplate.arg(sum);
   qDebug() << "res =" << res;
 
-  //  ostringstream sstream;
-  //  sstream << sum;
+  /// Печать в строку как в поток
+  ///-->
+  ostringstream sstream;
+  sstream << sum;
+  ///<--
 
   ui->sumEdit->setText(res);
 }

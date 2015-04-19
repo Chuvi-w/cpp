@@ -1,3 +1,5 @@
+/// Сигналы и слоты
+/// ===============
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
@@ -12,11 +14,13 @@ MainWindow::MainWindow(QWidget* parent) :
 
   cout << "Test" << endl;
 
-  // Связываем слот и сигнал из кода
+  /// Связываем слот и сигнал из кода:
+  ///-->
   connect(ui->pushButton,    // Откуда сигнал (объект)
           SIGNAL(clicked()), // Какой сигнал
           this,  // Куда отправить (объект)
           SLOT(mySlot())); // в какой слот
+  ///<--
 
   QString s1 = "1";
   QString s2 = "2";
@@ -33,7 +37,10 @@ void MainWindow::mySlot() {
 
 void MainWindow::on_pushButton_2_clicked() {
   cout << "color: #FFFF00" << endl;
+  /// Меняем стили из кода:
+  ///-->
   ui->pushButton->setStyleSheet("color: #FFFF00");
+  ///<--
 }
 
 void MainWindow::on_pushButton_3_clicked() {

@@ -1,4 +1,6 @@
-// Работа с файлами при помощи QFile
+/// Работа с файлами в Qt
+/// =====================
+/// Работа с файлами при помощи QFile
 #include <QCoreApplication>
 #include <QString>
 #include <QFile>
@@ -6,6 +8,7 @@
 #include <QDebug>
 
 int main() {
+  ///-->
   // Выводить в текстовый файл с помощью Qt
   QFile file("qt_output.txt");
   file.open(QIODevice::WriteOnly | QIODevice::Text);
@@ -42,6 +45,7 @@ int main() {
   QTextStream out3(&f3);
   out3 << "Дописываем ещё текст" << endl;
   f3.close();
+  ///<--
 
   QFile fbin("qt_output.bin");
   fbin.open(QIODevice::WriteOnly);

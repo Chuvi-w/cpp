@@ -19,8 +19,10 @@ void MainWindow::clearDisplay() {
 }
 
 void MainWindow::on_digit_clicked() {
+  // Когда нажимаем на цифру:
+  //-->
   switch (calcState) {
-    case OPERATION:
+    case OPERATION: // Если сейчас операция
       // Очищаем дисплей
       clearDisplay();
       break;
@@ -49,6 +51,7 @@ void MainWindow::on_digit_clicked() {
   s += digitButton->text();
 
   ui->display->setText(s);
+  //<--
 }
 
 void MainWindow::on_PointButton_clicked() {

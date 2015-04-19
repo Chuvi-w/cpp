@@ -1,20 +1,9 @@
-.\00_debug.md
 ﻿Виды отладки: отладчик, трассировка (логгирование), модульные тесты, визуализаторы процесса выполнения
 ------------------------------------------------------------------------------------------------------
 
 
 
 
-.\01_QtLayouts\loginform.cpp
-.\01_QtLayouts\loginform.h
-.\01_QtLayouts\main.cpp
-.\01_QtLayouts\mainwindow.cpp
-.\01_QtLayouts\mainwindow.h
-.\02_QtWidgets\main.cpp
-.\02_QtWidgets\mainwindow.cpp
-.\02_QtWidgets\mainwindow.h
-.\03_QListViewDemo\main.cpp
-.\03_QListViewDemo\mainwindow.cpp
 Создаём модель в динамической памяти
 Первый список строк
 Задаём как модель для дерева
@@ -23,20 +12,17 @@
 Добавляем запись в listView (текст берём из интерфейса)
 Удалить выделенную запись
 Массив (коллекция) по которой надо пробежать
-.\03_QListViewDemo\mainwindow.h
+[03_QListViewDemo\mainwindow.cpp](03_QListViewDemo\mainwindow.cpp)
+
 Модель: контейнер (массив) для записей
 Хранилище строк для отображения в списке
-.\04_ItemWidgets\main.cpp
-.\04_ItemWidgets\mainwindow.cpp
-.\04_ItemWidgets\mainwindow.h
-.\04_PhoneBook\main.cpp
-.\04_PhoneBook\mainwindow.cpp
+[03_QListViewDemo\mainwindow.h](03_QListViewDemo\mainwindow.h)
+
 Сохраняем все изменения
 Обновляем модель
 TODO: разобраться с id autoincrement
-.\04_PhoneBook\mainwindow.h
-.\04_Qt_MouseMove\main.cpp
-.\04_Qt_MouseMove\mainwindow.cpp
+[04_PhoneBook\mainwindow.cpp](04_PhoneBook\mainwindow.cpp)
+
 Отслеживаем движение мыши
 QMessageBox::information(this, "Ну, конечно же...",
 "А мы и не сомневались!");
@@ -46,56 +32,82 @@ return;
 Создаём объект
 Обработчик движения мыши
 qDebug() << x << y << "in" << rect.x() << rect.y();
-.\04_Qt_MouseMove\mainwindow.h
+[04_Qt_MouseMove\mainwindow.cpp](04_Qt_MouseMove\mainwindow.cpp)
+
 Обработчик движения мыши
 Сюда будем выводить координаты мыши
 Обработчик при нажатии на кнопку "Да"
-.\04_Qt_MouseMove\ui_mainwindow.h
-.\05_QtDebug\main.cpp
+[04_Qt_MouseMove\mainwindow.h](04_Qt_MouseMove\mainwindow.h)
+
 Перенаправляем все сообщения
 которые программа выводит в текстовую
 консоль в файл
 freopen("stdout.txt", "w", stdout);
 freopen("stderr.txt", "w", stderr);
 system("pause");
-.\05_TreeWidget\main.cpp
-.\05_TreeWidget\mainwindow.cpp
+[05_QtDebug\main.cpp](05_QtDebug\main.cpp)
+
 Добавить запись в дерево
 ui->treeWidget->selectionModel()->selection()
 Сортировка
-.\05_TreeWidget\mainwindow.h
-.\06_QFile\README.md
-﻿Работа с файлами в Qt
-=====================
+[05_TreeWidget\mainwindow.cpp](05_TreeWidget\mainwindow.cpp)
 
-.\06_QFile\main.cpp
+Работа с файлами в Qt
+=====================
 Работа с файлами при помощи QFile
-Выводить в текстовый файл с помощью Qt
-QIODevice::WriteOnly - создаём файл для записи
-QIODevice::Text - к выводу применяются правила
-для текстового файла
-Теперь прочитаем всё что записали
-Читаем целую строку из файла
-Открываем файл второй раз и дописываем текст
-.\06_QWidgets\form2.cpp
-.\06_QWidgets\form2.h
-.\06_QWidgets\inputwidgets.cpp
-.\06_QWidgets\inputwidgets.h
-.\06_QWidgets\main.cpp
+``` cpp
+  // Выводить в текстовый файл с помощью Qt
+  QFile file("qt_output.txt");
+  file.open(QIODevice::WriteOnly | QIODevice::Text);
+  // QIODevice::WriteOnly - создаём файл для записи
+  // QIODevice::Text - к выводу применяются правила
+  //   для текстового файла
+
+  QTextStream out(&file);
+  out.setCodec("UTF-8");
+  out << QString("Любой текст!") << endl;
+  out << QString("2 * 3 = ") << (2 * 3) << endl;
+  out << 2 + 2 + 3 << " Текст " << endl;
+
+  file.close();
+
+  // Теперь прочитаем всё что записали
+  QFile inFile("qt_output.txt");
+  inFile.open(QIODevice::ReadOnly | QIODevice::Text);
+  QTextStream in(&inFile);
+  // Читаем целую строку из файла
+  QString str = in.readLine();
+  qDebug() << str;
+
+  inFile.close(); // Закрываем файл
+
+  // Открываем файл второй раз и дописываем текст
+  QFile f3("qt_output.txt");
+
+  if(!f3.open(QIODevice::Append | QIODevice::Text)) {
+    qDebug() << f3.errorString();
+    return -1;
+  }
+
+  QTextStream out3(&f3);
+  out3 << "Дописываем ещё текст" << endl;
+  f3.close();
+```
+
+[06_QFile\main.cpp](06_QFile\main.cpp)
+
 MainWindow w;
-.\06_QWidgets\mainwindow.cpp
-.\06_QWidgets\mainwindow.h
-.\07_ReadWriteTextStl\main.cpp
+[06_QWidgets\main.cpp](06_QWidgets\main.cpp)
+
 Открыть файл для записи
 Вывод как в cout
 Закрыть файл
-.\08_QtWidgets\main.cpp
-.\08_QtWidgets\mainwindow.cpp
-.\08_QtWidgets\mainwindow.h
-.\FunctionTypedef\main.cpp
+[07_ReadWriteTextStl\main.cpp](07_ReadWriteTextStl\main.cpp)
+
 __stdcall
 typedef int(*myfun)(int a, void *b)
-.\HomeWork_Browser\README.md
+[FunctionTypedef\main.cpp](FunctionTypedef\main.cpp)
+
 ﻿Мой собственный Браузер
 =======================
 
@@ -141,19 +153,14 @@ ui->webView->setUrl(url);
 ```
 
 
-.\HomeWork_Browser\main.cpp
-.\HomeWork_Browser\mainwindow.cpp
 При нажатии на кнопку Go переходим на адрес
 Добавление адреса сайта в закладки
 TODO: реализовать
 Переход по кнопке из избранного
 TODO: реализовать
 Когда меняется URL в webView => меняем и URL в строке адреса
-.\HomeWork_Browser\mainwindow.h
-.\Miner\form2.cpp
-.\Miner\form2.h
-.\Miner\main.cpp
-.\Miner\mainwindow.cpp
+[HomeWork_Browser\mainwindow.cpp](HomeWork_Browser\mainwindow.cpp)
+
 Подключаю вторую форму чтобы использовать
 её из первой
 Создаём поле
@@ -164,30 +171,34 @@ QObject::sender() - указатель на отправителя сигнал�
 Поэтому мы его приводим к нужному типу
 a = (double)(23423 + 32424)
 Выключаем поле
-.\Miner\mainwindow.h
+[Miner\mainwindow.cpp](Miner\mainwindow.cpp)
+
 Свой Qt-класс
-.\VersionsDemo\main.cpp
-.\VersionsDemo\mainwindow.cpp
-.\VersionsDemo\mainwindow.h
-.\VisualStudioExample\VisualStudioExample\VisualStudioExample.cpp
+[Miner\mainwindow.h](Miner\mainwindow.h)
+
 VisualStudioExample.cpp : Defines the entry point for the console application.
 
-.\VisualStudioExample\VisualStudioExample\stdafx.cpp
+[VisualStudioExample\VisualStudioExample\VisualStudioExample.cpp](VisualStudioExample\VisualStudioExample\VisualStudioExample.cpp)
+
 stdafx.cpp : source file that includes just the standard includes
 VisualStudioExample.pch will be the pre-compiled header
 stdafx.obj will contain the pre-compiled type information
 TODO: reference any additional headers you need in STDAFX.H
 and not in this file
-.\VisualStudioExample\VisualStudioExample\stdafx.h
+[VisualStudioExample\VisualStudioExample\stdafx.cpp](VisualStudioExample\VisualStudioExample\stdafx.cpp)
+
 stdafx.h : include file for standard system include files,
 or project specific include files that are used frequently, but
 are changed infrequently
 
 TODO: reference additional headers your program requires here
-.\VisualStudioExample\VisualStudioExample\targetver.h
+[VisualStudioExample\VisualStudioExample\stdafx.h](VisualStudioExample\VisualStudioExample\stdafx.h)
+
 The following macros define the minimum required platform.  The minimum required platform
 is the earliest version of Windows, Internet Explorer etc. that has the necessary features to run
 your application.  The macros work by enabling all features available on platform versions up to and
 including the version specified.
 Modify the following defines if you have to target a platform prior to the ones specified below.
 Refer to MSDN for the latest info on corresponding values for different platforms.
+[VisualStudioExample\VisualStudioExample\targetver.h](VisualStudioExample\VisualStudioExample\targetver.h)
+

@@ -3,17 +3,21 @@
 
 using namespace std;
 
-// template <class T>
-// template <typename T>
+/// Шаблон:
+/// * template <class T>
+/// * template <typename T>
 
-// Элемент стека и очереди
+/// Элемент стека и очереди:
+//-->
 template <typename T>
 struct E {
   T value; // Значение элемента
   E<T>* next; // Указатель на следующий элемент
 };
+//<--
 
-// Стек
+/// Стек
+//-->
 template <typename T = int> // Значение по-умолчанию int
 struct Stack {
   E<T>* top; // Вершина стека
@@ -55,7 +59,9 @@ struct Stack {
     return result;
   }
 };
+//<--
 
+//-->
 template <typename T>
 struct Queue {
   E<T>* head; // "Голова" - начало очереди
@@ -104,6 +110,7 @@ struct Queue {
     return value;
   }
 };
+//<--
 
 int main() {
   Stack<> s;

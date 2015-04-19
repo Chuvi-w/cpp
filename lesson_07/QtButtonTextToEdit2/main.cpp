@@ -1,11 +1,15 @@
+/// Главная форма в динамической памяти
+/// -----------------------------------
 #include "mainwindow.h"
 #include <QApplication>
 
 int main(int argc, char* argv[]) {
   QApplication a(argc, argv);
 
-  // Вызов главной формы через указатель
+  /// Создание главной формы:
+  ///-->
   MainWindow* w = new MainWindow;
+  // Вызов главной формы через указатель
   w->show();
 
   // Сохраняем результат выполнения...
@@ -15,4 +19,5 @@ int main(int argc, char* argv[]) {
   delete w;
   // ...и только потом выйти!
   return res;
+  ///<--
 }

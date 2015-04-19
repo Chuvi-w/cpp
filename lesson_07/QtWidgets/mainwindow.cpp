@@ -14,5 +14,5 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::on_pushButton_2_clicked() {
-  // Вывести сообщение: а мы и не сомневались!
+  // TODO: Вывести сообщение: а мы и не сомневались!
 }

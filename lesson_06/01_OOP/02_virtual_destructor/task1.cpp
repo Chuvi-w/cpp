@@ -15,6 +15,8 @@ class Test {
     printf("Test::Test()\n");
     alive++;
   }
+  // Если убрать virtual, то будет
+  // вызываться деструктор предка
   virtual ~Test() { // Деструктор
     printf("Test::~Test()\n");
     alive--;
@@ -56,9 +58,9 @@ int main (int argc, char** argp) {
   {
     printf("2\n");
     Test* test = new Test2();
-    // При выполнении new:
-    // 1. отводится область динамической памяти
-    // 2. вызывается конструктор объекта
+    /// При выполнении new:
+    /// 1. отводится область динамической памяти
+    /// 2. вызывается конструктор объекта
     test->init();
     delete test;
     assert(Test::alive == 0);

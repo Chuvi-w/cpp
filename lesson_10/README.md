@@ -1,4 +1,3 @@
-.\00_intro.md
 ﻿Git
 ===
 
@@ -34,7 +33,6 @@ apt-get install git
 Порождающие паттерны проектирования: фабрика, Singleton, Prototype, Фабричный метод
 -----------------------------------------------------------------------------------
 
-.\01_QtTest\README.md
 ﻿Модульное тестирование в Qt
 ===========================
 
@@ -86,21 +84,97 @@ private slots: // должны быть приватными
 ```
 
 
-.\01_QtTest\alltests.cpp
 Подключаем все модули для тестирования
-И свой заголовочный файл
+``` cpp
+#include "inttostr.h"
+#include "functions.h"
+#include "myclass.h"
+#include "squareeq.h"
+// И свой заголовочный файл
+#include "alltests.h"
+```
+
 Тестирование вычисления максимума
-QCOMPARE( вызов_тестируемой_функции, ожидаемое_значение );
+``` cpp
+  MyClass a(this);
+  // QCOMPARE( вызов_тестируемой_функции, ожидаемое_значение );
+  QCOMPARE(a.max(2, 3), 3);  // 1 тест
+  QCOMPARE(a.max(2, 4), 4);  // 2 тест
+  QCOMPARE(a.max(5, 1), 5);
+  QCOMPARE(a.max(1, 2), 2);
+  QCOMPARE(a.max(-10, -20), -10);
+```
+
 Тестирование вычисления факториала
-Проверка исключения (ожидаемое исключение)
-Если мы оказались в этом месте программы,
-то метод факториал не сгенерировал исключение
-TDD
-0*x*x + 0*x + 0 = 0
+``` cpp
+  QCOMPARE( ::factorial(1), 1LL );
+  QCOMPARE( ::factorial(2), 2 * 1LL );
+  QCOMPARE( ::factorial(3), 3 * 2 * 1LL );
+  QCOMPARE( ::factorial(4), 4 * 3 * 2 * 1LL );
+  QCOMPARE( ::factorial(5), 5 * 4 * 3 * 2 * 1LL );
+  QCOMPARE( ::factorial(6), 6 * 5 * 4 * 3 * 2 * 1LL );
+  QCOMPARE( ::factorial(7), 7 * 6 * 5 * 4 * 3 * 2 * 1LL );
+  QCOMPARE( ::factorial(8), 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1LL );
+  QCOMPARE( ::factorial(9), 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1LL );
+
+  // Проверка исключения (ожидаемое исключение)
+  try {
+    ::factorial(-1);
+    // Если мы оказались в этом месте программы,
+    // то метод факториал не сгенерировал исключение
+    QFAIL("Exception expected!");
+  } catch(QString q) {
+    QCOMPARE( q, QString("N > 0"));
+  }
+
+```
+
+Квадратное уравнение
+TDD - Test Driven Development
+``` cpp
+  SquareEq a;
+  Roots roots = a.quadraticEquation(1, 0, 0);
+
+  QCOMPARE(roots.numberOfRoots, 1);
+  QCOMPARE(roots.x[0], 0.0);
+
+  roots = a.quadraticEquation(4, 0, 0);
+  QCOMPARE(roots.numberOfRoots, 1);
+  QCOMPARE(roots.x[0], 0.0);
+
+  roots = a.quadraticEquation(1, 0, -1);
+  QCOMPARE(roots.numberOfRoots, 2);
+  QCOMPARE(roots.x[0], 1.0);
+  QCOMPARE(roots.x[1], -1.0);
+
+  roots = a.quadraticEquation(1, 0, 1);
+  QCOMPARE(roots.numberOfRoots, 0);
+
+  roots = a.quadraticEquation(0, 1, 1);
+  QCOMPARE(roots.numberOfRoots, 1);
+  QCOMPARE(roots.x[0], -1.0);
+
+  roots = a.quadraticEquation(0, 0, 1);
+  QCOMPARE(roots.numberOfRoots, 0);
+
+  roots = a.quadraticEquation(0, 2, 1);
+  QCOMPARE(roots.numberOfRoots, 1);
+  QCOMPARE(roots.x[0], -0.5);
+  QCOMPARE(a.calc(0, 2, 1, roots.x[0]), 0.0);
+
+  // 0*x*x + 0*x + 0 = 0
+  try {
+    a.quadraticEquation(0, 0, 0);
+    QFAIL("Exception expected!");
+  } catch(QString q) {
+    QCOMPARE( q, QString("Бесконечное число решений"));
+  }
+
+```
+
 Число в строку
-Число в строку
-Число в строку
-.\01_QtTest\alltests.h
+[01_QtTest\alltests.cpp](01_QtTest\alltests.cpp)
+
 Класс, который содержит тесты
 Тестирование вычисления максимума
 Новый тест для вычисления факториала
@@ -110,34 +184,41 @@ TDD
 Число в строку от 200 до 999
 Число в строку от 1000 до 999999
 Тестирование функции суммирования
-.\01_QtTest\functions.cpp
+[01_QtTest\alltests.h](01_QtTest\alltests.h)
+
 Сумма: a + b
 Факториал
 Численное интегрирование
 Метод трапеций
 
-.\01_QtTest\functions.h
+[01_QtTest\functions.cpp](01_QtTest\functions.cpp)
+
 Сумма: a + b = c
 Факториал
 function - указатель на функцию возвращающую 1
 Численное интегрирование
 Метод трапеций
-.\01_QtTest\integraltest.cpp
+[01_QtTest\functions.h](01_QtTest\functions.h)
+
 Константная функция
 Константная функция
 y = x   0..1  -> 0.5
 y = x^2  x^3/3   0..1  -> 1/3
-.\01_QtTest\integraltest.h
+[01_QtTest\integraltest.cpp](01_QtTest\integraltest.cpp)
+
 Тестирование интегрирования константной функции
-.\01_QtTest\inttostr.cpp
+[01_QtTest\integraltest.h](01_QtTest\integraltest.h)
+
 #define DEBUG1
 Число в строку
 Обрезаем лишние пробелы в начале и конце
 Первая буква в верхнем регистре
-.\01_QtTest\inttostr.h
+[01_QtTest\inttostr.cpp](01_QtTest\inttostr.cpp)
+
 Модуль с функцией для тестирования
 Целое число N в строку
-.\01_QtTest\main.cpp
+[01_QtTest\inttostr.h](01_QtTest\inttostr.h)
+
 Подключаем модульные тесты
 Вывод числа в строку
 Выведем все числа в файл (чтобы посмотреть на них вручную)
@@ -145,27 +226,34 @@ freopen("testing.txt", "w", stdout);
 QTest::qExec(new SimpleTests());
 QTest::qExec(new AllTests, argc, argv);
 writeNumbersToFile();
-.\01_QtTest\myclass.cpp
+[01_QtTest\main.cpp](01_QtTest\main.cpp)
+
 return 10;
-.\01_QtTest\myclass.h
+[01_QtTest\myclass.cpp](01_QtTest\myclass.cpp)
+
 Тестируемый класс
 Вычисление максимума
 Вычисление минимума
-.\01_QtTest\simpletests.cpp
+[01_QtTest\myclass.h](01_QtTest\myclass.h)
+
 И
 QCOMPARE(2 * 2 + 1, 4);
-.\01_QtTest\simpletests.h
+[01_QtTest\simpletests.cpp](01_QtTest\simpletests.cpp)
+
 Вызывается при инициализации
 всех тестов
-.\01_QtTest\squareeq.cpp
+[01_QtTest\simpletests.h](01_QtTest\simpletests.h)
+
 Генерируем исключение
 Нет решений
 Линейное уравнение
 Квадратное уравнение
-.\01_QtTest\squareeq.h
+[01_QtTest\squareeq.cpp](01_QtTest\squareeq.cpp)
+
 Корни квадратного уравнения
 Решение квадратного уравнения
-.\01_QtTest_Task\README.md
+[01_QtTest\squareeq.h](01_QtTest\squareeq.h)
+
 TDD - Test Driven Development
 =============================
 
@@ -185,54 +273,78 @@ TDD - Test Driven Development
 какой необходим для прохождения модульного теста,
 который в данный момент не проходит.
 
-.\01_QtTest_Task\divisors.cpp
 Подсчёт количества делителей
 Входные данные:
 N - целое число
 Результат: количество делителей
-.\01_QtTest_Task\divisors.h
+[01_QtTest_Task\divisors.cpp](01_QtTest_Task\divisors.cpp)
+
 Подсчёт количества делителей
 Входные данные:
 N - целое число
 Результат: количество делителей
 Медленная, но надёжная реализация :)
-.\01_QtTest_Task\main.cpp
+[01_QtTest_Task\divisors.h](01_QtTest_Task\divisors.h)
+
 Подключаем библиотеку для тестирования
 Подключаем наши тесты
 Постановка задачи:
 Протестировать, правильно
 ли работает функция вычисляющая
 количество делителей числа
-.\01_QtTest_Task\tests.cpp
-2 -> {1, 2}
-3 -> {1, 3}
-4 -> {1, 2, 4}
-11 -> {1, 11}
-1000000000 -> {1, ..???., 1000000000}
-.\01_QtTest_Task\tests.h
-.\01_WindowParentChilds\childdialog.cpp
-.\01_WindowParentChilds\childdialog.h
-.\01_WindowParentChilds\main.cpp
-.\01_WindowParentChilds\mainwindow.cpp
+[01_QtTest_Task\main.cpp](01_QtTest_Task\main.cpp)
+
+``` cpp
+  QCOMPARE( calcDiv(1), 1 );
+  // 2 -> {1, 2}
+  QCOMPARE( calcDiv(2), 2 );
+  // 3 -> {1, 3}
+  QCOMPARE( calcDiv(3), 2 );
+  // 4 -> {1, 2, 4}
+  QCOMPARE( calcDiv(4), 3 );
+  // 11 -> {1, 11}
+  QCOMPARE( calcDiv(11), 2 );
+
+  QCOMPARE( calcDiv(1000), 16 );
+
+  // 1000000000 -> {1, ..???., 1000000000}
+  QCOMPARE( calcDiv(1000000000), 100 );
+
+  QCOMPARE( calcDiv(1234567890), 48 );
+```
+
+Регрессионное тестирование
+``` cpp
+  for(int N = 1; N < 10000; ++N)
+    QCOMPARE( calcDiv(N), calcDivSlow(N) );
+
+```
+
+[01_QtTest_Task\tests.cpp](01_QtTest_Task\tests.cpp)
+
 Деструктор
-.\01_WindowParentChilds\mainwindow.h
-.\02_QtTest_Simple\main.cpp
+[01_WindowParentChilds\mainwindow.cpp](01_WindowParentChilds\mainwindow.cpp)
+
 freopen("debug.txt", "w", stdout);
-.\02_QtTest_Simple\myclass.cpp
-.\02_QtTest_Simple\myclass.h
+[02_QtTest_Simple\main.cpp](02_QtTest_Simple\main.cpp)
+
 Тестируемый класс
 с одним методом
-.\02_QtTest_Simple\sum.cpp
+[02_QtTest_Simple\myclass.h](02_QtTest_Simple\myclass.h)
+
 Количество делителей
-.\02_QtTest_Simple\sum.h
+[02_QtTest_Simple\sum.cpp](02_QtTest_Simple\sum.cpp)
+
 Функция для тестирования
 Определить количество делителей у числа
 10 -> 1, 2, 5, 10 - всего 4 делителя
-.\02_QtTest_Simple\tests.h
+[02_QtTest_Simple\sum.h](02_QtTest_Simple\sum.h)
+
 Все тесты
 1 тест
 2 тест
-.\03_QRegExp\README.md
+[02_QtTest_Simple\tests.h](02_QtTest_Simple\tests.h)
+
 Поиск e-mail
 ============
 
@@ -241,15 +353,16 @@ freopen("debug.txt", "w", stdout);
 mail1@mail.ru - Petrov  mail2@mail.ru.com  Ivanov
 mail2@mail.ru.ww.com - Sidorov
 
-
 >> mail1@mail.ru  Petrov
 >> mail2@mail.ru.com  Ivanov
 >> mail2@mail.ru.ww.com  Sidorov
 
-.\03_QRegExp\main.cpp
+PCRE - Perl Comp Reg Exp
+
 Работа с регулярными выражениями
 Запуск модульных тестов
-.\03_QRegExp\mainwindow.cpp
+[03_QRegExp\main.cpp](03_QRegExp\main.cpp)
+
 Сразу при старте приложения применяется регулярное выражение
 Каталог "Мои документы"
 Когда текст выражения меняется, его надо заново применить
@@ -282,13 +395,15 @@ QDir::homePath() + "\\Desktop",
 Выбор шрифта пользователем
 Пользователем выбран новый шрифт
 Диалог отменён
-.\03_QRegExp\mainwindow.h
+[03_QRegExp\mainwindow.cpp](03_QRegExp\mainwindow.cpp)
+
 Применение регулярного выражения к тексту
 с выводом результата обратно на форму
 Сохранение текста в файл
 Загрузка текста из файла
 При обновлении текста
-.\03_QRegExp\qregexptest.cpp
+[03_QRegExp\mainwindow.h](03_QRegExp\mainwindow.h)
+
 Символы
 Поиск подстроки
 Выделяем цифры из строки
@@ -309,15 +424,18 @@ QCOMPARE(QRegExp("\\xD0BF").exactMatch("П"), true);
 Кванторы
 + - один и больше
 * - ноль и больше
-.\03_QRegExp\qregexptest.h
+[03_QRegExp\qregexptest.cpp](03_QRegExp\qregexptest.cpp)
+
 Тестирование стандартных выражений QRegExp (PCRE - Perl Comp Reg Exp)
 Символы
 Группы символов
 Кванторы
-.\04_regexp_cpp11\regexp11.cpp
+[03_QRegExp\qregexptest.h](03_QRegExp\qregexptest.h)
+
 regex_match example
 using explicit flags:
-.\05_Pattern_Singletone\main.cpp
+[04_regexp_cpp11\regexp11.cpp](04_regexp_cpp11\regexp11.cpp)
+
 Singletone - одиночка
 ---------------------
 Singletone
@@ -329,12 +447,14 @@ Singletone
 Инициализация генератора случайных чисел
 A a1, a2; // Не компилируется
 A *a2 = new A(); // Тоже не компилируется
-.\05_Pattern_Singletone\singletone.cpp
+[05_Pattern_Singletone\main.cpp](05_Pattern_Singletone\main.cpp)
+
 Если объект ещё не создан
 Создаём его
 Можно вызывать private конструктор, т.к.
 мы внутри класса T
-.\05_Pattern_Singletone\singletone.h
+[05_Pattern_Singletone\singletone.cpp](05_Pattern_Singletone\singletone.cpp)
+
 T - из какого класса хотим сделать Singletone
 -static uniqueInstance
 Один-единственный экземпляр класса T
@@ -344,7 +464,8 @@ T - из какого класса хотим сделать Singletone
 Можно вызывать private конструктор, т.к.
 мы внутри класса T
 Первоначально экземпляр класса не создан
-.\06_AbstractFactory\main.cpp
+[05_Pattern_Singletone\singletone.h](05_Pattern_Singletone\singletone.h)
+
 Абстрактная фабрика
 -------------------
 Билет
@@ -357,103 +478,262 @@ Prototype
 Номер рейса
 Получение билета
 Создаём и настраиваем фабрику
-.\06_QtNetwork\README.md
-﻿Работа с сетью
+[06_AbstractFactory\main.cpp](06_AbstractFactory\main.cpp)
+
+Работа с сетью
 ==============
-
-.\06_QtNetwork\main.cpp
-.\06_QtNetwork\mainwindow.cpp
 Таймер опроса "кто онлайн"
-Соединяем сигнал со слотом
-Создание UDP-чата
-Если соединение уже открыто, то закрываем его
-Создание чата
-QHostAddress("192.168.1.104") - конкретный IP, с которого можно подключиться
-QHostAddress::Any - принимать
-сообщения со всех IP адресов
-При получении данных (сигнал readyRead)
-вызываем метод (слот) read, который
-Какая-то программа на этом компьютере уже
-заняла порт port
-Нажимаем на кнопку "Войти в чат"
-Разрешаем отправлять сообщения только когда уже в чате
-Отправка сообщения в сеть
-Полный пакет данных будет в массиве data
-Последовательно выводим в него байты
-Отправляем полученный массив данных всем в локальный сети
-на порт указанный в интерфейсе
-Получение сообщения по UDP
-Массив для полученных данных
-Устанавливаем массиву размер
-соответствующий размеру полученного пакета данных
-Разбор полученного пакета
-Получаем тип пакета
-Записываем входящие сообщения в файл
-Отображаем строчку в интерфейсе
-Добавление пользователя с считанным QHostAddress
-Время выделили, дальше вырезаем
-из строки ник.
-Ищем в списке, если есть => обновляем
-Если нет, добавляем.
-Нажимаем на кнопку "Отправить сообщение"
-Вся строка сообщения: "ник: сообщение"
-Обновляем список тех кто online
-TODO: хранить время, когда последний раз этот человек был в сети
-Удаляем тех, от кого давно не было сообщений
-Получаем i-ую запись из списка
+``` cpp
+  QTimer* timer = new QTimer(this);
+  // Соединяем сигнал со слотом
+  connect(timer,
+          SIGNAL(timeout()),
+          this,
+          SLOT(refreshOnlineList()));
+  timer->start(1000);
+```
 
-Удаляем запись из списка
-.\06_QtNetwork\mainwindow.h
+Создание UDP-чата
+``` cpp
+void MainWindow::UdpChat(QString nick, int port) {
+  // Если соединение уже открыто, то закрываем его
+  if(socket != NULL) {
+    socket->close();
+    delete socket;
+    socket = NULL;
+  }
+
+  // Создание чата
+  socket = new QUdpSocket(this);
+  // QHostAddress("192.168.1.104") - конкретный IP, с которого можно подключиться
+
+  // QHostAddress::Any - принимать
+  //   сообщения со всех IP адресов
+  if(socket->bind(QHostAddress::Any, port)) {
+    // При получении данных (сигнал readyRead)
+    // вызываем метод (слот) read, который
+    connect(socket, SIGNAL(readyRead()), this, SLOT(read()));
+  } else {
+    // Какая-то программа на этом компьютере уже
+    // заняла порт port
+    qDebug() << "Port " << port << " in use. Change port!";
+    return;
+  }
+
+  send(nick + " - в чате", USUAL_MESSAGE);
+}
+```
+
+Нажимаем на кнопку "Войти в чат"
+``` cpp
+void MainWindow::on_enterChatButton_clicked() {
+  QString nick = ui->nicknameEdit->text();
+  UdpChat(nick,
+          ui->portNumEdit->text().toInt());
+  // Разрешаем отправлять сообщения только когда уже в чате
+  ui->sendButton->setEnabled(true);
+}
+```
+
+Отправка сообщения в сеть
+``` cpp
+void MainWindow::send(QString str, qint8 type) {
+  // Полный пакет данных будет в массиве data
+  QByteArray data; // Массив данных для отправки
+
+  // Последовательно выводим в него байты
+  QDataStream out(&data, QIODevice::WriteOnly);
+  out << qint8(type); // Тип сообщения
+  out << str; // Само сообщение
+
+  // Отправляем полученный массив данных всем в локальный сети
+  // на порт указанный в интерфейсе
+  socket->writeDatagram(data,
+                        QHostAddress::Broadcast,
+                        ui->portNumEdit->text().toInt() );
+}
+```
+
+Получение сообщения по UDP
+``` cpp
+void MainWindow::saveToLogFile(QString str) {
+  QFile file("log.txt");
+  file.open(QIODevice::WriteOnly | QIODevice::Text
+            | QIODevice::Append );
+  QTextStream log(&file);
+  log.setCodec("UTF-8");
+  log << str << endl;
+  file.close();
+}
+
+void MainWindow::read() {
+  // Массив для полученных данных
+  QByteArray data;
+  // Устанавливаем массиву размер
+  // соответствующий размеру полученного пакета данных
+  data.resize(socket->pendingDatagramSize());
+  QHostAddress* address = new QHostAddress();
+  socket->readDatagram(data.data(), data.size(), address);
+  qDebug() << "Message from IP: " <<
+           address->toString() << " size: "
+           << data.size();
+
+  // Разбор полученного пакета
+  QDataStream in(&data, QIODevice::ReadOnly);
+
+  // Получаем тип пакета
+  qint8 type = 0;
+  in >> type;
+
+  if (type == USUAL_MESSAGE) {
+    QString str;
+    in >> str;
+
+    if(str.length() == 0)
+      return;
+
+    // Записываем входящие сообщения в файл
+    saveToLogFile(str);
+
+    // Отображаем строчку в интерфейсе
+    ui->plainTextEdit->appendPlainText(str);
+  } else if (type == PERSON_ONLINE) {
+    // Добавление пользователя с считанным QHostAddress
+    QString str;
+    in >> str;
+    QStringList list = str.split(" ");
+    QString timeStr = list.at(0);
+    // Время выделили, дальше вырезаем
+    // из строки ник.
+    // Ищем в списке, если есть => обновляем
+    // Если нет, добавляем.
+    QString nick = str.right(timeStr.length());
+
+    ui->onlineList->addItem(str);
+  } else if (type == WHO_IS_ONLINE) {
+    QTime now = QTime::currentTime();
+    QString nowStr = now.toString("hh:mm:ss");
+    send(nowStr + " " +
+         ui->nicknameEdit->text(),
+         qint8(PERSON_ONLINE));
+  }
+}
+```
+
+Нажимаем на кнопку "Отправить сообщение"
+``` cpp
+void MainWindow::on_sendButton_clicked() {
+  // Вся строка сообщения: "ник: сообщение"
+  send(ui->nicknameEdit->text() + ": " +
+       ui->messageEdit->text(),
+       USUAL_MESSAGE);
+
+  ui->messageEdit->clear();
+}
+```
+
+Обновляем список тех кто online
+``` cpp
+void MainWindow::refreshOnlineList() {
+  // TODO: хранить время, когда последний раз этот человек был в сети
+
+  // Удаляем тех, от кого давно не было сообщений
+  for(int i = 0; i < ui->onlineList->count(); ++i) {
+    // Получаем i-ую запись из списка
+    QListWidgetItem* item = ui->onlineList->item(i);
+    //
+    QString str = item->text();
+    QStringList list = str.split(" ");
+    QString dateStr = list.at(0);
+    QTime time = QTime::fromString(dateStr, "hh:mm:ss");
+    QTime now = QTime::currentTime();
+    int diff = time.msecsTo(now);
+
+    qDebug() << time << now << diff;
+
+    // Удаляем запись из списка
+    if(diff > 2000)
+      ui->onlineList->takeItem(i);
+  }
+
+  send("", WHO_IS_ONLINE);
+}
+```
+
+[06_QtNetwork\mainwindow.cpp](06_QtNetwork\mainwindow.cpp)
+
 #include <QTcpServer>
 Тип сообщения
+``` cpp
+enum MessageType {
+  USUAL_MESSAGE, // Обычный текст
+  PERSON_ONLINE, // Сообщение "Я-онлайн"
+  WHO_IS_ONLINE, // Запрос о статусе пользователей
+};
+```
+
 == ЧАТ ==
-Для работы по UDP-протоколу в
-локальной сети
-Открываем соединение
-и отправляем первое сообщение
-Отправить сообщение
-Получаем сообщения
-.\07_Bridge\main.cpp
+``` cpp
+  // Для работы по UDP-протоколу в
+  // локальной сети
+  QUdpSocket* socket;
+
+  // Открываем соединение
+  // и отправляем первое сообщение
+  void UdpChat(QString nick, int port);
+
+  // Отправить сообщение
+  void send(QString str, qint8 type);
+
+ private slots:
+  // Получаем сообщения
+  void read();
+```
+
+[06_QtNetwork\mainwindow.h](06_QtNetwork\mainwindow.h)
+
 Абстрактный класс (интерфейс)
 Исполнитель по-умолчанию
 Предпочитаемый исполнитель
-.\08_Composite\main.cpp
+[07_Bridge\main.cpp](07_Bridge\main.cpp)
+
 Каждый компонент умеет себя "показывать" -
 т.е. выполнять метод show
 Лист (нижний уровень дерева)
 просто выводит строчку на экран
 Составной объект состоит из нескольких компонент
 Содержит несколько компонент (является контейнером)
-.\09_Strategy\main.cpp
+[08_Composite\main.cpp](08_Composite\main.cpp)
+
 Стратегия (strategy)
 Поведенческий шаблон
 Стратегия - абстрактный класс
 Стратегия стек
 Стратегия очередь
 
-.\AutoDeleteDemo\main.cpp
-.\AutoDeleteDemo\mainwindow.cpp
+[09_Strategy\main.cpp](09_Strategy\main.cpp)
+
+Автоматическое удаление при указании parent
+-------------------------------------------
 delete obj;
-.\AutoDeleteDemo\mainwindow.h
-.\AutoDeleteDemo\myclass.cpp
+[AutoDeleteDemo\mainwindow.cpp](AutoDeleteDemo\mainwindow.cpp)
+
 Деструктор
-.\AutoDeleteDemo\myclass.h
+[AutoDeleteDemo\myclass.cpp](AutoDeleteDemo\myclass.cpp)
+
 Конструктор
 Деструктор
-.\ManualTestGUI\main.cpp
-.\ManualTestGUI\mainwindow.cpp
-.\ManualTestGUI\mainwindow.h
-.\QtGraphics\README.md
+[AutoDeleteDemo\myclass.h](AutoDeleteDemo\myclass.h)
+
 ﻿Графика в Qt
 ============
 
 TODO: Базовая + OpenGL
 
-.\Qt_PackedArrays\main.cpp
 Упакованный массив
 ------------------
+Использовать битовые поля не получится
 ``` cpp
-// Использовать битовые поля не получится
 struct OneBitStruct {
   int OneBit : 1;
 };
@@ -647,4 +927,6 @@ class PackedArray {
   }
 
 ```
+
+[Qt_PackedArrays\main.cpp](Qt_PackedArrays\main.cpp)
 

@@ -30,3 +30,7 @@ obj
 *.autosave
 *.orig
 .idea
+
+Makefile
+Makefile.Debug
+Makefile.Release

@@ -6,12 +6,14 @@
 //#include <QTcpServer>
 
 
-// Тип сообщения
+/// Тип сообщения
+///-->
 enum MessageType {
   USUAL_MESSAGE, // Обычный текст
   PERSON_ONLINE, // Сообщение "Я-онлайн"
   WHO_IS_ONLINE, // Запрос о статусе пользователей
 };
+///<--
 
 namespace Ui {
 class MainWindow;
@@ -35,7 +37,8 @@ class MainWindow : public QMainWindow {
  private:
   Ui::MainWindow* ui;
 
-  // == ЧАТ ==
+  /// == ЧАТ ==
+  ///-->
   // Для работы по UDP-протоколу в
   // локальной сети
   QUdpSocket* socket;
@@ -50,6 +53,7 @@ class MainWindow : public QMainWindow {
  private slots:
   // Получаем сообщения
   void read();
+  ///<--
 
 };
 
