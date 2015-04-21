@@ -7,5 +7,5 @@
 i - указатель, т.е. это
 переменная содержащая адрес
 i = &c;
-[pointers2\main.cpp](pointers2\main.cpp)
+[pointers2/main.cpp](pointers2/main.cpp)
 

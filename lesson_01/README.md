@@ -116,7 +116,7 @@ int main() {
 ```
 
 Кодировка файла: cp866 win1251
-[01_first\helloworld.c](01_first\helloworld.c)
+[01_first/helloworld.c](01_first/helloworld.c)
 
 Первая программа на C++
 -----------------------
@@ -140,7 +140,7 @@ int main() {
 }
 ```
 
-[01_first\helloworld.cpp](01_first\helloworld.cpp)
+[01_first/helloworld.cpp](01_first/helloworld.cpp)
 
 Общая структура программы. Использование комментариев (практика: комментарии до кода)
 -------------------------------------------------------------------------------------
@@ -177,11 +177,11 @@ int main() { // Основная функция
 }
 ```
 
-[01_first\main.cpp](01_first\main.cpp)
+[01_first/main.cpp](01_first/main.cpp)
 
 Чистый C
 #include <stdlib.h>
-[01_first\main2.c](01_first\main2.c)
+[01_first/main2.c](01_first/main2.c)
 
 C++
 Вывод в консоль по-русски:
@@ -189,7 +189,7 @@ C++
   setlocale(LC_ALL, "Russian");
 ```
 
-[01_first\main_rus.cpp](01_first\main_rus.cpp)
+[01_first/main_rus.cpp](01_first/main_rus.cpp)
 
 Скрипт для сборки из командной строки Windows
 ---------------------------------------------
@@ -212,7 +212,7 @@ int main() {
 }
 ```
 
-[02_BuildCmdLine\a.cpp](02_BuildCmdLine\a.cpp)
+[02_BuildCmdLine/a.cpp](02_BuildCmdLine/a.cpp)
 
 На чистом C можно писать void main
 программа при этом будет иметь код возврата 0
@@ -224,7 +224,7 @@ void main() {
 }
 ```
 
-[02_HelloWorld_C\main.c](02_HelloWorld_C\main.c)
+[02_HelloWorld_C/main.c](02_HelloWorld_C/main.c)
 
 Использование namespace - пространств имён
 ------------------------------------------
@@ -242,10 +242,10 @@ int main() {
 }
 ```
 
-[02_MyCout\main.cpp](02_MyCout\main.cpp)
+[02_MyCout/main.cpp](02_MyCout/main.cpp)
 
 тип имя_переменной_1, имя_переменной_2;
-[02_a_plus_b\main.cpp](02_a_plus_b\main.cpp)
+[02_a_plus_b/main.cpp](02_a_plus_b/main.cpp)
 
 Побитовые операции с целыми числами
 -----------------------------------
@@ -306,19 +306,19 @@ int main() {
 }
 ```
 
-[02_bit_operators\main.cpp](02_bit_operators\main.cpp)
+[02_bit_operators/main.cpp](02_bit_operators/main.cpp)
 
 Подключение библиотек
 #include "MyLib.h" - ваша библиотека
 Своя функция
 F9 - компиляция и запуск на выполнение
 с ожиданием в конце нажатия клавиши
-[02_first_C\main.c](02_first_C\main.c)
+[02_first_C/main.c](02_first_C/main.c)
 
 Пример с файлом проекта для Qt
 ------------------------------
 Вывод Hello World на экран
-[02_hw_c_qt\main.c](02_hw_c_qt\main.c)
+[02_hw_c_qt/main.c](02_hw_c_qt/main.c)
 
 Арифметические операции
 -----------------------
@@ -350,13 +350,13 @@ F9 - компиляция и запуск на выполнение
   system("pause");
 ```
 
-[02_int_operations\main.cpp](02_int_operations\main.cpp)
+[02_int_operations/main.cpp](02_int_operations/main.cpp)
 
 Библиотека для работы с видео
 Библиотека для работы со звуком
 using namespace std;
 i = 12;
-[02_namespace\main.cpp](02_namespace\main.cpp)
+[02_namespace/main.cpp](02_namespace/main.cpp)
 
 Оператор присваивания. Операторы и их приоритеты. Скобки
 --------------------------------------------------------
@@ -380,7 +380,7 @@ c = {     1, 2,
 3, 5, 7, 10,
 7, 20, 2, 3,
 7, 20    }
-[02_operators_chain\main.cpp](02_operators_chain\main.cpp)
+[02_operators_chain/main.cpp](02_operators_chain/main.cpp)
 
 Ввод и вывод данных (консоль) в C и в C++. Ввод и вывод из текстового файла
 ---------------------------------------------------------------------------
@@ -395,7 +395,7 @@ static int a = 3;
 cout << "Введите A и B: ";
 Сложение
 Вывод результата
-[03_HelloWorld_Cpp\01_helloworld_cpp\main.cpp](03_HelloWorld_Cpp\01_helloworld_cpp\main.cpp)
+[03_HelloWorld_Cpp/01_helloworld_cpp/main.cpp](03_HelloWorld_Cpp/01_helloworld_cpp/main.cpp)
 
 Виды памяти
 -----------
@@ -436,7 +436,7 @@ int f() {
   //p[10] =
 ```
 
-[03_HelloWorld_Cpp\main.cpp](03_HelloWorld_Cpp\main.cpp)
+[03_HelloWorld_Cpp/main.cpp](03_HelloWorld_Cpp/main.cpp)
 
 Объявление переменных. Основные типы данных
 -------------------------------------------
@@ -463,14 +463,14 @@ int f() {
 ```
 
 Ввод и вывод из текстового файла
-[03_OnlyC\main.c](03_OnlyC\main.c)
+[03_OnlyC/main.c](03_OnlyC/main.c)
 
 Префиксная и постфиксная форма инкремента и декремента
 int i = 3;
 for(int i = 2; i < 10; i++)
 cout << i << endl;
 cout << i << endl;
-[03_PostfixPrefixIncrement\main.cpp](03_PostfixPrefixIncrement\main.cpp)
+[03_PostfixPrefixIncrement/main.cpp](03_PostfixPrefixIncrement/main.cpp)
 
 Стиль оформления исходных тестов программ. Отступы, "лесенка", пробелы
 ----------------------------------------------------------------------
@@ -506,10 +506,10 @@ int main() {
 
 Преимущества и недостатки автоматического форматирования исходного текста программы
 -----------------------------------------------------------------------------------
-[03_names_format\main.cpp](03_names_format\main.cpp)
+[03_names_format/main.cpp](03_names_format/main.cpp)
 
 cout << "ul = " << (signed long)ul << endl;
-[03_signed_usigned\main.cpp](03_signed_usigned\main.cpp)
+[03_signed_usigned/main.cpp](03_signed_usigned/main.cpp)
 
 Объявление переменных. Основные типы данных: целочисленные (модификаторы знаковый/беззнаковый), вещественные (с плавающей точкой), логический тип, символы, строки
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -549,18 +549,18 @@ Microsoft C++
 Логический тип, символы, строки
 -------------------------------
 setlocale(LC_ALL, "Russian");
-[03_types\main.cpp](03_types\main.cpp)
+[03_types/main.cpp](03_types/main.cpp)
 
 Подключение библиотек
 #include "MyLib.h" - ваша библиотека
 Своя функция
 F9 - компиляция и запуск на выполнение
 с ожиданием в конце нажатия клавиши
-[04_first_cpp\main.cpp](04_first_cpp\main.cpp)
+[04_first_cpp/main.cpp](04_first_cpp/main.cpp)
 
 Операции
 --------
-[04_types_demo\main.cpp](04_types_demo\main.cpp)
+[04_types_demo/main.cpp](04_types_demo/main.cpp)
 
 ﻿Отличия C и C++ (ссылки, в приведении типов, перегрузка функций)
 ================================================================
@@ -583,7 +583,7 @@ int& k; // компилятор выдаст сообщение: ошибка: '
 fabs - взять по модулю
 DBL_EPSILON * 1000
 if( fabs((a + b) - c) < 1e-9){
-[05_floats\main.cpp](05_floats\main.cpp)
+[05_floats/main.cpp](05_floats/main.cpp)
 
 Вывод ещё более длинного целого :)
 signed / unsigned
@@ -592,12 +592,12 @@ signed / unsigned
 long long long lll = 912345678900L;
 printf("%llld %d\n", lll, sizeof(lll));
 2 знака после запятой (точки)
-[06_C_printf\main.c](06_C_printf\main.c)
+[06_C_printf/main.c](06_C_printf/main.c)
 
 a = a ^ b
 b = b ^ a
 a = a ^ b
-[07_Swap\main.cpp](07_Swap\main.cpp)
+[07_Swap/main.cpp](07_Swap/main.cpp)
 
 Условный оператор if
 --------------------
@@ -636,32 +636,32 @@ a = a ^ b
 * < - меньше
 * && - логическое И
 * || - логическое ИЛИ
-[07_if\main.cpp](07_if\main.cpp)
+[07_if/main.cpp](07_if/main.cpp)
 
 Условный оператор if
 && - логическое И
 || - логическое ИЛИ
 ! - логическое НЕ
 Тернарный оператор - альтернатива if
-[08_if\main.cpp](08_if\main.cpp)
+[08_if/main.cpp](08_if/main.cpp)
 
 Самая характерная (распространённая) ошибка при применении if
 -------------------------------------------------------------
-[09_if_error\main.cpp](09_if_error\main.cpp)
+[09_if_error/main.cpp](09_if_error/main.cpp)
 
 Минимум из двух чисел при помощи оператора if
-[10_min_if\main.cpp](10_min_if\main.cpp)
+[10_min_if/main.cpp](10_min_if/main.cpp)
 
 Функции и области видимости
 #include <conio.h> // функция getch()
 Функции
 Глобальная переменная
 getch(); // Ожидаёт нажатие клавиши и возвращает её ASCII код
-[11_function_visibility\main.c](11_function_visibility\main.c)
+[11_function_visibility/main.c](11_function_visibility/main.c)
 
 Объявление и вызов функций
 fabs, abs
-[12_CFunc\main.c](12_CFunc\main.c)
+[12_CFunc/main.c](12_CFunc/main.c)
 
 Цикл while, структуры
 ---------------------
@@ -669,7 +669,7 @@ fabs, abs
 Структура для хранения адреса
 В стиле C:
 В стиле C++
-[14_while\main.cpp](14_while\main.cpp)
+[14_while/main.cpp](14_while/main.cpp)
 
 Цикл с постусловием
 -------------------
@@ -687,7 +687,7 @@ fabs, abs
   cout << endl;
 ```
 
-[15_do_while\main.cpp](15_do_while\main.cpp)
+[15_do_while/main.cpp](15_do_while/main.cpp)
 
 ``` cpp
 #include <iostream>
@@ -725,47 +725,47 @@ int main() {
 }
 ```
 
-[15_do_while\main2.cpp](15_do_while\main2.cpp)
+[15_do_while/main2.cpp](15_do_while/main2.cpp)
 
 Цикл for
 --------
 b < 10 - игнорируется
-[17_for\main.cpp](17_for\main.cpp)
+[17_for/main.cpp](17_for/main.cpp)
 
 Константа без типа имеет тип int в C (но не в C++)
-[19_const_c\main.c](19_const_c\main.c)
+[19_const_c/main.c](19_const_c/main.c)
 
 Таблица умножения с выравниванием столбцов
-[20_for_MulTable_homework\main.cpp](20_for_MulTable_homework\main.cpp)
+[20_for_MulTable_homework/main.cpp](20_for_MulTable_homework/main.cpp)
 
 Структуры C и работа с динамической памятью
 Вывод на русском языке
 Структура для хранения адреса
 В стиле C:
 В стиле C++
-[21_struct\main.cpp](21_struct\main.cpp)
+[21_struct/main.cpp](21_struct/main.cpp)
 
 Ввод целых чисел
 ----------------
 cout - объект C++
 printf - функция C
-[22_InputIntegers\main.cpp](22_InputIntegers\main.cpp)
+[22_InputIntegers/main.cpp](22_InputIntegers/main.cpp)
 
 Демонстрация вызова макроса
-[24_ternary_C\main.c](24_ternary_C\main.c)
+[24_ternary_C/main.c](24_ternary_C/main.c)
 
 long double ldbl = 1.22;
 printf("%L\n", ldbl);
-[50_russian_console_input_output\main.c](50_russian_console_input_output\main.c)
+[50_russian_console_input_output/main.c](50_russian_console_input_output/main.c)
 
 for(инициализация; условие_продолжения;
 шаг_после_тела_цикла)
 0   1   2   3   4   5   6   7   8   9
 ijk..
-[90_homework_printf\main.cpp](90_homework_printf\main.cpp)
+[90_homework_printf/main.cpp](90_homework_printf/main.cpp)
 
 Пример OpenGL приложения на C
-[97_OpenGL\main.c](97_OpenGL\main.c)
+[97_OpenGL/main.c](97_OpenGL/main.c)
 
 Двоичные константы в C при помощи макросов и побитовых операций
 Удобная функция для отладки
@@ -773,7 +773,7 @@ ijk..
 B8(01010101) = 85
 B16(10101010,01010101) = 43605
 B32(10000000,11111111,10101010,01010101) = 2164238933
-[98_binary_constants_by_macros\main.cpp](98_binary_constants_by_macros\main.cpp)
+[98_binary_constants_by_macros/main.cpp](98_binary_constants_by_macros/main.cpp)
 
 Представление двоичных констант в C++
 -------------------------------------
@@ -805,7 +805,7 @@ int main() {
 }
 ```
 
-[99_binary_constants\main.cpp](99_binary_constants\main.cpp)
+[99_binary_constants/main.cpp](99_binary_constants/main.cpp)
 
 Решение квадратного уравнения - разбор домашнего задания
 ----------------------------------------------------------
@@ -819,7 +819,7 @@ int main() {
 Обработать все варианты исходных данных.
 a*x^2 + b*x + c = 0
 Функция
-[HW\main2.cpp](HW\main2.cpp)
+[HW/main2.cpp](HW/main2.cpp)
 
 Решение квадратного уравнения
 -------------------------------
@@ -851,7 +851,7 @@ void solve_equation(double a, double b, double c) {
   solve_equation(a, b, c);
 ```
 
-[HomeWork\main.cpp](HomeWork\main.cpp)
+[HomeWork/main.cpp](HomeWork/main.cpp)
 
 Комментарии C++
 Подключение библиотеки

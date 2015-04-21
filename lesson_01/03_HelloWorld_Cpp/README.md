@@ -11,7 +11,7 @@ static int a = 3;
 cout << "Введите A и B: ";
 Сложение
 Вывод результата
-[01_helloworld_cpp\main.cpp](01_helloworld_cpp\main.cpp)
+[01_helloworld_cpp/main.cpp](01_helloworld_cpp/main.cpp)
 
 Виды памяти
 -----------

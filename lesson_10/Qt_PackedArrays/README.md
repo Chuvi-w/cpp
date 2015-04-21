@@ -143,6 +143,7 @@ class PackedArray {
     pa.setValue(i, v);
     assert(pa.getValue(i) == v);
   }
+
 ```
 
 Из 10 элементов по 4 бита
@@ -155,6 +156,7 @@ class PackedArray {
     pa2.setValue(i, v);
     assert(pa2.getValue(i) == v);
   }
+
 ```
 
 По 5 бит, с перехлёстом байтов

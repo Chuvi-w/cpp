@@ -128,7 +128,7 @@ int get(Queue& q) {
 }
 ```
 
-[00_HomeWork_Done\main.cpp](00_HomeWork_Done\main.cpp)
+[00_HomeWork_Done/main.cpp](00_HomeWork_Done/main.cpp)
 
 Домашнее задание: Реализовать стек и очередь
 --------------------------------------------
@@ -238,7 +238,7 @@ struct Queue {
   cout << "14 - " << q.get() << endl;
 ```
 
-[00_HomeWork_Done_OOP\main.cpp](00_HomeWork_Done_OOP\main.cpp)
+[00_HomeWork_Done_OOP/main.cpp](00_HomeWork_Done_OOP/main.cpp)
 
 Домашнее задание: Реализовать стек и очередь - разбор
 -----------------------------------------------------
@@ -281,7 +281,7 @@ argv - аргументы командной строки
 Выводим все аргументы командной строки
 Перенаправляем вывод в файл
 assert(s.pop()==3);
-[00_HomeWork_Taison4eg\main.cpp](00_HomeWork_Taison4eg\main.cpp)
+[00_HomeWork_Taison4eg/main.cpp](00_HomeWork_Taison4eg/main.cpp)
 
 Приготовление ужина
 -------------------
@@ -307,7 +307,7 @@ assert(s.pop()==3);
 Единица измерения
 Новый список - список, что нужно для
 приготовления блинов
-[01_OOP_Food\main.cpp](01_OOP_Food\main.cpp)
+[01_OOP_Food/main.cpp](01_OOP_Food/main.cpp)
 
 ``` cpp
 class Stack {
@@ -337,12 +337,12 @@ class Stack {
 };
 ```
 
-[01_StackDemo\main.cpp](01_StackDemo\main.cpp)
+[01_StackDemo/main.cpp](01_StackDemo/main.cpp)
 
 Конструктор - вызывается после создания объекта в памяти
 Деструктор - вызывается перед удалением объекта из памяти
 Конструктор копирования
-[02_vectors\main.cpp](02_vectors\main.cpp)
+[02_vectors/main.cpp](02_vectors/main.cpp)
 
 Конструкторы и деструкторы
 --------------------------
@@ -392,7 +392,7 @@ struct A {
 };
 ```
 
-[13_constructor_destructor\main.cpp](13_constructor_destructor\main.cpp)
+[13_constructor_destructor/main.cpp](13_constructor_destructor/main.cpp)
 
 Конструктор копирования
 -----------------------
@@ -451,7 +451,7 @@ string::string(string& x) {
 int string::count = 0;
 ```
 
-[14_copy_contructor\main.cpp](14_copy_contructor\main.cpp)
+[14_copy_contructor/main.cpp](14_copy_contructor/main.cpp)
 
 Один элемент списка
 ``` cpp
@@ -538,7 +538,7 @@ struct List {
 };
 ```
 
-[15_ListExample\main.cpp](15_ListExample\main.cpp)
+[15_ListExample/main.cpp](15_ListExample/main.cpp)
 
 ﻿Наследование и уровни доступа
 -----------------------------
@@ -590,7 +590,7 @@ class C : public B {
 b1.forChilds = 5;
 ```
 
-[16_inherit\main.cpp](16_inherit\main.cpp)
+[16_inherit/main.cpp](16_inherit/main.cpp)
 
 Наследование: поле с тем же имененем
 ------------------------------------
@@ -633,7 +633,7 @@ int main() {
 }
 ```
 
-[16_inherit_sameName\main.cpp](16_inherit_sameName\main.cpp)
+[16_inherit_sameName/main.cpp](16_inherit_sameName/main.cpp)
 
 Наследование
 ------------
@@ -692,7 +692,7 @@ c.b = 2; // Ошибка из-за protected наследования
 c.doA();
 c.doB();
 x.doL();
-[17_inherit\main.cpp](17_inherit\main.cpp)
+[17_inherit/main.cpp](17_inherit/main.cpp)
 
 ``` cpp
 // Фигура
@@ -759,7 +759,7 @@ int main() {
 }
 ```
 
-[18_polymorph\main.cpp](18_polymorph\main.cpp)
+[18_polymorph/main.cpp](18_polymorph/main.cpp)
 
 ``` cpp
 struct A {
@@ -791,7 +791,7 @@ int main() {
 }
 ```
 
-[19_setter_getter\main.cpp](19_setter_getter\main.cpp)
+[19_setter_getter/main.cpp](19_setter_getter/main.cpp)
 
 Зачем нужны get/set методы?
 ---------------------------
@@ -822,7 +822,7 @@ class Square2 {
 };
 ```
 
-[20_getter_setter_square\main.cpp](20_getter_setter_square\main.cpp)
+[20_getter_setter_square/main.cpp](20_getter_setter_square/main.cpp)
 
 Реализация метода в отдельном C++ файле
 ``` cpp
@@ -835,7 +835,7 @@ void Square::setArea(double value) {
 }
 ```
 
-[20_getter_setter_square\square.cpp](20_getter_setter_square\square.cpp)
+[20_getter_setter_square/square.cpp](20_getter_setter_square/square.cpp)
 
 Инкапсуляция
 ------------
@@ -879,7 +879,7 @@ class Square {
 };
 ```
 
-[20_getter_setter_square\square.h](20_getter_setter_square\square.h)
+[20_getter_setter_square/square.h](20_getter_setter_square/square.h)
 
 Работа с this
 -------------
@@ -930,7 +930,7 @@ int main() {
 }
 ```
 
-[22_this_demo\main.cpp](22_this_demo\main.cpp)
+[22_this_demo/main.cpp](22_this_demo/main.cpp)
 
 Diamond Inheritance
 -------------------
@@ -1037,11 +1037,11 @@ int main() {
 }
 ```
 
-[23_diamond_inherit\main.cpp](23_diamond_inherit\main.cpp)
+[23_diamond_inherit/main.cpp](23_diamond_inherit/main.cpp)
 
 Итерируемся по set
 for(vector<int>)
-[25_iterator\main.cpp](25_iterator\main.cpp)
+[25_iterator/main.cpp](25_iterator/main.cpp)
 
 C++
 Вывод в консоль по-русски:
@@ -1054,7 +1054,7 @@ C++
   //cout << "И он нормально читается в Windows-консоли!" << endl;
 ```
 
-[28_Russian\hw_utf8.cpp](28_Russian\hw_utf8.cpp)
+[28_Russian/hw_utf8.cpp](28_Russian/hw_utf8.cpp)
 
 C++
 Вывод в консоль по-русски:
@@ -1065,7 +1065,7 @@ C++
   //SetConsoleOutputCP(CP_UTF8);
 ```
 
-[28_Russian\hw_utf8_2.cpp](28_Russian\hw_utf8_2.cpp)
+[28_Russian/hw_utf8_2.cpp](28_Russian/hw_utf8_2.cpp)
 
 Получаем параметры текущей локали
 ``` cpp
@@ -1095,7 +1095,7 @@ int main() {
 }
 ```
 
-[28_Russian\show_cur_locale.cpp](28_Russian\show_cur_locale.cpp)
+[28_Russian/show_cur_locale.cpp](28_Russian/show_cur_locale.cpp)
 
 Открываем текстовый файл для чтения
 ``` cpp
@@ -1108,7 +1108,7 @@ int main() {
 ```
 
 TODO: доделайте сами :)
-[98_dict_textfile\main.cpp](98_dict_textfile\main.cpp)
+[98_dict_textfile/main.cpp](98_dict_textfile/main.cpp)
 
 ﻿Коды ошибок
 -----------

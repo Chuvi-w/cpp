@@ -205,7 +205,7 @@ Test Driven Development - разработка через тестировани
 
 
 При нажатии на кнопку переходим на адрес
-[00_HomeWork_Browser\historybutton.cpp](00_HomeWork_Browser\historybutton.cpp)
+[00_HomeWork_Browser/historybutton.cpp](00_HomeWork_Browser/historybutton.cpp)
 
 При нажатии на кнопку Go переходим на адрес
 Добавление адреса сайта в закладки
@@ -213,13 +213,13 @@ Test Driven Development - разработка через тестировани
 Добавляем на панель
 Кто отправил сигнал?
 Выводим URL для отладки
-[00_HomeWork_Browser\mainwindow.cpp](00_HomeWork_Browser\mainwindow.cpp)
+[00_HomeWork_Browser/mainwindow.cpp](00_HomeWork_Browser/mainwindow.cpp)
 
 Объявление объекта-заглушки
-[01_QtBrowser\mockurlworker.h](01_QtBrowser\mockurlworker.h)
+[01_QtBrowser/mockurlworker.h](01_QtBrowser/mockurlworker.h)
 
 Интерфейс, который может обрабатывать URL
-[01_QtBrowser\urlworker.h](01_QtBrowser\urlworker.h)
+[01_QtBrowser/urlworker.h](01_QtBrowser/urlworker.h)
 
 Пример консольной программы для демонстрации принципов работы с БД в Qt
 -------------------------------------------------------------------------
@@ -280,30 +280,30 @@ Data Manipulation Language (DML) - язык управления (манипул
 -- Выполнение запроса и навигация по результирующей выборке --
 Сложный запрос с JOIN'ами
 setlocale(LC_ALL, "Russian");
-[01_QtSQL\main.cpp](01_QtSQL\main.cpp)
+[01_QtSQL/main.cpp](01_QtSQL/main.cpp)
 
 Задаём на нашего компонента view
 db.setDatabaseName(":memory:");
-[02_QtSQL_GUI\mainwindow.cpp](02_QtSQL_GUI\mainwindow.cpp)
+[02_QtSQL_GUI/mainwindow.cpp](02_QtSQL_GUI/mainwindow.cpp)
 
 #define USE_MUTEX
-[03_QThreads_QMutex\commondata.h](03_QThreads_QMutex\commondata.h)
+[03_QThreads_QMutex/commondata.h](03_QThreads_QMutex/commondata.h)
 
 msleep(20); // 20 миллисекунд
-[03_QThreads_QMutex\decthread.cpp](03_QThreads_QMutex\decthread.cpp)
+[03_QThreads_QMutex/decthread.cpp](03_QThreads_QMutex/decthread.cpp)
 
 msleep(10); // 20 миллисекунд
-[03_QThreads_QMutex\incthread.cpp](03_QThreads_QMutex\incthread.cpp)
+[03_QThreads_QMutex/incthread.cpp](03_QThreads_QMutex/incthread.cpp)
 
 QThread::currentThread()->sleep(1);
-[03_QThreads_QMutex\main.cpp](03_QThreads_QMutex\main.cpp)
+[03_QThreads_QMutex/main.cpp](03_QThreads_QMutex/main.cpp)
 
 Вводим целое число
 sleep(5);
 Выводим восклицательные знаки
 cout << "!!!!";
 QCoreApplication::exit();
-[04_QtThreads\inputthread.cpp](04_QtThreads\inputthread.cpp)
+[04_QtThreads/inputthread.cpp](04_QtThreads/inputthread.cpp)
 
 Отслеживаем события в потоке 1
 Создаём поток для ввода данных
@@ -311,33 +311,33 @@ QCoreApplication::exit();
 обработчиков к одному сигналу,
 в частности к событию finished()
 Можем вывести, запущен ли поток
-[04_QtThreads\main.cpp](04_QtThreads\main.cpp)
+[04_QtThreads/main.cpp](04_QtThreads/main.cpp)
 
 Перед этим генерируется сигнал started()
 Замедляем поток
 Генерируется сигнал finished()
-[04_QtThreads\mythread.cpp](04_QtThreads\mythread.cpp)
+[04_QtThreads/mythread.cpp](04_QtThreads/mythread.cpp)
 
 Имя потока
 Количество итераций
-[04_QtThreads\mythread.h](04_QtThreads\mythread.h)
+[04_QtThreads/mythread.h](04_QtThreads/mythread.h)
 
 Получили сигнал что поток 1 завершился
-[04_QtThreads\observer.cpp](04_QtThreads\observer.cpp)
+[04_QtThreads/observer.cpp](04_QtThreads/observer.cpp)
 
 Передаём все необходимые данные
 при старте
-[05_QtThreadGUI\mainwindow.cpp](05_QtThreadGUI\mainwindow.cpp)
+[05_QtThreadGUI/mainwindow.cpp](05_QtThreadGUI/mainwindow.cpp)
 
 Будем каждое число проверять на простоту
 Проверяем n на простоту
 Если простое, то выводим в интерфейс
-[05_QtThreadGUI\primecalcthread.cpp](05_QtThreadGUI\primecalcthread.cpp)
+[05_QtThreadGUI/primecalcthread.cpp](05_QtThreadGUI/primecalcthread.cpp)
 
 Имя файла с SQLite базой данных
 Читаем SQL оператор
 Выполняем в базе данных
-[10_QtCreateSQLiteDBFromFile\main.cpp](10_QtCreateSQLiteDBFromFile\main.cpp)
+[10_QtCreateSQLiteDBFromFile/main.cpp](10_QtCreateSQLiteDBFromFile/main.cpp)
 
 Пример консольной программы для демонстрации принципов работы с БД в Qt
 -------------------------------------------------------------------------
@@ -395,7 +395,7 @@ Data Manipulation Language (DML) - язык управления (манипул
 -- Выполнение запроса и навигация по результирующей выборке --
 Сложный запрос с JOIN'ами
 setlocale(LC_ALL, "Russian");
-[HomeWork_SQL\main.cpp](HomeWork_SQL\main.cpp)
+[HomeWork_SQL/main.cpp](HomeWork_SQL/main.cpp)
 
 system("chcp 65001");
 setlocale(LC_ALL, "Russian.UTF-8");
@@ -406,8 +406,8 @@ cout << QString(tc->fromUnicode("Юникод СТрока :)")).data() << endl;
 MySQL   number_of_lessons
 MSSQL   NumberOfLessons
 ORACLE  NUMBER_OF_LESSONS
-[QtSQL_Student_Console\main.cpp](QtSQL_Student_Console\main.cpp)
+[QtSQL_Student_Console/main.cpp](QtSQL_Student_Console/main.cpp)
 
 fact(0);
-[Qt_Assert\main.cpp](Qt_Assert\main.cpp)
+[Qt_Assert/main.cpp](Qt_Assert/main.cpp)
 

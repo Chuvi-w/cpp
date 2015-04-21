@@ -38,3 +38,31 @@ N - целое число
 количество делителей числа
 [main.cpp](main.cpp)
 
+``` cpp
+  QCOMPARE( calcDiv(1), 1 );
+  // 2 -> {1, 2}
+  QCOMPARE( calcDiv(2), 2 );
+  // 3 -> {1, 3}
+  QCOMPARE( calcDiv(3), 2 );
+  // 4 -> {1, 2, 4}
+  QCOMPARE( calcDiv(4), 3 );
+  // 11 -> {1, 11}
+  QCOMPARE( calcDiv(11), 2 );
+
+  QCOMPARE( calcDiv(1000), 16 );
+
+  // 1000000000 -> {1, ..???., 1000000000}
+  QCOMPARE( calcDiv(1000000000), 100 );
+
+  QCOMPARE( calcDiv(1234567890), 48 );
+```
+
+Регрессионное тестирование
+``` cpp
+  for(int N = 1; N < 10000; ++N)
+    QCOMPARE( calcDiv(N), calcDivSlow(N) );
+
+```
+
+[tests.cpp](tests.cpp)
+

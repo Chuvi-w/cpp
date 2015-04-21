@@ -106,7 +106,7 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-[00_FirstQtApp\main.cpp](00_FirstQtApp\main.cpp)
+[00_FirstQtApp/main.cpp](00_FirstQtApp/main.cpp)
 
 Слот (обработчик сигнала) - реализуется как обычный метод
 ``` cpp
@@ -138,7 +138,7 @@ void MainWindow::on_concatButton_clicked() {
 }
 ```
 
-[00_FirstQtApp\mainwindow.cpp](00_FirstQtApp\mainwindow.cpp)
+[00_FirstQtApp/mainwindow.cpp](00_FirstQtApp/mainwindow.cpp)
 
 ``` cpp
 class MainWindow : public QMainWindow {
@@ -166,7 +166,7 @@ class MainWindow : public QMainWindow {
 };
 ```
 
-[00_FirstQtApp\mainwindow.h](00_FirstQtApp\mainwindow.h)
+[00_FirstQtApp/mainwindow.h](00_FirstQtApp/mainwindow.h)
 
 * НОД - Наибольший общий делитель
 * GCD - Greatest Common Divisor
@@ -290,7 +290,7 @@ class Rational {
 };
 ```
 
-[00_HomeWork_Done\main.cpp](00_HomeWork_Done\main.cpp)
+[00_HomeWork_Done/main.cpp](00_HomeWork_Done/main.cpp)
 
 Конструктор копирования
 -----------------------
@@ -322,7 +322,7 @@ struct String {
 const char *str = "Hello";
 str[0] = 'X';
 ```
-[01_OOP\01_copy_contructor\main.cpp](01_OOP\01_copy_contructor\main.cpp)
+[01_OOP/01_copy_contructor/main.cpp](01_OOP/01_copy_contructor/main.cpp)
 
 Виртуальный деструктор
 ----------------------
@@ -378,7 +378,7 @@ int Test2::alive2 = 0;
     tt.init();
 ```
 
-[01_OOP\02_virtual_destructor\task1.cpp](01_OOP\02_virtual_destructor\task1.cpp)
+[01_OOP/02_virtual_destructor/task1.cpp](01_OOP/02_virtual_destructor/task1.cpp)
 
 Файловый ввод и вывод с помощью потоков
 ---------------------------------------
@@ -398,7 +398,7 @@ int Test2::alive2 = 0;
   out.close();
 ```
 
-[01_OOP\03_iostream_files\a_sum.cpp](01_OOP\03_iostream_files\a_sum.cpp)
+[01_OOP/03_iostream_files/a_sum.cpp](01_OOP/03_iostream_files/a_sum.cpp)
 
 cin - istream;
 cout - ostream;
@@ -428,7 +428,7 @@ ifstream - input file stream
 
 Выходной файл автоматически
 закрывается при закрытии программы
-[01_OOP\03_iostream_files\main.cpp](01_OOP\03_iostream_files\main.cpp)
+[01_OOP/03_iostream_files/main.cpp](01_OOP/03_iostream_files/main.cpp)
 
 Перенаправление консольного ввода/вывода
 ----------------------------------------
@@ -454,7 +454,7 @@ ifstream - input file stream
   cout << a << " + " << b << " = " << (a + b) << endl;
 ```
 
-[01_OOP\03_iostream_files\redirect_output.cpp](01_OOP\03_iostream_files\redirect_output.cpp)
+[01_OOP/03_iostream_files/redirect_output.cpp](01_OOP/03_iostream_files/redirect_output.cpp)
 
 Базовое применение шаблонов
 Без использования шаблонов
@@ -466,12 +466,12 @@ T - параметр шаблона
 любой из типов: int I
 Функция, добавляющая константу
 assert(2*2 == 5);
-[02_templates\31_template_min_max\01_template_min_max\main.cpp](02_templates\31_template_min_max\01_template_min_max\main.cpp)
+[02_templates/31_template_min_max/01_template_min_max/main.cpp](02_templates/31_template_min_max/01_template_min_max/main.cpp)
 
 Утиная типизация - Duck Typing
 ------------------------------
 t.VilyaletHvostom(); // Виляет хвостом
-[02_templates\32_template_duck_typing\main.cpp](02_templates\32_template_duck_typing\main.cpp)
+[02_templates/32_template_duck_typing/main.cpp](02_templates/32_template_duck_typing/main.cpp)
 
 a - массив
 N - количество элементов
@@ -480,7 +480,7 @@ T - параметр шаблона
 операции (т.е. он подходит по duck typing)
 Вывести через запятую
 2, 3, 4
-[02_templates\33_print_commas\main.cpp](02_templates\33_print_commas\main.cpp)
+[02_templates/33_print_commas/main.cpp](02_templates/33_print_commas/main.cpp)
 
 Шаблон:
 * template <class T>
@@ -590,7 +590,7 @@ struct Queue {
 };
 ```
 
-[02_templates\33_template_stack_queue\main.cpp](02_templates\33_template_stack_queue\main.cpp)
+[02_templates/33_template_stack_queue/main.cpp](02_templates/33_template_stack_queue/main.cpp)
 
 Задача:
 Функция, вычисляющая сумму элементов
@@ -606,7 +606,7 @@ re - действительная часть
 im - мнимая часть
 Строки тоже можно "суммировать"
 Это называется "Конкатенация строк"
-[02_templates\35_template_sum\main.cpp](02_templates\35_template_sum\main.cpp)
+[02_templates/35_template_sum/main.cpp](02_templates/35_template_sum/main.cpp)
 
 Демонстрация "зачем нужны шаблоны"
 Задача: мы хотим написать функции сортировки для всех типов данных
@@ -637,16 +637,16 @@ s<int>(a,3)
 ..и к строкам...
 ...и к любым другим типам данных (в том числе своим)..
 ..к которым применима операция "меньше"..
-[02_templates\36_template_sort\main.cpp](02_templates\36_template_sort\main.cpp)
+[02_templates/36_template_sort/main.cpp](02_templates/36_template_sort/main.cpp)
 
 В цикле мы не можем создавать реализации шаблона
 т.к. они создаются на этапе компиляции
 error: no matching function for call to 'add(int&)'|
-[02_templates\38_template_many_functions\main.cpp](02_templates\38_template_many_functions\main.cpp)
+[02_templates/38_template_many_functions/main.cpp](02_templates/38_template_many_functions/main.cpp)
 
 MyClass c1, c2;
 add<MyClass>(c1,c2);
-[02_templates\l5_template2\main.cpp](02_templates\l5_template2\main.cpp)
+[02_templates/l5_template2/main.cpp](02_templates/l5_template2/main.cpp)
 
 template: реализация структуры данных "Список"
 ----------------------------------------------
@@ -676,7 +676,7 @@ myFunction<double>()
 make_pair(234, 'c');
 List - класс
 list - объект этого класса
-[02_templates\l5_template\main.cpp](02_templates\l5_template\main.cpp)
+[02_templates/l5_template/main.cpp](02_templates/l5_template/main.cpp)
 
 Базовое применение шаблонов
 ---------------------------
@@ -696,7 +696,7 @@ assert(2*2 == 5);
 Шаблоны умеют автоматически определять
 тип по типам аргументов
 Явно указать параметр шаблона
-[02_templates\main.cpp](02_templates\main.cpp)
+[02_templates/main.cpp](02_templates/main.cpp)
 
 Произведение всех чисел
 в массиве A
@@ -720,14 +720,14 @@ T mul(T A[], size_t size) {
 }
 ```
 
-[02_templates\task_mul\main.cpp](02_templates\task_mul\main.cpp)
+[02_templates/task_mul/main.cpp](02_templates/task_mul/main.cpp)
 
 Вектор - аналог массива
 Массив строк
 Вектор строк
 Удаляем элемент из середины вектора
 Второй пример
-[03_STL\1_vector.cpp](03_STL\1_vector.cpp)
+[03_STL/1_vector.cpp](03_STL/1_vector.cpp)
 
 Итератор по буквам строки
 -------------------------
@@ -738,7 +738,7 @@ size_t -
 с первой буквы до последней по одной
 Очередная буква строки
 Не нашли букву => она первый раз
-[03_STL\6_map_count_chars.cpp](03_STL\6_map_count_chars.cpp)
+[03_STL/6_map_count_chars.cpp](03_STL/6_map_count_chars.cpp)
 
 ``` cpp
 void dict() {
@@ -771,7 +771,7 @@ void dict() {
 }
 ```
 
-[03_STL\7_map_dict.cpp](03_STL\7_map_dict.cpp)
+[03_STL/7_map_dict.cpp](03_STL/7_map_dict.cpp)
 
 Задача "сортировка строк"
 -------------------------
@@ -817,7 +817,7 @@ void dict() {
   out.close();
 ```
 
-[03_STL\8_sort_strings.cpp](03_STL\8_sort_strings.cpp)
+[03_STL/8_sort_strings.cpp](03_STL/8_sort_strings.cpp)
 
 sort algorithm example
 using default comparison (operator <):
@@ -826,7 +826,7 @@ using function as comp
 Сортировка в обратном порядке
 using object as comp
 print out content:
-[03_STL\9_sort_my_comparator.cpp](03_STL\9_sort_my_comparator.cpp)
+[03_STL/9_sort_my_comparator.cpp](03_STL/9_sort_my_comparator.cpp)
 
 ``` cpp
 #define SHOW(x) cout << #x << " = " << x << endl;
@@ -843,21 +843,21 @@ void showCollection(T v) {
 }
 ```
 
-[03_STL\common.h](03_STL\common.h)
+[03_STL/common.h](03_STL/common.h)
 
 map<ключ, значение>
 m[ключ] = значение;
 ...
-[04_Qt_templates\02_map_example\main.cpp](04_Qt_templates\02_map_example\main.cpp)
+[04_Qt_templates/02_map_example/main.cpp](04_Qt_templates/02_map_example/main.cpp)
 
 Конец слова
 Выделяем слово
 Переводим слово
-[04_Qt_templates\qt_map_example\main.cpp](04_Qt_templates\qt_map_example\main.cpp)
+[04_Qt_templates/qt_map_example/main.cpp](04_Qt_templates/qt_map_example/main.cpp)
 
 throw 2;
 qDebug() << "Error: " << s;
-[05_Exceptions\main.cpp](05_Exceptions\main.cpp)
+[05_Exceptions/main.cpp](05_Exceptions/main.cpp)
 
 Изменение свойств объектов по событиям
 ======================================
@@ -871,7 +871,7 @@ void MainWindow::on_incFontSizeButton_clicked() {
 }
 ```
 
-[05_Qt\01_QtGUI_Properties\mainwindow.cpp](05_Qt\01_QtGUI_Properties\mainwindow.cpp)
+[05_Qt/01_QtGUI_Properties/mainwindow.cpp](05_Qt/01_QtGUI_Properties/mainwindow.cpp)
 
 Отладка Qt приложений
 =====================
@@ -918,11 +918,11 @@ string::string(string& right) {
 }
 ```
 
-[05_Qt\02_Qt_console_debug\main.cpp](05_Qt\02_Qt_console_debug\main.cpp)
+[05_Qt/02_Qt_console_debug/main.cpp](05_Qt/02_Qt_console_debug/main.cpp)
 
 продолжаем вводить число
 бинарную операцию
-[05_Qt\04_QtCalc\CalcStates.h](05_Qt\04_QtCalc\CalcStates.h)
+[05_Qt/04_QtCalc/CalcStates.h](05_Qt/04_QtCalc/CalcStates.h)
 
 Когда нажимаем на цифру:
 ``` cpp
@@ -963,11 +963,11 @@ string::string(string& right) {
 только если на дисплее точек ещё нет
 Складываем содержимое экрана и память
 Запоминаем содержимое экрана
-[05_Qt\04_QtCalc\mainwindow.cpp](05_Qt\04_QtCalc\mainwindow.cpp)
+[05_Qt/04_QtCalc/mainwindow.cpp](05_Qt/04_QtCalc/mainwindow.cpp)
 
 Когда нажимаем на цифровую кнопку
 вызывается этот слот
-[05_Qt\04_QtCalc\mainwindow.h](05_Qt\04_QtCalc\mainwindow.h)
+[05_Qt/04_QtCalc/mainwindow.h](05_Qt/04_QtCalc/mainwindow.h)
 
 Параметры:
 text - текст на кнопке
@@ -984,7 +984,7 @@ this->game = &game;
 для данной клетки
 Больше не можем нажимать на эту клетку поля
 (эту кнопку)
-[05_Qt\10_Qt_XO\cellbutton.cpp](05_Qt\10_Qt_XO\cellbutton.cpp)
+[05_Qt/10_Qt_XO/cellbutton.cpp](05_Qt/10_Qt_XO/cellbutton.cpp)
 
 Одна клетка поля, наследник стандартной Qt-кнопки
 Параметры:
@@ -994,7 +994,7 @@ parent - окно, в котором кнопка будет расположе�
 row - строка, col - столбец на поле
 game - ссылка на игру
 Нажатие на кнопку
-[05_Qt\10_Qt_XO\cellbutton.h](05_Qt\10_Qt_XO\cellbutton.h)
+[05_Qt/10_Qt_XO/cellbutton.h](05_Qt/10_Qt_XO/cellbutton.h)
 
 При старте программы сразу начинается новая игра
 Новая игра
@@ -1027,7 +1027,7 @@ QString("Ход в клетку: (%1; %2)")
 Читаем данные
 Считываем размер карты
 Проверяем количество крестиков и ноликов
-[05_Qt\10_Qt_XO\game.cpp](05_Qt\10_Qt_XO\game.cpp)
+[05_Qt/10_Qt_XO/game.cpp](05_Qt/10_Qt_XO/game.cpp)
 
 Состояние игры
 Все что происодит на поле и логика игрового мира
@@ -1044,18 +1044,18 @@ QString("Ход в клетку: (%1; %2)")
 Сохранение игры
 Загрузка игры
 Состояние ячейки
-[05_Qt\10_Qt_XO\game.h](05_Qt\10_Qt_XO\game.h)
+[05_Qt/10_Qt_XO/game.h](05_Qt/10_Qt_XO/game.h)
 
 Записываем текущий размер поля
 Берём новое значение размера поля
 из интерфейса и записываем как MapSize
-[05_Qt\10_Qt_XO\gamesettings.cpp](05_Qt\10_Qt_XO\gamesettings.cpp)
+[05_Qt/10_Qt_XO/gamesettings.cpp](05_Qt/10_Qt_XO/gamesettings.cpp)
 
 Мы можем создать второе такое же окно
 MainWindow w2;
 w2.show();
 Обработка событий - основной цикл работы программы
-[05_Qt\10_Qt_XO\main.cpp](05_Qt\10_Qt_XO\main.cpp)
+[05_Qt/10_Qt_XO/main.cpp](05_Qt/10_Qt_XO/main.cpp)
 
 Скрываем кнопку с прототипом
 Задаём размер массиву кнопок
@@ -1074,27 +1074,27 @@ const QString & text, StandardButtons buttons = Ok, StandardButton defaultButton
 Вызываем окно настройки размера поля
 После изменения размера поля
 перестартуем игру
-[05_Qt\10_Qt_XO\mainwindow.cpp](05_Qt\10_Qt_XO\mainwindow.cpp)
+[05_Qt/10_Qt_XO/mainwindow.cpp](05_Qt/10_Qt_XO/mainwindow.cpp)
 
 Новый слот
-[05_Qt\10_Qt_XO\mainwindow.h](05_Qt\10_Qt_XO\mainwindow.h)
+[05_Qt/10_Qt_XO/mainwindow.h](05_Qt/10_Qt_XO/mainwindow.h)
 
 Размер поля игры
 const int MapSize = 3;
-[05_Qt\10_Qt_XO\map_size.h](05_Qt\10_Qt_XO\map_size.h)
+[05_Qt/10_Qt_XO/map_size.h](05_Qt/10_Qt_XO/map_size.h)
 
 freopen("log.txt", "w", stdout);
 return -1;
-[05_Qt\Airports_qt\main.cpp](05_Qt\Airports_qt\main.cpp)
+[05_Qt/Airports_qt/main.cpp](05_Qt/Airports_qt/main.cpp)
 
 Модель данных (массив 9 на 9 элементов)
 В таблице в интерфейсе будет показываться именно
 эта модель
 Добавляем таблицу чисел
-[05_Qt\QTableViewDemo\mainwindow.cpp](05_Qt\QTableViewDemo\mainwindow.cpp)
+[05_Qt/QTableViewDemo/mainwindow.cpp](05_Qt/QTableViewDemo/mainwindow.cpp)
 
 Модель: контейнер (массив) для ячеек таблицы
-[05_Qt\QTableViewDemo\mainwindow.h](05_Qt\QTableViewDemo\mainwindow.h)
+[05_Qt/QTableViewDemo/mainwindow.h](05_Qt/QTableViewDemo/mainwindow.h)
 
 Свой калькулятор на Qt
 ----------------------
@@ -1220,7 +1220,7 @@ void MainWindow::on_pointButton_clicked() {
 }
 ```
 
-[05_Qt\QtCalc\mainwindow.cpp](05_Qt\QtCalc\mainwindow.cpp)
+[05_Qt/QtCalc/mainwindow.cpp](05_Qt/QtCalc/mainwindow.cpp)
 
 ``` cpp
   typedef double number;
@@ -1233,15 +1233,15 @@ void MainWindow::on_pointButton_clicked() {
   bool newNumber;
 ```
 
-[05_Qt\QtCalc\mainwindow.h](05_Qt\QtCalc\mainwindow.h)
+[05_Qt/QtCalc/mainwindow.h](05_Qt/QtCalc/mainwindow.h)
 
 Поиск минимума в двухмерном массиве
 Инициализируем максимальным числом для типа int
-[05_Qt\QtConsoleExample\main.cpp](05_Qt\QtConsoleExample\main.cpp)
+[05_Qt/QtConsoleExample/main.cpp](05_Qt/QtConsoleExample/main.cpp)
 
 Консольное приложение на Qt для
 вычисления факториала
-[05_Qt\QtConsole\main.cpp](05_Qt\QtConsole\main.cpp)
+[05_Qt/QtConsole/main.cpp](05_Qt/QtConsole/main.cpp)
 
 Получаем 2 строки из интерфейса
 Конкатенация строк
@@ -1250,10 +1250,10 @@ void MainWindow::on_pointButton_clicked() {
 Любая буква английского алфавита
 Генерируем первую строку
 Генерируем вторую строку
-[05_Qt\QtDemo\mainwindow.cpp](05_Qt\QtDemo\mainwindow.cpp)
+[05_Qt/QtDemo/mainwindow.cpp](05_Qt/QtDemo/mainwindow.cpp)
 
 Генерация случайной строки
-[05_Qt\QtDemo\mainwindow.h](05_Qt\QtDemo\mainwindow.h)
+[05_Qt/QtDemo/mainwindow.h](05_Qt/QtDemo/mainwindow.h)
 
 Получаем строчку из первого (верхнего) поля
 Получаем строчку из второго поля
@@ -1261,7 +1261,7 @@ void MainWindow::on_pointButton_clicked() {
 Результат в строчку
 ..используем строку форматирования..
 Помещаем результат обратно в интерфейс
-[05_Qt\QtFirstApplication\mainwindow.cpp](05_Qt\QtFirstApplication\mainwindow.cpp)
+[05_Qt/QtFirstApplication/mainwindow.cpp](05_Qt/QtFirstApplication/mainwindow.cpp)
 
 Получаем текущее расположение кнопки
 Изменяем координаты кнопки
@@ -1275,22 +1275,22 @@ void MainWindow::on_pointButton_clicked() {
 Получаем текущее расположение кнопки
 Изменяем координаты кнопки
 Передаём изменённые координаты обратно в интерфейс
-[05_Qt\QtGame\mainwindow.cpp](05_Qt\QtGame\mainwindow.cpp)
+[05_Qt/QtGame/mainwindow.cpp](05_Qt/QtGame/mainwindow.cpp)
 
 Создаём Qt-приложение
 Создаём основное окно
 Показываем его
 Обработка событий приложения
-[05_Qt\QtNewDemo\main.cpp](05_Qt\QtNewDemo\main.cpp)
+[05_Qt/QtNewDemo/main.cpp](05_Qt/QtNewDemo/main.cpp)
 
 Получаем 2 строки из интерфейса
 Соединяем строки
 Результат в интерфейс
-[05_Qt\QtNewDemo\mainwindow.cpp](05_Qt\QtNewDemo\mainwindow.cpp)
+[05_Qt/QtNewDemo/mainwindow.cpp](05_Qt/QtNewDemo/mainwindow.cpp)
 
 Главное окно программы
 Текущее окно приложения
-[05_Qt\QtNewDemo\mainwindow.h](05_Qt\QtNewDemo\mainwindow.h)
+[05_Qt/QtNewDemo/mainwindow.h](05_Qt/QtNewDemo/mainwindow.h)
 
 Сигналы и слоты
 ===============
@@ -1307,13 +1307,13 @@ void MainWindow::on_pointButton_clicked() {
   ui->pushButton->setStyleSheet("color: #FFFF00");
 ```
 
-[05_Qt\QtSlotsSignals\mainwindow.cpp](05_Qt\QtSlotsSignals\mainwindow.cpp)
+[05_Qt/QtSlotsSignals/mainwindow.cpp](05_Qt/QtSlotsSignals/mainwindow.cpp)
 
 Получаем строку из интерфейса
 
 QListWidgetItem *newItem = new QListWidgetItem(ui->listWidget);
 newItem->setText(str);
-[05_Qt\QtWidgets2\mainwindow.cpp](05_Qt\QtWidgets2\mainwindow.cpp)
+[05_Qt/QtWidgets2/mainwindow.cpp](05_Qt/QtWidgets2/mainwindow.cpp)
 
 template<ПАРАМЕТРЫ>
 class Имя_класса{}
@@ -1338,7 +1338,7 @@ cout << "1 exists" << endl;
 map - словарь
 map<тип_ключа, тип_значения>
 m.insert('D', 30);
-[05_Qt\qt_console\a.cpp](05_Qt\qt_console\a.cpp)
+[05_Qt/qt_console/a.cpp](05_Qt/qt_console/a.cpp)
 
 Подсчитать количество одинаковых элементов
 Вывести в виде Значение элемента -> Количество
@@ -1357,13 +1357,13 @@ cout << m.count('A') << endl;
 Удаляем элемент
 m.erase('A');
 cout << m.count('A') << endl;
-[05_Qt\qt_console\main.cpp](05_Qt\qt_console\main.cpp)
+[05_Qt/qt_console/main.cpp](05_Qt/qt_console/main.cpp)
 
 Операция конкатенации
 TODO: сумму чисел
 TODO: Как сделать проще?
 TODO: Собрать с QWebView
-[05_Qt\qt_qui\mainwindow.cpp](05_Qt\qt_qui\mainwindow.cpp)
+[05_Qt/qt_qui/mainwindow.cpp](05_Qt/qt_qui/mainwindow.cpp)
 
 ``` cpp
 int main(int argc, char* argv[]) {
@@ -1392,14 +1392,14 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-[06_Qt_HelloWorld\main.cpp](06_Qt_HelloWorld\main.cpp)
+[06_Qt_HelloWorld/main.cpp](06_Qt_HelloWorld/main.cpp)
 
 TODO: реализовать перемещение
 ui->textEdit->geometry().translate(0, 10);
 TODO: реализовать перемещение
 TODO: реализовать перемещение
 TODO: реализовать перемещение
-[HomeWork_1\mainwindow.cpp](HomeWork_1\mainwindow.cpp)
+[HomeWork_1/mainwindow.cpp](HomeWork_1/mainwindow.cpp)
 
 setlocale(LC_CTYPE,"rus");
 setlocale(LC_CTYPE,"rus.1251");
@@ -1412,7 +1412,7 @@ SetConsoleOutputCP(CP_UTF8);
 system("chcp 65001");
 locale u("rus_RUS.utf8"); // или rus.utf8, или просто .utf8 ?
 cout.imbue(u);
-[console_utf8\main.cpp](console_utf8\main.cpp)
+[console_utf8/main.cpp](console_utf8/main.cpp)
 
 ﻿Коды ошибок
 -----------

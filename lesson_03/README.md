@@ -97,7 +97,7 @@ int main() {
 }
 ```
 
-[00_HomeWork_2\main.cpp](00_HomeWork_2\main.cpp)
+[00_HomeWork_2/main.cpp](00_HomeWork_2/main.cpp)
 
 Утверждения: assert, TDD
 ------------------------
@@ -154,10 +154,10 @@ long long fact(int n) {
   return 0;
 ```
 
-[01_Assert\main.cpp](01_Assert\main.cpp)
+[01_Assert/main.cpp](01_Assert/main.cpp)
 
 Плотная упаковка - без выравнивания
-[01_sizeof\main.cpp](01_sizeof\main.cpp)
+[01_sizeof/main.cpp](01_sizeof/main.cpp)
 
 Строка в C
 ----------
@@ -243,7 +243,7 @@ int main() {
 }
 ```
 
-[01_task_rec\main.cpp](01_task_rec\main.cpp)
+[01_task_rec/main.cpp](01_task_rec/main.cpp)
 
 Приведение типов
 ----------------
@@ -263,7 +263,7 @@ int main() {
   iPtr = reinterpret_cast<int*>(l);
 ```
 
-[01_types_cast\main.cpp](01_types_cast\main.cpp)
+[01_types_cast/main.cpp](01_types_cast/main.cpp)
 
 Указатели и ссылки
 ------------------
@@ -325,7 +325,7 @@ int main() {
 }
 ```
 
-[02_references\main.cpp](02_references\main.cpp)
+[02_references/main.cpp](02_references/main.cpp)
 
 Значение / ссылка / указатель
 -----------------------------
@@ -385,7 +385,7 @@ int main() {
 }
 ```
 
-[03_var_reference\main.cpp](03_var_reference\main.cpp)
+[03_var_reference/main.cpp](03_var_reference/main.cpp)
 
 ``` cpp
 void inc2(int& value) {
@@ -421,7 +421,7 @@ int main() {
 }
 ```
 
-[04_ref_demo\main.cpp](04_ref_demo\main.cpp)
+[04_ref_demo/main.cpp](04_ref_demo/main.cpp)
 
 Указатели, ссылки и массивы
 ---------------------------
@@ -481,7 +481,7 @@ int main() {
 }
 ```
 
-[04_refs_array\main.cpp](04_refs_array\main.cpp)
+[04_refs_array/main.cpp](04_refs_array/main.cpp)
 
 Макросы для отладки
 -------------------
@@ -496,7 +496,7 @@ int main() {
 #define ASSERT_EQ(a,b) ((a == b) ? (void)0 : _assert(#a" != "#b, __FILE__, __LINE__))
 ```
 
-[05_DebugMacro\main.cpp](05_DebugMacro\main.cpp)
+[05_DebugMacro/main.cpp](05_DebugMacro/main.cpp)
 
 Объединения - union
 -------------------
@@ -552,7 +552,7 @@ union InMemoryPresentation {
 Intel: little-endian: "остроконечный"
 big-endian, дословно: "тупоконечный"
 TODO: посмотреть endian.h
-[05_union\main.cpp](05_union\main.cpp)
+[05_union/main.cpp](05_union/main.cpp)
 
 Виды памяти
 -----------
@@ -584,7 +584,7 @@ int main() {
 }
 ```
 
-[06_0_static_stack\main.c](06_0_static_stack\main.c)
+[06_0_static_stack/main.c](06_0_static_stack/main.c)
 
 Динамическая память: malloc / free
 ----------------------------------
@@ -605,7 +605,7 @@ int main() {
   free(intArray);
 ```
 
-[06_malloc_free\main.c](06_malloc_free\main.c)
+[06_malloc_free/main.c](06_malloc_free/main.c)
 
 Динамическая память new / delete
 --------------------------------
@@ -658,7 +658,7 @@ int main() {
 }
 ```
 
-[07_new_delete\main.cpp](07_new_delete\main.cpp)
+[07_new_delete/main.cpp](07_new_delete/main.cpp)
 
 Структура данных: очередь
 -------------------------
@@ -705,7 +705,7 @@ int main() {
 }
 ```
 
-[09_queue\main.cpp](09_queue\main.cpp)
+[09_queue/main.cpp](09_queue/main.cpp)
 
 Стуктура данных: динамический список
 ------------------------------------
@@ -790,7 +790,7 @@ int main() {
 }
 ```
 
-[10_list\main.cpp](10_list\main.cpp)
+[10_list/main.cpp](10_list/main.cpp)
 
 Реализация структуры данных "Список"
 ------------------------------------
@@ -997,7 +997,7 @@ struct List {
   list.show();
 ```
 
-[11_list\main.cpp](11_list\main.cpp)
+[11_list/main.cpp](11_list/main.cpp)
 
 ﻿ООП - принципы: классы, объекты, прототипы
 ==========================================
@@ -1143,7 +1143,7 @@ int main() {
 }
 ```
 
-[12_OOP_Simplest\main.cpp](12_OOP_Simplest\main.cpp)
+[12_OOP_Simplest/main.cpp](12_OOP_Simplest/main.cpp)
 
 Домашняя работа
 ---------------
@@ -1209,7 +1209,7 @@ struct Queue {
   cout << "99 - " << q.get() << endl;
 ```
 
-[HomeWork\main.cpp](HomeWork\main.cpp)
+[HomeWork/main.cpp](HomeWork/main.cpp)
 
 Домашнее задание:
 Реализовать стек и очередь
@@ -1221,7 +1221,7 @@ struct Queue {
 Конструктор
 В конец очереди
 Забрать первый элемент из очереди
-[HomeWork\task.cpp](HomeWork\task.cpp)
+[HomeWork/task.cpp](HomeWork/task.cpp)
 
 Домашнее задание - структуры данных
 -----------------------------------
@@ -1249,5 +1249,5 @@ struct Point {
   cout << c.x << " " << c.y << endl;
 ```
 
-[HomeWork_1\main.cpp](HomeWork_1\main.cpp)
+[HomeWork_1/main.cpp](HomeWork_1/main.cpp)
 

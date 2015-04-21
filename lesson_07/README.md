@@ -20,7 +20,7 @@ enum DirectionX {
 ```
 
 #pragma pack(4)
-[01_Enums\main.cpp](01_Enums\main.cpp)
+[01_Enums/main.cpp](01_Enums/main.cpp)
 
 Печать в строку как в поток
 ``` cpp
@@ -28,14 +28,14 @@ enum DirectionX {
   sstream << sum;
 ```
 
-[01_QtWidgets\demowidgetswindow.cpp](01_QtWidgets\demowidgetswindow.cpp)
+[01_QtWidgets/demowidgetswindow.cpp](01_QtWidgets/demowidgetswindow.cpp)
 
 Определение глобальной переменной в **module1.cpp**
 ``` cpp
 int globalVar = 2;
 ```
 
-[01_extern_vars\module1.cpp](01_extern_vars\module1.cpp)
+[01_extern_vars/module1.cpp](01_extern_vars/module1.cpp)
 
 В **module2.cpp** тоже можно использовать
 **globalVar**
@@ -51,14 +51,14 @@ void show2() {
 }
 ```
 
-[01_extern_vars\module2.cpp](01_extern_vars\module2.cpp)
+[01_extern_vars/module2.cpp](01_extern_vars/module2.cpp)
 
 Глобальная переменная в **vars.h**
 ``` cpp
 extern int globalVar;
 ```
 
-[01_extern_vars\vars.h](01_extern_vars\vars.h)
+[01_extern_vars/vars.h](01_extern_vars/vars.h)
 
 Создание класса в C++ по его идентификатору
 -------------------------------------------
@@ -143,13 +143,13 @@ MyClass* Create<2>() {
   a2->show();
 ```
 
-[02_AbstractFactory\main.cpp](02_AbstractFactory\main.cpp)
+[02_AbstractFactory/main.cpp](02_AbstractFactory/main.cpp)
 
 Работа с QString
 ----------------
 QString("%1 - %2").arg(s1).arg(s2)
 s1 заканчивается на s2
-[02_QString\mainwindow.cpp](02_QString\mainwindow.cpp)
+[02_QString/mainwindow.cpp](02_QString/mainwindow.cpp)
 
 Положение и размеры виджетов
 ----------------------------
@@ -169,12 +169,12 @@ s1 заканчивается на s2
   ui->object->setGeometry(r);
 ```
 
-[03_Qt_Geometry\mainwindow.cpp](03_Qt_Geometry\mainwindow.cpp)
+[03_Qt_Geometry/mainwindow.cpp](03_Qt_Geometry/mainwindow.cpp)
 
 Исключения
 ----------
 throw QString("ERROR");
-[05_Exceptions\main.cpp](05_Exceptions\main.cpp)
+[05_Exceptions/main.cpp](05_Exceptions/main.cpp)
 
 Задание "Русская рулетка"
 -------------------------
@@ -232,7 +232,7 @@ void MainWindow::log(QString s) {
   );
 ```
 
-[HomeWork_RussianRoulette\mainwindow.cpp](HomeWork_RussianRoulette\mainwindow.cpp)
+[HomeWork_RussianRoulette/mainwindow.cpp](HomeWork_RussianRoulette/mainwindow.cpp)
 
 Генерация случайного целого числа в диапазоне
 low..high
@@ -242,7 +242,7 @@ int random(int low, int high) {
 }
 ```
 
-[HomeWork_RussianRoulette\random.cpp](HomeWork_RussianRoulette\random.cpp)
+[HomeWork_RussianRoulette/random.cpp](HomeWork_RussianRoulette/random.cpp)
 
 Генерация случайного целого числа в диапазоне
 low..high
@@ -250,7 +250,7 @@ low..high
 int random(int low, int high);
 ```
 
-[HomeWork_RussianRoulette\random.h](HomeWork_RussianRoulette\random.h)
+[HomeWork_RussianRoulette/random.h](HomeWork_RussianRoulette/random.h)
 
 Назначаем имя файлу
 Открываем БД
@@ -258,7 +258,7 @@ int random(int low, int high);
 Выполняем запрос, если ошибка в запросе,
 то метод возвращает false
 Выводим подробное сообщение об ошибке
-[HomeWork_SQL\main.cpp](HomeWork_SQL\main.cpp)
+[HomeWork_SQL/main.cpp](HomeWork_SQL/main.cpp)
 
 Главная форма в динамической памяти
 -----------------------------------
@@ -277,7 +277,7 @@ int random(int low, int high);
   return res;
 ```
 
-[QtButtonTextToEdit2\main.cpp](QtButtonTextToEdit2\main.cpp)
+[QtButtonTextToEdit2/main.cpp](QtButtonTextToEdit2/main.cpp)
 
 При нажатии на любую клавишу с текстом
 ``` cpp
@@ -303,7 +303,7 @@ int random(int low, int high);
 ```
 
 Ещё один обработчик для кнопки 1 :)
-[QtButtonTextToEdit2\mainwindow.cpp](QtButtonTextToEdit2\mainwindow.cpp)
+[QtButtonTextToEdit2/mainwindow.cpp](QtButtonTextToEdit2/mainwindow.cpp)
 
 Задание: работа с базой данных
 ------------------------------
@@ -313,18 +313,18 @@ int random(int low, int high);
 3. Выполняем SQL-операторы
 4. Получаем результаты их выполнения
 5. Связываем с интерфейсом
-[QtDatabase\main.cpp](QtDatabase\main.cpp)
+[QtDatabase/main.cpp](QtDatabase/main.cpp)
 
 Загрузка текста из файла
 Utf-8
-[QtReadTextToInterface\mainwindow.cpp](QtReadTextToInterface\mainwindow.cpp)
+[QtReadTextToInterface/mainwindow.cpp](QtReadTextToInterface/mainwindow.cpp)
 
 ui->gridLayout->
 TODO: Вывести сообщение: а мы и не сомневались!
-[QtWidgets\mainwindow.cpp](QtWidgets\mainwindow.cpp)
+[QtWidgets/mainwindow.cpp](QtWidgets/mainwindow.cpp)
 
 1. Получаем данные из интерфейса
 2. Соединяем 2 строки в одну (конкатенация)
 3. Отправляем результат в интерфейс
-[StringConcat\mainwindow.cpp](StringConcat\mainwindow.cpp)
+[StringConcat/mainwindow.cpp](StringConcat/mainwindow.cpp)
 

@@ -50,17 +50,93 @@ private slots: // должны быть приватными
 
 
 Подключаем все модули для тестирования
-И свой заголовочный файл
+``` cpp
+#include "inttostr.h"
+#include "functions.h"
+#include "myclass.h"
+#include "squareeq.h"
+// И свой заголовочный файл
+#include "alltests.h"
+```
+
 Тестирование вычисления максимума
-QCOMPARE( вызов_тестируемой_функции, ожидаемое_значение );
+``` cpp
+  MyClass a(this);
+  // QCOMPARE( вызов_тестируемой_функции, ожидаемое_значение );
+  QCOMPARE(a.max(2, 3), 3);  // 1 тест
+  QCOMPARE(a.max(2, 4), 4);  // 2 тест
+  QCOMPARE(a.max(5, 1), 5);
+  QCOMPARE(a.max(1, 2), 2);
+  QCOMPARE(a.max(-10, -20), -10);
+```
+
 Тестирование вычисления факториала
-Проверка исключения (ожидаемое исключение)
-Если мы оказались в этом месте программы,
-то метод факториал не сгенерировал исключение
-TDD
-0*x*x + 0*x + 0 = 0
-Число в строку
-Число в строку
+``` cpp
+  QCOMPARE( ::factorial(1), 1LL );
+  QCOMPARE( ::factorial(2), 2 * 1LL );
+  QCOMPARE( ::factorial(3), 3 * 2 * 1LL );
+  QCOMPARE( ::factorial(4), 4 * 3 * 2 * 1LL );
+  QCOMPARE( ::factorial(5), 5 * 4 * 3 * 2 * 1LL );
+  QCOMPARE( ::factorial(6), 6 * 5 * 4 * 3 * 2 * 1LL );
+  QCOMPARE( ::factorial(7), 7 * 6 * 5 * 4 * 3 * 2 * 1LL );
+  QCOMPARE( ::factorial(8), 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1LL );
+  QCOMPARE( ::factorial(9), 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1LL );
+
+  // Проверка исключения (ожидаемое исключение)
+  try {
+    ::factorial(-1);
+    // Если мы оказались в этом месте программы,
+    // то метод факториал не сгенерировал исключение
+    QFAIL("Exception expected!");
+  } catch(QString q) {
+    QCOMPARE( q, QString("N > 0"));
+  }
+
+```
+
+Квадратное уравнение
+TDD - Test Driven Development
+``` cpp
+  SquareEq a;
+  Roots roots = a.quadraticEquation(1, 0, 0);
+
+  QCOMPARE(roots.numberOfRoots, 1);
+  QCOMPARE(roots.x[0], 0.0);
+
+  roots = a.quadraticEquation(4, 0, 0);
+  QCOMPARE(roots.numberOfRoots, 1);
+  QCOMPARE(roots.x[0], 0.0);
+
+  roots = a.quadraticEquation(1, 0, -1);
+  QCOMPARE(roots.numberOfRoots, 2);
+  QCOMPARE(roots.x[0], 1.0);
+  QCOMPARE(roots.x[1], -1.0);
+
+  roots = a.quadraticEquation(1, 0, 1);
+  QCOMPARE(roots.numberOfRoots, 0);
+
+  roots = a.quadraticEquation(0, 1, 1);
+  QCOMPARE(roots.numberOfRoots, 1);
+  QCOMPARE(roots.x[0], -1.0);
+
+  roots = a.quadraticEquation(0, 0, 1);
+  QCOMPARE(roots.numberOfRoots, 0);
+
+  roots = a.quadraticEquation(0, 2, 1);
+  QCOMPARE(roots.numberOfRoots, 1);
+  QCOMPARE(roots.x[0], -0.5);
+  QCOMPARE(a.calc(0, 2, 1, roots.x[0]), 0.0);
+
+  // 0*x*x + 0*x + 0 = 0
+  try {
+    a.quadraticEquation(0, 0, 0);
+    QFAIL("Exception expected!");
+  } catch(QString q) {
+    QCOMPARE( q, QString("Бесконечное число решений"));
+  }
+
+```
+
 Число в строку
 [alltests.cpp](alltests.cpp)
 

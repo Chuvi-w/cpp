@@ -173,7 +173,7 @@ TDD - Test Driven Development
 ```
 
 Число в строку
-[01_QtTest\alltests.cpp](01_QtTest\alltests.cpp)
+[01_QtTest/alltests.cpp](01_QtTest/alltests.cpp)
 
 Класс, который содержит тесты
 Тестирование вычисления максимума
@@ -184,40 +184,40 @@ TDD - Test Driven Development
 Число в строку от 200 до 999
 Число в строку от 1000 до 999999
 Тестирование функции суммирования
-[01_QtTest\alltests.h](01_QtTest\alltests.h)
+[01_QtTest/alltests.h](01_QtTest/alltests.h)
 
 Сумма: a + b
 Факториал
 Численное интегрирование
 Метод трапеций
 
-[01_QtTest\functions.cpp](01_QtTest\functions.cpp)
+[01_QtTest/functions.cpp](01_QtTest/functions.cpp)
 
 Сумма: a + b = c
 Факториал
 function - указатель на функцию возвращающую 1
 Численное интегрирование
 Метод трапеций
-[01_QtTest\functions.h](01_QtTest\functions.h)
+[01_QtTest/functions.h](01_QtTest/functions.h)
 
 Константная функция
 Константная функция
 y = x   0..1  -> 0.5
 y = x^2  x^3/3   0..1  -> 1/3
-[01_QtTest\integraltest.cpp](01_QtTest\integraltest.cpp)
+[01_QtTest/integraltest.cpp](01_QtTest/integraltest.cpp)
 
 Тестирование интегрирования константной функции
-[01_QtTest\integraltest.h](01_QtTest\integraltest.h)
+[01_QtTest/integraltest.h](01_QtTest/integraltest.h)
 
 #define DEBUG1
 Число в строку
 Обрезаем лишние пробелы в начале и конце
 Первая буква в верхнем регистре
-[01_QtTest\inttostr.cpp](01_QtTest\inttostr.cpp)
+[01_QtTest/inttostr.cpp](01_QtTest/inttostr.cpp)
 
 Модуль с функцией для тестирования
 Целое число N в строку
-[01_QtTest\inttostr.h](01_QtTest\inttostr.h)
+[01_QtTest/inttostr.h](01_QtTest/inttostr.h)
 
 Подключаем модульные тесты
 Вывод числа в строку
@@ -226,33 +226,33 @@ freopen("testing.txt", "w", stdout);
 QTest::qExec(new SimpleTests());
 QTest::qExec(new AllTests, argc, argv);
 writeNumbersToFile();
-[01_QtTest\main.cpp](01_QtTest\main.cpp)
+[01_QtTest/main.cpp](01_QtTest/main.cpp)
 
 return 10;
-[01_QtTest\myclass.cpp](01_QtTest\myclass.cpp)
+[01_QtTest/myclass.cpp](01_QtTest/myclass.cpp)
 
 Тестируемый класс
 Вычисление максимума
 Вычисление минимума
-[01_QtTest\myclass.h](01_QtTest\myclass.h)
+[01_QtTest/myclass.h](01_QtTest/myclass.h)
 
 И
 QCOMPARE(2 * 2 + 1, 4);
-[01_QtTest\simpletests.cpp](01_QtTest\simpletests.cpp)
+[01_QtTest/simpletests.cpp](01_QtTest/simpletests.cpp)
 
 Вызывается при инициализации
 всех тестов
-[01_QtTest\simpletests.h](01_QtTest\simpletests.h)
+[01_QtTest/simpletests.h](01_QtTest/simpletests.h)
 
 Генерируем исключение
 Нет решений
 Линейное уравнение
 Квадратное уравнение
-[01_QtTest\squareeq.cpp](01_QtTest\squareeq.cpp)
+[01_QtTest/squareeq.cpp](01_QtTest/squareeq.cpp)
 
 Корни квадратного уравнения
 Решение квадратного уравнения
-[01_QtTest\squareeq.h](01_QtTest\squareeq.h)
+[01_QtTest/squareeq.h](01_QtTest/squareeq.h)
 
 TDD - Test Driven Development
 =============================
@@ -277,14 +277,14 @@ TDD - Test Driven Development
 Входные данные:
 N - целое число
 Результат: количество делителей
-[01_QtTest_Task\divisors.cpp](01_QtTest_Task\divisors.cpp)
+[01_QtTest_Task/divisors.cpp](01_QtTest_Task/divisors.cpp)
 
 Подсчёт количества делителей
 Входные данные:
 N - целое число
 Результат: количество делителей
 Медленная, но надёжная реализация :)
-[01_QtTest_Task\divisors.h](01_QtTest_Task\divisors.h)
+[01_QtTest_Task/divisors.h](01_QtTest_Task/divisors.h)
 
 Подключаем библиотеку для тестирования
 Подключаем наши тесты
@@ -292,7 +292,7 @@ N - целое число
 Протестировать, правильно
 ли работает функция вычисляющая
 количество делителей числа
-[01_QtTest_Task\main.cpp](01_QtTest_Task\main.cpp)
+[01_QtTest_Task/main.cpp](01_QtTest_Task/main.cpp)
 
 ``` cpp
   QCOMPARE( calcDiv(1), 1 );
@@ -320,30 +320,30 @@ N - целое число
 
 ```
 
-[01_QtTest_Task\tests.cpp](01_QtTest_Task\tests.cpp)
+[01_QtTest_Task/tests.cpp](01_QtTest_Task/tests.cpp)
 
 Деструктор
-[01_WindowParentChilds\mainwindow.cpp](01_WindowParentChilds\mainwindow.cpp)
+[01_WindowParentChilds/mainwindow.cpp](01_WindowParentChilds/mainwindow.cpp)
 
 freopen("debug.txt", "w", stdout);
-[02_QtTest_Simple\main.cpp](02_QtTest_Simple\main.cpp)
+[02_QtTest_Simple/main.cpp](02_QtTest_Simple/main.cpp)
 
 Тестируемый класс
 с одним методом
-[02_QtTest_Simple\myclass.h](02_QtTest_Simple\myclass.h)
+[02_QtTest_Simple/myclass.h](02_QtTest_Simple/myclass.h)
 
 Количество делителей
-[02_QtTest_Simple\sum.cpp](02_QtTest_Simple\sum.cpp)
+[02_QtTest_Simple/sum.cpp](02_QtTest_Simple/sum.cpp)
 
 Функция для тестирования
 Определить количество делителей у числа
 10 -> 1, 2, 5, 10 - всего 4 делителя
-[02_QtTest_Simple\sum.h](02_QtTest_Simple\sum.h)
+[02_QtTest_Simple/sum.h](02_QtTest_Simple/sum.h)
 
 Все тесты
 1 тест
 2 тест
-[02_QtTest_Simple\tests.h](02_QtTest_Simple\tests.h)
+[02_QtTest_Simple/tests.h](02_QtTest_Simple/tests.h)
 
 Поиск e-mail
 ============
@@ -361,7 +361,7 @@ PCRE - Perl Comp Reg Exp
 
 Работа с регулярными выражениями
 Запуск модульных тестов
-[03_QRegExp\main.cpp](03_QRegExp\main.cpp)
+[03_QRegExp/main.cpp](03_QRegExp/main.cpp)
 
 Сразу при старте приложения применяется регулярное выражение
 Каталог "Мои документы"
@@ -395,14 +395,14 @@ QDir::homePath() + "\\Desktop",
 Выбор шрифта пользователем
 Пользователем выбран новый шрифт
 Диалог отменён
-[03_QRegExp\mainwindow.cpp](03_QRegExp\mainwindow.cpp)
+[03_QRegExp/mainwindow.cpp](03_QRegExp/mainwindow.cpp)
 
 Применение регулярного выражения к тексту
 с выводом результата обратно на форму
 Сохранение текста в файл
 Загрузка текста из файла
 При обновлении текста
-[03_QRegExp\mainwindow.h](03_QRegExp\mainwindow.h)
+[03_QRegExp/mainwindow.h](03_QRegExp/mainwindow.h)
 
 Символы
 Поиск подстроки
@@ -424,17 +424,17 @@ QCOMPARE(QRegExp("\\xD0BF").exactMatch("П"), true);
 Кванторы
 + - один и больше
 * - ноль и больше
-[03_QRegExp\qregexptest.cpp](03_QRegExp\qregexptest.cpp)
+[03_QRegExp/qregexptest.cpp](03_QRegExp/qregexptest.cpp)
 
 Тестирование стандартных выражений QRegExp (PCRE - Perl Comp Reg Exp)
 Символы
 Группы символов
 Кванторы
-[03_QRegExp\qregexptest.h](03_QRegExp\qregexptest.h)
+[03_QRegExp/qregexptest.h](03_QRegExp/qregexptest.h)
 
 regex_match example
 using explicit flags:
-[04_regexp_cpp11\regexp11.cpp](04_regexp_cpp11\regexp11.cpp)
+[04_regexp_cpp11/regexp11.cpp](04_regexp_cpp11/regexp11.cpp)
 
 Singletone - одиночка
 ---------------------
@@ -447,13 +447,13 @@ Singletone
 Инициализация генератора случайных чисел
 A a1, a2; // Не компилируется
 A *a2 = new A(); // Тоже не компилируется
-[05_Pattern_Singletone\main.cpp](05_Pattern_Singletone\main.cpp)
+[05_Pattern_Singletone/main.cpp](05_Pattern_Singletone/main.cpp)
 
 Если объект ещё не создан
 Создаём его
 Можно вызывать private конструктор, т.к.
 мы внутри класса T
-[05_Pattern_Singletone\singletone.cpp](05_Pattern_Singletone\singletone.cpp)
+[05_Pattern_Singletone/singletone.cpp](05_Pattern_Singletone/singletone.cpp)
 
 T - из какого класса хотим сделать Singletone
 -static uniqueInstance
@@ -464,7 +464,7 @@ T - из какого класса хотим сделать Singletone
 Можно вызывать private конструктор, т.к.
 мы внутри класса T
 Первоначально экземпляр класса не создан
-[05_Pattern_Singletone\singletone.h](05_Pattern_Singletone\singletone.h)
+[05_Pattern_Singletone/singletone.h](05_Pattern_Singletone/singletone.h)
 
 Абстрактная фабрика
 -------------------
@@ -478,7 +478,7 @@ Prototype
 Номер рейса
 Получение билета
 Создаём и настраиваем фабрику
-[06_AbstractFactory\main.cpp](06_AbstractFactory\main.cpp)
+[06_AbstractFactory/main.cpp](06_AbstractFactory/main.cpp)
 
 Работа с сетью
 ==============
@@ -660,7 +660,7 @@ void MainWindow::refreshOnlineList() {
 }
 ```
 
-[06_QtNetwork\mainwindow.cpp](06_QtNetwork\mainwindow.cpp)
+[06_QtNetwork/mainwindow.cpp](06_QtNetwork/mainwindow.cpp)
 
 #include <QTcpServer>
 Тип сообщения
@@ -690,12 +690,12 @@ enum MessageType {
   void read();
 ```
 
-[06_QtNetwork\mainwindow.h](06_QtNetwork\mainwindow.h)
+[06_QtNetwork/mainwindow.h](06_QtNetwork/mainwindow.h)
 
 Абстрактный класс (интерфейс)
 Исполнитель по-умолчанию
 Предпочитаемый исполнитель
-[07_Bridge\main.cpp](07_Bridge\main.cpp)
+[07_Bridge/main.cpp](07_Bridge/main.cpp)
 
 Каждый компонент умеет себя "показывать" -
 т.е. выполнять метод show
@@ -703,7 +703,7 @@ enum MessageType {
 просто выводит строчку на экран
 Составной объект состоит из нескольких компонент
 Содержит несколько компонент (является контейнером)
-[08_Composite\main.cpp](08_Composite\main.cpp)
+[08_Composite/main.cpp](08_Composite/main.cpp)
 
 Стратегия (strategy)
 Поведенческий шаблон
@@ -711,19 +711,19 @@ enum MessageType {
 Стратегия стек
 Стратегия очередь
 
-[09_Strategy\main.cpp](09_Strategy\main.cpp)
+[09_Strategy/main.cpp](09_Strategy/main.cpp)
 
 Автоматическое удаление при указании parent
 -------------------------------------------
 delete obj;
-[AutoDeleteDemo\mainwindow.cpp](AutoDeleteDemo\mainwindow.cpp)
+[AutoDeleteDemo/mainwindow.cpp](AutoDeleteDemo/mainwindow.cpp)
 
 Деструктор
-[AutoDeleteDemo\myclass.cpp](AutoDeleteDemo\myclass.cpp)
+[AutoDeleteDemo/myclass.cpp](AutoDeleteDemo/myclass.cpp)
 
 Конструктор
 Деструктор
-[AutoDeleteDemo\myclass.h](AutoDeleteDemo\myclass.h)
+[AutoDeleteDemo/myclass.h](AutoDeleteDemo/myclass.h)
 
 ﻿Графика в Qt
 ============
@@ -928,5 +928,5 @@ class PackedArray {
 
 ```
 
-[Qt_PackedArrays\main.cpp](Qt_PackedArrays\main.cpp)
+[Qt_PackedArrays/main.cpp](Qt_PackedArrays/main.cpp)
 

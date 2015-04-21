@@ -181,13 +181,13 @@ void solve_equation(double a, double b, double c) {
     solve_equation(a, b, c);
 ```
 
-[00_HW_done\main.cpp](00_HW_done\main.cpp)
+[00_HW_done/main.cpp](00_HW_done/main.cpp)
 
 Win1251 и в исходном тексте и в консоли
 Ввод коэффициентов уравнения
 Вычисление дискриминанта
 Вычисление и вывод ответа(ов) x
-[00_HomeWork\main.cpp](00_HomeWork\main.cpp)
+[00_HomeWork/main.cpp](00_HomeWork/main.cpp)
 
 Константы в if ставятся на первое место (до =)
 ``` cpp
@@ -205,7 +205,7 @@ int main() {
 }
 ```
 
-[01_left_const\main.cpp](01_left_const\main.cpp)
+[01_left_const/main.cpp](01_left_const/main.cpp)
 
 В C++ перегрузка функций разрешена
 С точки зрения С++ можно переопределять функции
@@ -215,15 +215,15 @@ int main() {
 Поэтому в C есть функции:
 abs - модуль для целых чисел и
 fabs - модуль для действительных чисел
-[01_min_cpp\main.cpp](01_min_cpp\main.cpp)
+[01_min_cpp/main.cpp](01_min_cpp/main.cpp)
 
 Универсальная функция min на C
 Макрос с использованием тернарного оператора
 Нужен префикс f:  math.h -> abs/fabs
-[01_min_ternary\main.c](01_min_ternary\main.c)
+[01_min_ternary/main.c](01_min_ternary/main.c)
 
 Тернарный оператор слева от присваивания
-[01_ternary\main.cpp](01_ternary\main.cpp)
+[01_ternary/main.cpp](01_ternary/main.cpp)
 
 Подключение библиотек
 Препроцессор
@@ -242,22 +242,22 @@ SHOW(c);
 Обмен двух переменных значениями
 без третьей переменной
 Код возврата
-[02_preproc_Cpp\main.cpp](02_preproc_Cpp\main.cpp)
+[02_preproc_Cpp/main.cpp](02_preproc_Cpp/main.cpp)
 
 Тернарный оператор
 Может находиться слева от оператора присваивания
 Вложенные тернарные операторы
 Если число делится на 5 и не делится на 7, то прибавить 2
 иначе 4
-[02_ternary\main.cpp](02_ternary\main.cpp)
+[02_ternary/main.cpp](02_ternary/main.cpp)
 
 Выводим N в двоичной системе счисления
 разряды в обратном порядке
 ...
-[02_while\main.cpp](02_while\main.cpp)
+[02_while/main.cpp](02_while/main.cpp)
 
 #include <stdio.h> // C
-[03_for\main.cpp](03_for\main.cpp)
+[03_for/main.cpp](03_for/main.cpp)
 
 Множественный выбор switch
 ==========================
@@ -314,13 +314,13 @@ SHOW(c);
 
 ```
 
-[03_switch\main.cpp](03_switch\main.cpp)
+[03_switch/main.cpp](03_switch/main.cpp)
 
 int veryBigArray[SIZE];
-[04_static_big_than_stack\main.cpp](04_static_big_than_stack\main.cpp)
+[04_static_big_than_stack/main.cpp](04_static_big_than_stack/main.cpp)
 
 x[0]
-[04_visibility\main.cpp](04_visibility\main.cpp)
+[04_visibility/main.cpp](04_visibility/main.cpp)
 
 Итеративное вычисление факториала
 Цикл от большего к меньшему
@@ -329,7 +329,7 @@ x[0]
 Рекурсивный способ вычисления факториала
 Тестирование работы функции
 cout << i << "! = " << res << endl;
-[05_factorial\main.cpp](05_factorial\main.cpp)
+[05_factorial/main.cpp](05_factorial/main.cpp)
 
 Массивы
 Одномерные
@@ -366,7 +366,7 @@ cout << i << "! = " << res << endl;
 
 ```
 
-[07_arrays\main.cpp](07_arrays\main.cpp)
+[07_arrays/main.cpp](07_arrays/main.cpp)
 
 Пример массива для сортировки
 Выводим массив
@@ -394,7 +394,7 @@ A[i] ^= A[i+1] ^= A[i] ^= A[i+1];
 | 7 | 4
 -----
 Снова вывести на экран
-[08_array_sort\main.cpp](08_array_sort\main.cpp)
+[08_array_sort/main.cpp](08_array_sort/main.cpp)
 
 ЗАДАЧА: посчитать сумму.
 Нумерация элементов массива с 0
@@ -409,7 +409,7 @@ result += (i % 2) ? -A[i] : A[i];
 Суммируем только чётные
 Суммируем только нечётные
 1 - 3 -2 -4 + 2 -10 = -16
-[08_array_task\main.cpp](08_array_task\main.cpp)
+[08_array_task/main.cpp](08_array_task/main.cpp)
 
 Минимум в массиве
 -----------------
@@ -482,7 +482,7 @@ int main() {
 }
 ```
 
-[09_array_task\main.cpp](09_array_task\main.cpp)
+[09_array_task/main.cpp](09_array_task/main.cpp)
 
 2D массив
 статической памяти и сохраняют своё значение между вызовами
@@ -490,41 +490,41 @@ myArray[0] = 3
 myArray[1] = 10
 myArray[2] = 20
 myArray[3] = 43
-[09_arrays\main.cpp](09_arrays\main.cpp)
+[09_arrays/main.cpp](09_arrays/main.cpp)
 
 Поиск минимума
 Сумма всех элементов
-[09_arrays_2D\main.cpp](09_arrays_2D\main.cpp)
+[09_arrays_2D/main.cpp](09_arrays_2D/main.cpp)
 
 Вывод комплексного числа на экран
 Comp res = {a.re + b.re, a.im + b.im};
-[10_struct_C\main.c](10_struct_C\main.c)
+[10_struct_C/main.c](10_struct_C/main.c)
 
 Математические функции
 typedef определение_типа название_типа;
 typedef struct Point P;
 Расстояние между двумя точками
-[11_struct_C_Point2D\main.c](11_struct_C_Point2D\main.c)
+[11_struct_C_Point2D/main.c](11_struct_C_Point2D/main.c)
 
 Математические функции
 typedef определение_типа название_типа;
 typedef struct Point P;
 Расстояние между двумя точками
-[11_struct_cpp\main.cpp](11_struct_cpp\main.cpp)
+[11_struct_cpp/main.cpp](11_struct_cpp/main.cpp)
 
 Переполнение строки символов
 Смертный Грех программиста №1 - источник уязвимостей
 Ввод с клавиатуры
 Ввод из файла
 Получение пакета из сети
-[13_strings_buffer_oveflow\main.cpp](13_strings_buffer_oveflow\main.cpp)
+[13_strings_buffer_oveflow/main.cpp](13_strings_buffer_oveflow/main.cpp)
 
 Стек
 Добавить значение на вершину
 TODO: реализовать
 Забрать значение и вернуть
 TODO: реализовать
-[15_howework\main.cpp](15_howework\main.cpp)
+[15_howework/main.cpp](15_howework/main.cpp)
 
 ``` cpp
 const int SIZE = 100000;
@@ -569,23 +569,23 @@ int main() {
 }
 ```
 
-[17_task_large_arrays\main.cpp](17_task_large_arrays\main.cpp)
+[17_task_large_arrays/main.cpp](17_task_large_arrays/main.cpp)
 
 cin >> p1.x >> p1.y;
 cin.getline(str, 1024);
 Вывести на экран точку 1
 cin.clear();
-[18_cin_cout\main.cpp](18_cin_cout\main.cpp)
+[18_cin_cout/main.cpp](18_cin_cout/main.cpp)
 
 Заводим в динамической памяти массив из 100 элементов
 с типом int
 Удалили
 *(intPtr + 19*sizeof(int));
-[19_memory\main.cpp](19_memory\main.cpp)
+[19_memory/main.cpp](19_memory/main.cpp)
 
 Структуры в чистом C
 cout << "(" << p.x << ";" << p.y << ") ";
-[C_struct\main.c](C_struct\main.c)
+[C_struct/main.c](C_struct/main.c)
 
 Сумма
 TODO: Реализовать
@@ -594,7 +594,7 @@ TODO: Реализовать
 Скалярное произведение векторов
 TODO: Реализовать
 Тестирование
-[HomeWork_1\main.cpp](HomeWork_1\main.cpp)
+[HomeWork_1/main.cpp](HomeWork_1/main.cpp)
 
 Домашнее задание - рекурсия
 ---------------------------
@@ -635,7 +635,7 @@ x - текущее слагаемое
 Убираем последнее слагаемое
 Вводим число N
 Вывод разложения на слагаемые
-[HomeWork_2\main.cpp](HomeWork_2\main.cpp)
+[HomeWork_2/main.cpp](HomeWork_2/main.cpp)
 
 Домашнее задание - рекурсия
 ---------------------------
@@ -665,7 +665,7 @@ A = new type[SIZE]    delete[] A  -- создание и удаление мас
 в динамической памяти
 A = new type;  delete A; -- создание и удаление одиночного
 объекта
-[HomeWork_2_dynmemory\main.cpp](HomeWork_2_dynmemory\main.cpp)
+[HomeWork_2_dynmemory/main.cpp](HomeWork_2_dynmemory/main.cpp)
 
 Статическая память
 int veryBigArray[SIZE];
@@ -673,15 +673,15 @@ int *a,b;
 int *a; int b;
 int *a,*b; - теперь оба указателя
 a = (int *)12312;
-[Memory\main.cpp](Memory\main.cpp)
+[Memory/main.cpp](Memory/main.cpp)
 
 SetConsoleOutputCP(65001);
 SetConsoleCP(65001);
 setlocale(LC_ALL, "Russian.UTF-8");
-[RussianLocale\main.cpp](RussianLocale\main.cpp)
+[RussianLocale/main.cpp](RussianLocale/main.cpp)
 
 ----------------------------------------
-[Uravnenie\main.cpp](Uravnenie\main.cpp)
+[Uravnenie/main.cpp](Uravnenie/main.cpp)
 
 delete и delete[]
 -----------------
@@ -704,22 +704,22 @@ struct Point {
   delete p; // delete без скобочек []
 ```
 
-[cpp_dynamic\main.cpp](cpp_dynamic\main.cpp)
+[cpp_dynamic/main.cpp](cpp_dynamic/main.cpp)
 
 Без: using namespace std;
 Win1251 и в исходном тексте и в консоли
-[factorial\main.cpp](factorial\main.cpp)
+[factorial/main.cpp](factorial/main.cpp)
 
 Функции
 ...
 using namespace my;
-[function_declaration\main.cpp](function_declaration\main.cpp)
+[function_declaration/main.cpp](function_declaration/main.cpp)
 
 a^=b^=a^=b; // XOR - исключающее или
 int g = f++ + f++ + f++;
 g = f++;
 cout << "a = " << a << " b = " << b << endl;
-[lesson2_eq\main.cpp](lesson2_eq\main.cpp)
+[lesson2_eq/main.cpp](lesson2_eq/main.cpp)
 
 Память не отведена
 Освобождаем динамическую память
@@ -729,7 +729,7 @@ cout << "a = " << a << " b = " << b << endl;
 * Little-endian - младший байт первый (Intel и совместимые)
 Little - основное преимущество - можно начинать складывать младшие байты
 не дожидаясь пока старшие "прийдут" по шине
-[malloc_free\main.c](malloc_free\main.c)
+[malloc_free/main.c](malloc_free/main.c)
 
 Поиск минимума в массиве
 Пробежим по остальному массиву
@@ -742,27 +742,27 @@ Little - основное преимущество - можно начинать
 обновим минимум
 Индексы: 0  1  2  3
 Вызов функции, ожидаем на выходе 4
-[min_array\main.cpp](min_array\main.cpp)
+[min_array/main.cpp](min_array/main.cpp)
 
 Универсальный максимум в стиле "C"
-[overload_c\main.c](overload_c\main.c)
+[overload_c/main.c](overload_c/main.c)
 
 Исходное значение не меняется
 Передаём ссылку -> меняем исходное значение
 Передаём указатель -> меняем исходное значение
-[pointers\main.cpp](pointers\main.cpp)
+[pointers/main.cpp](pointers/main.cpp)
 
 Пример на ссылки и указатели
 i - указатель, т.е. это
 переменная содержащая адрес
 i = &c;
-[pointers\pointers2\main.cpp](pointers\pointers2\main.cpp)
+[pointers/pointers2/main.cpp](pointers/pointers2/main.cpp)
 
 Ссылки в C++
 В с теперь будет адрес d
 example1();
 example3();
-[references\main.cpp](references\main.cpp)
+[references/main.cpp](references/main.cpp)
 
 Элемент стека
 ``` cpp
@@ -857,12 +857,12 @@ class Stack { // Можно использовать struct
 
 Д.з. однонаправленный список
 ----------------------------
-[stack\main.cpp](stack\main.cpp)
+[stack/main.cpp](stack/main.cpp)
 
 Win1251 и в исходном тексте и в консоли
 system("chcp 65001");
 freopen()
-[switch\main.cpp](switch\main.cpp)
+[switch/main.cpp](switch/main.cpp)
 
 Домашнее задание - рекурсия
 ---------------------------

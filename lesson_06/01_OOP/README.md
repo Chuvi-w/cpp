@@ -28,7 +28,7 @@ struct String {
 const char *str = "Hello";
 str[0] = 'X';
 ```
-[01_copy_contructor\main.cpp](01_copy_contructor\main.cpp)
+[01_copy_contructor/main.cpp](01_copy_contructor/main.cpp)
 
 Виртуальный деструктор
 ----------------------
@@ -84,7 +84,7 @@ int Test2::alive2 = 0;
     tt.init();
 ```
 
-[02_virtual_destructor\task1.cpp](02_virtual_destructor\task1.cpp)
+[02_virtual_destructor/task1.cpp](02_virtual_destructor/task1.cpp)
 
 Файловый ввод и вывод с помощью потоков
 ---------------------------------------
@@ -104,7 +104,7 @@ int Test2::alive2 = 0;
   out.close();
 ```
 
-[03_iostream_files\a_sum.cpp](03_iostream_files\a_sum.cpp)
+[03_iostream_files/a_sum.cpp](03_iostream_files/a_sum.cpp)
 
 cin - istream;
 cout - ostream;
@@ -134,7 +134,7 @@ ifstream - input file stream
 
 Выходной файл автоматически
 закрывается при закрытии программы
-[03_iostream_files\main.cpp](03_iostream_files\main.cpp)
+[03_iostream_files/main.cpp](03_iostream_files/main.cpp)
 
 Перенаправление консольного ввода/вывода
 ----------------------------------------
@@ -160,5 +160,5 @@ ifstream - input file stream
   cout << a << " + " << b << " = " << (a + b) << endl;
 ```
 
-[03_iostream_files\redirect_output.cpp](03_iostream_files\redirect_output.cpp)
+[03_iostream_files/redirect_output.cpp](03_iostream_files/redirect_output.cpp)
 
