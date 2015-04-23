@@ -1,4 +1,4 @@
-# ﻿Введение в Qt, Qt Creator, QtCore, QtGui, отладка
+## ﻿Введение в Qt, Qt Creator, QtCore, QtGui, отладка
 * Установка Qt. Ссылки для скачивания
 * QT - история
 * Установка и запуск Qt Creator. Qt Designer

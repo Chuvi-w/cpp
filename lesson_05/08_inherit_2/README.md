@@ -1,3 +1,4 @@
+<!-- doc.py -->
 B - наследует поля и методы и из A и из A2
 error: reference to 'x' is ambiguous|
 x = 2;

@@ -1,3 +1,4 @@
+<!-- doc.py -->
 ``` cpp
 int main(int argc, char* argv[]) {
   // Очередь и обработка событий

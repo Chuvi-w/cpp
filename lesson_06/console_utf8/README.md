@@ -1,3 +1,4 @@
+<!-- doc.py -->
 setlocale(LC_CTYPE,"rus");
 setlocale(LC_CTYPE,"rus.1251");
 setlocale(LC_CTYPE,NULL);

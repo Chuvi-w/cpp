@@ -1,3 +1,4 @@
+<!-- doc.py -->
 ﻿Введение в Qt, Qt Creator, QtCore, QtGui, отладка
 =================================================
 
@@ -170,7 +171,6 @@ class MainWindow : public QMainWindow {
 [00_FirstQtApp/mainwindow.h](00_FirstQtApp/mainwindow.h)
 
 * ﻿Создание приложения в Qt
-* Основная программа на Qt
 
 * НОД - Наибольший общий делитель
 * GCD - Greatest Common Divisor
@@ -295,6 +295,7 @@ class Rational {
 ```
 
 [00_HomeWork_Done/main.cpp](00_HomeWork_Done/main.cpp)
+
 
 Конструктор копирования
 -----------------------
@@ -459,6 +460,11 @@ ifstream - input file stream
 ```
 
 [01_OOP/03_iostream_files/redirect_output.cpp](01_OOP/03_iostream_files/redirect_output.cpp)
+
+* Конструктор копирования
+* Виртуальный деструктор
+* Файловый ввод и вывод с помощью потоков
+* Перенаправление консольного ввода/вывода
 
 Базовое применение шаблонов
 Без использования шаблонов
@@ -726,6 +732,10 @@ T mul(T A[], size_t size) {
 
 [02_templates/task_mul/main.cpp](02_templates/task_mul/main.cpp)
 
+* Утиная типизация - Duck Typing
+* template: реализация структуры данных "Список"
+* Базовое применение шаблонов
+
 Вектор - аналог массива
 Массив строк
 Вектор строк
@@ -849,6 +859,9 @@ void showCollection(T v) {
 
 [03_STL/common.h](03_STL/common.h)
 
+* Итератор по буквам строки
+* Задача "сортировка строк"
+
 map<ключ, значение>
 m[ключ] = значение;
 ...
@@ -859,9 +872,11 @@ m[ключ] = значение;
 Переводим слово
 [04_Qt_templates/qt_map_example/main.cpp](04_Qt_templates/qt_map_example/main.cpp)
 
+
 throw 2;
 qDebug() << "Error: " << s;
 [05_Exceptions/main.cpp](05_Exceptions/main.cpp)
+
 
 ``` cpp
 int main(int argc, char* argv[]) {
@@ -892,12 +907,18 @@ int main(int argc, char* argv[]) {
 
 [06_Qt_HelloWorld/main.cpp](06_Qt_HelloWorld/main.cpp)
 
+
+
 TODO: реализовать перемещение
 ui->textEdit->geometry().translate(0, 10);
 TODO: реализовать перемещение
 TODO: реализовать перемещение
 TODO: реализовать перемещение
 [HomeWork_1/mainwindow.cpp](HomeWork_1/mainwindow.cpp)
+
+
+
+
 
 setlocale(LC_CTYPE,"rus");
 setlocale(LC_CTYPE,"rus.1251");
@@ -912,6 +933,7 @@ locale u("rus_RUS.utf8"); // или rus.utf8, или просто .utf8 ?
 cout.imbue(u);
 [console_utf8/main.cpp](console_utf8/main.cpp)
 
+
 ﻿Коды ошибок выполнения
 ----------------------
 * 0xС0000005 - Access violation
@@ -921,5 +943,6 @@ cout.imbue(u);
 
 1. Посмотреть, собрать, запустить примеры + подготовить вопросы
 2. Реализовать перемещение виджета по нажатию кнопок
+
 
 
