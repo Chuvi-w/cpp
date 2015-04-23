@@ -864,6 +864,7 @@ system("chcp 65001");
 freopen()
 [switch/main.cpp](switch/main.cpp)
 
+
 Домашнее задание - рекурсия
 ---------------------------
   ЗАДАНИЕ:

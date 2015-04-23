@@ -1251,3 +1251,4 @@ struct Point {
 
 [HomeWork_1/main.cpp](HomeWork_1/main.cpp)
 
+

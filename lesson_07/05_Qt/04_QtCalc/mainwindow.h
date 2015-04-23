@@ -18,7 +18,8 @@ class MainWindow : public QMainWindow {
   void clearDisplay();
  private slots:
 
-  // Когда нажимаем на цифровую кнопку
+  // Когда нажимаем на любую
+  // кнопку с цифрой
   // вызывается этот слот
   void on_digit_clicked();
 
@@ -30,10 +31,13 @@ class MainWindow : public QMainWindow {
 
   void on_ClearButton_clicked();
 
+  void on_calcButton_clicked();
+
  private:
   Ui::MainWindow* ui;
 
   CalcStates calcState;
+  QChar operation;
   void setState(CalcStates state);
 };
 

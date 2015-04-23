@@ -4,18 +4,19 @@
 
 using namespace std;
 
-/// В **module2.cpp** тоже можно использовать
-/// **globalVar**
+/// В **module2.cpp** тоже можно
+/// использовать **globalVar**
 ///-->
 void v2() {
-  cout << "v2" << endl;
-  globalVar = 2;
-  cout << "globalVar = " << globalVar << endl;
+  D(globalVar = 2);
+  SHOW(globalVar);
 }
 
 void show2() {
-  cout << "globalVar = " << globalVar << endl;
+  D(SHOW(globalVar));
 }
 ///<--
+
+
 
 

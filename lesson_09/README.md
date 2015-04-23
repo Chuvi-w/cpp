@@ -298,6 +298,38 @@ msleep(10); // 20 миллисекунд
 QThread::currentThread()->sleep(1);
 [03_QThreads_QMutex/main.cpp](03_QThreads_QMutex/main.cpp)
 
+foreach C++ 11
+timerPerformer.printString(54, QStringLiteral("some Name"), 10.465, QStringLiteral("Title"));
+[03_Threads/main.cpp](03_Threads/main.cpp)
+
+void OurThread::run()
+{
+forever {
+qDebug() << Q_FUNC_INFO << QThread::currentThread();
+QThread::msleep(700);
+}
+}
+[03_Threads/ourthread.cpp](03_Threads/ourthread.cpp)
+
+void run();
+[03_Threads/ourthread.h](03_Threads/ourthread.h)
+
+QTimer *timer = new QTimer(this);
+connect(timer, &QTimer::timeout, this, &TimerPerformer::timerTimeout);
+connect(this, &TimerPerformer::firstSignal, this, &TimerPerformer::firstSlot, Qt::QueuedConnection);
+connect(this, &TimerPerformer::secondSignal, this, &TimerPerformer::secondSlot, Qt::DirectConnection);
+timer->setTimerType(Qt::CoarseTimer);
+timer->start(600);
+m_timerId = startTimer(600, Qt::PreciseTimer);
+m_threadedPerformer->someSlot();
+emit secondSignal();
+qDebug() << Q_FUNC_INFO << (lastTime ? QDateTime::currentMSecsSinceEpoch()-lastTime : 0 );
+qDebug() << Q_FUNC_INFO << QThread::currentThread();
+qDebug() << Q_FUNC_INFO;
+if (ev->timerId() == m_timerId)
+qDebug() << Q_FUNC_INFO;
+[03_Threads/timerperformer.cpp](03_Threads/timerperformer.cpp)
+
 Вводим целое число
 sleep(5);
 Выводим восклицательные знаки
@@ -410,4 +442,5 @@ ORACLE  NUMBER_OF_LESSONS
 
 fact(0);
 [Qt_Assert/main.cpp](Qt_Assert/main.cpp)
+
 

@@ -1,5 +1,7 @@
 /// Работа с QString
 /// ----------------
+/// http://doc.qt.io/qt-5/
+/// http://doc.qt.io/qt-5/qstring.html
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
@@ -19,19 +21,25 @@ void MainWindow::on_lineEdit_textChanged(const QString& arg1) {
   QString s2 = ui->lineEdit_2->text();
   qDebug() << s1 << s2;
 
-  /* QString res = QString("%1 (%2) %3 (%4)")
-       .arg(s1).arg(s1.length())
-       .arg(s2).arg(s2.length());
+  QString sum = QString("%1 + %2 = %3")
+                .arg(2).arg(3).arg(2 + 3);
+  qDebug() << sum;
 
-   char *buf = "Test";
-   QString r2;
-   r2.sprintf("%d %d [%s]",
-               s1.length(), s2.length(), buf);
+  QString res = QString("%1 (%2) %3 (%4)")
+                .arg(s1).arg(s1.length())
+                .arg(s2).arg(s2.length());
 
-   ui->concatLineEdit->setText(
-      //QString("%1 - %2").arg(s1).arg(s2)
-         res + r2
-   ); */
+
+  char* buf = "Test";
+  QString r2;
+  r2.sprintf("%d %d [%s]",
+             s1.length(), s2.length(),
+             buf);
+
+  ui->concatLineEdit->setText(
+    //QString("%1 - %2").arg(s1).arg(s2)
+    res + r2
+  );
 
   ui->concatLineEdit->setText(
     QString("\"%1\".indexOf(\"%2\") - %3").
@@ -55,7 +63,19 @@ void MainWindow::on_lineEdit_textChanged(const QString& arg1) {
   qDebug() << manyA;
   ui->concatLineEdit->setText(manyA);
   */
+}
 
+
+void MainWindow::on_lineEdit_3_textChanged(const QString& arg1) {
 
 }
 
+void MainWindow::on_decEdit_textChanged(const QString& arg1) {
+  // Получаем число в десятичной системе счисления
+  QString decStr = ui->decEdit->text();
+  bool OK;
+  int N = decStr.toInt(&OK);
+  QString hexStr;
+  hexStr.sprintf("%04X", N);
+  ui->hexEdit->setText(hexStr);
+}

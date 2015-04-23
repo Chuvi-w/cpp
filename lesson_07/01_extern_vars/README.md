@@ -1,21 +1,21 @@
-Определение глобальной переменной в **module1.cpp**
+Определение глобальной переменной
+в **module1.cpp**
 ``` cpp
 int globalVar = 2;
 ```
 
 [module1.cpp](module1.cpp)
 
-В **module2.cpp** тоже можно использовать
-**globalVar**
+В **module2.cpp** тоже можно
+использовать **globalVar**
 ``` cpp
 void v2() {
-  cout << "v2" << endl;
-  globalVar = 2;
-  cout << "globalVar = " << globalVar << endl;
+  D(globalVar = 2);
+  SHOW(globalVar);
 }
 
 void show2() {
-  cout << "globalVar = " << globalVar << endl;
+  D(SHOW(globalVar));
 }
 ```
 

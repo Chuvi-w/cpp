@@ -41,7 +41,7 @@ void fraction::sub_fract(fraction f1, fraction f2) {
   znam = f1.znam * f2.znam;
 }
 
-void fraction::mul_fract(fraction f1, fraction f2){
+void fraction::mul_fract(fraction f1, fraction f2) {
   chis = f1.chis * f2.chis;
   znam = f1.znam * f2.znam;
 }
@@ -81,7 +81,7 @@ void fraction::lowterms() {
 }
 
 int main() {
-  setlocale(LC_ALL, "Russian"); 
+  setlocale(LC_ALL, "Russian");
   fraction frac1, frac2, frac3;
   char znak, ch;
 

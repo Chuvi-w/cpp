@@ -1,5 +1,5 @@
-﻿Git
-===
+﻿Системы контроля версий. Git
+============================
 
 Бесплатный хостинг для репозиториев (различные системы контроля версий)
 -----------------------------------------------------------------------
@@ -345,8 +345,11 @@ freopen("debug.txt", "w", stdout);
 2 тест
 [02_QtTest_Simple/tests.h](02_QtTest_Simple/tests.h)
 
+Регулярные выражения
+====================
+
 Поиск e-mail
-============
+------------
 
 (\w+@(?:\w+\.)+\w+) \-? (\w+)
 
@@ -431,6 +434,9 @@ QCOMPARE(QRegExp("\\xD0BF").exactMatch("П"), true);
 Группы символов
 Кванторы
 [03_QRegExp/qregexptest.h](03_QRegExp/qregexptest.h)
+
+# Регулярные выражения
+* Поиск e-mail
 
 regex_match example
 using explicit flags:
@@ -929,4 +935,5 @@ class PackedArray {
 ```
 
 [Qt_PackedArrays/main.cpp](Qt_PackedArrays/main.cpp)
+
 

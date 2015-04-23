@@ -11,8 +11,10 @@ MainWindow::MainWindow(QWidget* parent) :
   ui(new Ui::MainWindow) {
   ui->setupUi(this);
 
-  // Очищаем лог игры
+  /// Очищаем лог игры
+  ///-->
   ui->gameLog->clear();
+  ///<--
 
   /// Инициализируем генератор случайных
   /// чисел по таймеру
@@ -25,7 +27,7 @@ MainWindow::~MainWindow() {
   delete ui;
 }
 
-/// Добавление строки в "Протокол" (log) игры
+/// Добавление строки в "протокол" (log) игры
 ///-->
 void MainWindow::log(QString s) {
   ui->gameLog->append(s);

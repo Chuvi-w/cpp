@@ -80,7 +80,8 @@ string::string(string& right) {
 
   // (QPushButton *)QObject::sender() -
   //  отправитель текущего сигнала
-  QPushButton* digitButton = (QPushButton*)QObject::sender();
+  QPushButton* digitButton =
+    (QPushButton*)QObject::sender();
 
   if(digitButton == NULL)
     return;
@@ -91,7 +92,7 @@ string::string(string& right) {
   if(s.at(0) == zero)
     s.remove(0, 1);
 
-  // Дописываем цифру на экран
+  // Дописываем новую цифру на экран
   s += digitButton->text();
 
   ui->display->setText(s);
@@ -101,10 +102,14 @@ string::string(string& right) {
 Можно нажимать ".",
 только если на дисплее точек ещё нет
 Складываем содержимое экрана и память
-Запоминаем содержимое экрана
+Показываем значение на экране
+Складываем содержимое экрана и память
+TODO: применять последнюю операцию
+Показываем значение на экране
 [04_QtCalc/mainwindow.cpp](04_QtCalc/mainwindow.cpp)
 
-Когда нажимаем на цифровую кнопку
+Когда нажимаем на любую
+кнопку с цифрой
 вызывается этот слот
 [04_QtCalc/mainwindow.h](04_QtCalc/mainwindow.h)
 
@@ -157,8 +162,8 @@ QString("Ход в клетку: (%1; %2)")
 Вертикальная линия
 копируем в a i-ый столбец
 Горизонтальная линия
-Проверяем что крестики или нолики выйграли
-и выходим
+Проверяем что крестики или нолики
+выйграли и выходим
 Ничья = не осталось пустых клеток
 Сохранение игры
 Сохраняем данные
@@ -218,7 +223,7 @@ const QString & text, StandardButtons buttons = Ok, StandardButton defaultButton
 Новый слот
 [10_Qt_XO/mainwindow.h](10_Qt_XO/mainwindow.h)
 
-Размер поля игры
+Размер поля игры (глобальная переменная)
 const int MapSize = 3;
 [10_Qt_XO/map_size.h](10_Qt_XO/map_size.h)
 

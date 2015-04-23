@@ -19,8 +19,8 @@ void MainWindow::clearDisplay() {
 }
 
 void MainWindow::on_digit_clicked() {
-  // Когда нажимаем на цифру:
-  //-->
+  /// Когда нажимаем на цифру:
+  ///-->
   switch (calcState) {
     case OPERATION: // Если сейчас операция
       // Очищаем дисплей
@@ -36,7 +36,8 @@ void MainWindow::on_digit_clicked() {
 
   // (QPushButton *)QObject::sender() -
   //  отправитель текущего сигнала
-  QPushButton* digitButton = (QPushButton*)QObject::sender();
+  QPushButton* digitButton =
+    (QPushButton*)QObject::sender();
 
   if(digitButton == NULL)
     return;
@@ -47,11 +48,11 @@ void MainWindow::on_digit_clicked() {
   if(s.at(0) == zero)
     s.remove(0, 1);
 
-  // Дописываем цифру на экран
+  // Дописываем новую цифру на экран
   s += digitButton->text();
 
   ui->display->setText(s);
-  //<--
+  ///<--
 }
 
 void MainWindow::on_PointButton_clicked() {
@@ -86,9 +87,9 @@ void MainWindow::on_PlusButton_clicked() {
   QString strTemplate("%1");
   QString strRes = strTemplate.arg(res);
 
-  // Запоминаем содержимое экрана
+  // Показываем значение на экране
   ui->display->setText(strRes);
-  ui->memory->setText(strRes);
+  ui->memory->setText(strRes); // + " +");
 
   setState(OPERATION);
 }
@@ -113,4 +114,25 @@ void MainWindow::setState(CalcStates state) {
 
 void MainWindow::on_ClearButton_clicked() {
   clearDisplay();
+}
+
+void MainWindow::on_calcButton_clicked() {
+  if(calcState == OPERATION)
+    return;
+
+  // Складываем содержимое экрана и память
+  QString as = ui->memory->text();
+  QString bs = ui->display->text();
+  double a = as.toDouble();
+  double b = bs.toDouble();
+  // TODO: применять последнюю операцию
+  double res = a + b;
+  QString strTemplate("%1");
+  QString strRes = strTemplate.arg(res);
+
+  // Показываем значение на экране
+  ui->display->setText(strRes);
+  ui->memory->setText(strRes); // + " +");
+
+  setState(ENTER_NUMBER);
 }

@@ -141,8 +141,8 @@ void Game::checkGameOver() {
     checkLine(Map[i]);
   }
 
-  // Проверяем что крестики или нолики выйграли
-  // и выходим
+  // Проверяем что крестики или нолики
+  // выйграли и выходим
   switch(state) {
     case X_WIN:
     case O_WIN:

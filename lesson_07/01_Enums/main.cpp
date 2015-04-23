@@ -1,20 +1,28 @@
 /// Перечисления (enum)
 /// -------------------
+/// Зачем?
+/// Удобная замена константам
+/// которые соответствуют разным элементам
+/// одного и того же типа.
 #include <iostream>
 
 using namespace std;
 
 /// Направления движения:
-//-->
+/// вверх - 0, вниз - 1,
+/// влево - 2, вправо - 3
+///-->
 const int X_UP = 0;
 const int X_DOWN = 1;
 const int X_LEFT = 2;
 const int X_RIGHT = 3;
 int direction = X_UP;
 
+// Вводим специальный тип
 enum Direction {
   UP = 4 /* 0 */, DOWN = 13 /* 1 */,
-  LEFT = (1LL << 31) - 1 /* 2 */, RIGHT = 7/* 3 */
+  LEFT = (1L << 31) - 1 /* 2 */,
+  RIGHT = 7 /* 3 */
 };
 
 enum DirectionX {
@@ -25,6 +33,7 @@ enum DirectionX {
 
 #pragma pack(1)
 
+// Упаковка
 struct S {
   DirectionX dir1: 2;
   DirectionX dir2: 2;
@@ -52,10 +61,16 @@ Direction directionEnum = UP;
 
 #define SHOW(x) { cout << #x << " = " << x << endl; }
 
-
+/// Последовательная нумерация
 enum DirectionXX {
   XX_UP = 4, XX_DOWN /* 5 */,
   XX_LEFT /* 6 */, XX_RIGHT /* 7 */
+};
+
+enum FileFormat {
+  BMP, GIF, GIF2,
+  PNG, JPG,
+  FILE_FORMAT_END
 };
 
 int main(int argc, char* argv[]) {
@@ -64,9 +79,8 @@ int main(int argc, char* argv[]) {
   direction = X_DOWN;
   directionEnum = DOWN;
 
-  if(direction == DOWN) {
-
-  }
+  if(direction == DOWN)
+    cout << "Go down!" << endl;
 
   switch(direction) {
     case X_UP:

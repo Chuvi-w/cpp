@@ -17,6 +17,10 @@ class MainWindow : public QMainWindow {
  private slots:
   void on_lineEdit_textChanged(const QString& arg1);
 
+  void on_lineEdit_3_textChanged(const QString& arg1);
+
+  void on_decEdit_textChanged(const QString& arg1);
+
  private:
   Ui::MainWindow* ui;
 };

@@ -5,10 +5,19 @@
 #include <QString>
 #include <math.h>
 
+struct IllegalArgumentException {
+  double value;
+  IllegalArgumentException(double v) :
+    value(v) {
+  }
+};
+
 double sqrFunc(double d) {
   try {
     if(d < 0)
-      throw QString("Square root: x = %1 < 0").arg(d);
+      throw IllegalArgumentException(d);
+
+    // QString("Square root: x = %1 < 0").arg(d);
 
     return sqrt(d);
   } catch(QString str) {
@@ -47,7 +56,12 @@ void f3() {
 
 
 int main(int argc, char* argv[]) {
-  sqrFunc(-2);
+  try {
+    sqrFunc(-2);
+  } catch(IllegalArgumentException ex) {
+    qDebug() << "IllegalArgumentException: "
+             << ex.value;
+  }
 
   try {
     f3();

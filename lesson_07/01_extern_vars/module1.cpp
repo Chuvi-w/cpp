@@ -4,18 +4,19 @@
 
 using namespace std;
 
-void v1() {
-  cout << "v1" << endl;
-  globalVar = 1;
-  cout << "globalVar = " << globalVar << endl;
-}
-
-void show1() {
-  cout << "globalVar = " << globalVar << endl;
-}
-
-
-/// Определение глобальной переменной в **module1.cpp**
+/// Определение глобальной переменной
+/// в **module1.cpp**
 ///-->
 int globalVar = 2;
 ///<--
+
+void v1() {
+  D(globalVar = 1);
+  SHOW(globalVar);
+}
+
+void show1() {
+  SHOW(globalVar);
+}
+
+
