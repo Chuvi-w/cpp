@@ -444,4 +444,12 @@ ORACLE  NUMBER_OF_LESSONS
 fact(0);
 [Qt_Assert/main.cpp](Qt_Assert/main.cpp)
 
+C:/Users/gtee/Desktop/cpp/lesson_09/00_HomeWork_Browser/icons/star.png
+icons
+star.png
+:
+:/icons
+:/icons/star.png
+[build-HomeWork_Browser-Desktop_Qt_5_4_0_MinGW_32bit-Debug/debug/qrc_icons.cpp](build-HomeWork_Browser-Desktop_Qt_5_4_0_MinGW_32bit-Debug/debug/qrc_icons.cpp)
+
 

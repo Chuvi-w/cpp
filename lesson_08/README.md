@@ -1,9 +1,69 @@
 <!-- doc.py -->
+продолжаем вводить число
+бинарную операцию
+[00_HomeWork_Done/CalcStates.h](00_HomeWork_Done/CalcStates.h)
+
+Когда нажимаем на цифру:
+``` cpp
+  switch (calcState) {
+    case OPERATION: // Если сейчас операция
+      // Очищаем дисплей
+      clearDisplay();
+      break;
+
+    default:
+      break;
+  }
+
+  // UTF-8
+  QString s = ui->display->text();
+
+  // (QPushButton *)QObject::sender() -
+  //  отправитель текущего сигнала
+  QPushButton* digitButton =
+    (QPushButton*)QObject::sender();
+
+  if(digitButton == NULL)
+    return;
+
+  QChar zero('0');
+
+  // Удаляем из s все лидирующие нули
+  if(s.at(0) == zero)
+    s.remove(0, 1);
+
+  // Дописываем новую цифру на экран
+  s += digitButton->text();
+
+  ui->display->setText(s);
+```
+
+Изменяем состояние всех кнопок
+Можно нажимать ".",
+только если на дисплее точек ещё нет
+Получаем компонент
+Складываем содержимое экрана и память
+Запоминаем нажатую кнопку - следующую операцию
+Показываем значение на экране
+[00_HomeWork_Done/mainwindow.cpp](00_HomeWork_Done/mainwindow.cpp)
+
+Когда нажимаем на любую
+кнопку с цифрой
+вызывается этот слот
+[00_HomeWork_Done/mainwindow.h](00_HomeWork_Done/mainwindow.h)
+
 ﻿Виды отладки: отладчик, трассировка (логгирование), модульные тесты, визуализаторы процесса выполнения
 ------------------------------------------------------------------------------------------------------
 
 
 
+
+Этот объект принимает
+"перетащенные" в него объекты"
+Hide old QLabel
+! [1]
+Save QLabel
+[02_draggableicons/dragwidget.cpp](02_draggableicons/dragwidget.cpp)
 
 Создаём модель в динамической памяти
 Первый список строк
@@ -202,5 +262,27 @@ including the version specified.
 Modify the following defines if you have to target a platform prior to the ones specified below.
 Refer to MSDN for the latest info on corresponding values for different platforms.
 [VisualStudioExample/VisualStudioExample/targetver.h](VisualStudioExample/VisualStudioExample/targetver.h)
+
+C:/Users/gtee/Desktop/cpp/lesson_08/HomeWork_Browser/icons/star.png
+icons
+star.png
+:
+:/icons
+:/icons/star.png
+[build-HomeWork_Browser-Desktop_Qt_5_4_0_MinGW_32bit-Debug/debug/qrc_icons.cpp](build-HomeWork_Browser-Desktop_Qt_5_4_0_MinGW_32bit-Debug/debug/qrc_icons.cpp)
+
+C:/Users/gtee/Desktop/cpp/lesson_08/02_draggableicons/images/boat.png
+C:/Users/gtee/Desktop/cpp/lesson_08/02_draggableicons/images/house.png
+C:/Users/gtee/Desktop/cpp/lesson_08/02_draggableicons/images/car.png
+images
+boat.png
+house.png
+car.png
+:
+:/images
+:/images/boat.png
+:/images/car.png
+:/images/house.png
+[build-draggableicons-Desktop_Qt_5_4_0_MinGW_32bit-Debug/debug/qrc_draggableicons.cpp](build-draggableicons-Desktop_Qt_5_4_0_MinGW_32bit-Debug/debug/qrc_draggableicons.cpp)
 
 

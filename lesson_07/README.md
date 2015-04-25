@@ -929,10 +929,13 @@ main.qml
 [build-03_QtDesignQML-Desktop_Qt_5_4_0_MinGW_32bit-Debug/debug/qrc_qml.cpp](build-03_QtDesignQML-Desktop_Qt_5_4_0_MinGW_32bit-Debug/debug/qrc_qml.cpp)
 
 
-﻿1. Перетаскивание
+﻿1. Перетаскивание (завершить пример)
 2. Кнопка своей формы (с картинкой и т.д.)
 3. Консоль в Windows приложениях
+4. Внешние файлы стилей.
+
+Занятие 9:
 4. Способы оформления QML/CSS и т.д.
-5. Внешние файлы стилей.
-6. QML - обработка событий
+5. QML - обработка событий
+
 
