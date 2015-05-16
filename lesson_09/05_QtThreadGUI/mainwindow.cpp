@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "primecalcthread.h"
 #include <QThread>
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget* parent) :
   QMainWindow(parent),
@@ -23,4 +24,5 @@ void MainWindow::on_primeSearchButton_clicked() {
                         ui->toValue->value()
                        );
   thread->start(QThread::LowestPriority);
+  qDebug() << "After thread started";
 }

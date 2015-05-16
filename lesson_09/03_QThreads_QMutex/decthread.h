@@ -4,10 +4,6 @@
 #include <QThread>
 
 class DecThread : public QThread {
- public:
-  DecThread();
-  ~DecThread();
-
  protected:
   void run();
 };

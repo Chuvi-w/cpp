@@ -33,7 +33,8 @@ void PrimeCalcThread::run() {
         new QListWidgetItem();
       item->setText(s);
       resultsList->addItem(item);
-      msleep(50);
+      //msleep(50);
+
     }
   }
 }

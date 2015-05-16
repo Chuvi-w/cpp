@@ -3,13 +3,13 @@
 
 #include <QMutex>
 
-//#define USE_MUTEX
+//#define D(X) X;
+#define D(X) ;
 
 class CommonData {
  public:
   static int data;
   static QMutex mutex;
 };
-
 
 #endif // COMMONDATA_H

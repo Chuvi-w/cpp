@@ -42,6 +42,7 @@ MainWindow::~MainWindow() {
 }
 
 bool MainWindow::createConnection() {
+  // Устанавливаем соединение
   QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
   //db.setDatabaseName(":memory:");
   db.setDatabaseName("SQL_GUI.sqlite");

@@ -5,11 +5,6 @@
 
 class IncThread : public QThread {
   Q_OBJECT
-
- public:
-  IncThread();
-  ~IncThread();
-
  protected:
   void run();
 };

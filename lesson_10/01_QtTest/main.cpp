@@ -37,8 +37,8 @@ int main(int argc, char* argv[]) {
 
   //freopen("testing.txt", "w", stdout);
 
-  //QTest::qExec(new SimpleTests());
-  //QTest::qExec(new AllTests, argc, argv);
+  QTest::qExec(new SimpleTests());
+  QTest::qExec(new AllTests, argc, argv);
   QTest::qExec(new IntegralTest, argc, argv);
 
   //writeNumbersToFile();

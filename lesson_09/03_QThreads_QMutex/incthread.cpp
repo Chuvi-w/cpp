@@ -1,24 +1,12 @@
 #include "incthread.h"
 #include "commondata.h"
 
-IncThread::IncThread() {
-
-}
-
-IncThread::~IncThread() {
-
-}
-
 void IncThread::run() {
 
   for(int i = 0; i < 100000; ++i) {
-#ifdef USE_MUTEX
-    CommonData::mutex.lock();
-#endif
+    D(CommonData::mutex.lock());
     CommonData::data++;
-#ifdef USE_MUTEX
-    CommonData::mutex.unlock();
-#endif
+    D(CommonData::mutex.unlock());
     //msleep(10); // 20 миллисекунд
   }
 
