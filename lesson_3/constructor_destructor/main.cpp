@@ -9,22 +9,22 @@ using namespace std;
 // Ключевое слово class
 // Имя_класса
 class MyClass {
-    // Количество объектов
-    static int count;
-    // Идентификатор данного объекта
-    int id;
-    int *data;
-public:
-    // Конструктор
-    MyClass();
-    // Деструктор
-    ~MyClass();
+  // Количество объектов
+  static int count;
+  // Идентификатор данного объекта
+  int id;
+  int* data;
+ public:
+  // Конструктор
+  MyClass();
+  // Деструктор
+  ~MyClass();
 };
 
 // Инициализация static-переменной
 int MyClass::count = 0;
 
-MyClass::MyClass(){
+MyClass::MyClass() {
   count++;
   id = count;
   cout << "Constructor #" << id << endl;
@@ -33,7 +33,7 @@ MyClass::MyClass(){
   data[0] = 10;
 }
 
-MyClass::~MyClass(){
+MyClass::~MyClass() {
   cout << "Destructor #" << id << endl;
 
   cout << data << " " << data[0] << endl;
@@ -42,7 +42,9 @@ MyClass::~MyClass(){
 
 struct A {
   int w;
-  A(int v){ w = v; }
+  A(int v) {
+    w = v;
+  }
 };
 
 int main() {
@@ -51,14 +53,14 @@ int main() {
   A bb(aa);
   cout << bb.w << endl;
 
-  MyClass *p = new MyClass;
+  MyClass* p = new MyClass;
   delete p;
 
   {
-      MyClass d[2];
+    MyClass d[2];
   }
   {
-      MyClass e[2];
+    MyClass e[2];
   }
   MyClass f = a;
   return 0;

@@ -6,20 +6,20 @@ using namespace std;
 //typedef long long ll;
 
 // НОД - Наибольший общий делитель
-long GCD(long a, long b){
+long GCD(long a, long b) {
   return (b == 0) ? a : GCD(b, a % b);
 }
 
 // Рациональная дробь: p/q
 class Rational {
-  long p,q; // p - числитель, q - знаменатель
+  long p, q; // p - числитель, q - знаменатель
   // Сокращение дроби
-  void normalize(){
-    long d = GCD(p,q); // Вычисляем наибольший общий делитель
+  void normalize() {
+    long d = GCD(p, q); // Вычисляем наибольший общий делитель
     p /= d; // делим на него числитель
     q /= d; // делим на него знаменатель
   }
-public:
+ public:
   Rational(long pi, long qi) :
     p(pi), q(qi) {
     assert(q != 0);
@@ -28,28 +28,30 @@ public:
     //  halt(1);
     //}
   }
-  Rational(const char *message){
+  Rational(const char* message) {
     cout << message << " ";
     cout << "p = ";
     cin >> p;
     cout << "q = ";
     cin >> q;
   }
-  void show(){
+  void show() {
     // Сокращаем дробь если надо
     normalize();
 
-    if(q == 1){
+    if(q == 1)
       cout << p << endl;
-    } else {
-      long whole = p/q;
+    else {
+      long whole = p / q;
+
       if(whole != 0)
         cout << whole << " ";
+
       cout << (p % q) << "/" << q << endl;
     }
   }
 
-  void add(Rational& right){
+  void add(Rational& right) {
     //  p/q + right.p/right.q
     long pNew = p * right.q + right.p * q;
     //   ----   --------------------------
@@ -59,13 +61,13 @@ public:
   }
 
   // a + b
-  Rational operator+(Rational& right){
+  Rational operator+(Rational& right) {
     Rational res = *this;
     res.add(right);
     return res;
   }
 
-  Rational operator+(int right){
+  Rational operator+(int right) {
     Rational res(0, 1);
     res.p = p + right * q;
     //----  --------------
@@ -75,7 +77,7 @@ public:
 
   friend
   Rational
-    operator+(long left, Rational& right){
+  operator+(long left, Rational& right) {
     Rational res(0, 1);
     res.p = right.p + left * right.q;
     //----  -------------------------
@@ -83,7 +85,7 @@ public:
     return res;
   }
 
-  void sub(Rational& right){
+  void sub(Rational& right) {
     long pNew = p * right.q - right.p * q;
     //   ----   --------------------------
     long qNew = q * right.q;
@@ -91,14 +93,14 @@ public:
     q = qNew;
   }
 
-  Rational operator-(Rational& right){
+  Rational operator-(Rational& right) {
     Rational res = *this;
     res.sub(right);
     return res;
   }
 
   // Конструктор копирования
-  Rational(const Rational &r){
+  Rational(const Rational& r) {
     cout << r.p << "/" << r.q << endl;
     p = r.p;
     q = r.q;
@@ -106,13 +108,12 @@ public:
   }
 };
 
-int main()
-{
-  Rational a(4,6), b(11, 2);
+int main() {
+  Rational a(4, 6), b(11, 2);
   a.show();
   b.show();
 
- // Rational c = b + a;
+  // Rational c = b + a;
 
   int i = 2, j = 3;
   int tt = i + j;
@@ -121,12 +122,12 @@ int main()
   b.show();
   c1.show();
 
- /* Rational x(4,6), y(1,3);
-  x.add(y);
-  x.show();
+  /* Rational x(4,6), y(1,3);
+   x.add(y);
+   x.show();
 
-  Rational yy("Vvedite:");
-  yy.show(); */
+   Rational yy("Vvedite:");
+   yy.show(); */
 
   return 0;
 }

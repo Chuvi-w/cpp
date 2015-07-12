@@ -6,28 +6,28 @@
 class string {
   static int count; // Общая переменная
   int id; // Идентификатор объекта
-public:
-  char *Str; // Строка
-  int size(){ // Длина строки
+ public:
+  char* Str; // Строка
+  int size() { // Длина строки
     return strlen(Str);
   }
-public:
+ public:
   string(string&); // Конструктор копирования
-  string(char* str){
+  string(char* str) {
     Str = new char[size() + 1]; // Добавляем 1,
-     // потому что в строке символ 0 - окончание строки
+    // потому что в строке символ 0 - окончание строки
     strcpy(Str, str);
     id = ++count;
   }
-  void show(){
+  void show() {
     std::cout << "#" << id << " (" << count << ") " << " " << Str
-     << "  Адрес: " << ((int)Str)
-     << std::endl;
+              << "  Адрес: " << ((int)Str)
+              << std::endl;
   }
-  int operator ==(string& right){
+  int operator ==(string& right) {
     return Str == right.Str;
   }
-  int operator !=(string& right){
+  int operator !=(string& right) {
     return Str != right.Str;
   }
 };

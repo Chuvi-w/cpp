@@ -4,14 +4,15 @@ using namespace std;
 
 // TODO: SmartPtr для обработки этой ситуации
 
-int main()
-{
-  int *intArray = new int[100];
-  for(int i = 0; i < 10; i++){
+int main() {
+  int* intArray = new int[100];
+
+  for(int i = 0; i < 10; i++) {
     SmartPtr<int[]> intArray = new int[100];
 
     //delete intArray;
   }
+
   //delete[] intArray;
 
   return 0;

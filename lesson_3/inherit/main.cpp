@@ -9,22 +9,22 @@ struct A {
   static int staticInClass;
   int a; // Поле доступно отовсюду
 
-  void doA(){
+  void doA() {
     cout << "doA()" << endl;
     onlyInA = 2;
     cout << "onlyInA = " << onlyInA << endl;
     forChilds = 10;
   };
-private:
+ private:
   int onlyInA; // Только внутри класса A
-protected:
+ protected:
   int forChilds; // Внутри класса A и в наследниках
 };
 
 struct B : public A {
   int b;
   int forChilds; // Поле с тем же именем
-  void doB(){
+  void doB() {
     cout << "doB()" << endl;
     // Недоступна в наследниках
     //onlyInA = 2;
@@ -41,7 +41,7 @@ struct B : public A {
 
 struct C : protected B {
   int c;
-  void doC(){
+  void doC() {
     cout << "doC()" << endl;
     forChilds = 20;
     a = 1;
@@ -50,14 +50,14 @@ struct C : protected B {
     doB();
   };
 
-  void doA(){
-      A::doA();
+  void doA() {
+    A::doA();
   }
 };
 
 struct D : public C {
   int d;
-  void doD(){
+  void doD() {
     doA();
     doB();
   }
@@ -65,71 +65,70 @@ struct D : public C {
 
 // Множественное наследование
 class E : public D {
-  void doE(){
+  void doE() {
   }
 };
 
 class L {
-public:
-  void doL(){
+ public:
+  void doL() {
   }
 };
 
 class X : public E, private L {
-  void doX(){
+  void doX() {
     L::doL();
   }
 };
 
 class G {
-public:
-    void show(){
-        cout << "Class G" << endl;
-    }
-    void a(int x, double y){
-    }
-    void show(double x){
-        cout << "Class G " << x << endl;
-    }
+ public:
+  void show() {
+    cout << "Class G" << endl;
+  }
+  void a(int x, double y) {
+  }
+  void show(double x) {
+    cout << "Class G " << x << endl;
+  }
 };
 
 class H {
-public:
-    void show(){
-        cout << "Class H" << endl;
-    }
-    void show(int x){
-        cout << "Class H " << x << endl;
-    }
+ public:
+  void show() {
+    cout << "Class H" << endl;
+  }
+  void show(int x) {
+    cout << "Class H " << x << endl;
+  }
 };
 
 class W : public G, protected H {
-public:
-    void w(){
-       //show(); // Ошибка компиляции
-       // Мы должны явно указать из какого предка вызываем метод
-       G::show();
-       H::show();
-    }
-    void a(double y, int x){
-       a(x, y);
-    }
-    void show1(){
-        G::show(2);
-        H::show(2.2);
-    }
+ public:
+  void w() {
+    //show(); // Ошибка компиляции
+    // Мы должны явно указать из какого предка вызываем метод
+    G::show();
+    H::show();
+  }
+  void a(double y, int x) {
+    a(x, y);
+  }
+  void show1() {
+    G::show(2);
+    H::show(2.2);
+  }
 };
 
 A globalA; // В статической памяти
- // потому что это глобальная переменная
+// потому что это глобальная переменная
 
-int main()
-{
+int main() {
   A a; // В стеке
   a.a = 1;
   a.doA();
   // a.onlyInA = 3; // 'int A::onlyInA' is private
-  A *ap = new A; // Динамическая память
+  A* ap = new A; // Динамическая память
   // 'int A::forChilds' is protected
   //cout << a.forChilds << endl;
 
@@ -145,8 +144,8 @@ int main()
   // c.a = 1; // Ошибка из-за protected наследования
   // c.b = 2; // Ошибка из-за protected наследования
   c.c = 3;
-// c.doA();
-// c.doB();
+  // c.doA();
+  // c.doB();
   c.doC();
 
   X x;

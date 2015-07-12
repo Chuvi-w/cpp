@@ -8,15 +8,16 @@ using namespace std;
 // то для 2 типов (int, сhar) требуется две реализации
 // функции сортировки
 
-void sort(int a[], int size){
+void sort(int a[], int size) {
   // Используем простейший алгоритм сортировки
   // На i-ом шаге сделаем, чтобы на i-ом месте
   // был минимальный элемент на отрезке массива от i до конца массива
   for(int i = 0; i < size; ++i)
+
     // i - начало интервала, пусть j пробегает все элементы после i
     for(int j = i + 1; j < size; ++j)
       if(a[j] < a[i]) { // Если какой-то элемент меньше, то именно он должен стоять
-            // на i-ом месте
+        // на i-ом месте
         // Меняем два элемента
         // чтобы на i-ом месте стоял минимальный
         // элемент
@@ -27,7 +28,7 @@ void sort(int a[], int size){
 }
 
 // Вторая реализация точно такая же, но int заменяем на char
-void sortc(char a[], int size){
+void sortc(char a[], int size) {
   for(int i = 0; i < size; ++i)
     for(int j = i + 1; j < size; ++j)
       if(a[j] < a[i]) {
@@ -42,7 +43,7 @@ void sortc(char a[], int size){
 
 // Универсальная сортировка
 template <typename T> // T - имя типа
-void s(T a[], int size){
+void s(T a[], int size) {
   for(int i = 0; i < size; ++i)
     for(int j = i + 1; j < size; ++j)
       if(a[j] < a[i]) {
@@ -58,25 +59,29 @@ void s(T a[], int size){
 int main() {
   // Массив целых чисел
   int a[] = {20, 10, 13};
-  s<int>(a,3);
+  s<int>(a, 3);
+
   for(int i = 0; i < 3; ++i)
     cout << "a[" << i << "] = " << a[i] << endl;
 
   // Массив букв
   char c[] = {'g', 'a', 'c'};
-  s<char>(c,3);
+  s<char>(c, 3);
+
   for(int i = 0; i < 3; ++i)
     cout << "c[" << i << "] = " << c[i] << endl;
 
   // Можно применить и к действительным числам
   double d[] = {1.23, 5.3, 2.3};
-  s<double>(d,3);
+  s<double>(d, 3);
+
   for(int i = 0; i < 3; ++i)
     cout << "d[" << i << "] = " << d[i] << endl;
 
   // ..и к строкам...
   string ss[] = {"test", "sfds", "hi"};
-  s<string>(ss,3);
+  s<string>(ss, 3);
+
   for(int i = 0; i < 3; ++i)
     cout << "ss[" << i << "] = " << ss[i] << endl;
 

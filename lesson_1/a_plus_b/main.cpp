@@ -3,8 +3,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
   cout << "a = ";
   int a; // int - тип переменной, a - имя
   cin >> a;
@@ -17,10 +16,10 @@ int main()
   // / - деление
   // % - остаток от деления (взятие по модулю)
 
-  cout << "a - b = " << (a-b) << endl; // endl вместо "\n"
+  cout << "a - b = " << (a - b) << endl; // endl вместо "\n"
 
-  system("NetTakoiComandy"); // Пример, когда мы пытаемся 
-    // вызвать несуществующую команду операционной системы
+  system("NetTakoiComandy"); // Пример, когда мы пытаемся
+  // вызвать несуществующую команду операционной системы
   system("pause");
 
   return 0;

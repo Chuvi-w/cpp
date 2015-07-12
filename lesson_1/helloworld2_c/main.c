@@ -3,17 +3,16 @@
 //#include <stdlib.h>
 #include <locale.h>
 
-int main()
-{
-    setlocale(LC_ALL, "Russian");
+int main() {
+  setlocale(LC_ALL, "Russian");
 
-    int a = 2;
-    int b = 3;
-    int c = a + b;
+  int a = 2;
+  int b = 3;
+  int c = a + b;
 
-    printf("Это моя первая программа!\n");
+  printf("Это моя первая программа!\n");
 
-    printf("%d+%d=%d\n", a, b, c);
+  printf("%d+%d=%d\n", a, b, c);
 
-    return 0;
+  return 0;
 }

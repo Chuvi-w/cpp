@@ -5,18 +5,18 @@ using namespace std;
 
 class MyClass {
   int* bigArray;
-public:
+ public:
   int savedId;
-  MyClass(int id){
+  MyClass(int id) {
     cout << "Constructor MyClass id = " << id << endl;
     bigArray = new int[1000000];
     savedId = id;
   }
-  ~MyClass(){
+  ~MyClass() {
     cout << "Destructor MyClass" << endl;
     delete[] bigArray;
   }
-  void show(){
+  void show() {
     cout << "MyClass id = " << savedId << endl;
   }
 };
@@ -25,15 +25,15 @@ public:
 template <class T>
 class SmartPtr {
   T* ptr;
-public:
-  SmartPtr(T* p){
+ public:
+  SmartPtr(T* p) {
     ptr = p;
   }
   // Автоматическая отчистка динамической памяти
-  ~SmartPtr(){
+  ~SmartPtr() {
     delete ptr;
   }
-  T* operator ->(){ // Переход по ссылке
+  T* operator ->() { // Переход по ссылке
     return ptr;
   }
   T& operator*() { // Оператор разыменования
@@ -49,11 +49,10 @@ typedef SmartPtr<MyClass> MyClassPtr;
 typedef MyClass* MyClassPtr;
 #endif // USE_SMART_PTR
 
-int main()
-{
+int main() {
   setlocale(LC_ALL, "Russian");
 
-//  SmartPtr<int[]> m2 = new int[10];
+  //  SmartPtr<int[]> m2 = new int[10];
 
 
   MyClassPtr m = new MyClass(2);

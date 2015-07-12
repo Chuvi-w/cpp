@@ -17,11 +17,28 @@
 
 # Qt
 build-*
+<<<<<<< HEAD
 *.user
+=======
+# Пользовательские файлы проекта 
+# (связанные с конкретной цепочной компиляции)
+*.user
+*.user.3.2-pre1
+>>>>>>> 598441b3757cbdb52d583c6c662504f14a5c615c
 
 # Code::Blocks
 bin
 obj
 *.depend
 *.layout
+<<<<<<< HEAD
 /lesson_9/QRegExp/*.autosave
+=======
+*.autosave
+*.orig
+.idea
+
+Makefile
+Makefile.Debug
+Makefile.Release
+>>>>>>> 598441b3757cbdb52d583c6c662504f14a5c615c

@@ -3,24 +3,23 @@
 
 #include <QThread>
 
-class MyThread : public QThread
-{
-    Q_OBJECT
+class MyThread : public QThread {
+  Q_OBJECT
 
-    // Имя потока
-    QString name;
+  // Имя потока
+  QString name;
 
-    // Количество итераций
-    int iterations;
+  // Количество итераций
+  int iterations;
 
-public:
-    explicit MyThread(QObject *parent = 0,
-                      QString name = "Thread",
-                      int iterations = 10);
+ public:
+  explicit MyThread(QObject* parent = 0,
+                    QString name = "Thread",
+                    int iterations = 10);
 
-public slots:
+ public slots:
 
-    void run();
+  void run();
 };
 
 #endif // MYTHREAD_H

@@ -3,11 +3,10 @@
 
 using namespace std;
 
-Observer::Observer(QObject *parent) :
-    QObject(parent)
-{
+Observer::Observer(QObject* parent) :
+  QObject(parent) {
 }
 
-void Observer::T1_finished(){
-    cout << "Observer::T1_finished()" << endl;
+void Observer::T1_finished() {
+  cout << "Observer::T1_finished()" << endl;
 }

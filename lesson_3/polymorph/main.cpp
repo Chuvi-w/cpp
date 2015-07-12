@@ -8,14 +8,14 @@ struct Shape {
   //  cout << "Shape" << endl;
   //};
   virtual void show() = 0; // Абстрактный метод
-protected:
- // virtual void doA() = 0;
- // virtual void doB() = 0;
- // virtual void doC() = 0;
- // virtual void doD() = 0;
- // virtual void doE() = 0;
+ protected:
+  // virtual void doA() = 0;
+  // virtual void doB() = 0;
+  // virtual void doC() = 0;
+  // virtual void doD() = 0;
+  // virtual void doE() = 0;
   //int x;
-private:
+ private:
   char c1;
   char c2;
   char c3;
@@ -26,7 +26,7 @@ private:
 struct Square : public Shape {
   double side;
   Square(double s) : side(s) { }
-  void show(){
+  void show() {
     cout << "Square side = " << side << endl;
   }
 };
@@ -35,20 +35,19 @@ struct Rectangle : public Shape {
   double height, width;
   Rectangle(double h, double w) :
     height(h), width(w) { }
-  void show(){
+  void show() {
     cout << "Rectangle " << height <<
-      " x " << width << endl;
+         " x " << width << endl;
   }
 };
 
-int main()
-{
+int main() {
   // Shape shape; // Ошибка компиляции
   cout << sizeof(Shape) << endl;
   Shape* s[] = {
-     new Square(10),
-     new Rectangle(2,3),
-     new Square(15),
+    new Square(10),
+    new Rectangle(2, 3),
+    new Square(15),
     // new Shape(),
   };
 

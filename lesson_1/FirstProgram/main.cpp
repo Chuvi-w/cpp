@@ -2,14 +2,13 @@
 
 using namespace std;
 
-int main()
-{
-    setlocale(LC_ALL, "Russian");
+int main() {
+  setlocale(LC_ALL, "Russian");
 
-    double d;
-    cout << "¬ведите число: ";
-    cin >> d;
+  double d;
+  cout << "¬ведите число: ";
+  cin >> d;
 
-    cout << d << " в квадрате равно " << d*d << endl;
-    return 0;
+  cout << d << " в квадрате равно " << d* d << endl;
+  return 0;
 }

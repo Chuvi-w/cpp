@@ -6,17 +6,16 @@ using namespace std;
 
 class MyClass {
   int value;
-public:
+ public:
   friend
-  bool operator < (const MyClass &left,
-                   const MyClass &right){
+  bool operator < (const MyClass& left,
+                   const MyClass& right) {
     return left.value < right.value;
   }
 };
 
 
-int main()
-{
+int main() {
   // Контейнеры:
   //   vector
   //   set

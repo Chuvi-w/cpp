@@ -2,24 +2,26 @@
 #include <assert.h>
 
 template <class T>
-T min(T a, T b){
-    return (a < b) ? a : b;
+T min(T a, T b) {
+  return (a < b) ? a : b;
 }
 
 template <class T>
-T max(T a, T b){
-    return (a > b) ? a : b;
+T max(T a, T b) {
+  return (a > b) ? a : b;
 }
 
 // Шаблонная функция
 template <class T>
-T findMax(T* a, size_t size){ // size_t - тип, который компилятор использует для индексации массивов
+T findMax(T* a, size_t size) { // size_t - тип, который компилятор использует для индексации массивов
   // Предусловия
   assert(size >= 1); //, "Пустой массив передавать нельзя!");
   T curMax = a[0];
+
   for(size_t i = 1; i < size; i++)
     if(a[i] > curMax)
       curMax = a[i];
+
   return curMax;
 }
 
@@ -29,7 +31,7 @@ T findMax(T* a, size_t size){ // size_t - тип, который компилятор использует для
 
 // Функция, добавляющая константу
 template <class T, int A>
-T add(T value){
+T add(T value) {
   return value + A;
 }
 

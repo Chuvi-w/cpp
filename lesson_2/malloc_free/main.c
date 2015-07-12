@@ -3,8 +3,8 @@
 #include <string.h>
 
 union IntAsByte {
-    int i;
-    unsigned char b[sizeof(int)];
+  int i;
+  unsigned char b[sizeof(int)];
 };
 
 struct MyStruct {
@@ -16,35 +16,37 @@ struct MyStruct {
 } p;
 
 int main() {
-    char* s;
-    if(!(s = malloc(100))){ // 100 байт
-        printf("No memory!\n");
-        return 0;
-    }
-    char c = malloc(10);
-    printf("Address - %d\n", (int)s);
-    strcpy(s, "Test\n");
-    printf("s = %s\n", s);
-    free(s);
-    s = NULL;
+  char* s;
 
-    struct MyStruct m;
-    m.i = 2;
-    m.d = 3;
-    m.iab.i = 258; // Младший байт 2
-      // чуть постарше 1
-
-    struct MyStruct* mp;
-    mp = malloc(sizeof(struct MyStruct));
-    mp->i = 22;
-    mp->d = 1.2;
-
-
-    // Два порядка байтов:
-    // * Big-endian - старший байт в конце (IBM, майнфреймы, Sun Sparc и т.д.)
-    // * Little-endian - младший байт первый (Intel и совместимые)
-    // Little - основное преимущество - можно начинать складывать младшие байты
-    //   не дожидаясь пока старшие "прийдут" по шине
-
+  if(!(s = malloc(100))) { // 100 байт
+    printf("No memory!\n");
     return 0;
+  }
+
+  char c = malloc(10);
+  printf("Address - %d\n", (int)s);
+  strcpy(s, "Test\n");
+  printf("s = %s\n", s);
+  free(s);
+  s = NULL;
+
+  struct MyStruct m;
+  m.i = 2;
+  m.d = 3;
+  m.iab.i = 258; // Младший байт 2
+  // чуть постарше 1
+
+  struct MyStruct* mp;
+  mp = malloc(sizeof(struct MyStruct));
+  mp->i = 22;
+  mp->d = 1.2;
+
+
+  // Два порядка байтов:
+  // * Big-endian - старший байт в конце (IBM, майнфреймы, Sun Sparc и т.д.)
+  // * Little-endian - младший байт первый (Intel и совместимые)
+  // Little - основное преимущество - можно начинать складывать младшие байты
+  //   не дожидаясь пока старшие "прийдут" по шине
+
+  return 0;
 }

@@ -5,8 +5,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
   string s = "Hello world!";
 
   map<char, int> charCount;
@@ -17,16 +16,16 @@ int main()
   // с первой буквы до последней по одной
   for(string::iterator c = s.begin();
       c != s.end();
-      c++){
+      c++) {
     // Очередная буква строки
     char letter = *c;
     map<char, int>::iterator i = charCount.find(letter);
-    if(i == charCount.end()){
+
+    if(i == charCount.end()) {
       // Не нашли букву => она первый раз
       charCount[letter] = 1;
-    } else {
+    } else
       charCount[letter]++;
-    }
   }
 
   charCount['Z'] = 100;

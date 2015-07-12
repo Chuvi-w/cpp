@@ -13,42 +13,40 @@ class A : public Singletone<A> {
   int id;
 
   // Конструктор
-  A(){
-      id = rand() % 10000;
-      cout << "Constructor A #" << id << endl;
+  A() {
+    id = rand() % 10000;
+    cout << "Constructor A #" << id << endl;
   }
 
-public:
+ public:
 
   // Деструктор
-  ~A(){
-      cout << "Destructor A #" << id << endl;
+  ~A() {
+    cout << "Destructor A #" << id << endl;
   }
-  void show(){
-      cout << "id = " << id << endl;
+  void show() {
+    cout << "id = " << id << endl;
   }
 };
 
 // Простейшая реализация Singletone - сделать
 // все методы и поля статическими
-class SimplestSigletone
-{
-private:
-    SimplestSigletone() { } // Не нужна реализация
-public:
-    static int id;
-    static int calc(int a);
+class SimplestSigletone {
+ private:
+  SimplestSigletone() { } // Не нужна реализация
+ public:
+  static int id;
+  static int calc(int a);
 };
 
 
-int main()
-{
-    srand (time(NULL));
-    //A a1; // Не компилируется
-    // A *a2 = new A(); // Тоже не компилируется
-    A a = A::instance();
-    A aa = A::instance();
-    a.show();
-    aa.show();
-    return 0;
+int main() {
+  srand (time(NULL));
+  //A a1; // Не компилируется
+  // A *a2 = new A(); // Тоже не компилируется
+  A a = A::instance();
+  A aa = A::instance();
+  a.show();
+  aa.show();
+  return 0;
 }

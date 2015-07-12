@@ -14,14 +14,14 @@ struct Stack {
   // Конструктор
   Stack() : top(NULL) {}
   // Значение поместить на вершину стека
-  void push(int value){
+  void push(int value) {
     E* e = new E;
     e->value = value;
     e->next = top;
     top = e;
   }
   // Взять значение с вершины стека
-  int pop(){
+  int pop() {
     E* e = top;
     int value = e->value;
     top = top->next;
@@ -36,27 +36,30 @@ struct Queue {
   // Конструктор
   Queue() : start(NULL) {};
   // В конец очереди
-  void put(int value){
+  void put(int value) {
     // Создаём новый элемент
-    E *e = new E;
+    E* e = new E;
     e->value = value;
     e->next = NULL;
+
     // Если очередь пуста
-    if(start == NULL){
+    if(start == NULL)
       start = e;
-    } else {
-      E *last = start;
+    else {
+      E* last = start;
+
       while(last->next != NULL)
         last = last->next;
+
       // К последнему элементу добавляем
       // новый элемент
       last->next = e;
     }
   }
   // Забрать первый элемент из очереди
-  int get(){
+  int get() {
     // Запоминаем первый элемент
-    E *e = start;
+    E* e = start;
     // Значение, которое мы в конце вернём
     int value = e->value;
     // Передвигаем указатель на начало

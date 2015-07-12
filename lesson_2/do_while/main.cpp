@@ -5,15 +5,16 @@
 
 using namespace std;
 
-int main()
-{
-    int N = 6;
-    cout << "N = " << N << " = (inverse binary) = ";
-    do {
-        cout << N % 2;
-        N /= 2;
-    } while(N > 0);
-    cout << endl;
+int main() {
+  int N = 6;
+  cout << "N = " << N << " = (inverse binary) = ";
 
-    return 0;
+  do {
+    cout << N % 2;
+    N /= 2;
+  } while(N > 0);
+
+  cout << endl;
+
+  return 0;
 }

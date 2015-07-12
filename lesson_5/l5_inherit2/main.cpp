@@ -3,37 +3,42 @@
 using namespace std;
 
 class A {
-public:
+ public:
   int a;
-  virtual void show(){
+  virtual void show() {
     cout << " a = " << a << endl;
   }
-  A(){ a = 1; }
+  A() {
+    a = 1;
+  }
 };
 
 class A2 {
-public:
+ public:
   int a;
-  void show(){
+  void show() {
     cout << " a = " << a << endl;
   }
-  A2(){ a = 3; }
+  A2() {
+    a = 3;
+  }
 };
 
 class B : public A, public A2 {
-public:
+ public:
   int a;
-  virtual void show(){
+  virtual void show() {
     cout << " a = " << a <<
-      "  A::a = " << A::a <<
-      "  A2::a = " << A2::a <<
-      endl;
+         "  A::a = " << A::a <<
+         "  A2::a = " << A2::a <<
+         endl;
   }
-  B(){ a = 2; }
+  B() {
+    a = 2;
+  }
 };
 
-int main()
-{
+int main() {
   A* a[2] = { new A(), new B() };
   a[0]->show();
   a[1]->show();

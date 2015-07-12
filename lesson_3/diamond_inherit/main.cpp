@@ -3,39 +3,38 @@
 using namespace std;
 
 struct X {
-  void show(){
+  void show() {
     cout << "X" << endl;
   };
 };
 
 struct A {
   virtual
-  void show(){
+  void show() {
     cout << "A" << endl;
   };
 };
 
 struct B : public virtual A {
-  void show(){
+  void show() {
     cout << "B" << endl;
   };
 };
 
 struct C : public virtual A {
-  void show(){
+  void show() {
     cout << "C" << endl;
   };
 };
 
 struct D : public B, public C {
-  void show(){
+  void show() {
     cout << "D" << endl;
     //B::show();
   };
 };
 
-int main()
-{
+int main() {
   //D d;
   //d.show();
 

@@ -3,7 +3,7 @@
 using namespace std;
 
 class StackElement {
-public:
+ public:
   int value; // Значение элемента стека
   StackElement* next; // Указатель на следующий элемент стека
 };
@@ -11,17 +11,17 @@ public:
 class Stack { //struct
   StackElement* root;
 
-public:
+ public:
 
   // Конструктор
   //  - называется как класс
   //  - нет возвращаемого значения
   //  - параметры как у обычных методов
-  Stack() : root(NULL){ }
+  Stack() : root(NULL) { }
 
   // Деструктор - очистка памяти
-  ~Stack(){
-    while(root != NULL){
+  ~Stack() {
+    while(root != NULL) {
       StackElement* saveForDelete = root;
       root = root->next;
       delete saveForDelete;
@@ -29,7 +29,7 @@ public:
   }
 
   // Поместить на вершину стека
-  void push(int newValue){
+  void push(int newValue) {
     // Создали новый элемент стека с новым значением
     StackElement* newElement = new StackElement;
     newElement->value = newValue;
@@ -40,11 +40,12 @@ public:
   }
 
   // Получить значение с вершины стека
-  int pop(){
-    if(root == NULL){
+  int pop() {
+    if(root == NULL) {
       cout << "Stack is empty!" << endl;
       return 0;
     }
+
     // Получаем верхний элемент
     StackElement* topElement = root;
     // Получаем значение верхнего элемента
@@ -58,17 +59,16 @@ public:
   }
 
   // Показать все элементы
-  void show(){
-    for(StackElement *cur = root;
-          cur != NULL;
-          cur = cur->next)
+  void show() {
+    for(StackElement* cur = root;
+        cur != NULL;
+        cur = cur->next)
       cout << cur->value << endl;
   }
 };
 
 
-int main()
-{
+int main() {
   Stack s;
   s.push(2);
   s.push(4);

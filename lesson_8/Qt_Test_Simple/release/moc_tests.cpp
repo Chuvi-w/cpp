@@ -19,108 +19,131 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Tests_t {
-    QByteArrayData data[7];
-    char stringdata[51];
+  QByteArrayData data[7];
+  char stringdata[51];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
-    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_Tests_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
-    )
+  Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
+      offsetof(qt_meta_stringdata_Tests_t, stringdata) + ofs \
+      - idx * sizeof(QByteArrayData) \
+                                                         )
 static const qt_meta_stringdata_Tests_t qt_meta_stringdata_Tests = {
-    {
-QT_MOC_LITERAL(0, 0, 5),
-QT_MOC_LITERAL(1, 6, 8),
-QT_MOC_LITERAL(2, 15, 0),
-QT_MOC_LITERAL(3, 16, 8),
-QT_MOC_LITERAL(4, 25, 9),
-QT_MOC_LITERAL(5, 35, 9),
-QT_MOC_LITERAL(6, 45, 4)
-    },
-    "Tests\0testSumB\0\0testSumA\0divisors1\0"
-    "divisors2\0mul1\0"
+  {
+    QT_MOC_LITERAL(0, 0, 5),
+    QT_MOC_LITERAL(1, 6, 8),
+    QT_MOC_LITERAL(2, 15, 0),
+    QT_MOC_LITERAL(3, 16, 8),
+    QT_MOC_LITERAL(4, 25, 9),
+    QT_MOC_LITERAL(5, 35, 9),
+    QT_MOC_LITERAL(6, 45, 4)
+  },
+  "Tests\0testSumB\0\0testSumA\0divisors1\0"
+  "divisors2\0mul1\0"
 };
 #undef QT_MOC_LITERAL
 
 static const uint qt_meta_data_Tests[] = {
 
- // content:
-       7,       // revision
-       0,       // classname
-       0,    0, // classinfo
-       5,   14, // methods
-       0,    0, // properties
-       0,    0, // enums/sets
-       0,    0, // constructors
-       0,       // flags
-       0,       // signalCount
+  // content:
+  7,       // revision
+  0,       // classname
+  0,    0, // classinfo
+  5,   14, // methods
+  0,    0, // properties
+  0,    0, // enums/sets
+  0,    0, // constructors
+  0,       // flags
+  0,       // signalCount
 
- // slots: name, argc, parameters, tag, flags
-       1,    0,   39,    2, 0x08,
-       3,    0,   40,    2, 0x08,
-       4,    0,   41,    2, 0x08,
-       5,    0,   42,    2, 0x08,
-       6,    0,   43,    2, 0x08,
+  // slots: name, argc, parameters, tag, flags
+  1,    0,   39,    2, 0x08,
+  3,    0,   40,    2, 0x08,
+  4,    0,   41,    2, 0x08,
+  5,    0,   42,    2, 0x08,
+  6,    0,   43,    2, 0x08,
 
- // slots: parameters
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
+  // slots: parameters
+  QMetaType::Void,
+  QMetaType::Void,
+  QMetaType::Void,
+  QMetaType::Void,
+  QMetaType::Void,
 
-       0        // eod
+  0        // eod
 };
 
-void Tests::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
-{
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        Tests *_t = static_cast<Tests *>(_o);
-        switch (_id) {
-        case 0: _t->testSumB(); break;
-        case 1: _t->testSumA(); break;
-        case 2: _t->divisors1(); break;
-        case 3: _t->divisors2(); break;
-        case 4: _t->mul1(); break;
-        default: ;
-        }
+void Tests::qt_static_metacall(QObject* _o, QMetaObject::Call _c, int _id, void** _a) {
+  if (_c == QMetaObject::InvokeMetaMethod) {
+    Tests* _t = static_cast<Tests*>(_o);
+
+    switch (_id) {
+      case 0:
+        _t->testSumB();
+        break;
+
+      case 1:
+        _t->testSumA();
+        break;
+
+      case 2:
+        _t->divisors1();
+        break;
+
+      case 3:
+        _t->divisors2();
+        break;
+
+      case 4:
+        _t->mul1();
+        break;
+
+      default:
+        ;
     }
-    Q_UNUSED(_a);
+  }
+
+  Q_UNUSED(_a);
 }
 
 const QMetaObject Tests::staticMetaObject = {
-    { &QObject::staticMetaObject, qt_meta_stringdata_Tests.data,
-      qt_meta_data_Tests,  qt_static_metacall, 0, 0}
+  {
+    &QObject::staticMetaObject, qt_meta_stringdata_Tests.data,
+    qt_meta_data_Tests,  qt_static_metacall, 0, 0
+  }
 };
 
 
-const QMetaObject *Tests::metaObject() const
-{
-    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+const QMetaObject* Tests::metaObject() const {
+  return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *Tests::qt_metacast(const char *_clname)
-{
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_Tests.stringdata))
-        return static_cast<void*>(const_cast< Tests*>(this));
-    return QObject::qt_metacast(_clname);
+void* Tests::qt_metacast(const char* _clname) {
+  if (!_clname) return 0;
+
+  if (!strcmp(_clname, qt_meta_stringdata_Tests.stringdata))
+    return static_cast<void*>(const_cast< Tests*>(this));
+
+  return QObject::qt_metacast(_clname);
 }
 
-int Tests::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
-{
-    _id = QObject::qt_metacall(_c, _id, _a);
-    if (_id < 0)
-        return _id;
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
-            qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
-    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
-            *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 5;
-    }
+int Tests::qt_metacall(QMetaObject::Call _c, int _id, void** _a) {
+  _id = QObject::qt_metacall(_c, _id, _a);
+
+  if (_id < 0)
     return _id;
+
+  if (_c == QMetaObject::InvokeMetaMethod) {
+    if (_id < 5)
+      qt_static_metacall(this, _c, _id, _a);
+
+    _id -= 5;
+  } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+    if (_id < 5)
+      *reinterpret_cast<int*>(_a[0]) = -1;
+
+    _id -= 5;
+  }
+
+  return _id;
 }
 QT_END_MOC_NAMESPACE

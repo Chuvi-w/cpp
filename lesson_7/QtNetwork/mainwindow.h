@@ -6,41 +6,40 @@
 
 // Тип сообщения
 enum MessageType {
-    USUAL_MESSAGE, // Обычный текст
-    PERSON_ONLINE, // Сообщение "Я-онлайн"
-    WHO_IS_ONLINE, // Запрос о статусе пользователей
+  USUAL_MESSAGE, // Обычный текст
+  PERSON_ONLINE, // Сообщение "Я-онлайн"
+  WHO_IS_ONLINE, // Запрос о статусе пользователей
 };
 
 namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
-public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+ public:
+  explicit MainWindow(QWidget* parent = 0);
+  ~MainWindow();
 
-private slots:
-    void on_enterChatButton_clicked();
-    void on_sendButton_clicked();
-    void read();
+ private slots:
+  void on_enterChatButton_clicked();
+  void on_sendButton_clicked();
+  void read();
 
-    void on_messageEdit_returnPressed();
-    void refreshOnlineList();
+  void on_messageEdit_returnPressed();
+  void refreshOnlineList();
 
-private:
-    Ui::MainWindow *ui;
+ private:
+  Ui::MainWindow* ui;
 
-    // Для работы по UDP-протоколу в локальной сети
-    QUdpSocket *socket;
+  // Для работы по UDP-протоколу в локальной сети
+  QUdpSocket* socket;
 
-    void UdpChat(QString nick, int port);
+  void UdpChat(QString nick, int port);
 
-    // Отправить сообщение
-    void send(QString str, qint8 type);
+  // Отправить сообщение
+  void send(QString str, qint8 type);
 };
 
 #endif // MAINWINDOW_H

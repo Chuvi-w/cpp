@@ -3,8 +3,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
   // Открываем файл для чтения
   freopen("in.txt", "r", stdin);
   // Открываем файл для записи
@@ -14,7 +13,8 @@ int main()
 
   int numberOfWords;
   cin >> numberOfWords;
-  for(int i = 0; i < numberOfWords; i++){
+
+  for(int i = 0; i < numberOfWords; i++) {
     string inEnglish, inRussian;
     cin >> inEnglish >> inRussian;
     dict[inEnglish] = inRussian;

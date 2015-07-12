@@ -7,22 +7,23 @@ class S {
   static int count;
   int id;
   // private (частный) конструктор
-  S(){
+  S() {
     count++;
     id = count;
     cout << "Constructor #" << id << endl;
   }
   // Один-единственный экземпляр класса S
   static S* instance;
-public:
+ public:
   // Единственный способ получить экземпляр
   // класса S - вызвать этот метод
-  static S& getInstance(){
+  static S& getInstance() {
     if(instance == NULL)
       instance = new S;
+
     return *instance;
   }
-  void show(){
+  void show() {
     cout << "S #" << id << endl;
   }
 };

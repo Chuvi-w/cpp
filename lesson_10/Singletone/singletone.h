@@ -5,22 +5,23 @@
 
 template <class T>
 class Singletone {
-    // -static uniqueInstance
-    // Один-единственный экземпляр класса T
-    static T* uniqueInstance;
+  // -static uniqueInstance
+  // Один-единственный экземпляр класса T
+  static T* uniqueInstance;
 
-public:
-    // +static instance()
-    static T& instance(){
-        // Если объект ещё не создан
-        if(uniqueInstance == NULL){
-            // Создаём его
-            uniqueInstance = new T();
-             // Можно вызывать private конструктор, т.к.
-             // мы внутри класса T
-        }
-        return *uniqueInstance;
+ public:
+  // +static instance()
+  static T& instance() {
+    // Если объект ещё не создан
+    if(uniqueInstance == NULL) {
+      // Создаём его
+      uniqueInstance = new T();
+      // Можно вызывать private конструктор, т.к.
+      // мы внутри класса T
     }
+
+    return *uniqueInstance;
+  }
 };
 
 // Первоначально экземпляр класса не создан

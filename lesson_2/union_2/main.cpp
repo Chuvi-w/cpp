@@ -5,24 +5,23 @@
 using namespace std;
 
 struct Point {
-    int x,y;
+  int x, y;
 };
 
-int main()
-{
-    int i = 1;
+int main() {
+  int i = 1;
 
-    X(int);
-    X(char);
-    X(long long);
-    X(float);
-    X(double);
-    X(long double);
-    X(char[10]);
-    X(int*)
-    X(int[10][20]);
-    X(Point);
+  X(int);
+  X(char);
+  X(long long);
+  X(float);
+  X(double);
+  X(long double);
+  X(char[10]);
+  X(int*)
+  X(int[10][20]);
+  X(Point);
 
 
-    return 0;
+  return 0;
 }

@@ -7,31 +7,30 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
-public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+ public:
+  explicit MainWindow(QWidget* parent = 0);
+  ~MainWindow();
 
-private slots:
-    // Применение регулярного выражения к тексту
-    // с выводом результата обратно на форму
-    void applyRegExp();
+ private slots:
+  // Применение регулярного выражения к тексту
+  // с выводом результата обратно на форму
+  void applyRegExp();
 
-    // Сохранение текста в файл
-    void saveText();
+  // Сохранение текста в файл
+  void saveText();
 
-    // Загрузка текста из файла
-    void loadText();
+  // Загрузка текста из файла
+  void loadText();
 
-    void myNewSlot();
+  void myNewSlot();
 
-    void on_sourceText_textChanged();
+  void on_sourceText_textChanged();
 
-private:
-    Ui::MainWindow *ui;
+ private:
+  Ui::MainWindow* ui;
 };
 
 #endif // MAINWINDOW_H

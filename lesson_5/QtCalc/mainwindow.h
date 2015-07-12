@@ -7,34 +7,33 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
-public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+ public:
+  explicit MainWindow(QWidget* parent = 0);
+  ~MainWindow();
 
-private slots:
-    void xbutton_clicked();
+ private slots:
+  void xbutton_clicked();
 
-    void on_operation_clicked();
+  void on_operation_clicked();
 
-    void on_calcButton_clicked();
+  void on_calcButton_clicked();
 
-    void on_pointButton_clicked();
+  void on_pointButton_clicked();
 
-private:
-    Ui::MainWindow *ui;
+ private:
+  Ui::MainWindow* ui;
 
-    typedef double number;
+  typedef double number;
 
-    // Последняя операция
-    char operation;
-    // Запоминаем число набранное на калькуляторе
-    number arg;
-    // Сейчас будем вводить новое число
-    bool newNumber;
+  // Последняя операция
+  char operation;
+  // Запоминаем число набранное на калькуляторе
+  number arg;
+  // Сейчас будем вводить новое число
+  bool newNumber;
 };
 
 #endif // MAINWINDOW_H

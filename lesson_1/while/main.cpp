@@ -6,10 +6,12 @@ int main() {
   setlocale(LC_ALL, "Russian");
   int i = 0; // инициализируем счетчик цикла
   int sum = 0; // сумма
+
   while(i < 1000) {
     i++;
     sum += i;
   }
+
   cout << "Сумма чисел от 1 до 1000 = " << sum << endl;
   return 0;
 }
@@ -23,25 +25,25 @@ struct addr {
   char zip[10];
 };
 
-struct addr *get_struct(void)
-{
-  struct addr *p;
+struct addr* get_struct(void) {
+  struct addr* p;
 
-  if((p = malloc(sizeof(struct addr)))==NULL) {
+  if((p = malloc(sizeof(struct addr))) == NULL) {
     printf("Ошибка при распределении памяти\n");
     exit(1);
   }
+
   return p;
 }
 
 #define MAX(a,b) ((a) > (b) ? (a) : (b))
 
 // В стиле C:
-Point *p = (Point*) malloc(sizeof(Point));
+Point* p = (Point*) malloc(sizeof(Point));
 free(p);
 
 // В стиле C++
-Point *p = new Point;
+Point* p = new Point;
 delete p;
 
 

@@ -9,13 +9,13 @@
 using namespace std;
 
 template <class T>
-void show(T a){
+void show(T a) {
   int i = 0;
+
   for(typename T::iterator k = a.begin();
       k != a.end();
-      k++){
-    cout << (++i) << ". " << *k << endl;
-  };
+      k++)
+    cout << (++i) << ". " << *k << endl;;
 }
 
 int main() {
@@ -64,16 +64,17 @@ int main() {
 
   for(vector<int>::iterator k = a.begin();
       k != a.end();
-      k++){
+      k++) {
     cout << *k << endl;
-    if(*k == 23){
+
+    if(*k == 23) {
       cout << "Нашли число 23: " << *k << endl;
       a.erase(k);
     }
   }
 
   for(size_t i = 0; i < a.size(); i++)
-    cout << "a[" << (i+1) << "] =  " << a[i] << endl;
+    cout << "a[" << (i + 1) << "] =  " << a[i] << endl;
 
   //a.insert(2, 10);
   //a.remove(3);

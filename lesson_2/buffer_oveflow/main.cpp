@@ -4,8 +4,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
   char password[8];
   int i = 0;
 

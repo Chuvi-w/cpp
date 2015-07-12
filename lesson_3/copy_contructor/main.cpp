@@ -4,13 +4,13 @@
 // Класс "строка"
 class string {
   static int count; // Количество строк
-  char    *Str;
+  char*    Str;
   int     size;
-public:
+ public:
   int id; // Идентификатор данной строки
   string(string&); // Конструктор копирования
   // Конструктор
-  string(const char* str){
+  string(const char* str) {
     id = ++count;
     std::cout << "Constructor #" << id << " \"" << str << "\"" << std::endl;
     size = strlen(str); // "ABC\0"
@@ -18,18 +18,19 @@ public:
     strcpy(Str, str);
   };
   // Вывод строки на экран
-  void show(){
+  void show() {
     std::cout << Str << std::endl;
   }
   // Деструктор
-  ~string(){
+  ~string() {
     std::cout << "Destructor #" << id << std::endl;
     delete[] Str; // Очищаем динамическую память
   }
   // Перегрузка операции присваивания
-  string& operator=(string& right){
+  string& operator=(string& right) {
     if(Str != NULL)
       delete[] Str;
+
     std::cout << "= #" << id << std::endl;
     // if(Str != NULL)
     //   delete[] Str;
@@ -48,7 +49,7 @@ string::string(string& x) {
   //   delete[] Str;
   Str = new char[x.size + 1];
   size = x.size;
-  strcpy(Str,x.Str);
+  strcpy(Str, x.Str);
 }
 
 int string::count = 0;
